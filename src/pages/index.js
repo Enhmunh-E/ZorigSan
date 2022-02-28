@@ -1,22 +1,24 @@
-import { graphql, useStaticQuery } from "gatsby"
-import * as React from "react"
+import { graphql, useStaticQuery } from "gatsby";
+import * as React from "react";
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query MyQuery {
       allContentfulPost {
-      nodes {
-        description {
-          raw
+        nodes {
+          description {
+            raw
+          }
+          header
         }
-        header
       }
-    }}`);
-    console.log(data);
+    }
+  `);
+  console.log(data);
   return (
     <div>
       <h1>Hello World</h1>
     </div>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
