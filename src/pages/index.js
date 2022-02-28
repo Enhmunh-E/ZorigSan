@@ -16,9 +16,7 @@ const IndexPage = () => {
   console.log(data);
   return (
     <div>
-      <Padding size={[10000,10000,1000000,100000]} >
         <h1>Hello World</h1>
-      </Padding>
     </div>
   )
 }

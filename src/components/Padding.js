@@ -12,4 +12,4 @@ const Padding = styled.div`
   }};
 `;
 
-export { Padding };
+export { Padding }
