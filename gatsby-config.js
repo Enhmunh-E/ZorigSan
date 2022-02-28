@@ -14,6 +14,9 @@ module.exports = {
       accessToken: process.env.GATSBY_ACCESS_TOKEN,
       },
     },
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
   ],
 }
 // yarn , npm
