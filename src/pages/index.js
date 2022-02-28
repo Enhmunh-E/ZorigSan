@@ -1,18 +1,21 @@
-import { graphql, useStaticQuery } from "gatsby"
-import * as React from "react"
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import { graphql, useStaticQuery } from "gatsby";
+import * as React from "react";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { Input } from "../components/input";
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query MyQuery {
       allContentfulPost {
-      nodes {
-        description {
-          raw
+        nodes {
+          description {
+            raw
+          }
+          header
         }
-        header
       }
-    }}`);
-    console.log(data);
+    }
+  `);
+  console.log(data);
   return (
     <div>
       {/* <div
@@ -21,8 +24,9 @@ const IndexPage = () => {
           }}
         /> */}
       <h1>Hello World</h1>
+      <Input />
     </div>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
