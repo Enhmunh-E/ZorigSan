@@ -1,5 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby"
 import * as React from "react"
+import {Padding,Header} from "../components/index"
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -12,15 +13,12 @@ const IndexPage = () => {
         header
       }
     }}`);
-    console.log(data);
+  console.log(data);
   return (
     <div>
-      {/* <div
-          dangerouslySetInnerHTML={{
-            __html: data.allContentfulPost.nodes[0].description.raw,
-          }}
-        /> */}
-      <h1>Hello World</h1>
+      <Padding size={[10000,10000,1000000,100000]} >
+        <h1>Hello World</h1>
+      </Padding>
     </div>
   )
 }
