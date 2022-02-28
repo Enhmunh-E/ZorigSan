@@ -1,6 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby";
 import * as React from "react";
-import { Input } from "../components/input";
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query MyQuery {
@@ -18,7 +17,6 @@ const IndexPage = () => {
   return (
     <div>
       <h1>Hello World</h1>
-      <Input />
     </div>
   );
 };
