@@ -1,17 +1,61 @@
 import React from "react";
 import styled from "styled-components";
-import FontSizes from './Font_Sizes'
+import FontSizes from "./Font_Sizes";
+import Colors from "./Colors.js";
 
 export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
+  border: 1px solid
+    ${({ type }) => {
+        if (type === "primary") {
+          return Colors.secondary["100"];
+        }
+        if (type === "secondary") {
+          return Colors.primary["100"];
+        }
+        if (type === "tertiary") {
+          return Colors.primary["400"];
+        }
+    }};
+  border-radius: 10px;
   cursor: pointer;
-  width: ${(props) => props.w}px;
-  height: ${(props) => props.h}px;
-  background-color: ${(props) => props.bg_color};
-  color: ${(props) => props.text_color};
-  font-size: ${(props) =>  FontSizes[props.f_size] ?  FontSizes[props.f_size] :  FontSizes.md}
+  width: 258px;
+  height: 46px;
+  font-weight: 700;
+  background-color: ${({ type }) => {
+    let isOutline = type.split("-");
+    if (isOutline.length === 2) {
+      return "#FFFFFF";
+    }
+    if (isOutline[0] === "primary") {
+      return Colors.secondary["100"];
+    }
+    if (isOutline[0] === "secondary") {
+      return Colors.primary["100"];
+    }
+    if (isOutline[0] === "tertiary") {
+      return Colors.primary["400"];
+    }
+  }};
+  color: ${({ type }) => {
+    let isOutline = type.split("-");
+    if (isOutline.length === 2) {
+      if (isOutline[0] === "primary") {
+        return Colors.secondary["100"];
+      }
+      if (isOutline[0] === "secondary") {
+        return Colors.primary["100"];
+      }
+      if (isOutline[0] === "tertiary") {
+        return Colors.primary["400"];
+      }
+    }
+    else {
+      return '#FFFFFF'
+    }
+  }};
+  font-size: ${(props) =>
+    FontSizes[props.f_size] ? FontSizes[props.f_size] : "20px"};
 `;
-
