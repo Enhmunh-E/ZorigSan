@@ -9,15 +9,13 @@ export const Button = styled.button`
   align-items: center;
   border: 1px solid
     ${({ type }) => {
-        if (type === "primary") {
-          return Colors.secondary["100"];
-        }
         if (type === "secondary") {
           return Colors.primary["100"];
         }
         if (type === "tertiary") {
           return Colors.primary["400"];
         }
+        return Colors.secondary["100"];
     }};
   border-radius: 10px;
   cursor: pointer;
@@ -29,28 +27,24 @@ export const Button = styled.button`
     if (isOutline.length === 2) {
       return "#FFFFFF";
     }
-    if (isOutline[0] === "primary") {
-      return Colors.secondary["100"];
-    }
     if (isOutline[0] === "secondary") {
       return Colors.primary["100"];
     }
     if (isOutline[0] === "tertiary") {
       return Colors.primary["400"];
     }
+    return Colors.secondary["100"];
   }};
   color: ${({ type }) => {
     let isOutline = type.split("-");
     if (isOutline.length === 2) {
-      if (isOutline[0] === "primary") {
-        return Colors.secondary["100"];
-      }
       if (isOutline[0] === "secondary") {
         return Colors.primary["100"];
       }
       if (isOutline[0] === "tertiary") {
         return Colors.primary["400"];
       }
+      return Colors.secondary["100"];
     }
     else {
       return '#FFFFFF'
