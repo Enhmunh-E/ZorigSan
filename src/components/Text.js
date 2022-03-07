@@ -1,16 +1,34 @@
 import styled from "styled-components";
+import "../styles/textStyle.css";
+ 
+const fontMapStyle = {
+  heading1: "40px",
+  heading2: "35px",
+  heading3: "30px",
+  title1: "18px",
+  title1_bold: "18px",
+  title2: "16px",
+  title2_bold: "16px",
+  title2_underline: "16px",
+}
 
 const Text = styled.div`
-font-size: ${({ size }) => {
-  if (size == "heading1") return "40px";
-  if (size == "heading2") return "35px";
-  if (size == "heading3") return "30px";
-  if (size == "title1") return "56px";
-  if (size == "title1_bold") return "56px";
-  if (size == "title2") return "56px";
-  if (size == "title2_bold") return "56px";
-  if (size == "title2_underline") return "56px";
-  if (!size) return "20px";
-}};
+
+  font-size: ${({ type }) =>
+    fontMapStyle[type]
+  };
+  font-weight: ${({ type }) => {
+    if (type === "title1_bold") return "bold";
+    if (type === "title2_bold") return "bold";
+    if (!type) return "normal";
+  }};
+  text-decoration: ${({ type }) => type.includes('underline') ? 'underline' : 'none'};
+  font-family: ${({ font, type }) => {
+    if (font === "serrif") return "'PT Serif', serif";
+    if (font === "sans") return "'PT Sans', sans-serif";
+    if (type === "heading1" || type === "heading2" || type === "heading3") return "'PT Serif', serif";
+    else return "'PT Sans', sans-serif";
+  }};
+};
 `;
-export {Text}
+export { Text }
