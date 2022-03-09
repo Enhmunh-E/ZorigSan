@@ -3,19 +3,22 @@ import styled from "styled-components";
 import FontSizes from "./Font_Sizes";
 import Colors from "./Colors.js";
 
+const types = {
+  primary: Colors.secondary['100'],
+  secondary: Colors.primary['100'],
+  tertiary: Colors.primary['400']
+}
+
 export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid
     ${({ type }) => {
-        if (type === "secondary") {
-          return Colors.primary["100"];
-        }
-        if (type === "tertiary") {
-          return Colors.primary["400"];
-        }
-        return Colors.secondary["100"];
+      let isOutline = type.split("-");
+      if (isOutline.length) {
+        return types[type.split('-')[0]]
+    }
     }};
   border-radius: 10px;
   cursor: pointer;
@@ -27,24 +30,17 @@ export const Button = styled.button`
     if (isOutline.length === 2) {
       return "#FFFFFF";
     }
-    if (isOutline[0] === "secondary") {
-      return Colors.primary["100"];
+
+    if(isOutline[0] === type){
+      return types[type]
     }
-    if (isOutline[0] === "tertiary") {
-      return Colors.primary["400"];
-    }
-    return Colors.secondary["100"];
   }};
   color: ${({ type }) => {
     let isOutline = type.split("-");
     if (isOutline.length === 2) {
-      if (isOutline[0] === "secondary") {
-        return Colors.primary["100"];
+      if(isOutline[0] === type){
+        return types[type]
       }
-      if (isOutline[0] === "tertiary") {
-        return Colors.primary["400"];
-      }
-      return Colors.secondary["100"];
     }
     else {
       return '#FFFFFF'
