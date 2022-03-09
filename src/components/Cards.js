@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 import '../style/cards.css'
-import { Image } from "../components/Image";
-import { Button } from "../components/Button";
-import { Padding } from "../components/Padding";
+import { Image } from "./Image";
+import { Button } from "./Button";
+import { Padding } from "./Padding";
 
 export const Cards = (props) => {
     const {type, image, header, description, onClick,origin} = props;
