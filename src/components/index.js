@@ -1,3 +1,3 @@
 export * from "./Padding";
 export * from "./input";
-export * from "./inputstyle";
+export * from "./InputStyle";

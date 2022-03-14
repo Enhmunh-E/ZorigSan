@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import '../style/cards.css'
+import '../styles/Cards.css'
 import { Image } from "./Image";
 import { Button } from "./Button";
 import { Padding } from "./Padding";
@@ -48,7 +48,7 @@ export const Cards = (props) => {
                 <div>
                     <div className="scratches"></div>
 
-                    <Padding size={[14, 16]}><div style={{ width: '263px', display: 'flex', justifyContent: 'flex-end' }}> <Button w='100' h='40' border='1px solid #4FADE0' bg_color='#fff' style={{color:" #4FADE0"}} onClick={onClick} boxSizing='border-box' borderRadius='10px' className="CardSmallText" >Try Now</Button></div></Padding>
+                    <Padding size={[14, 16]}><div style={{ width: '263px', display: 'flex', justifyContent: 'flex-end' }}> <Button w='100' h='40' type="tertiary-outlined" className="CardSmallText" >Try Now</Button></div></Padding>
                 </div>
 
             </div>
@@ -64,7 +64,7 @@ export const Cards = (props) => {
                     </div>
                 </Padding>
 
-                <Padding size={[0, 0, 20,0]}> <Button onClick={onClick} style={{color:" #4FADE0"}} className="CardSmallText" bg_color='#fff' w='100' h='40' border='1px solid #4FADE0' boxSizing='border-box' borderRadius='10px' >Try Now</Button></Padding>
+                <Padding size={[0, 0, 20,0]}> <Button onClick={onClick} style={{color:" #4FADE0"}} className="CardSmallText" type="tertiary-outlined" w='100' h='40' >Try Now</Button></Padding>
             </div>
         )
     } else if (type === 'secondary') {

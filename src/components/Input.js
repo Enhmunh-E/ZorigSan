@@ -9,7 +9,7 @@ import {
   InputOptionalCon,
   InputLabel,
   InputSendButton,
-} from ".";
+} from "./Index";
 import SearchIcon from "../assets/Union.svg";
 import SendIcon from "../assets/Vector (Stroke).svg";
 import OptionalIcon from "../assets/optional.svg";

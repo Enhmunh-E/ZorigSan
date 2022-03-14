@@ -22,8 +22,8 @@ export const Button = styled.button`
     }};
   border-radius: 10px;
   cursor: pointer;
-  width: 258px;
-  height: 46px;
+  width: ${(props) => props?.width ? props?.width : '258px'};
+  height: ${(props) => props?.height ? props?.height : '46px'};
   font-weight: 700;
   background-color: ${({ type }) => {
     let isOutline = type.split("-");
