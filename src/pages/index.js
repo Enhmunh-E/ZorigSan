@@ -1,10 +1,10 @@
-import * as React from "react";
-const IndexPage = () => {
-  return (
-    <div>
+import * as React from 'react';
 
-    </div>
+function IndexPage() {
+  console.log(variable);
+  return (
+    <div />
   );
-};
+}
 
 export default IndexPage;
