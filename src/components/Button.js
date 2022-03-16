@@ -15,33 +15,42 @@ export const Button = styled.button`
   align-items: center;
   border: 1px solid
     ${({ type }) => {
-    const isOutline = type.split('-');
-    if (isOutline.length) {
+    if (type) {
       return types[type.split('-')[0]];
     }
+    return types.primary
   }};
   border-radius: 10px;
   cursor: pointer;
-  width: 258px;
-  height: 46px;
+  width: ${(props) => props.w}px;
+  height: ${(props) => props.h}px;
   font-weight: 700;
   background-color: ${({ type }) => {
-    const isOutline = type.split('-');
-    if (isOutline.length === 2) {
-      return '#FFFFFF';
-    }
+    if(type){
+      const isOutline = type.split('-');
+      if (isOutline.length === 2) {
+        return '#FFFFFF';
+      }
 
-    if (isOutline[0] === type) {
-      return types[type];
-    }
-  }};
-  color: ${({ type }) => {
-    const isOutline = type.split('-');
-    if (isOutline.length === 2) {
       if (isOutline[0] === type) {
         return types[type];
       }
-    } else {
+    }
+    else {
+      return types.primary
+    }
+  }};
+  color: ${({ type }) => {
+    if(type){
+      const isOutline = type.split('-');
+      if (isOutline.length === 2) {
+          return types[isOutline[0]];
+      }
+      else {
+        return '#FFFFFF';
+      }
+    }
+    else {
       return '#FFFFFF';
     }
   }};
