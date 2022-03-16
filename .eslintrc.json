@@ -18,6 +18,7 @@
         "react"
     ],
     "rules": {
+<<<<<<< HEAD
         "no-anonymous-exports-page-templates": "warn",
         "limited-exports-page-templates": "warn",
         "no-unused-vars": "error",
@@ -38,5 +39,7 @@
             "always"
         ],
         "brace-style": "warn"
+=======
+>>>>>>> 0774178 (eslint addition)
     }
 }
