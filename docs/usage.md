@@ -2,35 +2,35 @@
 
 ## input
 
-types={}:
+`types?: 'search' | 'send':`
 
-- type dr `ym bichihq` bol normal input (no button)
-- type={`search`} gj bichvel search buttontoi input garc irne
-- type={`send`} gj bichvel send buttontoi input garc irn
+- type dr ym bichihq bol normal input (no button)
+- `type={search}` gj bichvel search buttontoi input garc irne
+- `type={send}` gj bichvel send buttontoi input garc irn
 
-label={}:
+`label?: 'string' (optional) :`
 
 label n input n dr garc ireh inputiin ner
 
 - label dr ym bicihq bol label garc irehgui
 - label dr ym bichih ym bol bicsn label garc irne
 
-hint={}:
+`hint?: 'string' (optional) :`
 
 - hint dr ym bicihq bol hint garc irehgui
 - hint dr ym bichih ym bol bicsn hint garc irne
 
-placeholder={}:
+`placeholder: 'string' (required) :`
 
-- oilgomjtoi
+- inputn deer ug bicheegui uyd garch ireh tailbar
 
-optional={}:
+`optional?: 'string' (optional) :`
 
 - optional message
 
-border={}:
+`border: 'theme provider's colors (required)' :`
 
-- input border color
+- input border's color
 
 ## button
 
@@ -38,36 +38,66 @@ medque
 
 ## Border
 
-width={}:
+`width?: 'number' (optional) :`
 
-height={}:
+urgun
 
-borderRadius={}:
+`height?: 'number' (optional) :`
 
-borderWidth={}:
+undur
 
-borderColor={}:
+`borderRadius?: 'number' (optional) :`
 
-borderStyle={}:
+buurunhiiruuldgiin
+
+`borderWidth: 'number' (required) :`
+
+borderiin zuzaan
+
+`borderColor: 'string' (required) :`
+
+Theme iin coloruudaas ashiglana
+
+`borderStyle: 'string' (required) :`
+
+solid, dashed, dotted etc.
 
 ## Image
 
-width={}:
+`width: 'number' (required) :`
 
-height={}:
+`height: 'number' (required) :`
 
-borderRadius={}:
+`borderRadius: 'number' (required) :`
 
-backgroundColor={}:
+`backgroundColor?: 'string' (optional) :`
+
+Theme coloruudiig ashiglana
 
 ## Margin
 
-size={[]}:
+`size?: 'array' (optional) :`
 
 ## Opacity
 
-opacity={}:
+`opacity?: 'number' (optional) :`
+
+uusgalt
 
 ## Padding
 
-size={[]}:
+`size?: 'array' (optional) :`
+
+## Tooltip
+
+`placement?: 'string' (optional) :`
+
+left, right, top, bottom etc.
+
+`maxwidth?: 'string' (optional) :`
+
+px vw % etc.
+
+`content: 'string' (required) :`
+
+tooltip dotorh object
