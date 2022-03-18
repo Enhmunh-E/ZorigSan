@@ -30,4 +30,4 @@ export const TooltipComp = ({ placement,maxwidth, content,arrowsize ,children}) 
         </Tooltip_inner>
     );
 }
-export default TooltipComp;
+

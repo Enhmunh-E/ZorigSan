@@ -15,4 +15,4 @@ const Colors = {
   },
 };
 
-export default Colors;
+export  { Colors };

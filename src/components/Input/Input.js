@@ -9,7 +9,7 @@ import {
   InputOptionalCon, 
   InputLabel,
   InputSendButton,
-} from '.';
+} from '..';
 import SearchIcon from '../assets/Union.svg';
 import SendIcon from '../assets/Vector (Stroke).svg';
 import OptionalIcon from '../assets/optional.svg';
@@ -50,4 +50,3 @@ export const Input = ({ type, label, hint, placeholder, optional, border }) => {
   );
 }
 
-export default Input ;

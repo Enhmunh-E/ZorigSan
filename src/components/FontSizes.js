@@ -1,4 +1,4 @@
-export const FontSizes = {
+const FontSizes = {
     xxl: "2rem", //    32px
     xl: "1.25rem", // 20px
     lg: "1.125rem", // 18px
@@ -7,4 +7,4 @@ export const FontSizes = {
     xs: "0.75rem", //  12px
   };
 
-export default FontSizes;
+export { FontSizes };
