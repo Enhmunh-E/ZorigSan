@@ -22,8 +22,8 @@ export const Button = styled.button`
   }};
   border-radius: 10px;
   cursor: pointer;
-  width: ${(props) => props?.width ? props?.width : '258px'};
-  height: ${(props) => props?.height ? props?.height : '46px'};
+  width: ${(props) => props.w}px;
+  height: ${(props) => props.h}px;
   font-weight: 700;
   background-color: ${({ type }) => {
     if(type){
@@ -56,3 +56,4 @@ export const Button = styled.button`
   }};
   font-size: ${(props) => (FontSizes[props.f_size] ? FontSizes[props.f_size] : '20px')};
 `;
+export default Button

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const InputCon = styled.div`
+export const InputCon = styled.div`
   width: 320px;
 `;
-const InputStyle = styled.div`
-  width: ${(props) => (props.w ? `${props.w - 34}px` : 'calc(100% - 34px)')};
+export const InputStyle = styled.div`
+  width: ${(props) => (props.w ? `${props.w - 34}px` : "calc(100% - 34px)")};
   height: 46px;
   padding: 0;
   border: 1px solid #6b7280;
@@ -22,7 +22,7 @@ const InputStyle = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-const InputS = styled.input`
+export const InputS = styled.input`
   width: 100%;
   border: none;
   outline: none;
@@ -30,29 +30,29 @@ const InputS = styled.input`
   margin-left: ${(props) => (props.search ? '10px' : 0)};
   margin-right: ${(props) => (props.arrow ? '10px' : 0)};
 `;
-const InputIcon = styled.img`
-  height: ${(props) => (props.arrow ? '16px' : '18px')};
+export const InputIcon = styled.img`
+  height: ${(props) => (props.arrow ? "16px" : "18px")};
 `;
-const Label = styled.div`
+export const Label = styled.div`
   height: 32px;
   width: 100%;
   display: flex;
   justify-content: space-between;
 `;
-const InputHintOptional = styled.div`
+export const InputHintOptional = styled.div`
   color: #6b7280;
   font-size: 12px;
 `;
-const InputOptionalCon = styled.div`
+export const InputOptionalCon = styled.div`
   display: flex;
   align-items: center;
   gap: 4.37px;
   margin-top: 8px;
 `;
-const InputLabel = styled.div`
+export const InputLabel = styled.div`
   font-size: 14px;
 `;
-const InputSendButton = styled.button`
+export const InputSendButton = styled.button`
   border: none;
   padding: 0;
   background: none;
@@ -61,14 +61,3 @@ const InputSendButton = styled.button`
   cursor: pointer;
 `;
 
-export {
-  InputStyle,
-  InputS,
-  InputIcon,
-  Label,
-  InputCon,
-  InputHintOptional,
-  InputOptionalCon,
-  InputLabel,
-  InputSendButton,
-};

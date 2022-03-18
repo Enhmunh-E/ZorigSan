@@ -1,8 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Border } from './border';
-import { Margin } from './Margin';
-import { Padding } from './Padding';
 
 const Item = styled.button`
     display:flex;
@@ -52,8 +49,9 @@ export function SelectButtons({ items, buttonHandler }) {
                   </Item>
                 ))
             }
-      </DivStyle>
-    </div>
-
-  );
+        </DivStyle>
+        </div>
+    
+    )
 }
+export default SelectButtons;
