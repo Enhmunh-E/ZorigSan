@@ -30,4 +30,4 @@ const Text = styled.div`
   }};
 };
 `;
-export { Text };
+export default Text 
