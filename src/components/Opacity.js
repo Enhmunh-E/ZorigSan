@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Opacity = styled.div`
-    ${(props) => props.opacity ? `opacity: ${props.opacity} ` : 'opacity: 1'}
-`
+    ${(props) => (props.opacity ? `opacity: ${props.opacity} ` : 'opacity: 1')}
+`;
 
-export default Opacity
+export default Opacity;

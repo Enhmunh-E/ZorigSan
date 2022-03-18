@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   InputStyle,
   InputS,
@@ -14,22 +14,24 @@ import SearchIcon from "../assets/Union.svg";
 import SendIcon from "../assets/Vector (Stroke).svg";
 import OptionalIcon from "../assets/optional.svg";
 
-const Input = ({ type, label, hint, placeholder, optional, border }) => {
+function Input({
+  type, label, hint, placeholder, optional, border,
+}) {
   return (
     <InputCon>
-      {label && hint !== "" && (
+      {label && hint !== '' && (
         <Label>
           <InputLabel>{label}</InputLabel>
           <InputHintOptional>{hint}</InputHintOptional>
         </Label>
       )}
       <InputStyle border={border}>
-        {type === "search" ? (
+        {type === 'search' ? (
           <>
             <InputIcon search src={SearchIcon} />
             <InputS search placeholder={placeholder} />
           </>
-        ) : type === "send" ? (
+        ) : type === 'send' ? (
           <>
             <InputS arrow placeholder={placeholder} />
             <InputSendButton>
@@ -37,9 +39,7 @@ const Input = ({ type, label, hint, placeholder, optional, border }) => {
             </InputSendButton>
           </>
         ) : (
-          <>
-            <InputS placeholder={placeholder} />
-          </>
+          <InputS placeholder={placeholder} />
         )}
       </InputStyle>
       {optional && (
@@ -50,6 +50,6 @@ const Input = ({ type, label, hint, placeholder, optional, border }) => {
       )}
     </InputCon>
   );
-};
+}
 
 export { Input };
