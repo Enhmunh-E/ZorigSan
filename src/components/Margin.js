@@ -9,5 +9,3 @@ export const Margin = styled.div`
     return `${size}px`;
   }};
 `;
-
-export default Margin ;
