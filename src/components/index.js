@@ -12,3 +12,4 @@ export * from "./SelectButtons";
 export * from "./Text";
 export {TooltipComp} from "./TooltipComp";
 export * from './Input';
+export * from './Cards';

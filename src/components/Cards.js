@@ -56,7 +56,7 @@ export function Cards(props) {
           <Padding size={[14, 16]}>
             <div style={{ width: '263px', display: 'flex', justifyContent: 'flex-end' }}>
               {' '}
-              <Button w="100" h="40" border="1px solid #4FADE0" bg_color="#fff" style={{ color: ' #4FADE0' }} onClick={onClick} boxSizing="border-box" borderRadius="10px" className="CardSmallText">Try Now</Button>
+              <Button w="100" h="40" style={{ color: ' #4FADE0' }} onClick={onClick} type={'tertiary-outlined'}className="CardSmallText">Try Now</Button>
             </div>
           </Padding>
         </div>
@@ -76,7 +76,7 @@ export function Cards(props) {
 
         <Padding size={[0, 0, 20, 0]}>
           {' '}
-          <Button onClick={onClick} style={{ color: ' #4FADE0' }} className="CardSmallText" bg_color="#fff" w="100" h="40" border="1px solid #4FADE0" boxSizing="border-box" borderRadius="10px">Try Now</Button>
+          <Button onClick={onClick} style={{ color: ' #4FADE0' }} className="CardSmallText"w="100" h="40" type={'tertiary-outlined'}>Try Now</Button>
         </Padding>
       </div>
     );
