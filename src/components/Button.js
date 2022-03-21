@@ -56,4 +56,4 @@ export const Button = styled.button`
   }};
   font-size: ${(props) => (FontSizes[props.f_size] ? FontSizes[props.f_size] : '20px')};
 `;
-export { Button }
+export default Button;

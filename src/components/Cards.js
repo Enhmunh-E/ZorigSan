@@ -105,4 +105,4 @@ export function Cards(props) {
       )
     }
   }
-  export { Cards };
+export default Cards;

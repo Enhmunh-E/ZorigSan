@@ -1,6 +1,15 @@
 import React from 'react'
-import { Padding, Border, Button, Input, Image, Margin, SelectButtons, TooltipComp, Cards } from '../components/Index'
-// ,Border,Button,Image,Input,Margin,SelectButtons,Text,TooltipComp
+import {
+    Padding,
+    Border,
+    Button,
+    Image,
+    Margin,
+    SelectButtons,
+    TooltipComp,
+    Cards
+} from '../components'
+import { Input } from "../components/Input"
 const Test = () => {
     return (
         <div style={{ display: 'flex', width: '100vw', height: '200vh', justifyContent: 'space-around', flexDirection: 'column' }}>

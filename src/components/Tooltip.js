@@ -32,4 +32,4 @@ function TooltipComp({
     </Tooltip_inner>
   );
 }
-export { TooltipComp };
+export default TooltipComp;

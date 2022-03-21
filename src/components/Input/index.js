@@ -1,2 +1,2 @@
 export * from './Input'
-export * from "./Input/InputStyle";
+export * from "./InputStyle";

@@ -54,3 +54,4 @@ export function SelectButtons({ items, buttonHandler }) {
     
     )
 }
+export default SelectButtons;

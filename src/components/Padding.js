@@ -9,3 +9,4 @@ export const Padding = styled.div`
   }};
 `;
 
+export default Padding;
