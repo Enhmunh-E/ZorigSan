@@ -4,7 +4,7 @@ export const InputCon = styled.div`
   width: 320px;
 `;
 export const InputStyle = styled.div`
-  width: ${(props) => (props.w ? `${props.w - 34}px` : "calc(100% - 34px)")};
+  width: ${(props) => (props.w ? `${props.w - 34}px` : 'calc(100% - 34px)')};
   height: 46px;
   padding: 0;
   border: 1px solid #6b7280;
@@ -31,7 +31,7 @@ export const InputS = styled.input`
   margin-right: ${(props) => (props.arrow ? '10px' : 0)};
 `;
 export const InputIcon = styled.img`
-  height: ${(props) => (props.arrow ? "16px" : "18px")};
+  height: ${(props) => (props.arrow ? '16px' : '18px')};
 `;
 export const Label = styled.div`
   height: 32px;
@@ -60,4 +60,3 @@ export const InputSendButton = styled.button`
   align-items: center;
   cursor: pointer;
 `;
-

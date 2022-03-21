@@ -30,4 +30,4 @@ const Text = styled.div`
   }};
 };
 `;
-export default Text; 
+export default Text;
