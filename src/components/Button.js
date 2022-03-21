@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FontSizes } from './Font_Sizes';
+import { FontSizes } from './FontSizes';
 import Colors from './Colors.js';
 
 const types = {
@@ -17,15 +17,15 @@ export const Button = styled.button`
     if (type) {
       return types[type.split('-')[0]];
     }
-    return types.primary
+    return types.primary;
   }};
   border-radius: 10px;
   cursor: pointer;
-  width: ${(props) => props?.width ? props?.width : '258px'};
-  height: ${(props) => props?.height ? props?.height : '46px'};
+  width: ${(props) => (props?.width ? props?.width : '258px')};
+  height: ${(props) => (props?.height ? props?.height : '46px')};
   font-weight: 700;
   background-color: ${({ type }) => {
-    if(type){
+    if (type) {
       const isOutline = type.split('-');
       if (isOutline.length === 2) {
         return '#FFFFFF';
@@ -39,7 +39,7 @@ export const Button = styled.button`
     }
   }};
   color: ${({ type }) => {
-    if(type){
+    if (type) {
       const isOutline = type.split('-');
       if (isOutline.length === 2) {
           return types[isOutline[0]];
@@ -49,7 +49,9 @@ export const Button = styled.button`
     } else {
       return '#FFFFFF';
     }
+
+    return '#FFFFFF';
   }};
-  font-size: ${(props) => (FontSizes[props.f_size] ? FontSizes[props.f_size] : '20px')};
+  font-size: ${(props) => (FontSizes[props?.f_size] ? FontSizes[props?.f_size] : '20px')};
 `;
 export default Button;

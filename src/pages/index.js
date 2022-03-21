@@ -1,9 +1,10 @@
 // import { graphql, useStaticQuery } from "gatsby";
-import * as React from "react";
-const IndexPage = () => {
+import * as React from 'react';
+
+function IndexPage() {
   return (
-    <div></div>
+    <div />
   );
-};
+}
 
 export default IndexPage;

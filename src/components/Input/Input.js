@@ -12,7 +12,9 @@ import {
 } from '.';
 import {  SearchIcon , BackIcon, OptionalIcon} from '../../assets/icons'
 
-export const Input = ({ type, label, hint, placeholder, optional, border }) => {
+export function Input({
+  type, label, hint, placeholder, optional, border,
+}) {
   return (
     <InputCon>
       {label && hint !== '' && (
