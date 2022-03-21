@@ -4,29 +4,15 @@ import {
   Label,
   InputCon,
   InputHintOptional,
+  InputIcon,
   InputOptionalCon,
   InputLabel,
   InputSendButton,
   MainInput,
-  InputIcon,
-} from ".";
+} from "./InputStyle";
 import { SearchIcon, BackIcon, OptionalIcon } from "../../../assets/icons";
 
-export const Input = ({
-  type,
-  label,
-  hint,
-  placeholder,
-  optional,
-  border,
-  value,
-  setValue,
-}) => {
-  const changeFunction = (e) => {
-    e.preventDefault();
-    setValue(e.target.value);
-  };
-
+export function Input({ type, label, hint, placeholder, optional, border }) {
   return (
     <InputCon>
       {label && hint !== "" && (
