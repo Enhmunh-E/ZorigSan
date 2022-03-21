@@ -10,7 +10,7 @@ export * from "./Padding";
 export * from "./SelectButtons";
 export * from "./Text";
 export * from "./TooltipComp";
-export * from "./Header";
+// export * from "./Header";
 export * from "./Footer";
 export * from "./CardCarousel";
 export * from "./Title";
