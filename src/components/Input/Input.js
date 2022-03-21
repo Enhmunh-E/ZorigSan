@@ -10,9 +10,7 @@ import {
   InputLabel,
   InputSendButton,
 } from '.';
-import SearchIcon from '../../assets/Union.svg';
-import SendIcon from '../../assets/Vector (Stroke).svg';
-import OptionalIcon from '../../assets/optional.svg';
+import {  SearchIcon , BackIcon, OptionalIcon} from '../../assets/icons'
 
 export const Input = ({ type, label, hint, placeholder, optional, border }) => {
   return (
@@ -26,14 +24,14 @@ export const Input = ({ type, label, hint, placeholder, optional, border }) => {
       <InputStyle border={border}>
         {type === 'search' ? (
           <>
-            <InputIcon search src={SearchIcon} />
+            <SearchIcon/>
             <InputS search placeholder={placeholder} />
           </>
         ) : type === 'send' ? (
           <>
             <InputS arrow placeholder={placeholder} />
             <InputSendButton>
-              <InputIcon arrow src={SendIcon} />
+              <BackIcon/>
             </InputSendButton>
           </>
         ) : (
@@ -42,7 +40,7 @@ export const Input = ({ type, label, hint, placeholder, optional, border }) => {
       </InputStyle>
       {optional && (
         <InputOptionalCon>
-          <img src={OptionalIcon} />
+          <OptionalIcon/>
           <InputHintOptional>{optional}</InputHintOptional>
         </InputOptionalCon>
       )}

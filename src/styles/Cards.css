@@ -44,5 +44,5 @@ justify-content: space-between;
 .CardLogo{
     width: 20.94px;
     height: 32px;
-    background: url('../svg/cardLogo.svg');
+    /* background: url('../svg/cardLogo.svg'); */
 }
