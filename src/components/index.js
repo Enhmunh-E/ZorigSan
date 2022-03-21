@@ -10,4 +10,5 @@ export * from "./Padding";
 export * from "./SelectButtons";
 export * from "./Text";
 export * from './Tooltip';
+export * from './Title'
 export {TooltipComp} from "./TooltipComp";
