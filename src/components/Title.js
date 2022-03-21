@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-const Titlew = styled.div`
+const Titlediv = styled.div`
 font-family: 'PT Serif';
 font-style: normal;
 font-weight: 400;
@@ -32,10 +32,10 @@ export const Title = (prop)=>{
             display: 'flex',
             justifyContent: 'center'
         }}>
-        <Titlew width={prop.width}>
+        <Titlediv width={prop.width}>
            <Heading>{prop.title}</Heading>
            <SubHeading>{prop.subtitle}</SubHeading>
-        </Titlew>
+        </Titlediv>
         </div>
     )
 }
