@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import FontSizes from './Font_Sizes';
+import FontSizes from './FontSizes';
 import Colors from './Colors.js';
 
 const types = {
@@ -56,3 +56,4 @@ export const Button = styled.button`
   }};
   font-size: ${(props) => (FontSizes[props.f_size] ? FontSizes[props.f_size] : '20px')};
 `;
+export { Button }

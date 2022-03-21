@@ -6,17 +6,22 @@ import {
   Label,
   InputCon,
   InputHintOptional,
-  InputOptionalCon,
+  InputOptionalCon, 
   InputLabel,
   InputSendButton,
+<<<<<<< HEAD:src/components/Input.js
 } from "./Index";
 import SearchIcon from "../assets/Union.svg";
 import SendIcon from "../assets/Vector (Stroke).svg";
 import OptionalIcon from "../assets/optional.svg";
+=======
+} from '..';
+import SearchIcon from '../assets/Union.svg';
+import SendIcon from '../assets/Vector (Stroke).svg';
+import OptionalIcon from '../assets/optional.svg';
+>>>>>>> fabe90dfff499da842f6fe184b0c7aab6299f81e:src/components/Input/Input.js
 
-function Input({
-  type, label, hint, placeholder, optional, border,
-}) {
+export const Input = ({ type, label, hint, placeholder, optional, border }) => {
   return (
     <InputCon>
       {label && hint !== '' && (
@@ -52,4 +57,3 @@ function Input({
   );
 }
 
-export { Input };
