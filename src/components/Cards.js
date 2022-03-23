@@ -99,7 +99,8 @@ export function Cards(props) {
           </Padding>
         </div>
       </div>
-    )}else {
+    )
+}else {
       return (
         <div></div>
       )

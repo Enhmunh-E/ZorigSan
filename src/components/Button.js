@@ -35,8 +35,7 @@ export const Button = styled.button`
       if (isOutline[0] === type) {
         return types[type];
       }
-    }
-    else {
+    } else {
       return types.primary
     }
   }};
@@ -45,12 +44,10 @@ export const Button = styled.button`
       const isOutline = type.split('-');
       if (isOutline.length === 2) {
           return types[isOutline[0]];
-      }
-      else {
+      } else {
         return '#FFFFFF';
       }
-    }
-    else {
+    } else {
       return '#FFFFFF';
     }
   }};

@@ -1,0 +1,32 @@
+{
+  "parser": "@babel/eslint-parser", // uses babel-eslint transforms
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // detect react version
+    }
+  },
+  "env": {
+    "node": true // defines things like process.env when generating through node
+  },
+  "extends": [
+    "eslint:recommended", // use recommended configs
+    "plugin:react/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "no-unused-vars": "error",
+    "no-undef": "error",
+    "brace-style": "warn",
+    "complexity": ["error", { "max": 8 }],
+    "no-empty-function": "error",
+    "no-shadow": "off",
+    "no-var": "error",
+    "sort-keys": ["error", "asc", { "caseSensitive": true }]
+  }
+}
