@@ -3,38 +3,20 @@
         "browser": true,
         "es2021": true
     },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
-    ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
+    extends: ['plugin:react-hooks/recommended', 'prettier'],
     "plugins": [
         "react"
     ],
     "rules": {
         "no-unused-vars": "error",
-        "no-undef":"error",
-        "no-await-in-loop": "warn",
-        "no-duplicate-case": "warn",
-        "no-duplicate-imports": "warn",
-        "comma-style": ["warn", "last"],
-        "comma-spacing": [
-            "error",
-            {
-                "before": false,
-                "after": true
-            }
-        ],
-        "array-bracket-spacing": [
-            "error",
-            "always"
-        ],
-        "brace-style": "warn"
+        "no-undef":" error",
+        "brace-style": "warn",
+        'complexity': ['error', {'max': 8}],
+        'no-empty-function': 'error',
+        'no-shadow': 'off',
+        'no-var': 'error',
+        'react-native/no-unused-styles': 'warn',
+        'react-native/sort-styles': 'warn',
+        'sort-keys': ['error', 'asc', {'caseSensitive': true}],
     }
 }
