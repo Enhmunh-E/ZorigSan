@@ -8,6 +8,7 @@ import {
   SelectButtons,
   TooltipComp,
   Cards,
+  Header,
 } from '../components';
 import { Input } from '../components/Input';
 
@@ -17,6 +18,7 @@ function Test() {
       display: 'flex', width: '100vw', height: '200vh', justifyContent: 'space-around', flexDirection: 'column',
     }}
     >
+      <Header />
       <Padding size={[ 16, 16, 16, 16 ]}><div style={{ backgroundColor: 'black', height: '50px', color: '#fff' }}>Padding</div></Padding>
       <Border height="50" width="200" borderColor="black" borderWidth="2px" borderStyle="solid">Border</Border>
       {/* <div style={{ display: 'flex', width: '100%', justifyContent: 'space-around' }}>

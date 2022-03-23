@@ -11,3 +11,4 @@ export * from './SelectButtons';
 export * from './Text';
 export * from './Tooltip';
 export { TooltipComp } from './TooltipComp';
+export * from './Header';
