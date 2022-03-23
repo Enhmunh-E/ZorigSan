@@ -3,7 +3,7 @@
         "browser": true,
         "es2021": true
     },
-    extends: ['plugin:react-hooks/recommended', 'prettier'],
+    "extends": ["plugin:react-hooks/recommended", "prettier"],
     "plugins": [
         "react"
     ],
@@ -11,12 +11,12 @@
         "no-unused-vars": "error",
         "no-undef":" error",
         "brace-style": "warn",
-        'complexity': ['error', {'max': 8}],
-        'no-empty-function': 'error',
-        'no-shadow': 'off',
-        'no-var': 'error',
-        'react-native/no-unused-styles': 'warn',
-        'react-native/sort-styles': 'warn',
-        'sort-keys': ['error', 'asc', {'caseSensitive': true}],
+        "complexity": ["error", {"max": 8}],
+        "no-empty-function": "error",
+        "no-shadow": "off",
+        "no-var": "error",
+        "react-native/no-unused-styles": "warn",
+        "react-native/sort-styles": "warn",
+        "sort-keys": ["error", "asc", {"caseSensitive": true}],
     }
 }
