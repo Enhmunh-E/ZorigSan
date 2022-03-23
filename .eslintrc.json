@@ -9,7 +9,7 @@
     ],
     "rules": {
         "no-unused-vars": "error",
-        "no-undef":" error",
+        "no-undef": "error",
         "brace-style": "warn",
         "complexity": ["error", {"max": 8}],
         "no-empty-function": "error",
