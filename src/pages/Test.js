@@ -7,7 +7,8 @@ import {
     Margin,
     SelectButtons,
     TooltipComp,
-    Cards
+    Cards,
+    Footer
 } from '../components'
 import { Input } from "../components/Input"
 const Test = () => {
@@ -39,6 +40,7 @@ const Test = () => {
                 <Cards type={'tertiary'} image={'https://pbs.twimg.com/media/A4KimPICAAAmFs-.jpg'} header={'Booking System'} description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed'} ></Cards>
                 <Cards type={'secondary'} image={'https://pbs.twimg.com/media/A4KimPICAAAmFs-.jpg'} origin={'MGL Ambassador'} header={'Guy Hawkins'} description={'“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque vitae tempus quam pellentesque nec nam.”'} ></Cards>
             </div>
+            <Footer/>
         </div>
     )
 }
