@@ -1,5 +1,5 @@
 import React from 'react'
-export const HLogo = ( )=>{
+export const WebLogo = ( )=>{
     return (
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M0 32C0 14.3269 14.328 0 32 0C49.6731 0 64 14.328 64 32C64 49.6731 49.672 64 32 64C14.3269 64 0 49.672 0 32ZM3.55556 32C3.55556 16.2906 16.2871 3.55556 32 3.55556C47.7094 3.55556 60.4444 16.2871 60.4444 32C60.4444 47.7094 47.7129 60.4444 32 60.4444C16.2906 60.4444 3.55556 47.7129 3.55556 32Z" fill="#1C6DD0"/>
@@ -8,4 +8,4 @@ export const HLogo = ( )=>{
         </svg>
     )
 }
-export default HLogo
+export default WebLogo
