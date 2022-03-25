@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import HLogo from '../assets/images/icon/HLogo'
+import WebLogo from '../assets/images/icon/HLogo'
 
 
 const Contener = styled.div`
@@ -32,7 +32,6 @@ flex-grow: 0;
 margin: 16px 0px;
 word-break: break-word;
 @media (max-width: 415px) {
-
     text-align:center;
 }
 
@@ -53,7 +52,6 @@ display:flex;
 justify-content: center;
 word-break: break-word;
 @media (max-width: 415px) {
-
     text-align:center;
 }
 `;
@@ -62,7 +60,7 @@ word-break: break-word;
 export const Footer = () => {
         return(
             <Contener>
-                <HLogo/>
+                <WebLogo/>
                 <div>
                 <BigText>Services</BigText>
                 <SmallText>Link 1</SmallText>
