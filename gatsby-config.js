@@ -12,32 +12,32 @@ const gatsbyRequiredRules = path.join(
 );
 
 module.exports = {
-  siteMetadata: {
-    title: "Zorig",
-    siteUrl: "https://www.yourdomain.tld",
-  },
   plugins: [
     {
-      resolve: "gatsby-source-contentful",
       options: {
-        spaceId: process.env.GATSBY_SPACE_ID,
         accessToken: process.env.GATSBY_ACCESS_TOKEN,
+        spaceId: process.env.GATSBY_SPACE_ID,
       },
+      resolve: "gatsby-source-contentful",
     },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-styled-components",
     {
-      resolve: "gatsby-plugin-eslint",
       options: {
+        exclude: ["node_modules", "bower_components", ".cache", "public"],
+        extensions: ["js", "jsx", "ts", "tsx"],
         rulePaths: [gatsbyRequiredRules],
         stages: ["develop"],
-        extensions: ["js", "jsx", "ts", "tsx"],
-        exclude: ["node_modules", "bower_components", ".cache", "public"],
       },
+      resolve: "gatsby-plugin-eslint",
     },
   ],
+  siteMetadata: {
+    siteUrl: "https://www.yourdomain.tld",
+    title: "Zorig",
+  },
 };
 // yarn , npm
 // yarn add
