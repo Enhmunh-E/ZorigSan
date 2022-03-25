@@ -35,7 +35,7 @@ const Test = () => {
                 console.log('select')
             }} />
             <TooltipComp placement={'left'} content="adasdsy" ><div style={{ width: '300px', height: '300px', backgroundColor: 'red' }}></div></TooltipComp>
-            <div style={{ display: 'flex', width: '100%', justifyContent: 'space-around' }}>
+            <div style={{ display: 'flex', width: '100%', justifyContent: 'space-around' ,flexWrap: 'wrap'}}>
                 <Cards type={'primary'} image={'https://pbs.twimg.com/media/A4KimPICAAAmFs-.jpg'} header={'Booking System'} description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}></Cards>
                 <Cards type={'tertiary'} image={'https://pbs.twimg.com/media/A4KimPICAAAmFs-.jpg'} header={'Booking System'} description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed'} ></Cards>
                 <Cards type={'secondary'} image={'https://pbs.twimg.com/media/A4KimPICAAAmFs-.jpg'} origin={'MGL Ambassador'} header={'Guy Hawkins'} description={'“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque vitae tempus quam pellentesque nec nam.”'} ></Cards>
