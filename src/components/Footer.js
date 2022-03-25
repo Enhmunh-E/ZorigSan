@@ -1,21 +1,20 @@
-import React from 'react';
-import styled from 'styled-components';
-import WebLogo from '../assets/images/icon/HLogo'
-
+import React from "react";
+import styled from "styled-components";
+import WebLogo from "../assets/images/icon/HLogo";
 
 const Container = styled.div`
-  width:100% ;
-  height:306px;
+  width: 100%;
+  height: 306px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   @media (max-width: 415px) {
-      width:100% ;
-      height:672px;
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      flex-direction: column;
+    width: 100%;
+    height: 672px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
   }
 `;
 const SmallText = styled.div`
@@ -32,7 +31,7 @@ const SmallText = styled.div`
   margin: 16px 0px;
   word-break: break-word;
   @media (max-width: 415px) {
-    text-align:center;
+    text-align: center;
   }
 `;
 const BigText = styled.div`
@@ -47,38 +46,37 @@ const BigText = styled.div`
   align-self: stretch;
   flex-grow: 0;
   margin: 16px 0px;
-  display:flex;
+  display: flex;
   justify-content: center;
   word-break: break-word;
   @media (max-width: 415px) {
-    text-align:center;
+    text-align: center;
   }
 `;
 
-
 export const Footer = () => {
-  return(
+  return (
     <Container>
-      <WebLogo/>
+      <WebLogo />
       <div>
-      <BigText>Services</BigText>
-      <SmallText>Link 1</SmallText>
-      <SmallText>Link 1</SmallText>
-      <SmallText>Link 1</SmallText>
+        <BigText>Services</BigText>
+        <SmallText>Link 1</SmallText>
+        <SmallText>Link 1</SmallText>
+        <SmallText>Link 1</SmallText>
       </div>
       <div>
-      <BigText>Company</BigText>
-      <SmallText>Link 1</SmallText>
-      <SmallText>Link 1</SmallText>
-      <SmallText>Link 1</SmallText>
+        <BigText>Company</BigText>
+        <SmallText>Link 1</SmallText>
+        <SmallText>Link 1</SmallText>
+        <SmallText>Link 1</SmallText>
       </div>
       <div>
-      <BigText>Contact</BigText>
-      <SmallText>Link 1</SmallText>
-      <SmallText>Link 1</SmallText>
-      <SmallText>Link 1</SmallText>
+        <BigText>Contact</BigText>
+        <SmallText>Link 1</SmallText>
+        <SmallText>Link 1</SmallText>
+        <SmallText>Link 1</SmallText>
       </div>
     </Container>
-  )
-}
+  );
+};
 export default Footer;
