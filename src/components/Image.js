@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import styled from 'styled-components';
 
 export const Image = styled.img`
