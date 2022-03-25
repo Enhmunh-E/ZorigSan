@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import HLogo from '../assets/images/icon/HLogo'
+import WebLogo from '../assets/images/icon/HLogo'
 
 
 const Contener = styled.div`
@@ -59,7 +59,7 @@ const BigText = styled.div`
 export const Footer = () => {
   return(
     <Contener>
-      <HLogo/>
+      <WebLogo/>
       <div>
         <BigText>Services</BigText>
         <SmallText>Link 1</SmallText>
