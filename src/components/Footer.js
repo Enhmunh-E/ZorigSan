@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import WebLogo from '../assets/images/icon/HLogo'
 
 
-const Contener = styled.div`
+const Container = styled.div`
   width:100% ;
   height:306px;
   display: flex;
@@ -58,27 +58,27 @@ const BigText = styled.div`
 
 export const Footer = () => {
   return(
-    <Contener>
+    <Container>
       <WebLogo/>
       <div>
-        <BigText>Services</BigText>
-        <SmallText>Link 1</SmallText>
-        <SmallText>Link 1</SmallText>
-        <SmallText>Link 1</SmallText>
+      <BigText>Services</BigText>
+      <SmallText>Link 1</SmallText>
+      <SmallText>Link 1</SmallText>
+      <SmallText>Link 1</SmallText>
       </div>
       <div>
-        <BigText>Company</BigText>
-        <SmallText>Link 1</SmallText>
-        <SmallText>Link 1</SmallText>
-        <SmallText>Link 1</SmallText>
+      <BigText>Company</BigText>
+      <SmallText>Link 1</SmallText>
+      <SmallText>Link 1</SmallText>
+      <SmallText>Link 1</SmallText>
       </div>
       <div>
-        <BigText>Contact</BigText>
-        <SmallText>Link 1</SmallText>
-        <SmallText>Link 1</SmallText>
-        <SmallText>Link 1</SmallText>
+      <BigText>Contact</BigText>
+      <SmallText>Link 1</SmallText>
+      <SmallText>Link 1</SmallText>
+      <SmallText>Link 1</SmallText>
       </div>
-    </Contener>
+    </Container>
   )
 }
 export default Footer;
