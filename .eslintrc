@@ -20,6 +20,9 @@
     "plugin:react/recommended",
     "prettier"
   ],
+  "globals": {
+    "window": true
+  },
   "rules": {
     "no-unused-vars": "error",
     "no-undef": "error",
@@ -28,6 +31,7 @@
     "no-empty-function": "error",
     "no-shadow": "off",
     "no-var": "error",
+    "react/prop-types": 0,
     "sort-keys": ["error", "asc", { "caseSensitive": true }]
   }
 }

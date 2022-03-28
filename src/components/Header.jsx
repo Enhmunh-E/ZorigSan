@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MenuIcon from "../assets/icons/menuIcon";
+import { MenuIcon } from "../assets/icons";
 import {
   HeaderStyle,
   HeaderMenuCon,
@@ -13,7 +13,7 @@ const Header = () => {
   const [menu, setMenu] = useState(false);
   useEffect(() => {
     window.innerWidth <= 1000 ? setMenu(false) : setMenu(true);
-  }, [window.innerWidth]);
+  }, []);
   return (
     <HeaderStyle>
       <HeaderItems>

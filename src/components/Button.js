@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import FontSizes from "./FontSizes";
-import Colors from "./Colors.js";
+import { Colors } from "./Colors.js";
 
 const types = {
   primary: Colors.secondary["100"],
@@ -35,23 +35,21 @@ export const Button = styled.button`
         return types[type];
       }
     } else {
-      return types.primary
+      return types.primary;
     }
   }};
   color: ${({ type }) => {
     if (type) {
       const isOutline = type.split("-");
       if (isOutline.length === 2) {
-          return types[isOutline[0]];
+        return types[isOutline[0]];
       } else {
-        return '#FFFFFF';
+        return "#FFFFFF";
       }
     } else {
-      return '#FFFFFF';
+      return "#FFFFFF";
     }
   }};
   font-size: ${(props) =>
     FontSizes[props?.f_size] ? FontSizes[props?.f_size] : "20px"};
 `;
-
-export default Button;

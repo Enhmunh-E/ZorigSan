@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 
 const Item = styled.button`
   display: flex;
   flex-direction: row;
-  background-color: ${(props) => (props.isSelected ? '#FFFFFF' : '#1C4984')};
+  background-color: ${(props) => (props.isSelected ? "#FFFFFF" : "#1C4984")};
   font-size: 15px;
   font-family: sans-serif;
-  color: ${(props) => (props.isSelected ? '#1C4984' : '#FFFFFF')};
+  color: ${(props) => (props.isSelected ? "#1C4984" : "#FFFFFF")};
   line-height: ${(props) => props.lineHeight}px;
   font-weight: lighter;
   border-radius: 20px;
@@ -26,17 +26,19 @@ const DivStyle = styled.div`
   height: 40px;
   padding: 0px 8px;
 `;
-export function SelectButtons({ items, buttonHandler }) {
-  const [ select, setSelect ] = useState(0);
+
+export const SelectButtons = ({ items, buttonHandler }) => {
+  const [select, setSelect] = useState(0);
   return (
     <div
       style={{
-        display: 'flex',
+        display: "flex",
       }}
     >
       <DivStyle>
         {items.map((item, index) => (
           <Item
+            key={index}
             isSelected={select === index}
             lineHeight="22"
             onClick={() => {
@@ -50,5 +52,4 @@ export function SelectButtons({ items, buttonHandler }) {
       </DivStyle>
     </div>
   );
-}
-export default SelectButtons;
+};
