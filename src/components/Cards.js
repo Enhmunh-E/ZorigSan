@@ -1,11 +1,10 @@
 import React, { useMemo } from "react";
-import "../styles/Cards.css";
 import { Image } from "./Image";
 // import { Button } from "./Button";
 import { Padding } from "./Padding";
+import "../styles/Cards.css";
 
-export function Cards(props) {
-  const { type, image, header, description, origin } = props;
+export const Cards = ({ type, image, header, description, origin }) => {
   // const type = 'primary' : 'tertiary' : 'secondary'
   const smallHeader = useMemo(() => {
     if (header?.length > 20) {
@@ -123,5 +122,5 @@ export function Cards(props) {
     );
   }
   return <div />;
-}
+};
 export default Cards;

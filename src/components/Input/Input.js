@@ -1,39 +1,36 @@
-import React from 'react';
+import React from "react";
 import {
   InputStyle,
   InputS,
-  InputIcon,
   Label,
   InputCon,
   InputHintOptional,
   InputOptionalCon,
   InputLabel,
   InputSendButton,
-} from '.';
-import {  SearchIcon , BackIcon, OptionalIcon} from '../../assets/icons'
+} from ".";
+import { SearchIcon, BackIcon, OptionalIcon } from "../../assets/icons";
 
-export function Input({
-  type, label, hint, placeholder, optional, border,
-}) {
+export function Input({ type, label, hint, placeholder, optional, border }) {
   return (
     <InputCon>
-      {label && hint !== '' && (
+      {label && hint !== "" && (
         <Label>
           <InputLabel>{label}</InputLabel>
           <InputHintOptional>{hint}</InputHintOptional>
         </Label>
       )}
       <InputStyle border={border}>
-        {type === 'search' ? (
+        {type === "search" ? (
           <>
-            <SearchIcon/>
+            <SearchIcon />
             <InputS search placeholder={placeholder} />
           </>
-        ) : type === 'send' ? (
+        ) : type === "send" ? (
           <>
             <InputS arrow placeholder={placeholder} />
             <InputSendButton>
-              <BackIcon/>
+              <BackIcon />
             </InputSendButton>
           </>
         ) : (
@@ -42,7 +39,7 @@ export function Input({
       </InputStyle>
       {optional && (
         <InputOptionalCon>
-          <OptionalIcon/>
+          <OptionalIcon />
           <InputHintOptional>{optional}</InputHintOptional>
         </InputOptionalCon>
       )}

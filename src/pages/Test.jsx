@@ -9,10 +9,11 @@ import {
   TooltipComp,
   Cards,
   Header,
+  Footer,
 } from "../components";
 import { Input } from "../components/Input";
 
-function Test() {
+const Test = () => {
   return (
     <div
       style={{
@@ -75,7 +76,7 @@ function Test() {
         height="100px"
         width="100px"
       />
-      {/* <Margin size={[16, 16, 16, 16]}>
+      <Margin size={[16, 16, 16, 16]}>
         <div
           style={{ backgroundColor: "black", color: "#fff", height: "50px" }}
         >
@@ -90,7 +91,7 @@ function Test() {
       />
       <TooltipComp placement="left" content="adasdsy">
         <div
-          style={{ backgroundColor: "red",height: "300px", width: "300px" }}
+          style={{ backgroundColor: "red", height: "300px", width: "300px" }}
         />
       </TooltipComp>
       <div
@@ -119,8 +120,10 @@ function Test() {
           header="Guy Hawkins"
           description="“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque vitae tempus quam pellentesque nec nam.”"
         />
-      </div> */}
+      </div>
+      <Footer />
     </div>
   );
-}
+};
+
 export default Test;
