@@ -6,25 +6,21 @@ const Card = ({ line, image, first, header, text }) => {
     <div
       className="container"
     >
-      {first === "image" ? (
+      {first === "image" && (
         <Image className="image" src={image}></Image>
-      ) : (
-        <></>
       )}
       <div>
         <div className="text_collumn">
           <h1 className="header">{header}</h1>
           <h2 className="text">{text}</h2>
         </div>
-        <div>{line === true ? <div className="line"></div> : <></>}</div>
+        <div>{line === true && <div className="line"></div>}</div>
       </div>
-      {first != "image" ? (
+      {first != "image" && (
         <Image
           className="image"
           src={image}
         ></Image>
-      ) : (
-        <></>
       )}
     </div>
   );
