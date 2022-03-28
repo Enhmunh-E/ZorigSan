@@ -75,7 +75,7 @@ function Test() {
         height="100px"
         width="100px"
       />
-      <Margin size={[16, 16, 16, 16]}>
+      {/* <Margin size={[16, 16, 16, 16]}>
         <div
           style={{ backgroundColor: "black", color: "#fff", height: "50px" }}
         >
@@ -119,7 +119,7 @@ function Test() {
           header="Guy Hawkins"
           description="“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque vitae tempus quam pellentesque nec nam.”"
         />
-      </div>
+      </div> */}
     </div>
   );
 }

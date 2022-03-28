@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MenuIcon from "../assets/images/menu.svg";
+import MenuIcon from "../assets/icons/menuIcon";
 import {
   HeaderStyle,
   HeaderMenuCon,

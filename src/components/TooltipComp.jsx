@@ -2,7 +2,7 @@ import React from "react";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 
-const TooltipComp = ({ placement, maxwidth, content, children }) => {
+export const TooltipComp = ({ placement, maxwidth, content, children }) => {
   const TooltipInner = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
   ))(() => ({
