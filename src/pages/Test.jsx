@@ -10,6 +10,7 @@ import {
   Cards,
   Header,
   Footer,
+<<<<<<< HEAD
   Carousel
 } from "../components";
 import { Input } from "../components/Input";
@@ -41,6 +42,11 @@ const images = [
     text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.'
   }]
 
+=======
+} from "../components";
+import { Input } from "../components/Input";
+
+>>>>>>> b501384 (fixed)
 const Test = () => {
   return (
     <div
@@ -150,6 +156,7 @@ const Test = () => {
         />
       </div>
       <Footer />
+<<<<<<< HEAD
       <Carousel arr={images} WrapperWidth={"75vw"}>
         {images.map((el, i) => (
           <div key={i}>
@@ -166,8 +173,14 @@ const Test = () => {
           </div>
         ))}
       </Carousel>
+=======
+>>>>>>> b501384 (fixed)
     </div>
   );
 };
 
+<<<<<<< HEAD
 export default Test;
+=======
+export default Test;
+>>>>>>> b501384 (fixed)
