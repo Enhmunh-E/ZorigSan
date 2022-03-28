@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import WebLogo from "../assets/images/icon/HLogo";
-import { Link } from 'react-router-dom';
+import { Link } from "gatsby";
 
 const Container = styled.div`
   width: 100%;
