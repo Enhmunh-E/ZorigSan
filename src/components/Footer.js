@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import WebLogo from "../assets/images/icon/HLogo";
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   width: 100%;
@@ -60,21 +61,21 @@ export const Footer = () => {
       <WebLogo />
       <div>
         <BigText>Services</BigText>
-        <SmallText>Link 1</SmallText>
-        <SmallText>Link 1</SmallText>
-        <SmallText>Link 1</SmallText>
+        <Link><SmallText>Link 1</SmallText></Link>
+        <Link><SmallText>Link 1</SmallText></Link>
+        <Link><SmallText>Link 1</SmallText></Link>
       </div>
       <div>
         <BigText>Company</BigText>
-        <SmallText>Link 1</SmallText>
-        <SmallText>Link 1</SmallText>
-        <SmallText>Link 1</SmallText>
+        <Link><SmallText>Link 1</SmallText></Link>
+        <Link> <SmallText>Link 1</SmallText></Link>
+        <Link><SmallText>Link 1</SmallText></Link>
       </div>
       <div>
-        <BigText>Contact</BigText>
-        <SmallText>Link 1</SmallText>
-        <SmallText>Link 1</SmallText>
-        <SmallText>Link 1</SmallText>
+       <BigText>Contact</BigText>
+        <Link><SmallText>Link 1</SmallText></Link>
+        <Link><SmallText>Link 1</SmallText></Link>
+        <Link><SmallText>Link 1</SmallText></Link>
       </div>
     </Container>
   );
