@@ -1,48 +1,68 @@
-.contener{
-width: 295px;
-height: 399px;
-background: #FFFFFF;
-box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.05);
-border-radius: 10px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-between;
+.container {
+  width: 80vw;
+  display: flex;
+  height: fit-content;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10vw 0 10vw;
 }
-.CardBigText{
-    height: 23px;
-    font-family: PT Sans;
+.text_collumn {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-device-width: 800px) {
+  /* MOBILE DEVICES (-tablets) */
+  .image {
+    width: 80vw;
+  }
+  .container {
+    gap: 20px;
+    flex-direction: column;
+  }
+  .header {
+    font-family: "PT Serif";
     font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 23px;
-    
-    color: #000000;
-    word-break: break-all;
-}
-.CardSmallText{
-    font-family: PT Sans;
+    font-weight: 400;
+    font-size: 5vw;
+  }
+  .text {
+    font-family: "Inter";
     font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 21px;
-    color: #6B7280;
-    word-break: break-all;
+    font-weight: 400;
+    font-size: 2vw;
+    letter-spacing: 0.25px;
+  }
 }
-.scratches{
-    width: 263px;
-    height: 0px;
-    border: 1px solid #6B7280;
-    border-radius: 10px;
-    margin: auto;
+@media not screen and (max-device-width: 800px) {
+  .container {
+    gap: 8vw;
+    flex-direction: row;
+  }
+  .image {
+    width: 35vw;
+  }
+  .header {
+    font-family: "PT Serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vw;
+  }
+  .text {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2vw;
+    letter-spacing: 0.25px;
+  }
+  .line {
+    width: 15vw;
+    height: 1px;
+    background-color: black;
+  }
 }
-.rounded{
-    width: 40px;
-    height: 40px;
-    border-radius: 30px;
-}
-.CardLogo{
-    width: 20.94px;
-    height: 32px;
-    /* background: url('../svg/cardLogo.svg'); */
+.CardLogo {
+  width: 20.94px;
+  height: 32px;
+  /* background: url('../svg/cardLogo.svg'); */
 }
