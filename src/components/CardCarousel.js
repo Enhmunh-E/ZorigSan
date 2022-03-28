@@ -1,34 +1,33 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Buttons from './Buttons'
+
 
 const Wrapper = styled.div`
   position: relative;
-  width: 75vw;
+  width: ${props => `${props.width}`};
   overflow: hidden;
 
 `;
 const Slide = styled.div`
   display: flex;
-  width: 75vw;
-  height: 40vw;
   transition: transform 1s ease-out;
   transform: ${props => `translateX(${props.xPosition}px)`};
     div {
-        width: 75vw;
-        height: 100%;
+        width: ${props => `${props.width}`};
+        height: calc(${props => `${props.width} * 0.56`});
         display: flex;
         flex-direction: row;
         background-color: #EEF6FF;
-        img{
-            width: 50%;
-            height: 100%;
-            border-radius: 10px;
+        justify-content:  space-between;
+        align-items:center;
+        div{
+            padding: 10%;
+            text-align: center;
         }
     }
 `;
-function Carousel({ arr }) {
-    const [index, setIndex] = useState(0);
+export function Carousel({ arr, WrapperWidth, children }) {
+    const [index, setIndex] = useState(-1);
     const [width, setWidth] = useState(0);
     const [xPosition, setXPosition] = useState(0);
 
@@ -43,15 +42,15 @@ function Carousel({ arr }) {
             setXPosition(0 - width * (index + 1));
         }
     };
-    console.log(xPosition);
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         handleClicknext()
-    //     }, 5000);
-    //     return () => clearInterval(interval);
-    // }, [xPosition]);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            handleClicknext()
+        }, 5000);
+        return () => clearInterval(interval);
+      }, [index]);
     const slideRef = useRef();
+    
     useEffect(() => {
         if (slideRef.current) {
             const width = slideRef.current.clientWidth;
@@ -61,18 +60,11 @@ function Carousel({ arr }) {
     }, [xPosition]);
     return (
         <div>
-            <Wrapper>
-                <Slide xPosition={xPosition} ref={slideRef}>
-                    {arr.map((el, i) => (
-                        <div key={i}>
-                            <img src={el.src} alt={''} />
-                            <div >{el.text}</div>
-                        </div>
-                    ))}
+            <Wrapper width={WrapperWidth}>
+                <Slide width={WrapperWidth} xPosition={xPosition} ref={slideRef}>
+                  {children}
                 </Slide>
-                <Buttons
-                    handleClicknext={handleClicknext}
-                />
+
             </Wrapper>
 
         </div>
