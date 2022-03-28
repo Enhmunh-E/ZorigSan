@@ -55,32 +55,6 @@ const BigText = styled.div`
 `;
 
 export const Footer = () => {
-<<<<<<< HEAD
-        return(
-            <Container>
-                <WebLogo/>
-                <div>
-                <BigText>Services</BigText>
-                <SmallText>Link 1</SmallText>
-                <SmallText>Link 1</SmallText>
-                <SmallText>Link 1</SmallText>
-                </div>
-                <div>
-                <BigText>Company</BigText>
-                <SmallText>Link 1</SmallText>
-                <SmallText>Link 1</SmallText>
-                <SmallText>Link 1</SmallText>
-                </div>
-                <div>
-                <BigText>Contact</BigText>
-                <SmallText>Link 1</SmallText>
-                <SmallText>Link 1</SmallText>
-                <SmallText>Link 1</SmallText>
-                </div>
-            </Container>
-        )
-}
-=======
   return (
     <Container>
       <WebLogo />
@@ -105,5 +79,4 @@ export const Footer = () => {
     </Container>
   );
 };
->>>>>>> 80dedea (footer)
 export default Footer;
