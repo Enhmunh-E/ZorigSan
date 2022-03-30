@@ -1,13 +1,13 @@
 import React from "react";
 import {
   InputStyle,
-  InputS,
   Label,
   InputCon,
   InputHintOptional,
   InputOptionalCon,
   InputLabel,
   InputSendButton,
+  MainInput,
 } from ".";
 import { SearchIcon, BackIcon, OptionalIcon } from "../../assets/icons";
 
@@ -24,11 +24,11 @@ export function Input({ type, label, hint, placeholder, optional, border }) {
         {type === "search" ? (
           <>
             <SearchIcon />
-            <InputS search placeholder={placeholder} />
+            <MainInput search placeholder={placeholder} />
           </>
         ) : type === "send" ? (
           <>
-            <InputS arrow placeholder={placeholder} />
+            <MainInput arrow placeholder={placeholder} />
             <InputSendButton>
               <BackIcon />
             </InputSendButton>
