@@ -17,7 +17,6 @@ const Slide = styled.div`
         height: calc(${props => `${props.width} * 0.56`});
         display: flex;
         flex-direction: row;
-        background-color: #EEF6FF;
         justify-content:  space-between;
         align-items:center;
         div{

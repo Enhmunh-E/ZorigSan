@@ -22,7 +22,7 @@ export const InputStyle = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-export const InputS = styled.input`
+export const MainInput = styled.input`
   width: 100%;
   border: none;
   outline: none;
