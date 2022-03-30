@@ -3,7 +3,7 @@
 ## Issue title format
 
 ```
-[project name in lowercase] Short title
+[type] Short title
 ```
 
 Task title formats:
@@ -11,10 +11,10 @@ Task title formats:
 - <verb/action> [activity] (e.g. “Perform backup”)
 - <verb/action> [thing] (e.g. “Research new javascript framework”)
 
-New features:
+When implementing new features:
 
-- Implement <endpoint> (e.g. Implement POST /api/v1/users)
-- Create endpoint <endpoint> (e.g. Create endpoint POST /api/v1/users)
+- Implement (e.g. Implement search engine)
+- Create (e.g. Create card component)
 
 Updates:
 
@@ -25,23 +25,17 @@ Updates:
 
 In example:
 
-`[component] Fix - Dokz not displaying`
+`[component] Create card component`
 
-`[web] Setup Lighthouse in CI/CD workflow`
+`[page] Create contact page`
+
+`[doc] Update readme.md`
 
 ## Issue label format
 
 Each issue must be have a label.
 
-> The **first label** is to indicate to which project this issue belongs. (required)
-- `nestacademy.mn`
-- `nest-component`
-- `nestsolution.llc`
-- `ub-map`
-- `mono-repo`
-  General issues for many projects
-
-> **Second label** is to indicate to what kind of work this job is intended to do.
+> **First label** is to indicate to what kind of work this job is intended to do.
 - `enhancement`
   New feature or request
 - `dependencies`
@@ -53,7 +47,7 @@ Each issue must be have a label.
 - `bug`
   Something isn't working
 
-> **Third label** is to indicate to what the current state of affairs is. (optional)
+> **Second label** is to indicate to what the current state of affairs is. (optional)
 - `blocked`
   blocked by other task or design
 - `help wanted`
@@ -67,19 +61,7 @@ Each issue must be have a label.
 
 ## Issue description format
 
-- **Context**: explain the conditions which led you to write this issue.
-
-  For example: _“Since we’ve configured typescipt in project nest-component, our code quality is improved.”_
-
-- **Problem or idea**: the context should lead to something, an idea or a problem that you’re facing.
-
-  For example: _“But our code quality is not good enough. We need to configure eslint in our project.”_
-
-- **Solution or next step**: this where you move forward. You can engage others (request feedback), assign somebody else to the issue, or simply leave it for further investigation, but you absolutely need to propose a next step towards solving the issue.
-
-  For example: _“@user please take look at eslint configuration of our previous project. [Here] is repo link. We need to install eslint, eslint-config-next, typescript-eslint“_
-
-- **Other requirements**:
+- **Requirements**:
   - Please Keep titles short and descriptive.
   - Include/tag the right people in your discussion.
   - Format your messages. Use markdown syntax. Steps of work can be described with checkboxes.
@@ -95,50 +77,28 @@ Branch name consists of 3 parts with following format:
 
 For example: `12-api-endpont-add-content`
 
-**Branch type based names**
-
-Type based names might be useful.
-
-For example:
-
-`feature/12-api-endpont-add-content`
-`hotfix/23-fixed-runtime-timeout-error`
-`refactor/7-refactored-jwt-authentication`
-`docs/added-installation-guide-in-readme`
-
 # Commit messages
-
-In monorepo, short name in commit messages can be helpful. Subject of notification emails will become more descriptive.
 
 Please keep commit message short but explicit. Prepend your action before commit message.
 
 For example:
 
-`Fix - [nestacademy.mn] Fixed app crash during login`
+`Bug - Fix app crash during login`
 
-`Feature - [ub-map] Implemented jwt for authentication`
+`Feature - Implement firebase config`
 
-`Merge - [nest-components] Merged latest main branch`
-
-`Refactor - Replaced database model name`
+`Feature - Create contact page`
 
 # Pull request format
 
 **Naming convention**:
 
-- Project short slug
 - Title - Short informative summary of the pull request
-
-  For example: `[web] Footer`, `[component]`
 
 **Description**:
 
 - IssueID must be provided with `#`. For example: `#12`
+- Must take screen shot or record of completed task  
 - Description: More detailed explanatory text describing the PR for the reviewer. What did you solve/fixed.
-- Additional: PR checklist template is useful. `PULL_REQUEST_TEMPLATE.md`
-
-# PR/Code eviewing
-
-PR/Code reviewing guidance is [here](review.md).
 
 Source: Gansukh
