@@ -10,8 +10,36 @@ import {
   Cards,
   Header,
   Footer,
+  Carousel
 } from "../components";
 import { Input } from "../components/Input";
+
+const images = [
+  {
+    name: 'Bataa',
+    src: 'https://images2.alphacoders.com/110/1109233.jpg',
+    text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.'
+  },
+  {
+    name: 'Dorj',
+    src: 'https://images5.alphacoders.com/112/1123013.jpg',
+    text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.'
+  },
+  {
+    name: 'Tsetsgee',
+    src: 'https://images.alphacoders.com/110/1109227.jpg',
+    text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.'
+  },
+  {
+    name: 'Dulmaa',
+    src: 'https://images.alphacoders.com/113/1131281.jpg',
+    text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.'
+  },
+  {
+    name: 'Nergui',
+    src: 'https://images3.alphacoders.com/110/1105694.jpg',
+    text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.'
+  }]
 
 const Test = () => {
   return (
@@ -122,6 +150,22 @@ const Test = () => {
         />
       </div>
       <Footer />
+      <Carousel arr={images} WrapperWidth={"75vw"}>
+        {images.map((el, i) => (
+          <div key={i}>
+            <Image
+              src={el.src}
+              alt={""}
+              width={"50%"}
+              height={"100%"}
+              borderRadius={"1%"}
+            />
+            <div>
+              {el.text} {el.name}
+            </div>
+          </div>
+        ))}
+      </Carousel>
     </div>
   );
 };
