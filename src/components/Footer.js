@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import WebLogo from "../assets/images/icon/HLogo";
+import WebLogo from "../assets/icons/HLogo";
 import { Link } from "gatsby";
 
 const Container = styled.div`
