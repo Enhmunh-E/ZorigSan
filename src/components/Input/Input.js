@@ -34,7 +34,7 @@ export function Input({ type, label, hint, placeholder, optional, border }) {
             </InputSendButton>
           </>
         ) : (
-          <InputS placeholder={placeholder} />
+          <MainInput placeholder={placeholder} />
         )}
       </InputStyle>
       {optional && (
