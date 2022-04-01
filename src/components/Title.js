@@ -9,7 +9,7 @@ text-align: center;
 align-items: center;
 margin: 24px 0px;
 color: #202020;
-width: ${(props) => props.width}px;;
+width: ${(props) => props.width};
 `
 const Heading = styled.p`
 font-size: 40px;
