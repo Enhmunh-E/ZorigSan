@@ -1,39 +1,22 @@
 import React from "react";
-import {
-  SelectButtons,
-  Cards,
-  Carousel,
-  Title
-} from "../components/body";
-import {
-  TooltipComp
-} from "../components"
-import{
-  Footer
-} from "../components/footer"
-import{
-  Header
-} from "../components/header"
+import { SelectButtons, Cards, Carousel, Title } from "../components/body";
+import { TooltipComp } from "../components";
+import { Footer } from "../components/footer";
+import { Header } from "../components/header";
 import {
   Padding,
   Border,
   Button,
   Image,
   Margin,
-<<<<<<< HEAD
   SelectButtons,
   TooltipComp,
   Cards,
   Footer,
   Carousel,
   Title,
-} from "../components";
-import { Input } from "../components/Input";
-import { Header } from "../components/Header";
-=======
 } from "../components/core";
 import { Input } from "../components/body/Input";
->>>>>>> cce49a0 (Changed Folder Structure of Components)
 
 const images = [
   {
