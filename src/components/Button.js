@@ -14,16 +14,16 @@ export const Button = styled.button`
   align-items: center;
   border: 1px solid
     ${({ type }) => {
-      if (type) {
-        return types[type.split("-")[0]];
-      }
-      return types.primary;
-    }};
-  border-radius: 10px;
+    if (type) {
+      return types[type.split('-')[0]];
+    }
+    return types.primary
+  }};
+  border-radius: ${(props) => props?.b_radius ? `${props?.b_radius}px` : '10px'};
   cursor: pointer;
-  width: ${(props) => (props?.width ? props?.width : "258px")};
-  height: ${(props) => (props?.height ? props?.height : "46px")};
-  font-weight: 700;
+  width: ${(props) => props?.width ? `${props?.width}px` : '258px'};
+  height: ${(props) => props?.height ? `${props?.height}px` : '46px'};
+  font-weight: ${(props) => props?.f_weight ? props?.f_weight : '700'};
   background-color: ${({ type }) => {
     if (type) {
       const isOutline = type.split("-");
@@ -50,6 +50,7 @@ export const Button = styled.button`
       return "#FFFFFF";
     }
   }};
-  font-size: ${(props) =>
-    FontSizes[props?.f_size] ? FontSizes[props?.f_size] : "20px"};
+  font-size: ${(props) => (FontSizes[props.f_size] ? FontSizes[props.f_size] : '20px')};
+  letter-spacing: ${(props) => props?.l_spacing ? `${props?.l_spacing}px` : '0px'};
 `;
+export default Button;
