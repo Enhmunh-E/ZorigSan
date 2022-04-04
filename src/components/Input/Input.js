@@ -4,12 +4,12 @@ import {
   Label,
   InputCon,
   InputHintOptional,
+  InputIcon,
   InputOptionalCon,
   InputLabel,
   InputSendButton,
   MainInput,
-  InputIcon,
-} from ".";
+} from "./InputStyle";
 import { SearchIcon, BackIcon, OptionalIcon } from "../../assets/icons";
 
 export const Input = ({

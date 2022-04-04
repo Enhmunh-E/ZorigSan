@@ -37,6 +37,11 @@ export const HeaderLinks = styled.div`
   }
 `;
 
+export const HeaderLink = styled.div`
+  color: #000;
+  cursor: pointer;
+`;
+
 export const HeaderMenuCon = styled.div`
   display: flex;
   background-color: #fff;
