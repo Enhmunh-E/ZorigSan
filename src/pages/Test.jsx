@@ -20,6 +20,7 @@ import {
   Button,
   Image,
   Margin,
+<<<<<<< HEAD
   SelectButtons,
   TooltipComp,
   Cards,
@@ -29,6 +30,10 @@ import {
 } from "../components";
 import { Input } from "../components/Input";
 import { Header } from "../components/Header";
+=======
+} from "../components/core";
+import { Input } from "../components/body/Input";
+>>>>>>> cce49a0 (Changed Folder Structure of Components)
 
 const images = [
   {
