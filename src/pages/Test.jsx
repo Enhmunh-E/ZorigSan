@@ -3,6 +3,10 @@ import { SelectButtons, Cards, Carousel, Title } from "../components/body";
 import { TooltipComp } from "../components";
 import { Footer } from "../components/footer";
 import { Header } from "../components/header";
+import { SelectButtons, Cards, Carousel, Title } from "../components/body";
+import { TooltipComp } from "../components";
+import { Footer } from "../components/footer";
+import { Header } from "../components/header";
 import {
   Padding,
   Border,

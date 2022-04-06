@@ -12,7 +12,21 @@ import {
 } from "./InputStyle";
 import { SearchIcon, BackIcon, OptionalIcon } from "../../../assets/icons";
 
-export function Input({ type, label, hint, placeholder, optional, border }) {
+export const Input = ({
+  type,
+  label,
+  hint,
+  placeholder,
+  optional,
+  border,
+  value,
+  setValue,
+}) => {
+  const changeFunction = (e) => {
+    e.preventDefault();
+    setValue(e.target.value);
+  };
+
   return (
     <InputCon>
       {label && hint !== "" && (
