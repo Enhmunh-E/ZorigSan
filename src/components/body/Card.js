@@ -1,6 +1,6 @@
 import React from "react";
-import "../../styles/Cards.css"
-import { Image } from "..";
+import "../../styles/Cards.css";
+import { Image } from "../core";
 const Card = ({ line, image, first, header, text }) => {
   return (
     <div

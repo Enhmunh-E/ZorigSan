@@ -8,10 +8,25 @@ import {
   InputLabel,
   InputSendButton,
   MainInput,
+  InputIcon,
 } from ".";
 import { SearchIcon, BackIcon, OptionalIcon } from "../../../assets/icons";
 
-export function Input({ type, label, hint, placeholder, optional, border }) {
+export const Input = ({
+  type,
+  label,
+  hint,
+  placeholder,
+  optional,
+  border,
+  value,
+  setValue,
+}) => {
+  const changeFunction = (e) => {
+    e.preventDefault();
+    setValue(e.target.value);
+  };
+
   return (
     <InputCon>
       {label && hint !== "" && (
@@ -23,18 +38,32 @@ export function Input({ type, label, hint, placeholder, optional, border }) {
       <InputStyle border={border}>
         {type === "search" ? (
           <>
-            <SearchIcon />
-            <MainInput search placeholder={placeholder} />
+            <InputIcon search src={SearchIcon} />
+            <MainInput
+              value={value}
+              onChange={changeFunction}
+              search
+              placeholder={placeholder}
+            />
           </>
         ) : type === "send" ? (
           <>
-            <MainInput arrow placeholder={placeholder} />
+            <MainInput
+              value={value}
+              onChange={changeFunction}
+              arrow
+              placeholder={placeholder}
+            />
             <InputSendButton>
               <BackIcon />
             </InputSendButton>
           </>
         ) : (
-          <MainInput placeholder={placeholder} />
+          <MainInput
+            value={value}
+            onChange={changeFunction}
+            placeholder={placeholder}
+          />
         )}
       </InputStyle>
       {optional && (
@@ -45,4 +74,4 @@ export function Input({ type, label, hint, placeholder, optional, border }) {
       )}
     </InputCon>
   );
-}
+};
