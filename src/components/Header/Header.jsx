@@ -10,26 +10,47 @@ import {
   HeaderItems,
   HeaderLinks,
   HeaderLink,
-} from ".";
+  HeaderMenuBackground,
+} from "./HeaderStyle";
 
 const Header = () => {
   const [menu, setMenu] = useState(false);
+  const [menuBack, setMenuBack] = useState(false);
   useEffect(() => {
     window.innerWidth <= 1000 ? setMenu(false) : setMenu(true);
   }, []);
+  const menuFunc = () => {
+    if (menu === true) {
+      setMenuBack(!menuBack);
+      setTimeout(() => {
+        setMenu(!menu);
+      }, 200);
+    } else {
+      setMenu(!menu);
+      setTimeout(() => {
+        setMenuBack(!menuBack);
+      }, 200);
+    }
+  };
   return (
     <HeaderStyle>
       <HeaderItems>
         <div>LOGO</div>
-        <HeaderMenu onClick={() => setMenu(!menu)}>
-          <HeaderMenuIcon src={MenuIcon} />
+        <HeaderMenu onClick={menuFunc}>
+          <HeaderMenuIcon>
+            <MenuIcon />
+          </HeaderMenuIcon>
         </HeaderMenu>
-        <HeaderMenuCon style={{ right: menu === false ? "-100vw" : 0 }}>
-          <HeaderLinks style={{ right: menu === false ? "-350px" : 0 }}>
-            <HeaderMenu onClick={() => setMenu(!menu)}>
-              <HeaderMenuIcon src={MenuIcon} />
+        <HeaderMenuCon style={{ display: menu === false ? "none" : "flex" }}>
+          <HeaderMenuBackground
+            style={{ opacity: menuBack === false ? 0 : 1 }}
+          ></HeaderMenuBackground>
+          <HeaderLinks style={{ right: menuBack === false ? "-350px" : 0 }}>
+            <HeaderMenu onClick={menuFunc}>
+              <HeaderMenuIcon>
+                <MenuIcon />
+              </HeaderMenuIcon>
             </HeaderMenu>
-
             <Link style={{ textDecoration: "none" }} to="/about-us">
               <HeaderLink>Бидний тухай</HeaderLink>
             </Link>
