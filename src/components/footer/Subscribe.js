@@ -1,7 +1,7 @@
-import { addEmail } from "../Firebase";
+import { addEmail } from "../../Firebase";
 import React, { useState } from "react";
-import { Button } from "./";
-import { Input } from "./Input";
+import { Button } from "../core";
+import { Input } from "../body";
 import styled from "styled-components";
 
 const Subscription = styled.div`

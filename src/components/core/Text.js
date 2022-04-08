@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import "../styles/textStyle.css";
+import "../../styles/textStyle.css";
 
 const fontMapStyle = {
   heading1: "40px",
