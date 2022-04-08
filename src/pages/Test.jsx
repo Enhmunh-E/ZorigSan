@@ -12,13 +12,7 @@ import {
   Border,
   Button,
   Image,
-  Margin,
-  SelectButtons,
-  TooltipComp,
-  Cards,
-  Footer,
-  Carousel,
-  Title,
+  Margin
 } from "../components/core";
 import { Input } from "../components/body/Input";
 
