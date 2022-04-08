@@ -101,3 +101,33 @@ px vw % etc.
 `content: 'string' (required) :`
 
 tooltip dotorh object
+
+## Stack
+
+`justifyContent?: 'string' (optional)`
+ 
+all justify-content options (from css)
+
+`alignItems?: 'string' (optional)`
+ 
+all align-items options (from css)
+
+`flexDirection?: 'string' (optional)`
+ 
+all flex-direction options (from css)
+
+`flexWrap?: 'string' (optional)`
+ 
+all flex-wrap options (from css)
+
+`gap?: 'number' (optional)`
+ 
+px vw % etc.
+
+`rowGap?: 'number' (optional)`
+ 
+px vw % etc.
+
+`columnGap?: 'number' (optional)`
+ 
+px vw % etc.
