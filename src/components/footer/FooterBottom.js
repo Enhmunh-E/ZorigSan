@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import WebLogo from "../assets/icons/HLogo";
+import WebLogo from "../../assets/icons/HLogo";
 import { Link } from "gatsby";
 
 const Container = styled.div`
@@ -55,7 +55,7 @@ const BigText = styled.div`
   }
 `;
 
-export const Footer = () => {
+export const FooterBottom = () => {
   return (
     <Container>
       <WebLogo />
@@ -80,4 +80,4 @@ export const Footer = () => {
     </Container>
   );
 };
-export default Footer;
+export default FooterBottom;

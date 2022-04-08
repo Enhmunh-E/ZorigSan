@@ -10,7 +10,7 @@ import {
   InputSendButton,
   MainInput,
 } from "./InputStyle";
-import { SearchIcon, BackIcon, OptionalIcon } from "../../assets/icons";
+import { SearchIcon, BackIcon, OptionalIcon } from "../../../assets/icons";
 
 export const Input = ({
   type,
