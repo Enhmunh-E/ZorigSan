@@ -1,35 +1,32 @@
 import React, { useMemo } from "react";
-import { Image } from "../core";
-// import { Button } from "./Button";
+import { Image } from "../core/Image";
 import { Padding } from "../core/Padding";
 import "../../styles/Cards.css";
 
 export const Cards = ({ type, image, header, description, origin }) => {
   // const type = 'primary' : 'tertiary' : 'secondary'
-  const smallHeader = useMemo(() => {
-    if (header?.length > 20) {
-      return `${header.substring(0, 13)}...`;
-    }
-    return header;
-  }, [header]);
-  const smallOrigin = useMemo(() => {
-    if (origin?.length > 20) {
-      return `${origin.substring(0, 13)}...`;
-    }
-    return origin;
-  }, [origin]);
-  const smallDescription = useMemo(() => {
-    if (description?.length > 100) {
-      return `${description.substring(0, 119)}...`;
-    }
-    return description;
-  }, [description]);
-  const BigDescription = useMemo(() => {
-    if (description?.length > 240) {
-      return `${description.substring(0, 240)}...`;
-    }
-    return description;
-  }, [description]);
+  const smallHeader = useMemo(
+    () => (header?.length > 20 ? header.substring(0, 13) + "..." : header),
+    [header]
+  );
+  const smallOrigin = useMemo(
+    () => (origin?.length > 20 ? origin.substring(0, 13) + "..." : origin),
+    [origin]
+  );
+  const smallDescription = useMemo(
+    () =>
+      description?.length > 100
+        ? description.substring(0, 119) + "..."
+        : description,
+    [description]
+  );
+  const BigDescription = useMemo(
+    () =>
+      description?.length > 240
+        ? description.substring(0, 240) + "..."
+        : description,
+    [description]
+  );
 
   if (type === "primary") {
     return (
@@ -60,7 +57,7 @@ export const Cards = ({ type, image, header, description, origin }) => {
                 width: "263px",
               }}
             >
-              {" "}
+              {/* {" "} */}
               {/* <Button w="100" h="40" style={{ color: ' #4FADE0' }} onClick={onClick} type={'tertiary-outlined'}className="CardSmallText">Try Now</Button> */}
             </div>
           </Padding>
@@ -82,7 +79,7 @@ export const Cards = ({ type, image, header, description, origin }) => {
         </Padding>
 
         <Padding size={[0, 0, 20, 0]}>
-          {" "}
+          {/* {" "} */}
           {/* <Button onClick={onClick} style={{ color: ' #4FADE0' }} className="CardSmallText"w="100" h="40" type={'tertiary-outlined'}>Try Now</Button> */}
         </Padding>
       </div>
