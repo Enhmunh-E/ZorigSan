@@ -5,12 +5,12 @@ export const HeaderStyle = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 2;
   width: 100%;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
 `;
 
 export const HeaderItems = styled.div`
@@ -26,7 +26,6 @@ export const HeaderLinks = styled.div`
   gap: 40px;
   display: flex;
   align-items: center;
-  transition: right 0.3s;
   @media only screen and (max-width: 1000px) {
     position: fixed;
     flex-direction: column;
@@ -35,19 +34,38 @@ export const HeaderLinks = styled.div`
     height: 100vh;
     top: 0;
     right: 0;
+    transition: right 0.3s;
   }
+`;
+
+export const HeaderLink = styled.div`
+  color: #000;
+  cursor: pointer;
 `;
 
 export const HeaderMenuCon = styled.div`
   display: flex;
-  background-color: #fff;
   @media only screen and (max-width: 1000px) {
-    background-color: #0000004d;
     position: fixed;
     width: 100vw;
     height: 100vh;
     top: 0;
     right: 0;
+  }
+`;
+
+export const HeaderMenuBackground = styled.div`
+  display: none;
+  background-color: #0000004d;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  transition: opacity 0.2s;
+  @media only screen and (max-width: 1000px) {
+    display: flex;
   }
 `;
 
@@ -66,7 +84,7 @@ export const HeaderMenu = styled.div`
   }
 `;
 
-export const HeaderMenuIcon = styled.img`
+export const HeaderMenuIcon = styled.div`
   height: 24px;
   width: 24px;
 `;
