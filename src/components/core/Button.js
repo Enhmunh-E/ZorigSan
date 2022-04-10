@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import FontSizes from "./FontSizes";
-import { Colors } from "./Colors.js";
+import Colors from "./Colors";
 
 const types = {
   primary: Colors.secondary["100"],

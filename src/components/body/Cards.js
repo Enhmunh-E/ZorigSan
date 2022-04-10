@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
-import { Image } from "../core/Image";
-import { Padding } from "../core/Padding";
+import { Padding, Image } from "../core";
 import "../../styles/Cards.css";
 
 export const Cards = ({ type, image, header, description, origin }) => {

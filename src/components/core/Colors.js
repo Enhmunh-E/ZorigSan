@@ -14,3 +14,4 @@ export const Colors = {
     600: "#6B7280",
   },
 };
+export default Colors;
