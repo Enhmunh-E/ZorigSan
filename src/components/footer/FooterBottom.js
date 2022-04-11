@@ -4,18 +4,24 @@ import WebLogo from "../../assets/icons/HLogo";
 import { Link } from "gatsby";
 
 const Container = styled.div`
-  width: 100%;
+  width: 80%;
   height: 306px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  @media (max-width: 415px) {
+  justify-content: space-between;
+  border-top: 1px solid  #E5E7EB;
+
+  // @media (max-width: 1401px) {
+  //   justify-content: space-between;
+  //   flex-direction: row;
+  // }
+  @media (max-width: 623px) {
     width: 100%;
     height: 672px;
-    display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-direction: column;
+    border-top:none;
   }
 `;
 const SmallText = styled.div`

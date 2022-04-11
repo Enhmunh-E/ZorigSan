@@ -2,6 +2,7 @@ import React from "react";
 import { SelectButtons, Cards, Carousel, Title } from "../components/body";
 import { Footer } from "../components/footer";
 import { Header } from "../components/header";
+import styled from "styled-components";
 import {
   Padding,
   Border,
@@ -40,6 +41,23 @@ const images = [
   },
 ];
 
+const Card = styled.div`
+  display: flex;
+  justify-content: space-around;
+  @media (max-width: 942px) {
+    display: flex;
+    flex-direction: column;
+  }
+`
+const Buttons = styled.div`
+  display: flex;
+  justify-content: space-around;
+  @media (max-width: 942px) {
+    display: flex;
+    flex-direction: column;
+  }
+`
+
 const Test = () => {
   return (
     <div
@@ -67,12 +85,7 @@ const Test = () => {
       >
         Border
       </Border>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-        }}
+      <Buttons
       >
         <Button type="primary">Button</Button>
         <Button type="primary-outlined">Button</Button>
@@ -80,13 +93,8 @@ const Test = () => {
         <Button type="secondary-outlined">Button</Button>
         <Button type="tertiary">Button</Button>
         <Button type="tertiary-outlined">Button</Button>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-        }}
+      </Buttons>
+      <Buttons
       >
         <Input
           placeholder="Input"
@@ -96,7 +104,7 @@ const Test = () => {
         />
         <Input placeholder="Input" type="send" />
         <Input placeholder="Input" optional="error" />
-      </div>
+      </Buttons>
       <Image
         src="https://static.dezeen.com/uploads/2021/11/meta-facebook-rebranding-name-news_dezeen_2364_col_hero2.jpg"
         height="100px"
@@ -120,12 +128,7 @@ const Test = () => {
           style={{ backgroundColor: "red", height: "300px", width: "300px" }}
         />
       </TooltipComp>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "100%",
-        }}
+      <Card 
       >
         <Cards
           type="primary"
@@ -146,7 +149,7 @@ const Test = () => {
           header="Guy Hawkins"
           description="“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque vitae tempus quam pellentesque nec nam.”"
         />
-      </div>
+      </Card >
       <Carousel arr={images} WrapperWidth={"75vw"}>
         {images.map((el, i) => (
           <div key={i}>
