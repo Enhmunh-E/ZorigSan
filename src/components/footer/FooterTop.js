@@ -3,29 +3,17 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-    width: 100%;
+    width: 80%;
     height: 226px;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
-`
-
-const ContentContainer = styled.div`
-    width: 67%;
-    height: 100%;  
-    display: flex;
-    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #E5E7EB;
-    align-items: center
-`
-
-const TextContainer = styled.div`
-    width: 415px;
-    height: 64px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between
+    @media (max-width: 1202px) {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
 `
 
 const Title = styled.div`
@@ -50,13 +38,13 @@ const Subtitle = styled.div`
 export const FooterTop = () => {
     return(
         <Container>
-            <ContentContainer>
-                <TextContainer>
+            {/* <ContentContainer> */}
+                <dev>
                     <Title>You made it this far.</Title>
                     <Subtitle>Football, foot massage, Foot Locker.</Subtitle>
-                </TextContainer>
+                </dev>
                 <Subscribe/>
-            </ContentContainer>
+            {/* </ContentContainer> */}
         </Container>
     )
 }

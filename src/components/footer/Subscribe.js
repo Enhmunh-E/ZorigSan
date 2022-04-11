@@ -9,6 +9,11 @@ const Subscription = styled.div`
   flex-direction: row;
   gap: 8px;
   align-items: center;
+  justify-content: flex-end;
+  @media (max-width: 934px) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 export const Subscribe = () => {
