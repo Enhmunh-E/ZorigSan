@@ -8,3 +8,5 @@ export const Image = styled.img`
     props.backgroundColor && props.backgroundColor};
   src: ${(props) => props.src && props.src};
 `;
+
+export default Image;

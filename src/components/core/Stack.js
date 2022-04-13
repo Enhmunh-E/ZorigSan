@@ -11,4 +11,7 @@ export const Stack = styled.div`
   ${(props) => (props.gap ? `gap: ${props.gap}` : "")};
   ${(props) => (props.rowGap ? `row-gap: ${props.rowGap}` : "")};
   ${(props) => (props.columnGap ? `column-gap: ${props.columnGap}` : "")};
+  ${(props) => (props.textAlign ? `text-align: ${props.textAlign}` : "")};
 `;
+
+export default Stack;
