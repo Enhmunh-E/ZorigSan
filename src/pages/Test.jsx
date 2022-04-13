@@ -439,17 +439,3 @@ const Test = () => {
 };
 
 export default Test;
-
-//           <Stack
-// alignItems="center"
-// display="flex"
-// flexDirection="row"
-// gap="30px"
-// style={{ textAlign: "center", width: "400px" }}
-// >
-// {/* -------------------- Text -------------------- */}
-// <Text type="title1_bold">
-//   The Text component. You can set its type, making it have preset
-//   styles (This is title1_bold)
-// </Text>
-// </Stack>
