@@ -1,7 +1,6 @@
 import React from "react";
 import { Footer } from "../components/footer";
-import { Header } from "../components/header";
-import styled from "styled-components";
+import { Header } from "../components/header/Header";
 import {
   Cards,
   Card,
@@ -48,23 +47,6 @@ const images = [
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
   },
 ];
-
-const Card = styled.div`
-  display: flex;
-  justify-content: space-around;
-  @media (max-width: 942px) {
-    display: flex;
-    flex-direction: column;
-  }
-`
-const Buttons = styled.div`
-  display: flex;
-  justify-content: space-around;
-  @media (max-width: 942px) {
-    display: flex;
-    flex-direction: column;
-  }
-`
 
 const Test = () => {
   return (
@@ -222,7 +204,7 @@ const Test = () => {
               width={"30vw"}
               title={"SelectButtons"}
               subtitle={
-                "A small array of three buttons, which you can select one of"
+                "A small array of how many buttons you choose, which you can select one of"
               }
             />
             <SelectButtons
@@ -325,10 +307,32 @@ const Test = () => {
           display="flex"
           flexDirection="row"
           style={{
-            background: "linear-gradient(90deg, lightblue ,green)",
+            background: "linear-gradient(lightblue ,green",
             width: "40vw",
           }}
         >
+          <Opacity opacity="25%">
+            <div
+              style={{
+                backgroundColor: "white",
+                color: "black",
+                fontSize: "20px",
+                height: "200px",
+                width: "300px",
+              }}
+            >
+              <Stack
+                justifyContent="center"
+                alignItems="center"
+                style={{ height: "90%" }}
+              >
+                <Title
+                  width={"100%"}
+                  title={"this one is 25%"}
+                />
+              </Stack>
+            </div>
+          </Opacity>
           <Opacity opacity="50%">
             <div
               style={{
@@ -350,6 +354,28 @@ const Test = () => {
                   subtitle={
                     "A component that wraps other components, changing their opacity; this one is 50%"
                   }
+                />
+              </Stack>
+            </div>
+          </Opacity>
+          <Opacity opacity="100%">
+            <div
+              style={{
+                backgroundColor: "white",
+                color: "black",
+                fontSize: "20px",
+                height: "200px",
+                width: "300px",
+              }}
+            >
+              <Stack
+                justifyContent="center"
+                alignItems="center"
+                style={{ height: "90%" }}
+              >
+                <Title
+                  width={"100%"}
+                  title={"this one is 100%"}
                 />
               </Stack>
             </div>

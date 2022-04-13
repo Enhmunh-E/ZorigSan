@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import { MenuIcon } from "../../assets/icons";
-import { Button } from "../Button";
+import { Button } from "../core";
 import {
   HeaderStyle,
   HeaderMenuCon,
