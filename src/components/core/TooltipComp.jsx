@@ -11,6 +11,7 @@ export const TooltipComp = ({ placement, maxwidth, content, children }) => {
       color: "white",
       fontSize: "18px",
       maxWidth: maxwidth === undefined ? "170px" : maxwidth,
+      padding: "10px",
     },
     [`& .${tooltipClasses.arrow}`]: {
       "&:before": {
