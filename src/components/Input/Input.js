@@ -75,3 +75,5 @@ export const Input = ({
     </InputCon>
   );
 };
+
+export default Input;

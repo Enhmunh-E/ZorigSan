@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import { MenuIcon } from "../../assets/icons";
-import { Button } from "../core/Button";
+import { Button } from "../Button";
 import {
   HeaderStyle,
   HeaderMenuCon,
@@ -36,8 +36,8 @@ const Header = () => {
     <HeaderStyle>
       <HeaderItems>
         <div>LOGO</div>
-        <HeaderMenu>
-          <HeaderMenuIcon onClick={menuFunc}>
+        <HeaderMenu onClick={menuFunc}>
+          <HeaderMenuIcon>
             <MenuIcon />
           </HeaderMenuIcon>
         </HeaderMenu>
@@ -46,8 +46,8 @@ const Header = () => {
             style={{ opacity: menuBack === false ? 0 : 1 }}
           ></HeaderMenuBackground>
           <HeaderLinks style={{ right: menuBack === false ? "-350px" : 0 }}>
-            <HeaderMenu>
-              <HeaderMenuIcon onClick={menuFunc}>
+            <HeaderMenu onClick={menuFunc}>
+              <HeaderMenuIcon>
                 <MenuIcon />
               </HeaderMenuIcon>
             </HeaderMenu>

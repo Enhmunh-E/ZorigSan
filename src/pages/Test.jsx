@@ -16,7 +16,6 @@ import {
   Opacity,
   Stack,
   TooltipComp,
-  // Text,
   Padding,
 } from "../components/core";
 import { Input } from "../components/body/Input";
