@@ -12,7 +12,7 @@ const fontMapStyle = {
   title2_underline: "16px",
 };
 
-const Text = styled.div`
+ export const Text = styled.div`
 
   font-size: ${({ type }) => fontMapStyle[type]};
   font-weight: ${({ type }) => {

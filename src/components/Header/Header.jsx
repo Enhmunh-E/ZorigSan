@@ -13,7 +13,7 @@ import {
   HeaderMenuBackground,
 } from "./HeaderStyle";
 
-const Header = () => {
+export const Header = () => {
   const [menu, setMenu] = useState(false);
   const [menuBack, setMenuBack] = useState(false);
   useEffect(() => {
@@ -70,4 +70,4 @@ const Header = () => {
   );
 };
 
-export { Header };
+export default Header;

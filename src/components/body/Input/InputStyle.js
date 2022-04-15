@@ -1,20 +1,21 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const InputCon = styled.div`
   width: 320px;
 `;
 export const InputStyle = styled.div`
-  width: ${(props) => (props.w ? `${props.w - 34}px` : 'calc(100% - 34px)')};
+  width: ${(props) => (props.w ? `${props.w - 34}px` : "calc(100% - 34px)")};
   height: 46px;
   padding: 0;
   border: 1px solid #6b7280;
-  border-color: ${(props) => (props.border
-    ? props.border === 'red'
-      ? '#F87171'
-      : props.border === 'gray'
-        ? '#6b7280'
-        : '#4FADE0'
-    : '#6b7280')};
+  border-color: ${(props) =>
+    props.border
+      ? props.border === "red"
+        ? "#F87171"
+        : props.border === "gray"
+        ? "#6b7280"
+        : "#4FADE0"
+      : "#6b7280"};
   border-radius: 4px;
   padding-right: 16px;
   padding-left: 16px;
@@ -27,11 +28,11 @@ export const MainInput = styled.input`
   border: none;
   outline: none;
   padding: 0;
-  margin-left: ${(props) => (props.search ? '10px' : 0)};
-  margin-right: ${(props) => (props.arrow ? '10px' : 0)};
+  margin-left: ${(props) => (props.search ? "10px" : 0)};
+  margin-right: ${(props) => (props.arrow ? "10px" : 0)};
 `;
 export const InputIcon = styled.img`
-  height: ${(props) => (props.arrow ? '16px' : '18px')};
+  height: ${(props) => (props.arrow ? "16px" : "18px")};
 `;
 export const Label = styled.div`
   height: 32px;
