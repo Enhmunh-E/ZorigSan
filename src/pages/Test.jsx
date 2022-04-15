@@ -308,7 +308,7 @@ const Test = () => {
           flexDirection="row"
           style={{
             background: "linear-gradient(lightblue ,green",
-            width: "40vw",
+            width: "80vw",
           }}
         >
           <Opacity opacity="25%">
