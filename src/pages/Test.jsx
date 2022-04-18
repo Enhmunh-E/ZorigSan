@@ -1,6 +1,6 @@
 import React from "react";
 import { Footer } from "../components/footer";
-import { Header } from "../components/header/Header";
+import { Header } from "../components/header";
 import {
   Cards,
   Card,
@@ -19,6 +19,7 @@ import {
   Padding,
 } from "../components/core";
 import { Input } from "../components/body/Input";
+// import Analytic from "../components/body/Analytic";
 
 const images = [
   {

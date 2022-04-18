@@ -24,6 +24,7 @@
     "babel-plugin-styled-components": "^2.0.6",
     "firebase": "^9.6.10",
     "gatsby": "^4.7.2",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^2.8.1",
     "gatsby-plugin-sharp": "^4.8.1",
     "gatsby-plugin-styled-components": "^5.8.0",

@@ -34,6 +34,15 @@ module.exports = {
       },
       resolve: "gatsby-plugin-eslint",
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          'Montserrat\:100,200,300,400,500,600,700,800,900'
+        ],
+        display: 'swap'
+      }
+    }
   ],
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
