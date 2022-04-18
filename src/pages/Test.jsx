@@ -1,6 +1,6 @@
 import React from "react";
 import { Footer } from "../components/footer";
-import { Header } from "../components/header/Header";
+import { Header } from "../components/header";
 import {
   Cards,
   Card,
