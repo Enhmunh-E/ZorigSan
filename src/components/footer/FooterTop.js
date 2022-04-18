@@ -39,10 +39,10 @@ export const FooterTop = () => {
     return(
         <Container>
             {/* <ContentContainer> */}
-                <dev>
+                <div>
                     <Title>You made it this far.</Title>
                     <Subtitle>Football, foot massage, Foot Locker.</Subtitle>
-                </dev>
+                </div>
                 <Subscribe/>
             {/* </ContentContainer> */}
         </Container>
