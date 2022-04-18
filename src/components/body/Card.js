@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/Cards.css";
 import styled from "styled-components";
-import { Text } from "../core";
+import GetWindowSize from "../../util/GetWindowSize";
 
 const Container = styled.div`
   @media screen and (max-device-width: 600px) {
@@ -9,19 +9,19 @@ const Container = styled.div`
     flex-direction: column;
   }
   @media not screen and (max-device-width: 600px) {
+    justify-content: space-between;
     gap: "4vw";
-    flex-direction: "row";
   }
+  ${(props) => props.type && "flex-direction: column"};
   width: ${(props) => (props.width ? props.width : "85vw")};
   display: flex;
   height: fit-content;
-  justify-content: space-between;
   align-items: center;
-  margin: 0 7.5vw 0 7.5vw;
+  margin: ${(props) => (props.margin ? props.margin : "0 10vw 0 10vw")};
 `;
 const Text_Column = styled.div`
   @media screen and (max-device-width: 600px) {
-    width: ${(props) => (props.width ? props.width : "80vw")};
+    width: ${(props) => (props.width ? props.width : "85vw")};
   }
   @media not screen and (max-device-width: 600px) {
     max-width: ${(props) => (props.width ? props.width : "35vw")};
@@ -47,12 +47,34 @@ const Image = styled.img`
   @media not screen and (max-device-width: 600px) {
     width: ${(props) => (props.width ? props.width : "40vw")};
     height: ${(props) => (props.height ? props.height : "25vw")};
-    ${(props) => (props.width ? '' : "min-width: 290px")};
-    ${(props) => (props.height ? '' : "min-height: 180px")};
+    ${(props) => props.minwidth && "min-width: 290px"};
+    ${(props) => props.minheight && "min-height: 180px"};
   }
-  border-radius: 8px;
+  border-radius: ${(props) =>
+    props.borderradius ? props.borderradius : "8px"};
 `;
+const Text = styled.h1`
+  font-style: normal;
+  @media screen and (max-device-width: 800px) {
+    font-size: ${(props) => (props.type === "heading" ? "14px" : "12px")};
+  }
+  @media not screen and (max-device-width: 800px) {
+    font-size: ${(props) => (props.type === "heading" ? "18px" : "16px")};
+  }
+  font-weight: ${(props) => (props.type === "heading" ? "700" : "400")};
+  text-align: left;
+  @media screen and (max-device-width: 600px) {
+    display: flex;
+    justify-content: left;
+  }
+  line-height: 22px;
+  font-family: "Montesarrat";
+  color: ${(props) => (props.color ? props.color : "#0C265C")};
+`;
+
 export const Card = ({
+  color,
+  font,
   line,
   image,
   first,
@@ -60,21 +82,70 @@ export const Card = ({
   text,
   imgwidth,
   imgheight,
-  width,
+  type,
+  margin,
 }) => {
+  let borderradius;
+  let direction;
+  let width;
+  let height;
+  let minwidth;
+  let minheight;
+  let fontsize;
   if (typeof image === "object") image = JSON.stringify(image);
-  console.log(image);
+  if (type === "small") {
+    const { window_width } = GetWindowSize();
+    direction = "column";
+    first = "image";
+    borderradius = "0";
+    margin = "0";
+    if (window_width < 600) {
+      width = "90vw";
+      imgwidth = "85vw";
+      imgheight = "65vw";
+    } else {
+      width = "24vw";
+      imgwidth = "24vw";
+      imgheight = "20vw";
+    }
+  }
+  // I HAVE NOT DONE THE MOBILE VERSION SXDFGHJKLKJHGFDFGHJYTGFVGBHJUYTGFCDVBNHJUYTRFDCVBHYTRFDCXVHU
   return (
-    <Container width={width}>
+    <Container
+      margin={margin}
+      direction={direction}
+      height={height}
+      type={type}
+      width={width}
+    >
       {first === "image" && (
-        <Image width={imgwidth} height={imgheight} src={image}></Image>
+        <Image
+          borderradius={borderradius}
+          width={imgwidth}
+          height={imgheight}
+          src={image}
+          minheight={minheight}
+          minwidth={minwidth}
+        ></Image>
       )}
-      <div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <Text_Column>
-          <Text type={"heading3"} style={{ margin: "5px 0 10px 0" }}>
+          <Text
+            fontsize={fontsize}
+            font={font}
+            color={color}
+            type="heading"
+            style={{ margin: "5px 0 10px 0" }}
+          >
             {header}
           </Text>
-          <Text type="title2" style={{ margin: "5px 0 10px 0" }}>
+          <Text
+            font={font}
+            fontsize={fontsize}
+            color={color}
+            type="title"
+            style={{ margin: "5px 0 10px 0" }}
+          >
             {text}
           </Text>
         </Text_Column>
@@ -82,9 +153,12 @@ export const Card = ({
       </div>
       {first != "image" && (
         <Image
+          borderradius={borderradius}
           width={imgwidth}
           height={imgheight}
           src={image}
+          minheight={minheight}
+          minwidth={minwidth}
         ></Image>
       )}
     </Container>
