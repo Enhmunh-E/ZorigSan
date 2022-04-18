@@ -8,13 +8,13 @@ const Test2 = () => {
         edges {
           node {
             contentful_id
-            createdAt
             title
             image {
               file {
                 url
               }
             }
+            createdAt
           }
         }
       }
