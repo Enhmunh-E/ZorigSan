@@ -12,6 +12,7 @@ import {
   TooltipComp,
 } from "../components/core";
 import { Input } from "../components/body/Input";
+import Analytic from "../components/body/Analytic";
 
 const images = [
   {
@@ -166,6 +167,7 @@ const Test = () => {
           </div>
         ))}
       </Carousel>
+      <Analytic/>
       <Title
         width={"640px"}
         title={"Xөтөлбөрүүд"}
