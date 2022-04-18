@@ -19,7 +19,7 @@ import {
   Padding,
 } from "../components/core";
 import { Input } from "../components/body/Input";
-// import Analytic from "../components/body/Analytic";
+import Analytic from "../components/body/Analytic";
 
 const images = [
   {
