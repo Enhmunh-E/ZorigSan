@@ -21,4 +21,3 @@ import { FontSizes, FontWeight } from "./FontSizes";
 export default Text;
 
 // <Text type='./FontSizes dotor baigaa  --> Jishee ni H1Bold'  color='#0293933'> Blah blahjasdad </Text>
-

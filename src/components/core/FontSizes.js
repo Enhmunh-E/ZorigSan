@@ -79,7 +79,3 @@ export const FontWeight = {
     T4: '500'
   },
 }
-
-
-  
-  
