@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import { MenuIcon } from "../../assets/icons";
 import { Button } from "../core";
+import { ZorigLogo } from "../../assets/icons";
 import {
   HeaderStyle,
   HeaderMenuCon,
@@ -17,7 +18,7 @@ export const Header = () => {
   const [menu, setMenu] = useState(false);
   const [menuBack, setMenuBack] = useState(false);
   useEffect(() => {
-    window.innerWidth <= 1000 ? setMenu(false) : setMenu(true);
+    window.innerWidth <= 960 ? setMenu(false) : setMenu(true);
   }, []);
   const menuFunc = () => {
     if (menu === true) {
@@ -35,9 +36,11 @@ export const Header = () => {
   return (
     <HeaderStyle>
       <HeaderItems>
-        <div>LOGO</div>
-        <HeaderMenu onClick={menuFunc}>
-          <HeaderMenuIcon>
+        <Link to="/" style={{ display: "flex" }}>
+          <ZorigLogo />
+        </Link>
+        <HeaderMenu>
+          <HeaderMenuIcon onClick={menuFunc}>
             <MenuIcon />
           </HeaderMenuIcon>
         </HeaderMenu>
@@ -46,8 +49,8 @@ export const Header = () => {
             style={{ opacity: menuBack === false ? 0 : 1 }}
           ></HeaderMenuBackground>
           <HeaderLinks style={{ right: menuBack === false ? "-350px" : 0 }}>
-            <HeaderMenu onClick={menuFunc}>
-              <HeaderMenuIcon>
+            <HeaderMenu style={{ padding: "32px" }}>
+              <HeaderMenuIcon onClick={menuFunc}>
                 <MenuIcon />
               </HeaderMenuIcon>
             </HeaderMenu>
@@ -60,9 +63,15 @@ export const Header = () => {
             <Link style={{ textDecoration: "none" }} to="/sponsors">
               <HeaderLink>Хамтрагч байгуулгууд</HeaderLink>
             </Link>
-            <Button width={163} height={48} f_weight={1}>
-              хандив өгөх
-            </Button>
+            <Button
+              title={"хандив өгөх"}
+              width={134}
+              bgColor={"primary-white"}
+              f_size={"T3"}
+              f_weight={500}
+              bRadius={3}
+              color={"primary-blue"}
+            />
           </HeaderLinks>
         </HeaderMenuCon>
       </HeaderItems>
