@@ -68,7 +68,7 @@ const Text = styled.h1`
     justify-content: left;
   }
   line-height: 22px;
-  font-family: "Montesarrat";
+  font-family: 'Montserrat';
   color: ${(props) => (props.color ? props.color : "#0C265C")};
 `;
 
@@ -104,9 +104,9 @@ export const Card = ({
       imgwidth = "85vw";
       imgheight = "65vw";
     } else {
-      width = "24vw";
-      imgwidth = "24vw";
-      imgheight = "20vw";
+      width = "22.5vw";
+      imgwidth = "22.5vw";
+      imgheight = "16.5vw";
     }
   }
   // I HAVE NOT DONE THE MOBILE VERSION SXDFGHJKLKJHGFDFGHJYTGFVGBHJUYTGFCDVBNHJUYTRFDCVBHYTRFDCXVHU
@@ -153,7 +153,6 @@ export const Card = ({
       </div>
       {first != "image" && (
         <Image
-          borderradius={borderradius}
           width={imgwidth}
           height={imgheight}
           src={image}
