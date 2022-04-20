@@ -58,7 +58,7 @@ export const News = () => {
   if (window_width < 600) {
     direction = "column";
     console.log(direction);
-    gap = "15px";
+    gap = "32px";
   }
   return (
     <Stack flexDirection="column">
@@ -102,6 +102,7 @@ export const News = () => {
           <HorizontalLine style />
           <Text>year</Text>
         </Stack>
+        
       </Stack>
     </Stack>
   );
