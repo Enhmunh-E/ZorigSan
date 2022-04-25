@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components'
+import { Text } from "../core";
 
 const Analytic_Container = styled.div`
     width: 100%;
@@ -9,23 +10,18 @@ const Analytic_Container = styled.div`
     justify-content: space-evenly;
     background: rgba(192, 199, 207, 0.11);
     @media (max-width: 675px) {
-    height: 600px;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+        height: 552px;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
     }
 `
 const Name = styled.div`
-    font-family: Montserrat;
-    font-size: 100px;
-    font-weight: 600;
-    letter-spacing: -1.25px;
     display: flex;
     justify-content: center;
-    color: #0C265C;
-    font-style: normal; 
     @media (max-width: 675px) {
-    font-size: 64px;
+        display: none;
     }
 `
 
@@ -36,11 +32,11 @@ const Analytic_Data = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     @media (max-width: 675px) {
-    height: 504px;
-    width: 100%;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
+        height: 416px;
+        width: 90%;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
     }
 `
 
@@ -48,27 +44,23 @@ const Group = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 72px;
+    height: 74px;
     justify-content: space-between;
+    @media (max-width: 675px) {
+        width: 100%;
+        justify-content: space-around;
+    }
 `
 
 const Number = styled.div`
-    font-family: Montserrat;
-    font-size: 34px;
-    font-weight: 700;
     letter-spacing: 0.25px;
     text-align: center;
-    color: #0C265C;
 `
 
 const Fact = styled.div`
-    font-family: Montserrat;
-    font-size: 16px;
-    font-weight: 700;
     line-height: 24px;
     letter-spacing: 0.5px;
     text-align: center;
-    color: #0C265C;
     padding-left: 4px;
     padding-right: 4px;
 `
@@ -76,26 +68,26 @@ const Fact = styled.div`
 export const Analytic = () => {
     return(
         <Analytic_Container>
-            <Name>ЗОРИГ САН</Name>
+            <Name><Text color="#0C265C" type='Quote'>ЗОРИГ САН</Text></Name>
             <Analytic_Data>
                 <Group>
-                    <Number>1998</Number>
-                    <Fact>ҮҮСГЭН БАЙГУУЛСАН</Fact>
+                    <Number><Text type='H1Bold' color="#0C265C">1998</Text></Number>
+                    <Fact><Text type='T2Bold' color="#0C265C">ҮҮСГЭН БАЙГУУЛСАН</Text></Fact>
                 </Group>
 
                 <Group>
-                    <Number>2880+</Number>
-                    <Fact>НИЙТ ОЛГОСОН ТЭТЭГЛЭЛ</Fact>
+                    <Number><Text type='H1Bold' color="#0C265C">2880+</Text></Number>
+                    <Fact><Text type='T2Bold' color="#0C265C">НИЙТ ОЛГОСОН ТЭТЭГЛЭЛ</Text></Fact>
                 </Group>
 
                 <Group>
-                    <Number>300+</Number>
-                    <Fact>НИЙГМИЙН ХӨГЖЛИЙН ТӨЦЛҮҮД</Fact>
+                    <Number><Text type='H1Bold' color="#0C265C">300+</Text></Number>
+                    <Fact><Text type='T2Bold' color="#0C265C">НИЙГМИЙН ХӨГЖЛИЙН ТӨЦЛҮҮД</Text></Fact>
                 </Group>
 
                 <Group>
-                    <Number>5000+</Number>
-                    <Fact>ХӨТӨЛБРИЙН ТӨГСӨГЧИД</Fact>
+                    <Number><Text type='H1Bold' color="#0C265C">5000+</Text></Number>
+                    <Fact><Text type='T2Bold' color="#0C265C">ХӨТӨЛБРИЙН ТӨГСӨГЧИД</Text></Fact>
                 </Group>
             </Analytic_Data>
         </Analytic_Container>

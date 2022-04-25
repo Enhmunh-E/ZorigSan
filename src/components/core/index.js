@@ -9,3 +9,4 @@ export * from "./Image";
 export * from "./Button";
 export * from "./Stack";
 export * from "./TooltipComp";
+export * from './Text'

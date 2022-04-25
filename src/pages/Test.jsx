@@ -458,6 +458,8 @@ const Test = () => {
           </Stack>
         </Stack>
       </Border>
+
+      <Analytic/>
       {/* -------------------- Footer -------------------- */}
       <Footer />
     </Stack>
