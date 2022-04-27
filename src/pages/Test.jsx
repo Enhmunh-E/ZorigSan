@@ -7,6 +7,7 @@ import {
   Carousel,
   SelectButtons,
   Title,
+  Donation
 } from "../components/body";
 import {
   Border,
@@ -460,8 +461,15 @@ const Test = () => {
       </Border>
 
       <Analytic/>
+      
+      {/* --------------------  Donation -------------------- */}
+      <Donation text={'Зориг сангийн хүслийг биелүүлээрэй'}/>
+
+
       {/* -------------------- Footer -------------------- */}
       <Footer />
+
+       
     </Stack>
   );
 };

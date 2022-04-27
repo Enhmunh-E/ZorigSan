@@ -4,3 +4,4 @@ export * from "./Cards";
 export * from "./SelectButtons";
 export * from "./Title";
 export * from "./Input/Input";
+export * from './Donation'

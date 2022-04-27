@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import FontSizes from "./FontSizes";
 import Colors from "./Colors";
 
 const types = {
@@ -35,8 +34,6 @@ export const Button = styled.button`
         ? types[type.split("-")[0]]
         : "#FFFFFF"
       : "#FFFFFF"};
-  font-size: ${(props) =>
-    FontSizes[props.f_size] ? FontSizes[props.f_size] : "20px"};
   letter-spacing: ${(props) =>
     props?.l_spacing ? `${props?.l_spacing}px` : "0px"};
 `;
