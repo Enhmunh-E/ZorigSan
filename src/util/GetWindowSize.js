@@ -22,7 +22,6 @@ export function GetWindowSize() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-    console.log(windowDimensions);
     return windowDimensions;
 }
 
