@@ -1,4 +1,4 @@
-export * from "./Card";
+export * from "./ImgCard";
 export * from "./CardCarousel";
 export * from "./Cards";
 export * from "./SelectButtons";
