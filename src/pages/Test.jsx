@@ -9,6 +9,7 @@ import {
   Title,
   Events,
   Donation,
+  ProgramOngoing
 } from "../components/body";
 import {
   Border,
@@ -499,6 +500,7 @@ const Test = () => {
 
       {/* -------------------- Events -------------------- */}
       <Events events={events} />
+      <ProgramOngoing />
     </Stack>
   );
 };
