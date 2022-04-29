@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import GetWindowSize from "../../../util/GetWindowSize";
+import { Text } from "../../core";
 
-const Container = styled.div`
+const ContainerCard = styled.div`
   @media screen and (max-device-width: 600px) {
     gap: "20px";
   }
@@ -16,28 +17,21 @@ const Container = styled.div`
   height: fit-content;
   align-items: center;
   margin: "0";
+  overflow-x: 'hidden';
 `;
 const Text_Column = styled.div`
   @media screen and (max-device-width: 600px) {
     width: 60vw;
-    height: 100px;
     margin-bottom: 10px;
   }
   @media not screen and (max-device-width: 600px) {
     width: 26vw;
-    height: 150px;
+    margin-top: 10px;
   }
   text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`;
-const Line = styled.div`
-  @media not screen and (max-device-width: 600px) {
-    width: 20vw;
-    height: 1px;
-    background-color: black;
-  }
 `;
 const Image = styled.div`
   @media screen and (max-device-width: 600px) {
@@ -67,35 +61,6 @@ const Image = styled.div`
   align-items: end;
 `;
 
-const Text = styled.h1`
-  font-style: normal;
-  margin: 0;
-  margin: 24px 0 0 0;
-  @media screen and (max-device-width: 1000px) {
-    font-size: ${(props) => (props.type === "heading" ? "14px" : "12px")};
-    line-height: ${(props) => (props.type === "heading" ? "18px" : "20px")};
-  }
-  @media not screen and (max-device-width: 1000px) {
-    font-size: ${(props) => (props.type === "heading" ? "18px" : "16px")};
-    line-height: ${(props) => (props.type === "heading" ? "22px" : "32px")};
-  }
-  @media screen and (max-device-width: 600px) {
-    display: flex;
-    justify-content: left;
-    font-size: 14px;
-    line-height: 24px;
-    color: white;
-    margin-left: 10px;
-  }
-  @media screen and (max-device-width: 400px) {
-    font-size: 11px;
-    line-height: 18px;
-  }
-  text-align: left;
-  font-weight: ${(props) => (props.type === "heading" ? "700" : "400")};
-  ${(props) => (props.type === "heading" ? "" : "margin: 10px 0 10px 0")};
-  font-family: "Montserrat";
-`;
 const EventLine = styled.div`
   width: 3.32px;
   height: 30px;
@@ -125,56 +90,40 @@ const DateBackground = styled.div`
   border-radius: 0 0 0 10px;
 `;
 
-const Text_Container = ({ color, date, header, line, text, type }) => {
-  const { window_width } = GetWindowSize();
+const Text_Container = ({ header, text , window_width }) => {
   return (
-    <Text_Column type={type}>
-      <Text color={color} type="heading" cardtype={type}>
-        {header}
-      </Text>
-      <Text color={color} type="title" cardtype={type}>
-        {text}
-      </Text>
-      {type === "small" ? (
-        window_width > 600 && (
-          <Text style={{ color: "black", fontWeight: "500", margin: "0" }}>
-            {date}
-          </Text>
-        )
-      ) : (
-        <></>
-      )}
-      <div>{line === true && <Line />}</div>
+    <Text_Column>
+      <Text color={window_width < 600 ? 'white': '#0C265C'} type="T1">{header}</Text>
+      <Text color={window_width < 600 ? 'white': '#0C265C'} type="T2">{text}</Text>
     </Text_Column>
   );
 };
 export const NewsCard = ({ date, image, header, text }) => {
   const { window_width } = GetWindowSize();
-  let width;
-  let height;
-  let minwidth;
-  let minheight;
+  function Shorten(str, num) {
+    if (str.length <= num) {
+      return str
+    }
+    return str.slice(0, num) + '...'
+  }
+  if( window_width < 400) text = Shorten(text, 80);
+  else if( window_width < 1400) text = Shorten(text, 100);
   if (typeof image === "object") image = JSON.stringify(image);
 
   return (
-    <Container height={height} width={width}>
-      <Image
-        window_width={window_width}
-        image={image}
-        minheight={minheight}
-        minwidth={minwidth}
-      >
+    <ContainerCard>
+      <Image window_width={window_width} image={image}>
         {window_width > 600 && (
           <>
             <EventLine />
-            <EventText>Event</EventText>
+            <EventText >Event</EventText>
           </>
         )}
         {window_width < 600 && (
           <>
-            <Text_Container header={header} text={text} date={date} />
+            <Text_Container window_width={window_width} header={header} text={text} date={date} />
             <DateBackground>
-              <Text style={{ color: "black", fontWeight: "400", margin: "0" }}>
+              <Text>
                 {date}
               </Text>
             </DateBackground>
@@ -182,9 +131,9 @@ export const NewsCard = ({ date, image, header, text }) => {
         )}
       </Image>
       {window_width > 600 && (
-        <Text_Container date={date} header={header} text={text} />
+        <Text_Container window_width={window_width} date={date} header={header} text={text} />
       )}
-    </Container>
+    </ContainerCard>
   );
 };
 

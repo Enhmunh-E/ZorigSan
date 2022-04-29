@@ -1,3 +1,4 @@
+export * from "./news/NewsCarousel";
 export * from "./ImgCard";
 export * from "./CardCarousel";
 export * from "./Cards";
