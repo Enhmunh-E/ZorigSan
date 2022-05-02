@@ -34,12 +34,21 @@ const Text = styled.div`
   padding-bottom: 24px;
   padding-left: 16px;
   transition: all 1s;
+  font-size: 18px;
   @media (max-width: 1099px) {
-    word-break: break-all;
+    text-align: left;
     font-size: 18px;
+  }
+  @media (max-width: 860px) {
+    word-break: break-all;
+  }
+  @media (max-width: 700px) {
+    text-align: left;
+    word-break: normal;
   }
   @media (max-width: 600px) {
     word-break: normal;
+    text-align: left;
   }
   @media (max-width: 288px) {
     word-break: break-all;
@@ -104,7 +113,7 @@ const Con = styled.div`
   padding-bottom: ${(props) => props.paddingBottom && `${props.paddingBottom}`};
   align-items: center;
 `;
-export const EventCart = ({ img,title,paddingTop }) => {
+export const EventCart = ({ img, title, paddingTop }) => {
   const divRef = useRef(null);
   const { width } = useWindowDimensions();
   const [textHeight, setTextHeight] = useState(divRef?.current?.offsetHeight);
