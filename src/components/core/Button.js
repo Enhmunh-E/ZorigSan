@@ -12,7 +12,7 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   border: 1px solid
-    ${({ type }) => (type ? types[type.split("-")[0]] : types.primary)}};
+    ${({ type }) => (type ? types[type.split("-")[0]] : types.primary)};
   border-radius: ${(props) =>
     props?.b_radius ? `${props?.b_radius}px` : "10px"};
   cursor: pointer;
@@ -34,7 +34,7 @@ export const Button = styled.button`
         ? types[type.split("-")[0]]
         : "#FFFFFF"
       : "#FFFFFF"};
-  letter-spacing: ${(props) =>
-    props?.l_spacing ? `${props?.l_spacing}px` : "0px"};
+  font-size: '20px';
+  letter-spacing: '0px'
 `;
 export default Button;

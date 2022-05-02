@@ -9,3 +9,5 @@ export * from "./Image";
 export * from "./button/Button";
 export * from "./Stack";
 export * from "./TooltipComp";
+export * from './Text'
+export * from './Modal'

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Footer } from "../components/footer";
 import { Header } from "../components/header";
 import {
@@ -18,6 +18,7 @@ import {
   Stack,
   TooltipComp,
   Padding,
+  Modal
 } from "../components/core";
 import { Input } from "../components/body/Input";
 import Analytic from "../components/body/Analytic";
@@ -51,6 +52,15 @@ const images = [
 ];
 
 const Test = () => {
+  const [modal, setModal] = useState(false)
+
+  const modalShow = () => {
+    setModal(!modal);
+  }
+
+  const close = () => {
+    setModal(false);
+  }
   return (
     <Stack
       alignItems="center"
@@ -466,6 +476,15 @@ const Test = () => {
       <Donation text={'Зориг сангийн хүслийг биелүүлээрэй'}/>
 
 
+      <button onClick={modalShow}>SHOW</button>
+
+      {modal &&
+      <Modal setModal={setModal}>
+        <div style={{backgroundColor: 'pink', height: '150px', width: '150px', zIndex: '9999'}}>
+          UBUGUGUG
+          <button onClick={close}>&#10005;</button>  
+        </div>
+      </Modal> }
       {/* -------------------- Footer -------------------- */}
       <Footer />
 
