@@ -9,15 +9,14 @@ export const HeaderStyle = styled.div`
 
 export const HeaderItems = styled.div`
   width: 1320px;
-  padding-left: 32px;
-  padding-right: 32px;
-  height: 141px;
+  padding: 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   @media only screen and (max-width: 960px) {
     width: 100%;
-    height: 105px;
+    height: 69px;
+    padding: 32px;
   }
 `;
 
@@ -25,16 +24,6 @@ export const HeaderLinks = styled.div`
   gap: 40px;
   display: flex;
   align-items: center;
-  @media only screen and (max-width: 960px) {
-    position: fixed;
-    flex-direction: column;
-    background-color: #0c265c;
-    width: 300px;
-    height: 100vh;
-    top: 0;
-    right: 0;
-    transition: right 0.3s;
-  }
 `;
 
 export const HeaderLink = styled.div`
@@ -46,27 +35,7 @@ export const HeaderLink = styled.div`
 export const HeaderMenuCon = styled.div`
   display: flex;
   @media only screen and (max-width: 960px) {
-    position: fixed;
-    z-index: 1;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    right: 0;
-  }
-`;
-
-export const HeaderMenuBackground = styled.div`
-  display: none;
-  background-color: #0000004d;
-  opacity: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  transition: opacity 0.2s;
-  @media only screen and (max-width: 960px) {
-    display: flex;
+    display: none;
   }
 `;
 
@@ -75,19 +44,54 @@ export const HeaderMenu = styled.div`
   width: 24px;
   display: none;
   cursor: pointer;
+  padding-left: 32px;
+  padding-right: 32px;
   @media only screen and (max-width: 960px) {
     display: flex;
-    height: 80px;
+    height: 105px;
     width: calc(100% - 66px);
-    display: flex;
     justify-content: flex-end;
     align-items: center;
+    padding-left: 0;
+    padding-right: 0;
   }
 `;
 
 export const HeaderMenuIcon = styled.div`
   height: 24px;
   width: 24px;
+`;
+
+export const HeaderDropDown = styled.div`
+  transition: transform 0.2s;
+`;
+
+export const HeaderDropDownItems = styled.div`
+  position: absolute;
+  top: 100px;
+  opacity: 0;
+  max-height: 0px;
+  transition: opacity 0.2s, max-height 0.2s;
+  -webkit-transition: opacity 0.2s, max-height 0.2s;
+  -moz-transition: opacity 0.2s, max-height 0.2s;
+  -ms-transition: opacity 0.2s, max-height 0.2s;
+  -o-transition: opacity 0.2s, max-height 0.2s;
+  overflow: hidden;
+  @media only screen and (max-width: 960px) {
+    position: static;
+    margin-top: 24px;
+  }
+`;
+
+export const HeaderMobileMenu = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  background-color: #0c265c;
+  transition: right 0.4s;
 `;
 
 export default HeaderStyle;

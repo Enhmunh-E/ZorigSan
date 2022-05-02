@@ -68,13 +68,18 @@ export const BannerTitleCon = styled.div`
   }
   @media only screen and (max-width: 960px) {
     width: calc(100% - 64px);
+    justify-content: flex-start;
+    height: 90%;
   }
 `;
 
 export const BannerTitle = styled.div`
   margin: 0;
-  width: 880px;
+  width: 860px;
   @media only screen and (max-width: 960px) {
+    width: 85%;
+  }
+  @media only screen and (max-width: 540px) {
     width: 100%;
   }
 `;

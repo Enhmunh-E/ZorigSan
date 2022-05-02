@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo } from "react";
 import { createGlobalStyle } from "styled-components";
 import { Header } from "../../header";
 import { Text, Button } from "../../core";
@@ -13,14 +13,16 @@ import {
   BannerTitle,
   BannerDescription,
 } from "./BannerStyle";
+import useWindowDimensions from "../../../functions/useWindowDimensions";
 
 export const Banner = ({ description, image, title }) => {
-  const [phone, setPhone] = useState(false);
-  const [bannerHeight, setBannerHeight] = useState(false);
-  useEffect(() => {
-    window.innerWidth <= 540 ? setPhone(true) : setPhone(false);
-    setBannerHeight(window.innerWidth >= 540 ? "720px" : "400px");
-  }, []);
+  const { width } = useWindowDimensions();
+  const bannerHeight = useMemo(() => {
+    return width >= 541 ? "720px" : "400px";
+  }, [width]);
+  const phone = useMemo(() => {
+    return width <= 540;
+  }, [width]);
   const GlobalStyle = createGlobalStyle`
   body {
       margin: 0;
@@ -30,25 +32,25 @@ export const Banner = ({ description, image, title }) => {
   return (
     <BannerCon bannerHeight={bannerHeight}>
       <GlobalStyle />
-      <Header />
+      <Header color={"primary-white"} />
       <BannerTitleCon>
         <BannerHaalt1>
-          <Haalt1 size={phone === true ? "small" : "big"} />
+          <Haalt1 size={phone ? "small" : "big"} />
         </BannerHaalt1>
         <BannerTitle>
-          <Text style={{ width: "89%" }} type={"Quote"} color={"#fff"}>
+          <Text type={"Quote"} color={"#fff"}>
             {title}
           </Text>
         </BannerTitle>
         <BannerHaalt2>
-          <Haalt2 size={phone === true ? "small" : "big"} />
+          <Haalt2 size={phone ? "small" : "big"} />
         </BannerHaalt2>
         <BannerDescription>
           <Text style={{ color: "#fff" }} type="H2">
             {description}
           </Text>
         </BannerDescription>
-        {phone === false ? (
+        {phone === false && (
           <Button
             type={"arrow"}
             title={"Бидний тухай"}
@@ -56,11 +58,9 @@ export const Banner = ({ description, image, title }) => {
             bgColor={"primary-white"}
             f_size={"T3"}
             f_weight={500}
-            bRadius={3}
+            bRadius={4}
             color={"primary-blue"}
           />
-        ) : (
-          <></>
         )}
       </BannerTitleCon>
       <BannerImg

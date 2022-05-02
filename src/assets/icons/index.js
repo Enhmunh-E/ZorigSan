@@ -15,3 +15,5 @@ export * from "./warningIcon";
 export * from "./haalt1";
 export * from "./haalt2";
 export * from "./arrow";
+export * from "./dropdownArrow";
+export * from "./close";
