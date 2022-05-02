@@ -44,7 +44,6 @@ export const FooterTop = () => {
                     <Subtitle>Football, foot massage, Foot Locker.</Subtitle>
                 </div>
                 <Subscribe/>
-            {/* </ContentContainer> */}
         </Container>
     )
 }
