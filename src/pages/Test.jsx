@@ -7,7 +7,8 @@ import {
   Carousel,
   SelectButtons,
   Title,
-  Donation
+  Events,
+  Donation,
 } from "../components/body";
 import {
   Border,
@@ -49,7 +50,24 @@ const images = [
     text: "Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
   },
 ];
-
+const events = [
+  {
+    img: "http://zorigsan.mn/wp-content/uploads/2020/09/Maral.jpg",
+    title: "Залуу мэргэжилтнүүдэд зориулсан",
+  },
+  {
+    img: "http://zorigsan.mn/wp-content/uploads/2020/09/Batorgil.jpg",
+    title: "Оюутан залууст зориулсан ",
+  },
+  {
+    img: "http://zorigsan.mn/wp-content/uploads/2022/01/Screen-Shot-2022-01-28-at-12.12.56.jpg",
+    title: "Сурагчдад зориулсан",
+  },
+  {
+    img: "http://zorigsan.mn/wp-content/uploads/2020/08/Gansukh.jpg",
+    title: "Орон нутгийн залууст зориулсан  ",
+  },
+];
 const Test = () => {
   return (
     <Stack
@@ -59,9 +77,7 @@ const Test = () => {
       style={{ overflow: "hidden" }}
     >
       {/* -------------------- Header -------------------- */}
-      <Margin
-        size={[80, 0, 0, 0]}
-      >
+      <Margin size={[80, 0, 0, 0]}>
         <Header />
       </Margin>
 
@@ -328,10 +344,7 @@ const Test = () => {
                 alignItems="center"
                 style={{ height: "90%" }}
               >
-                <Title
-                  width={"100%"}
-                  title={"this one is 25%"}
-                />
+                <Title width={"100%"} title={"this one is 25%"} />
               </Stack>
             </div>
           </Opacity>
@@ -375,10 +388,7 @@ const Test = () => {
                 alignItems="center"
                 style={{ height: "90%" }}
               >
-                <Title
-                  width={"100%"}
-                  title={"this one is 100%"}
-                />
+                <Title width={"100%"} title={"this one is 100%"} />
               </Stack>
             </div>
           </Opacity>
@@ -460,16 +470,16 @@ const Test = () => {
         </Stack>
       </Border>
 
-      <Analytic/>
-      
-      {/* --------------------  Donation -------------------- */}
-      <Donation text={'Зориг сангийн хүслийг биелүүлээрэй'}/>
+      <Analytic />
 
+      {/* --------------------  Donation -------------------- */}
+      <Donation text={"Зориг сангийн хүслийг биелүүлээрэй"} />
 
       {/* -------------------- Footer -------------------- */}
       <Footer />
 
-       
+      {/* -------------------- Events -------------------- */}
+      <Events events={events} />
     </Stack>
   );
 };
