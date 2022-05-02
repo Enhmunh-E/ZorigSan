@@ -11,7 +11,7 @@ export const DropdownArrow = ({ color }) => {
     >
       <path
         d="M1 1L8.3415 7.42381C8.71852 7.75371 9.28148 7.75371 9.6585 7.42381L17 1"
-        stroke={color === "blue" ? "#0c265c" : "#fff"}
+        stroke={color}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"

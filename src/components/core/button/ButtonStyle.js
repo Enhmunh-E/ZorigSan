@@ -13,7 +13,7 @@ export const ButtonStyle = styled.button`
     props?.borderColor ? `${props?.borderColor}` : props?.bgColor};
   border-radius: ${(props) =>
     props?.b_radius ? `${props?.b_radius}px` : "3px"};
-  width: ${(props) => (props?.width ? `${props?.width}px` : "120px")};
+  width: ${(props) => (props?.width ? `${props?.width}px` : "100%")};
   font-family: "Montserrat";
   font-weight: ${(props) => (props?.f_weight ? props?.f_weight : "500")};
   letter-spacing: ${(props) =>
