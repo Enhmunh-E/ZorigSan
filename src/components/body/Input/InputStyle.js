@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const InputCon = styled.div`
-  width: 320px;
+ width: ${(props) => (props.width ? props.width : "320px")}
 `;
 export const InputStyle = styled.div`
-  width: ${(props) => (props.w ? `${props.w - 34}px` : "calc(100% - 34px)")};
+  width: ${(props) => (props.width ? `${props.width - 34}px` : "calc(100% - 34px)")};
   height: 46px;
   padding: 0;
   border: 1px solid #6b7280;
@@ -22,6 +22,7 @@ export const InputStyle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: ${(props) => (props.BackgroundColor ? props.BackgroundColor : "")};
 `;
 export const MainInput = styled.input`
   width: 100%;
