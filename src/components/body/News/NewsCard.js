@@ -20,7 +20,7 @@ const CardContainer = styled.div`
   height: fit-content;
   align-items: center;
   margin: "0";
-  overflow-x: hidden;
+  /* overflow-x: scroll; */
   animation: ${(props) =>
       props.direction === "right"
         ? "move_anim_right"
