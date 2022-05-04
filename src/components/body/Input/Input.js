@@ -21,6 +21,8 @@ export const Input = ({
   border,
   value,
   setValue,
+  BackgroundColor,
+  width,
 }) => {
   const changeFunction = (e) => {
     e.preventDefault();
@@ -28,14 +30,14 @@ export const Input = ({
   };
 
   return (
-    <InputCon>
+    <InputCon width={width}>
       {label && hint !== "" && (
         <Label>
           <InputLabel>{label}</InputLabel>
           <InputHintOptional>{hint}</InputHintOptional>
         </Label>
       )}
-      <InputStyle border={border}>
+      <InputStyle border={border} BackgroundColor={BackgroundColor} width={width}>
         {type === "search" ? (
           <>
             <InputIcon search src={SearchIcon} />
