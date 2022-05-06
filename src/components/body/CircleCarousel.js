@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { CarouselBack, CarouselNext, ProgramLogo } from '../../assets/icons';
+import { CarouselBack, CarouselNext } from '../../assets/icons';
 import useWindowDimensions from '../../functions/useWindowDimensions';
 import { Stack, Text } from '../core';
 
