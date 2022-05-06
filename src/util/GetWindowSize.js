@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 
-function getWindowDimensions() {
+const getWindowDimensions = () => {
   const { innerWidth: window_width, innerHeight: window_height } = window;
   return {
     window_height,
     window_width,
   };
-}
+};
 
-export function GetWindowSize() {
+export const GetWindowSize = (props) => {
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
   );
@@ -17,13 +17,17 @@ export function GetWindowSize() {
     function handleResize() {
       setWindowDimensions(getWindowDimensions());
     }
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-    return windowDimensions;
-}
+  if (props === "isDevice") {
+    if (windowDimensions.window_width > 960) return "Desktop";
+    else if (windowDimensions.window_width > 540) return "Tablet";
+    else return "Mobile";
+  }
+  else return windowDimensions;
+};
 
 export default GetWindowSize;
 

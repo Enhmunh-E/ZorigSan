@@ -2,54 +2,58 @@ import React from "react";
 import styled from "styled-components";
 import GetWindowSize from "../../../util/GetWindowSize";
 import { Text } from "../../core";
-
 const CardContainer = styled.div`
-  @media screen and (max-device-width: 600px) {
-    gap: "20px";
-    width: "85vw";
-  }
-  @media not screen and (max-device-width: 600px) {
-    justify-content: space-between;
-    gap: "4vw";
-    animation: move_anim 1s normal 0 1 normal normal;
-    ${(props) => props.visibility && "visibility: hidden;"}
-    ${(props) => props.moveleft && " transform: translateX(-28vw);"}
-  }
   flex-direction: column;
   display: flex;
   height: fit-content;
   align-items: center;
-  margin: "0";
-  /* overflow-x: scroll; */
-  animation: ${(props) =>
-      props.direction === "right"
-        ? "move_anim_right"
-        : props.direction === "left" && "move_anim_left"}
-    0.8s;
-  @keyframes move_anim_right {
-    0% {
-      transform: translateX(-28vw);
-    }
-    100% {
-      transform: translateX(-56vw);
-    }
+  margin: 0;
+  @media (max-device-width: 600px) {
+    gap: 20px;
+    width: 85vw;
   }
-  @keyframes move_anim_left {
-    0% {
-      transform: translateX(-28vw);
+  @media (min-device-width: 600px) {
+    @media (max-device-width: 1200px) {
+      @keyframes move_animation_right {
+        100% {
+          transform: translateX(-56vw);
+        }
+      }
     }
-    100% {
-      transform: translateX(0);
+    @media (min-device-width: 1200px) {
+      @keyframes move_animation_right {
+        100% {
+          transform: translateX(-896px);
+        }
+      }
+    }
+    @keyframes move_animation_left {
+      100% {
+        transform: translateX(0);
+      }
+    }
+    justify-content: space-between;
+    animation-name: ${(props) =>
+      props.direction === "left"
+        ? "move_animation_left"
+        : props.direction === "right" && "move_animation_right"};
+    animation-duration: 0.8s;
+    @media (max-device-width: 1200px) {
+      ${(props) => props.moveleft && `transform: translateX(-28vw)`}
+    }
+    @media (min-device-width: 1635px) {
+      ${(props) => props.moveleft && `transform: translateX(-448px)`}
     }
   }
 `;
 const Text_Column = styled.div`
-  @media screen and (max-device-width: 600px) {
+  @media (max-device-width: 600px) {
     width: 60vw;
     margin-bottom: 10px;
     margin-left: 10px;
   }
-  @media not screen and (max-device-width: 600px) {
+  @media (min-device-width: 600px) {
+    max-width: 424px;
     width: 26vw;
     margin-top: 10px;
   }
@@ -59,7 +63,7 @@ const Text_Column = styled.div`
   justify-content: space-between;
 `;
 const Image = styled.div`
-  @media screen and (max-device-width: 600px) {
+  @media (max-device-width: 600px) {
     width: 85vw;
     height: 53vw;
     border-radius: 4px;
@@ -68,9 +72,11 @@ const Image = styled.div`
     background-size: 100% 100%;
     background-repeat: no-repeat;
   }
-  @media not screen and (max-device-width: 600px) {
+  @media (min-device-width: 600px) {
     width: 26vw;
     height: 16.6vw;
+    max-width: 424px;
+    max-height: 272px;
     border-radius: 8px;
     background: linear-gradient(
         360deg,
@@ -142,20 +148,20 @@ export const NewsCard = ({
     }
     return str.slice(0, num) + "...";
   }
+
   if (window_width < 400) text = Shorten(text, 80);
   else if (window_width < 1400) text = Shorten(text, 100);
+  else if (window_width < 1650) text = Shorten(text, 150);
   if (typeof image === "object") image = JSON.stringify(image);
-
   return (
     <CardContainer direction={direction} moveleft={moveleft}>
-      <Image image={image}>
-        {window_width > 600 && (
+      <Image window_width={window_width} image={image}>
+        {window_width > 600 ? (
           <>
             <EventLine />
             <EventText>Event</EventText>
           </>
-        )}
-        {window_width < 600 && (
+        ) : (
           <>
             <Text_Container
               window_width={window_width}
