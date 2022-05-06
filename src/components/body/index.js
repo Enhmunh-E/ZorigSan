@@ -6,5 +6,5 @@ export * from "./Title";
 export * from "./Input/Input";
 export * from "./Events";
 export * from "./Donation";
-export * from './banner'
-export * from './ProgramOngoing'
+export * from "./banner";
+export * from "./ProgramOngoing";
