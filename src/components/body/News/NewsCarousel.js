@@ -28,12 +28,16 @@ const NewsContainer = styled.div`
     overflow-x: scroll;
   }
   @media not screen and (max-device-width: 600px) {
-    padding-left: 1.5vw;
-    width: 83vw;
+    width: 82vw;
+    max-width: 1320px;
     overflow: hidden;
   }
 `;
 const NewsButton = styled.button`
+  :disabled {
+    opacity: 50%;
+  }
+  transition: all 0.3s;
   width: fit-content;
   height: fit-content;
   background: 0;
@@ -56,6 +60,11 @@ export const NewsCarousel = ({ data, title }) => {
   const [btnstate, setBtnstate] = useState({ left: true, right: true }); // true = on, false = off
   useEffect(() => {
     if (data.length <= 3) setBtnstate({ left: false, right: false });
+    if (data.length === 4)
+      for (let i = 0; i < 4; i++) {
+        data.push(data[i]);
+        setInnerdata(data);
+      }
   }, []);
 
   const move = (dir) => {
@@ -94,7 +103,7 @@ export const NewsCarousel = ({ data, title }) => {
           </NewsButton>
         )}
         <NewsContainer>
-          <Stack gap="2vw" justifyContent="space-between" flexDirection="row">
+          <Stack gap={window_width > 1635 ? "24px" : "2vw"} flexDirection="row">
             {innerdata.map((carddata, index) => (
               <div key={index}>
                 <Stack flexDirection="column" justifyContent="left">
