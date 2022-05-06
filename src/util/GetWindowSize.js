@@ -22,10 +22,6 @@ export function GetWindowSize() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-<<<<<<< HEAD
-=======
-    console.log(windowDimensions);
->>>>>>> 8a13b99 (Made News.js & GetWindowSize.js, changed Card.js (again))
     return windowDimensions;
 }
 

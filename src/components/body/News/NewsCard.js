@@ -3,26 +3,51 @@ import styled from "styled-components";
 import GetWindowSize from "../../../util/GetWindowSize";
 import { Text } from "../../core";
 
-const ContainerCard = styled.div`
+const CardContainer = styled.div`
   @media screen and (max-device-width: 600px) {
     gap: "20px";
+    width: "85vw";
   }
   @media not screen and (max-device-width: 600px) {
     justify-content: space-between;
     gap: "4vw";
+    animation: move_anim 1s normal 0 1 normal normal;
+    ${(props) => props.visibility && "visibility: hidden;"}
+    ${(props) => props.moveleft && " transform: translateX(-28vw);"}
   }
   flex-direction: column;
-  width: "85vw";
   display: flex;
   height: fit-content;
   align-items: center;
   margin: "0";
-  overflow-x: 'hidden';
+  overflow-x: hidden;
+  animation: ${(props) =>
+      props.direction === "right"
+        ? "move_anim_right"
+        : props.direction === "left" && "move_anim_left"}
+    0.8s;
+  @keyframes move_anim_right {
+    0% {
+      transform: translateX(-28vw);
+    }
+    100% {
+      transform: translateX(-56vw);
+    }
+  }
+  @keyframes move_anim_left {
+    0% {
+      transform: translateX(-28vw);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 `;
 const Text_Column = styled.div`
   @media screen and (max-device-width: 600px) {
     width: 60vw;
     margin-bottom: 10px;
+    margin-left: 10px;
   }
   @media not screen and (max-device-width: 600px) {
     width: 26vw;
@@ -90,50 +115,69 @@ const DateBackground = styled.div`
   border-radius: 0 0 0 10px;
 `;
 
-const Text_Container = ({ header, text , window_width }) => {
+const Text_Container = ({ header, text, window_width }) => {
   return (
     <Text_Column>
-      <Text color={window_width < 600 ? 'white': '#0C265C'} type="T1">{header}</Text>
-      <Text color={window_width < 600 ? 'white': '#0C265C'} type="T2">{text}</Text>
+      <Text color={window_width < 600 ? "white" : "#0C265C"} type="T1">
+        {header}
+      </Text>
+      <Text color={window_width < 600 ? "white" : "#0C265C"} type="T2">
+        {text}
+      </Text>
     </Text_Column>
   );
 };
-export const NewsCard = ({ date, image, header, text }) => {
+export const NewsCard = ({
+  date,
+  direction,
+  image,
+  moveleft,
+  header,
+  text,
+}) => {
   const { window_width } = GetWindowSize();
   function Shorten(str, num) {
     if (str.length <= num) {
-      return str
+      return str;
     }
-    return str.slice(0, num) + '...'
+    return str.slice(0, num) + "...";
   }
-  if( window_width < 400) text = Shorten(text, 80);
-  else if( window_width < 1400) text = Shorten(text, 100);
+  if (window_width < 400) text = Shorten(text, 80);
+  else if (window_width < 1400) text = Shorten(text, 100);
   if (typeof image === "object") image = JSON.stringify(image);
 
   return (
-    <ContainerCard>
-      <Image window_width={window_width} image={image}>
+    <CardContainer direction={direction} moveleft={moveleft}>
+      <Image image={image}>
         {window_width > 600 && (
           <>
             <EventLine />
-            <EventText >Event</EventText>
+            <EventText>Event</EventText>
           </>
         )}
         {window_width < 600 && (
           <>
-            <Text_Container window_width={window_width} header={header} text={text} date={date} />
+            <Text_Container
+              window_width={window_width}
+              header={header}
+              text={text}
+              date={date}
+            />
             <DateBackground>
-              <Text>
-                {date}
-              </Text>
+              <Text>{date}</Text>
             </DateBackground>
           </>
         )}
       </Image>
       {window_width > 600 && (
-        <Text_Container window_width={window_width} date={date} header={header} text={text} />
+        <Text_Container
+          window_width={window_width}
+          date={date}
+          header={header}
+          text={text}
+        />
       )}
-    </ContainerCard>
+    </CardContainer>
   );
 };
 
