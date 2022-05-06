@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Stack, Button, Text } from "../core";
 
-import { ArrowIcon } from "../../assets/icons/arrow";
+import ArrowIcon from "../../assets/icons/arrow";
 const Stylle = styled.div`
   color: #243C6C;
   font-size: 30px;
