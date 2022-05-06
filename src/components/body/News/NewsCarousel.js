@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import { NewsCard } from "./NewsCard";
 import { Stack } from "../../core";
 import { ArrowInCircleIcon } from "../../../assets/icons/arrowincircleIcon";
@@ -27,7 +28,8 @@ const NewsContainer = styled.div`
     overflow-x: scroll;
   }
   @media not screen and (max-device-width: 600px) {
-    width: 82vw;
+    padding-left: 1.5vw;
+    width: 83vw;
     overflow: hidden;
   }
 `;
@@ -38,11 +40,41 @@ const NewsButton = styled.button`
   border: 0;
   cursor: pointer;
   margin-bottom: 8vh;
- ${(props) => props.side === 'right' ? '@media not screen and (max-device-width: 1200px) {transform: scale(1.5) rotate(180deg);} @media screen and (max-device-width: 1200px) {transform: rotate(180deg);}; margin-left: -5vw;' : '@media not screen and (max-device-width: 1200px) {transform: scale(1.5);};margin-right: -5vw'}
+  visibility: ${(props) => props.visibility};
+  animation: name duration timing-function delay iteration-count direction
+    fill-mode;
+  ${(props) =>
+    props.side === "right"
+      ? "@media not screen and (max-device-width: 1200px) {transform: scale(1.5) rotate(180deg);} @media screen and (max-device-width: 1200px) {transform: rotate(180deg);}; margin-left: -5vw;"
+      : "@media not screen and (max-device-width: 1200px) {transform: scale(1.5);};margin-right: -5vw"}
 `;
 
 export const NewsCarousel = ({ data, title }) => {
   const { window_width } = GetWindowSize();
+  const [innerdata, setInnerdata] = useState(data); // The array of data/
+  const [direction, setDirection] = useState("middle"); // 'right' 'left' or 'middle'
+  const [btnstate, setBtnstate] = useState({ left: true, right: true }); // true = on, false = off
+  useEffect(() => {
+    if (data.length <= 3) setBtnstate({ left: false, right: false });
+  }, []);
+
+  const move = (dir) => {
+    if (data.length === 4)
+      for (let i = 0; i < 4; i++) {
+        data.push(data[i]);
+        setInnerdata(data);
+      }
+    setDirection(dir);
+    setBtnstate({ left: false, right: false });
+    setTimeout(() => {
+      if (dir === "left") data.unshift(data.pop());
+      // Move the Last object in the array into the First posioton;
+      else data.push(data.shift()); // Move the First 3 objects in the array into the last 3 posiotons
+      setInnerdata(data);
+      setDirection("middle");
+      setBtnstate({ left: true, right: true });
+    }, 755);
+  };
   return (
     <Stack flexDirection="column" justifyContent="space-between">
       <NewsTitle>{title}</NewsTitle>
@@ -51,28 +83,44 @@ export const NewsCarousel = ({ data, title }) => {
         justifyContent="space-around"
         alignItems="center"
       >
-        {window_width > 600 && <NewsButton side="left"><ArrowInCircleIcon/></NewsButton>}
-        <NewsContainer>
-          <Stack
-            gap="2vw"
-            justifyContent="space-between"
-            flexDirection="row"
+        {window_width > 600 && (
+          <NewsButton
+            disabled={btnstate.left === true ? false : true}
+            side="left"
+            visibility={innerdata.length <= 3 ? "hidden" : "visible"}
+            onClick={() => move("left")}
           >
-            {data.map((carddata, index) => (
+            <ArrowInCircleIcon />
+          </NewsButton>
+        )}
+        <NewsContainer>
+          <Stack gap="2vw" justifyContent="space-between" flexDirection="row">
+            {innerdata.map((carddata, index) => (
               <div key={index}>
                 <Stack flexDirection="column" justifyContent="left">
                   <NewsCard
+                    direction={direction}
                     date={carddata.date}
                     image={carddata.image}
                     header={carddata.header}
                     text={carddata.text}
+                    moveleft={data.length <= 3 ? false : true}
                   />
                 </Stack>
               </div>
             ))}
           </Stack>
         </NewsContainer>
-        {window_width > 600 && <NewsButton side="right"><ArrowInCircleIcon/></NewsButton>}
+        {window_width > 600 && (
+          <NewsButton
+            disabled={btnstate.right === true ? false : true}
+            side="right"
+            visibility={innerdata.length <= 3 ? "hidden" : "visible"}
+            onClick={() => move("right")}
+          >
+            <ArrowInCircleIcon />
+          </NewsButton>
+        )}
       </Stack>
     </Stack>
   );
