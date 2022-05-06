@@ -37,6 +37,7 @@ module.exports = {
     {
       options: {
         display: "swap",
+        // eslint-disable-next-line
         fonts: ["Montserrat\:100,200,300,400,500,600,700,800,900"],
       },
       resolve: `gatsby-plugin-google-fonts`,

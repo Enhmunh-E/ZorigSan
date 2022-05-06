@@ -27,6 +27,7 @@ const IndexPage = () => {
   useEffect(() => {
     data.allContentfulBanner.edges.map((el) => setBannerData(el.node));
   }, [data]);
+
   return (
     <div>
       <Banner
