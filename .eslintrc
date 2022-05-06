@@ -27,7 +27,7 @@
     "no-unused-vars": "error",
     "no-undef": "error",
     "brace-style": "warn",
-    "complexity": ["error", { "max": 10 }],
+    "complexity": ["error", { "max": 11 }],
     "no-empty-function": "error",
     "no-shadow": "off",
     "no-var": "error",
