@@ -25,20 +25,31 @@ export const Header = ({ color }) => {
   const [menu, setMenu] = useState(false);
   const [dropDown, setDropDown] = useState(false);
   const { Theme } = useContext(ThemeContext);
-
   let themeColor = color.includes("primary")
     ? Theme.primary[color]
     : Theme.secondary[color];
 
   return (
-    <HeaderStyle>
+    <HeaderStyle
+      style={
+        color === "primary-blue"
+          ? {
+              backgroundColor: "#fff",
+              position: "fixed",
+            }
+          : {
+              backgroundColor: "transparent",
+              position: "static",
+            }
+      }
+    >
       <HeaderItems>
         <Link to="/" style={{ display: "flex" }}>
           <ZorigLogo />
         </Link>
         <HeaderMenu>
           <HeaderMenuIcon onClick={() => setMenu(!menu)}>
-            <MenuIcon />
+            <MenuIcon color={color === "primary-white" ? "#fff" : "#000"} />
           </HeaderMenuIcon>
         </HeaderMenu>
         <HeaderMenuCon>
@@ -98,9 +109,6 @@ export const Header = ({ color }) => {
             </Stack>
             <Link style={{ textDecoration: "none" }} to="/programs">
               <Text color={themeColor}>Хөтөлбөрууд</Text>
-            </Link>
-            <Link style={{ textDecoration: "none" }} to="/sponsors">
-              <Text color={themeColor}>Хамтрагч байгуулгууд</Text>
             </Link>
             <Button
               title={"хандив өгөх"}

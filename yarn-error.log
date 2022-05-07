@@ -1,0 +1,91 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Galba\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+
+PATH: 
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\Users\Galba\AppData\Local\Programs\PythonCodingPack\Scripts;C:\Users\Galba\AppData\Local\Programs\PythonCodingPack;C:\Users\Galba\AppData\Local\Microsoft\WindowsApps;C:\Users\Galba\AppData\Roaming\npm;C:\Users\Galba\AppData\Local\Programs\Microsoft VS Code\bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.13.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@mui/material/-/material-5.6.4.tgz: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (C:\Users\Galba\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141510:19)
+      at Object.onceWrapper (node:events:509:28)
+      at ClientRequest.emit (node:events:390:28)
+      at TLSSocket.emitRequestTimeout (node:_http_client:763:9)
+      at Object.onceWrapper (node:events:509:28)
+      at TLSSocket.emit (node:events:402:35)
+      at TLSSocket.Socket._onTimeout (node:net:501:8)
+      at listOnTimeout (node:internal/timers:557:17)
+      at processTimers (node:internal/timers:500:7)
+
+npm manifest: 
+  {
+    "name": "zorig",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Zorig",
+    "keywords": [
+      "gatsby"
+    ],
+    "scripts": {
+      "develop": "gatsby develop",
+      "start": "gatsby develop",
+      "build": "gatsby build",
+      "serve": "gatsby serve",
+      "clean": "gatsby clean",
+      "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+      "prepare": "husky install"
+    },
+    "dependencies": {
+      "@emotion/css": "^11.7.1",
+      "@emotion/react": "^11.8.2",
+      "@emotion/styled": "^11.8.1",
+      "@material-ui/core": "^4.12.3",
+      "@mui/material": "^5.5.1",
+      "@parcel/core": "^2.4.1",
+      "babel-plugin-styled-components": "^2.0.6",
+      "firebase": "^9.6.10",
+      "gatsby": "^4.7.2",
+      "gatsby-plugin-eslint": "^4.0.2",
+      "gatsby-plugin-google-fonts": "^1.0.1",
+      "gatsby-plugin-image": "^2.8.1",
+      "gatsby-plugin-sharp": "^4.8.1",
+      "gatsby-plugin-styled-components": "^5.8.0",
+      "gatsby-source-contentful": "^7.5.0",
+      "gatsby-source-filesystem": "^4.8.1",
+      "gatsby-transformer-sharp": "^4.8.0",
+      "graphql": "^15.8.0",
+      "react": "^17.0.1",
+      "react-dom": "^17.0.1",
+      "styled-components": "^5.3.3"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.17.8",
+      "@babel/eslint-parser": "^7.17.0",
+      "@babel/preset-react": "^7.16.7",
+      "eslint": "^8.11.0",
+      "eslint-config-airbnb": "^19.0.4",
+      "eslint-config-prettier": "^8.5.0",
+      "eslint-config-react-app": "^7.0.0",
+      "eslint-plugin-import": "^2.25.4",
+      "eslint-plugin-jsx-a11y": "^6.5.1",
+      "eslint-plugin-prettier": "^4.0.0",
+      "eslint-plugin-react": "^7.29.4",
+      "eslint-plugin-react-hooks": "^4.3.0",
+      "eslint-webpack-plugin": "^3.1.1",
+      "gatsby-plugin-eslint": "^4.0.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
