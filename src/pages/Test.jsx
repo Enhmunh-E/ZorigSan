@@ -4,7 +4,6 @@ import { Header } from "../components/header";
 import {
   Cards,
   Card,
-  Carousel,
   SelectButtons,
   Title,
   Events,
@@ -14,7 +13,6 @@ import {
 import {
   Border,
   Button,
-  Image,
   Margin,
   Opacity,
   Stack,
@@ -24,34 +22,59 @@ import {
 } from "../components/core";
 import { Input } from "../components/body/Input";
 import Analytic from "../components/body/Analytic";
+import CircleCarousel from "../components/body/CircleCarousel";
 
 const images = [
   {
-    name: "Bataa",
-    src: "https://images2.alphacoders.com/110/1109233.jpg",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+      name: "Б.Энхжаргал.",
+      program: 'Young Leap Program',
+      src: "https://images2.alphacoders.com/110/1109233.jpg",
+      text: "ОХУ-д их сургуулиа дөнгөж төгсөж ирээд яах учраа олохгүй будлиж явсан. Удалгүй 'Залуу Манлайлал' хөтөлбөрт хамрагдаж өөрийн давуу болон сул талыг илүү таньж, багаар ажиллах чадвараа дээшлүүлж, өөрийгөө олон талаас нь нээсэн гэж боддог. Эргээд харахад ололт амжилт, саад бэрхшээл, олон сайхан дурсамжуудаар дүүрэн 8 сарыг YLP 18-ийн баг хамт олонтойгоо өнгөрүүлжээ. Миний хувьд энэ хөтөлбөр миний дотроо тээж байсан тэр л мөрөөдлийн төслөө хэрэгжүүлэх, нийгэмдээ, мөн өөрийн хүрээлэлдээ тодорхой хэмжээнд хувь нэмрээ оруулах, олон сонирхолтой хүмүүстэй танилцах боломжийг олгосон. Цаашдаа ч багаараа эхлүүлсэн төслөө илүү өргөжүүлэн хөгжүүлэх хүсэлтэй байгаа.",
   },
   {
-    name: "Dorj",
-    src: "https://images5.alphacoders.com/112/1123013.jpg",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+      name: "Dorj",
+      program: 'Young Leap Program',
+      src: "https://images5.alphacoders.com/112/1123013.jpg",
+      text: "Lorem  dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
   },
   {
-    name: "Tsetsgee",
-    src: "https://images.alphacoders.com/110/1109227.jpg",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+      name: "Tsetsgee",
+      program: 'Young Leap Program',
+      src: "https://images.alphacoders.com/110/1109227.jpg",
+      text: "Lorem ipsum  sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
   },
   {
-    name: "Dulmaa",
-    src: "https://images.alphacoders.com/113/1131281.jpg",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+      name: "Dulmaa",
+      program: 'Young Leap Program',
+      src: "https://images.alphacoders.com/113/1131281.jpg",
+      text: "Lorem ipsum dolor  amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
   },
   {
-    name: "Nergui",
-    src: "https://images3.alphacoders.com/110/1105694.jpg",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+      name: "Nergui",
+      program: 'Young Leap Program',
+      src: "https://images3.alphacoders.com/110/1105694.jpg",
+      text: "Lorem ipsum dolor sit  consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+  }, {
+      name: "Bataa",
+      program: 'Young Leap Program',
+      src: "https://images2.alphacoders.com/110/1109233.jpg",
+      text: "Lorem ipsum dolor sit amet  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
   },
-];
+  {
+      name: "Dorj",
+      program: 'Young Leap Program',
+      src: "https://images5.alphacoders.com/112/1123013.jpg",
+      text: "Lorem ipsum dolor sit amet consectetur  elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+  },
+  {
+      name: "Tsetsgee",
+      program: 'Young Leap Program',
+      src: "https://images.alphacoders.com/110/1109227.jpg",
+      text: "Lorem ipsum dolor sit amet consectetur adipiscing , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+  },
+
+
+]
 const events = [
   {
     img: "http://zorigsan.mn/wp-content/uploads/2020/09/Maral.jpg",
@@ -135,7 +158,7 @@ const Test = () => {
             title={"Carousel"}
             subtitle={'Has a multiple "Card"-s each with an Image & Text'}
           />
-          <Carousel arr={images} WrapperWidth={"75vw"}>
+          {/* <Carousel arr={images} WrapperWidth={"75vw"}>
             {images.map((el, i) => (
               <div key={i}>
                 <Image
@@ -150,7 +173,8 @@ const Test = () => {
                 </div>
               </div>
             ))}
-          </Carousel>
+          </Carousel> */}
+          <CircleCarousel arr={images} topTittle={'ЗОРИГ САНГИЙН АМЖИЛТТАЙ ТӨГСӨГЧИД'}></CircleCarousel>
         </Stack>
       </Border>
 

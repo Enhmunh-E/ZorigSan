@@ -17,3 +17,6 @@ export * from "./haalt2";
 export * from "./arrow";
 export * from "./dropdownArrow";
 export * from "./close";
+export * from "./carouselBack";
+export * from "./carouselNext";
+export * from "./programLogo";

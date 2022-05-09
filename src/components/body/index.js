@@ -8,3 +8,4 @@ export * from "./Events";
 export * from "./Donation";
 export * from "./banner";
 export * from "./ProgramOngoing";
+export * from  "./CircleCarousel"
