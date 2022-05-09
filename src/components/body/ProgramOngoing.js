@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Stack, Button, Text } from "../core";
+import { Stack, Text } from "../core";
 
-import ArrowIcon from "../../assets/icons/arrow";
+// import ArrowIcon from "../../assets/icons/arrow";
 const Stylle = styled.div`
   color: #243C6C;
   font-size: 30px;
@@ -31,12 +31,12 @@ const ProgramContainer = styled.div`
     row-gap: 16px;
   }
 `;
-const Arroww = styled.div`
-display:flex;
-@media (max-width: 743px) {
-  display: none;
-}
-`
+// const Arroww = styled.div`
+// display:flex;
+// @media (max-width: 743px) {
+//   display: none;
+// }
+// `
 const BigContainer = styled.div`
   width: 100%;
   font-family:Montserrat;
@@ -82,7 +82,7 @@ export const ProgramOngoing = () => {
             </Text>
             <Stylle f_size="34px">2022.04.20</Stylle>
 
-            <Button
+            {/* <Button
               width="15%"
               height="100%"
               f_weight="400"
@@ -97,7 +97,7 @@ export const ProgramOngoing = () => {
             >
               ДЭЛГЭРЭНГҮЙ
               <Arroww><ArrowIcon/></Arroww>
-            </Button>
+            </Button> */}
           </LilContainer>
         </Stack>
       </ProgramContainer>

@@ -1,5 +1,4 @@
 export * from "./Border";
-export * from "./button";
 export * from "./FontSizes";
 export * from "./Margin";
 export * from "./Opacity";

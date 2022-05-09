@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { CarouselBack, CarouselNext } from '../../assets/icons';
 import useWindowDimensions from '../../functions/useWindowDimensions';
@@ -65,18 +65,15 @@ const MobileCardInfo = styled.div`
 const CircleCarousel = ({ arr, topTittle }) => {
     const { width } = useWindowDimensions();
     const [go, setGo] = useState(0);
-    let top ;
+    let top;
     const [move, setMove] = useState(false);
     const radius = (width) * 0.38;
-    let elements;
-    if (arr.length >= 8) {
-        elements = [arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6],arr[7]]
-    } else {
-        elements = arr
-    }
-    // const [elements, setElements] = useState(arr.length >= 8 ? [arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7],] : arr);
-    // let elements = arr
-    // const [ind, setInd] = useState(elements.length);
+    // const [elements, setElements] = useState(arr.length >= 8 ? [arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7]] : arr)
+    const elements = useMemo(() => {
+        return arr.slice(0, 8);
+    }, [arr]);
+    const [ind, setInd] = useState(0);
+    const [next, setNext] = useState(8);
     const Prev = () => {
         if (top !== 0) {
             if (!move) {
@@ -84,6 +81,20 @@ const CircleCarousel = ({ arr, topTittle }) => {
                     setGo(-4)
                 } else {
                     setGo(go + 1)
+                }
+                if (ind === 0) {
+                    setInd(elements.length - 1)
+                } else {
+                    setInd(ind - 1)
+                }
+                if (arr.length > 8) {
+                    let a = (ind + 3) % 8;
+                    elements[a] = arr[next]
+                    if (next === arr.length - 1) {
+                        setNext(0)
+                    } else {
+                        setNext(next + 1)
+                    }
                 }
                 setMove(true)
                 const timer = setTimeout(() => {
@@ -101,11 +112,24 @@ const CircleCarousel = ({ arr, topTittle }) => {
                 } else {
                     setGo(go - 1)
                 }
+                if (ind === elements.length - 1) {
+                    setInd(0)
+                } else {
+                    setInd(ind + 1)
+                }
+                if (arr.length > 8) {
+                    let a = (ind + 5) % 8;
+                    elements[a] = arr[next]
+                    if (next === arr.length - 1) {
+                        setNext(0)
+                    } else {
+                        setNext(next + 1)
+                    }
+                }
                 setMove(true)
 
                 const timer = setTimeout(() => {
                     setMove(false)
-
                 }, 500);
                 return () => clearTimeout(timer);
             }
@@ -124,8 +148,8 @@ const CircleCarousel = ({ arr, topTittle }) => {
                 }}>
                     {
                         elements.map((element, index) => {
-                            let bottom = Math.sin(Math.PI / 4 * (index + 2 + go)) * radius / 2 + radius / 2;
-                            let left = Math.cos(Math.PI / 4 * (index + 2 + go)) * radius + radius * 1.3;
+                            const bottom = Math.sin(Math.PI / 4 * (index + 2 + go)) * radius / 2 + radius / 2;
+                            const left = Math.cos(Math.PI / 4 * (index + 2 + go)) * radius + radius * 1.3;
 
                             const angle = Math.abs((180 / 4 * (index + 2 + go)) % 180);
                             // console.log('bottom',Math.round(bottom),'left', Math.round(left),'ind', index, 'angle', angle, );
@@ -138,7 +162,7 @@ const CircleCarousel = ({ arr, topTittle }) => {
                             } if (angle === 45 || angle === 135) {
                                 w = width / 68 * 7;
                                 h = width / 68 * 7;
-                                if (bottom ===  Math.sin(Math.PI / 4 * 5) * radius / 2 + radius / 2 || bottom ===  Math.sin(Math.PI / 4 * 7) * radius / 2 + radius / 2 ){
+                                if (bottom === Math.sin(Math.PI / 4 * 5) * radius / 2 + radius / 2 || bottom === Math.sin(Math.PI / 4 * 7) * radius / 2 + radius / 2) {
                                     display = 'none'
                                 }
                             } if (angle === 90) {
@@ -148,7 +172,7 @@ const CircleCarousel = ({ arr, topTittle }) => {
                                     display = 'none';
                                 }
                             }
-                            if(elements.length < 8){
+                            if (elements.length < 8) {
                                 if (angle === 90 && bottom !== 0) {
                                     top = index;
                                 }

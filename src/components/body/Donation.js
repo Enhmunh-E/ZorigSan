@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {Text, Stack, Button} from '../core'
-import ArrowIcon from "../../assets/icons/arrowIcon"
+import { Text, Stack, Button } from '../core'
 
 export const TextWrapper = styled.div`
     display: flex;
@@ -46,23 +45,13 @@ export const ArrowContainer = styled.div`
 export const Donation = ({ text }) => {
     return (
         <AllWrapper>
-            <Stack flexDirection="column"  alignItems="center" gap={'30px'}>
-
-
+            <Stack flexDirection="column" alignItems="center" gap={'30px'}>
                 <BackWrapper>
                     <TextWrapper>
                         <Text type="H1">{text}</Text>
                     </TextWrapper>
-
-                    <Button width={190} height={48} b_radius="0px" f_weight={1} f_size="24px" type="secondary" >
-                    хандив өгөх
-
-                    <ArrowContainer><ArrowIcon/></ArrowContainer>
-
-                    </Button>
-        
+                    <Button title={"хандив өгөх"} width={190} b_radius={3} f_weight={1} f_size="24px" type={"arrow"} bgColor={"primary-blue"} color={"primary-white"} />
                 </BackWrapper>
-
             </Stack>
         </AllWrapper>
     )
