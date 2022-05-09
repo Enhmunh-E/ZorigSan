@@ -1,5 +1,6 @@
-import { graphql, useStaticQuery } from "gatsby";
 import React, { useEffect, useState } from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import { createGlobalStyle } from "styled-components";
 import { Banner } from "../components/body";
 
 const IndexPage = () => {
@@ -27,9 +28,16 @@ const IndexPage = () => {
   useEffect(() => {
     data.allContentfulBanner.edges.map((el) => setBannerData(el.node));
   }, [data]);
+  const GlobalStyle = createGlobalStyle`
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+  `;
 
   return (
     <div>
+      <GlobalStyle />
       <Banner
         description={bannerData.description?.description}
         image={bannerData.image?.file.url}

@@ -1,63 +1,47 @@
 import React from "react";
 import "../../styles/Cards.css";
 import styled from "styled-components";
-import { Text } from "../core";
+import { Text, Stack } from "../core";
 
 const Container = styled.div`
   @media screen and (max-device-width: 600px) {
-    gap: "20px";
+    gap: 20px;
     flex-direction: column;
   }
   @media not screen and (max-device-width: 600px) {
-    gap: "4vw";
-    flex-direction: "row";
+    flex-direction: row;
   }
   width: ${(props) => (props.width ? props.width : "85vw")};
   display: flex;
   height: fit-content;
   justify-content: space-between;
   align-items: center;
+  gap: 40px;
   margin: 0 7.5vw 0 7.5vw;
 `;
-const Text_Column = styled.div`
-  @media screen and (max-device-width: 600px) {
-    width: ${(props) => (props.width ? props.width : "80vw")};
-  }
-  @media not screen and (max-device-width: 600px) {
-    max-width: ${(props) => (props.width ? props.width : "35vw")};
-  }
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
 const Line = styled.div`
-  @media not screen and (max-device-width: 600px) {
-    width: 20vw;
-    height: 1px;
-    background-color: black;
-  }
+  width: 25px;
+  height: 1px;
+  background-color: black;
 `;
 const Image = styled.img`
   @media screen and (max-device-width: 600px) {
     width: ${(props) => (props.width ? props.width : "85vw")};
     height: ${(props) => (props.height ? props.height : "60vw")};
   }
-
   @media not screen and (max-device-width: 600px) {
     width: ${(props) => (props.width ? props.width : "40vw")};
     height: ${(props) => (props.height ? props.height : "25vw")};
-    ${(props) => (props.width ? '' : "min-width: 290px")};
-    ${(props) => (props.height ? '' : "min-height: 180px")};
+    ${(props) => (props.width ? "" : "min-width: 290px")};
+    ${(props) => (props.height ? "" : "min-height: 180px")};
   }
   border-radius: 8px;
 `;
 export const Card = ({
-  line,
   image,
   first,
-  header,
-  text,
+  name,
+  description,
   imgwidth,
   imgheight,
   width,
@@ -70,22 +54,29 @@ export const Card = ({
         <Image width={imgwidth} height={imgheight} src={image}></Image>
       )}
       <div>
-        <Text_Column>
-          <Text type={"heading3"} style={{ margin: "5px 0 10px 0" }}>
-            {header}
+        <Stack flexDirection={"column"} gap={"40px"}>
+          <Text type={"H3"}>{name}</Text>
+          <Text
+            type={"T2"}
+            style={{
+              "-webkit-box-orient": "vertical",
+              "-webkit-line-clamp": 4,
+              display: "-webkit-box",
+              lineHeight: "1.6rem",
+              maxHeight: "130px",
+              overflow: "hidden",
+            }}
+          >
+            {description}
           </Text>
-          <Text type="title2" style={{ margin: "5px 0 10px 0" }}>
-            {text}
-          </Text>
-        </Text_Column>
-        <div>{line === true && <Line />}</div>
+          <Stack alignItems={"center"} gap={"24px"}>
+            <Text type={"T4"}>Дэлэгрэнгүй</Text>
+            <Line />
+          </Stack>
+        </Stack>
       </div>
       {first != "image" && (
-        <Image
-          width={imgwidth}
-          height={imgheight}
-          src={image}
-        ></Image>
+        <Image width={imgwidth} height={imgheight} src={image}></Image>
       )}
     </Container>
   );
