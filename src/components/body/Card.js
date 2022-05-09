@@ -1,85 +1,36 @@
 import React from "react";
 import "../../styles/Cards.css";
 import styled from "styled-components";
-import GetWindowSize from "../../util/GetWindowSize";
+import { Text, Stack } from "../core";
 
 const Container = styled.div`
-  @media screen and (max-device-width: 600px) {
-    gap: "20px";
-    flex-direction: column;
-  }
-  @media not screen and (max-device-width: 600px) {
-    justify-content: space-between;
-    gap: "4vw";
-  }
-  ${(props) => props.type && "flex-direction: column"};
-  width: ${(props) => (props.width ? props.width : "85vw")};
+  width: 1320px;
   display: flex;
   height: fit-content;
   align-items: center;
-  margin: ${(props) => (props.margin ? props.margin : "0 10vw 0 10vw")};
-`;
-const Text_Column = styled.div`
-  @media screen and (max-device-width: 600px) {
-    width: ${(props) => (props.width ? props.width : "85vw")};
+  gap: 102px;
+  @media only screen and (max-width: 1384px) {
+    width: calc(100% - 64px);
+    padding-left: 32px;
+    padding-right: 32px;
+    gap: 51px;
   }
-  @media not screen and (max-device-width: 600px) {
-    max-width: ${(props) => (props.width ? props.width : "35vw")};
-  }
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 `;
 const Line = styled.div`
-  @media not screen and (max-device-width: 600px) {
-    width: 20vw;
-    height: 1px;
-    background-color: black;
-  }
+  width: 25px;
+  height: 1px;
+  background-color: black;
 `;
 const Image = styled.img`
-  @media screen and (max-device-width: 600px) {
-    width: ${(props) => (props.width ? props.width : "85vw")};
-    height: ${(props) => (props.height ? props.height : "60vw")};
-  }
-
-  @media not screen and (max-device-width: 600px) {
-    width: ${(props) => (props.width ? props.width : "40vw")};
-    height: ${(props) => (props.height ? props.height : "25vw")};
-    ${(props) => props.minwidth && "min-width: 290px"};
-    ${(props) => props.minheight && "min-height: 180px"};
-  }
-  border-radius: ${(props) =>
-    props.borderradius ? props.borderradius : "8px"};
-`;
-const Text = styled.h1`
-  font-style: normal;
-  @media screen and (max-device-width: 800px) {
-    font-size: ${(props) => (props.type === "heading" ? "14px" : "12px")};
-  }
-  @media not screen and (max-device-width: 800px) {
-    font-size: ${(props) => (props.type === "heading" ? "18px" : "16px")};
-  }
-  font-weight: ${(props) => (props.type === "heading" ? "700" : "400")};
-  text-align: left;
-  @media screen and (max-device-width: 600px) {
-    display: flex;
-    justify-content: left;
-  }
-  line-height: 22px;
-  font-family: 'Montserrat';
-  color: ${(props) => (props.color ? props.color : "#0C265C")};
+  width: 50%;
+  border-radius: 8px;
 `;
 
 export const Card = ({
-  color,
-  font,
-  line,
   image,
   first,
-  header,
-  text,
+  name,
+  description,
   imgwidth,
   imgheight,
   type,
@@ -126,39 +77,30 @@ export const Card = ({
           src={image}
           minheight={minheight}
           minwidth={minwidth}
-        ></Image>
+        />
       )}
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <Text_Column>
-          <Text
-            fontsize={fontsize}
-            font={font}
-            color={color}
-            type="heading"
-            style={{ margin: "5px 0 10px 0" }}
-          >
-            {header}
-          </Text>
-          <Text
-            font={font}
-            fontsize={fontsize}
-            color={color}
-            type="title"
-            style={{ margin: "5px 0 10px 0" }}
-          >
-            {text}
-          </Text>
-        </Text_Column>
-        <div>{line === true && <Line />}</div>
-      </div>
+      <Stack flexDirection={"column"} gap={"40px"}>
+        <Text type={"H3"}>{name}</Text>
+        <Text
+          type={"T2"}
+          style={{
+            "-webkit-box-orient": "vertical",
+            "-webkit-line-clamp": 4,
+            display: "-webkit-box",
+            lineHeight: "20px",
+            maxHeight: "119px",
+            overflow: "hidden",
+          }}
+        >
+          {description}
+        </Text>
+        <Stack alignItems={"center"} gap={"24px"}>
+          <Text type={"T4"}>Дэлэгрэнгүй</Text>
+          <Line />
+        </Stack>
+      </Stack>
       {first != "image" && (
-        <Image
-          width={imgwidth}
-          height={imgheight}
-          src={image}
-          minheight={minheight}
-          minwidth={minwidth}
-        ></Image>
+        <Image width={imgwidth} height={imgheight} src={image} />
       )}
     </Container>
   );
