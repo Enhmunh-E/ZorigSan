@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React, { useEffect, useState } from "react";
-import { Banner } from "../components/body";
+import { Banner } from "../components/body/banner";
 
 const IndexPage = () => {
   const [bannerData, setBannerData] = useState({});
