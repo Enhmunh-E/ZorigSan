@@ -26,53 +26,64 @@ import CircleCarousel from "../components/body/CircleCarousel";
 
 const images = [
   {
-      name: "Б.Энхжаргал.",
-      program: 'Young Leap Program',
-      src: "https://images2.alphacoders.com/110/1109233.jpg",
-      text: "ОХУ-д их сургуулиа дөнгөж төгсөж ирээд яах учраа олохгүй будлиж явсан. Удалгүй 'Залуу Манлайлал' хөтөлбөрт хамрагдаж өөрийн давуу болон сул талыг илүү таньж, багаар ажиллах чадвараа дээшлүүлж, өөрийгөө олон талаас нь нээсэн гэж боддог. Эргээд харахад ололт амжилт, саад бэрхшээл, олон сайхан дурсамжуудаар дүүрэн 8 сарыг YLP 18-ийн баг хамт олонтойгоо өнгөрүүлжээ. Миний хувьд энэ хөтөлбөр миний дотроо тээж байсан тэр л мөрөөдлийн төслөө хэрэгжүүлэх, нийгэмдээ, мөн өөрийн хүрээлэлдээ тодорхой хэмжээнд хувь нэмрээ оруулах, олон сонирхолтой хүмүүстэй танилцах боломжийг олгосон. Цаашдаа ч багаараа эхлүүлсэн төслөө илүү өргөжүүлэн хөгжүүлэх хүсэлтэй байгаа.",
+    name: "Dorj",
+    program: 'Young Leap Program',
+    src: "https://images5.alphacoders.com/112/1123013.jpg",
+    text: "Lorem  dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
   },
   {
-      name: "Dorj",
-      program: 'Young Leap Program',
-      src: "https://images5.alphacoders.com/112/1123013.jpg",
-      text: "Lorem  dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+    name: "Б.Энхжаргал.",
+    program: 'Young Leap Program',
+    src: "https://images2.alphacoders.com/110/1109233.jpg",
+    text: "ОХУ-д их сургуулиа дөнгөж төгсөж ирээд яах учраа олохгүй будлиж явсан. Удалгүй 'Залуу Манлайлал' хөтөлбөрт хамрагдаж өөрийн давуу болон сул талыг илүү таньж, багаар ажиллах чадвараа дээшлүүлж, өөрийгөө олон талаас нь нээсэн гэж боддог. Эргээд харахад ололт амжилт, саад бэрхшээл, олон сайхан дурсамжуудаар дүүрэн 8 сарыг YLP 18-ийн баг хамт олонтойгоо өнгөрүүлжээ. Миний хувьд энэ хөтөлбөр миний дотроо тээж байсан тэр л мөрөөдлийн төслөө хэрэгжүүлэх, нийгэмдээ, мөн өөрийн хүрээлэлдээ тодорхой хэмжээнд хувь нэмрээ оруулах, олон сонирхолтой хүмүүстэй танилцах боломжийг олгосон. Цаашдаа ч багаараа эхлүүлсэн төслөө илүү өргөжүүлэн хөгжүүлэх хүсэлтэй байгаа.",
   },
   {
-      name: "Tsetsgee",
-      program: 'Young Leap Program',
-      src: "https://images.alphacoders.com/110/1109227.jpg",
-      text: "Lorem ipsum  sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+    name: "Tsetsgee",
+    program: 'Young Leap Program',
+    src: "https://images.alphacoders.com/110/1109227.jpg",
+    text: "Lorem ipsum  sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
   },
   {
-      name: "Dulmaa",
-      program: 'Young Leap Program',
-      src: "https://images.alphacoders.com/113/1131281.jpg",
-      text: "Lorem ipsum dolor  amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+    name: "Dulmaa",
+    program: 'Young Leap Program',
+    src: "https://images.alphacoders.com/113/1131281.jpg",
+    text: "Lorem ipsum dolor  amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
   },
   {
-      name: "Nergui",
-      program: 'Young Leap Program',
-      src: "https://images3.alphacoders.com/110/1105694.jpg",
-      text: "Lorem ipsum dolor sit  consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+    name: "Nergui",
+    program: 'Young Leap Program',
+    src: "https://images3.alphacoders.com/110/1105694.jpg",
+    text: "Lorem ipsum dolor sit  consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
   }, {
-      name: "Bataa",
-      program: 'Young Leap Program',
-      src: "https://images2.alphacoders.com/110/1109233.jpg",
-      text: "Lorem ipsum dolor sit amet  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+    name: "Bataa",
+    program: 'Young Leap Program',
+    src: "https://images2.alphacoders.com/110/1109233.jpg",
+    text: "Lorem ipsum dolor sit amet  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
   },
   {
-      name: "Dorj",
-      program: 'Young Leap Program',
-      src: "https://images5.alphacoders.com/112/1123013.jpg",
-      text: "Lorem ipsum dolor sit amet consectetur  elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+    name: "qwert",
+    program: 'Young Leap Program',
+    src: "https://images5.alphacoders.com/112/1123013.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur  elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
   },
   {
-      name: "Tsetsgee",
-      program: 'Young Leap Program',
-      src: "https://images.alphacoders.com/110/1109227.jpg",
-      text: "Lorem ipsum dolor sit amet consectetur adipiscing , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+    name: "`12345678`",
+    program: 'Young Leap Program',
+    src: "https://images.alphacoders.com/110/1109227.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipiscing , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
   },
-
+  {
+    name: "asfasfadf",
+    program: 'Young Leap Program',
+    src: "https://images.alphacoders.com/110/1109227.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipiscing , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+  },
+  {
+    name: "kjlknnljnk",
+    program: 'Young Leap Program',
+    src: "https://images.alphacoders.com/110/1109227.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipiscing , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Diam in arcu cursus euismod quis viverra.",
+  },
 
 ]
 const events = [
@@ -513,12 +524,12 @@ const Test = () => {
       <button onClick={modalShow}>SHOW</button>
 
       {modal &&
-      <Modal setModal={setModal}>
-        <div style={{backgroundColor: 'pink', height: '150px', width: '150px', zIndex: '9999'}}>
-          UBUGUGUG
-          <button onClick={close}>&#10005;</button>  
-        </div>
-      </Modal> }
+        <Modal setModal={setModal}>
+          <div style={{ backgroundColor: 'pink', height: '150px', width: '150px', zIndex: '9999' }}>
+            UBUGUGUG
+            <button onClick={close}>&#10005;</button>
+          </div>
+        </Modal>}
       {/* -------------------- Footer -------------------- */}
       <Footer />
 
