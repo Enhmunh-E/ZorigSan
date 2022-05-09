@@ -35,7 +35,7 @@ export const Button = ({
       </Text>
       {type === "arrow" && (
         <div style={{ display: "flex", paddingLeft: "10px" }}>
-          <Arrow />
+          <Arrow color={textColor} />
         </div>
       )}
     </ButtonStyle>
