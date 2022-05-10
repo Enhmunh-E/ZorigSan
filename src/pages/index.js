@@ -1,7 +1,10 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React, { useEffect, useState } from "react";
 import { Banner } from "../components/body/banner";
-
+import { Donation, Events, ProgramOngoing, Sponsors } from '../components/body';
+import Analytic from "../components/body/Analytic";
+import CircleCarousel from "../components/body/CircleCarousel";
+import { Footer } from "../components/footer";
 const IndexPage = () => {
   const [bannerData, setBannerData] = useState({});
   const data = useStaticQuery(graphql`
@@ -22,12 +25,49 @@ const IndexPage = () => {
           }
         }
       }
+      allContentfulPrograms {
+        nodes {
+          image {
+            file {
+              url
+            }
+          }
+          title
+        }
+      }
+      allContentfulAlumni {
+        nodes {
+          word {
+            internal {
+              content
+            }
+          }
+          image {
+            file {
+              url
+            }
+          }
+          name
+          program
+        }
+      }
+      allContentfulSponsor {
+        nodes {
+          image {
+            file {
+              url
+            }
+          }
+        }
+      }
     }
   `);
   useEffect(() => {
     data.allContentfulBanner.edges.map((el) => setBannerData(el.node));
   }, [data]);
-
+  const events = data.allContentfulPrograms.nodes;
+  const alumni = data.allContentfulAlumni.nodes;
+  const sponsors = data.allContentfulSponsor.nodes;
   return (
     <div>
       <Banner
@@ -35,6 +75,17 @@ const IndexPage = () => {
         image={bannerData.image?.file.url}
         title={bannerData.title}
       />
+      <ProgramOngoing
+        name={'Сурагч солилцооны хөтөлбөр 2022'}
+        desc={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do iusmod tempor incididunt ut labore et dolore magna aliqua.'}
+        date={'2022.04.20'}
+      />
+      <Analytic/>
+      <Events events={events} />
+      <CircleCarousel arr={alumni} topTittle={'ЗОРИГ САНГИЙН АМЖИЛТТАЙ ТӨГСӨГЧИД'}></CircleCarousel>
+      <Sponsors arr={sponsors}/>
+      <Donation text={"ЗОРИГ САН-д хандив өгөөрэй"} />
+      <Footer/>
     </div>
   );
 };

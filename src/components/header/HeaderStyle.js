@@ -7,6 +7,7 @@ export const HeaderStyle = styled.div`
   align-items: center;
   top: 0;
   left: 0;
+  z-index: 1;
 `;
 
 export const HeaderItems = styled.div`

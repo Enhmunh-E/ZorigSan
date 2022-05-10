@@ -32,7 +32,7 @@ export const FontSizes = {
     H2: '24px',
     H2Semi: '24px', 
     H3: '22px',
-    Quote: '64px',
+    Quote: '48px',
     T0: '40px',
     T1: '18px',
     T2: '16px',
