@@ -11,7 +11,7 @@ const Wrapper = styled.div`
         height: 40vh;
         gap: 23vh;
       }@media only screen and (max-width: 540px) {
-        height: 50vh;
+        height: 550px;
         gap: 10%;
       }
     display: flex;
