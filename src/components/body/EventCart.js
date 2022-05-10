@@ -156,7 +156,7 @@ export const EventCart = ({ img, title, paddingTop }) => {
           </Text>
           {DisWidth == true ? (
             <Con paddingBottom="12px">
-              <Button paddingLeft="16px">Дэлэгрэнгүй</Button>
+              <Button paddingLeft="16px">Дэлгэрэнгүй</Button>
               <Sum>
                 <div
                   style={{
@@ -179,7 +179,7 @@ export const EventCart = ({ img, title, paddingTop }) => {
                   transition: "all 0.5s",
                 }}
               >
-                <Button>Дэлэгрэнгүй</Button>
+                <Button>Дэлгэрэнгүй</Button>
                 <Sum>
                   <div
                     style={{

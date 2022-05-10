@@ -10,4 +10,6 @@ export * from "./EventCart";
 export * from "./Donation";
 export * from "./banner";
 export * from "./ProgramOngoing";
-export * from "./CircleCarousel";
+export * from './EventCart';
+export * from  "./CircleCarousel"
+export * from "./Sponsors"

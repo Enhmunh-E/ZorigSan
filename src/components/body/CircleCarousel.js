@@ -20,7 +20,6 @@ const MainImage = styled.img`
     left: ${props => `${props.left - (props.width / 2)}px`};
     height: ${props => `${props.height}px`};
     width: ${props => `${props.width}px`};
-    background: url('https://cdn1.vectorstock.com/i/thumb-large/50/20/no-photo-or-blank-image-icon-loading-images-vector-37375020.jpg') no-repeat center;
     transition: all 1000ms;
     border-radius: 50%;
     ${(props) => (props.display === 'none' ? `display: none` : "")};
@@ -48,8 +47,8 @@ const CarouselBtn = styled.div`
 const MobileCardImg = styled.img`
     height: ${props => `${props.height}`};
     width: ${props => `${props.width}`};
+    border: 1px solid #0C265C10;
     border-radius: 2% 2% 0 0;
-    background: url('https://cdn1.vectorstock.com/i/thumb-large/50/20/no-photo-or-blank-image-icon-loading-images-vector-37375020.jpg') no-repeat center;
 `
 const MobileCardInfo = styled.div`
     height: ${props => `${props.height}`};
@@ -179,11 +178,11 @@ const CircleCarousel = ({ arr, topTittle }) => {
                             }
                             return (
                                 <div key={index} >
-                                    <MainImage onMouseEnter={() => console.log(index)} display={display} width={w} height={h} bottom={bottom} left={left} angle={angle} src={element.src}></MainImage>
+                                    <MainImage onMouseEnter={() => console.log(index)} display={display} width={w} height={h} bottom={bottom} left={left} angle={angle} src={element.image.file.url}></MainImage>
                                     <MainInfo size={width} left={radius / 1.45} bottom={0} style={angle === 90 && bottom !== 0 ? { display: '', opacity: '1', transition: 'all 1s', visibility: 'visible' } : { display: 'none', opacity: '0', transition: 'all 1s', visibility: 'hidden', }} >
                                         <Stack style={{ height: 'auto' }} alignItems={'center'} justifyContent={'center'} flexDirection={'column'}>
                                             <Text style={{ color: '#0C265B', marginBottom: width * 0.01 + 'px' }} type='H1'>{angle === 90 && bottom !== 0 ? element.name : ''}</Text>
-                                            <Text style={{ color: '#243C6C', marginBottom: width * 0.01 + 'px', textAlign: 'center' }} type='T2'>{angle === 90 && bottom !== 0 ? element.text.slice(0, 400) : ''}</Text>
+                                            <Text style={{ color: '#243C6C', marginBottom: width * 0.01 + 'px', textAlign: 'center' }} type='T2'>{angle === 90 && bottom !== 0 ? element.word.internal.content.slice(0, 400) : ''}</Text>
                                             <Program bottom={bottom} width={width} angle={angle} program={element.program}></Program>
                                         </Stack>
                                     </MainInfo>
@@ -198,10 +197,10 @@ const CircleCarousel = ({ arr, topTittle }) => {
                         <Stack style={{ marginLeft: '8vw' }} flexDirection={'row'} >
                             {elements.map((element, index) => {
                                 return <Stack style={{ marginLeft: '5vw', marginRight: '5vw' }} key={index} flexDirection={'column'}>
-                                    <MobileCardImg width={'74vw'} height={'74vw'} src={element.src} />
+                                    <MobileCardImg width={'74vw'} height={'74vw'} src={element.image.file.url} />
                                     <MobileCardInfo width={'66vw'} height={'60vw'} style={{ paddingBottom: '4vw', paddingLeft: '4vw', paddingRight: '4vw' }}>
-                                        <Text style={{ color: '#0C265B', marginBottom: width * 0.06 + 'px', textAlign: 'center' }} type='H2'>{element.name}</Text>
-                                        <Text style={{ color: '#243C6C', marginBottom: width * 0.1 + 'px', textAlign: 'center' }} type='T3'>{element.text.slice(0, 425)}</Text>
+                                        <Text style={{ color: '#0C265B', marginBottom: width * 0.006 + 'px', textAlign: 'center' }} type='H2'>{element.name}</Text>
+                                        <Text style={{ color: '#243C6C', marginBottom: width * 0.01 + 'px', textAlign: 'center' }} type='T3'>{element.word.internal.content.slice(0, 150)}...</Text>
                                         <Text style={{ color: '#1C6DD0', textAlign: 'center' }} type='T2Bold'>{element.program}</Text>
                                     </MobileCardInfo>
                                 </Stack>
