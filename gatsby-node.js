@@ -23,6 +23,11 @@ exports.createPages = async ({ graphql, actions }) => {
               description {
                 description
               }
+              image {
+                file {
+                  url
+                }
+              }
               startDate
               endDate
               name

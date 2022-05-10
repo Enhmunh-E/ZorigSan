@@ -4,20 +4,18 @@ import styled from "styled-components";
 import { Text, Stack } from "../core";
 
 const Container = styled.div`
-  @media screen and (max-device-width: 600px) {
-    gap: 20px;
-    flex-direction: column;
-  }
-  @media not screen and (max-device-width: 600px) {
-    flex-direction: row;
-  }
-  width: ${(props) => (props.width ? props.width : "85vw")};
+  width: 1320px;
   display: flex;
   height: fit-content;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
-  margin: 0 7.5vw 0 7.5vw;
+  gap: 102px;
+  @media screen and (max-width: 1384px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 960px) {
+    gap: 40px;
+  }
 `;
 const Line = styled.div`
   width: 25px;
@@ -25,16 +23,7 @@ const Line = styled.div`
   background-color: black;
 `;
 const Image = styled.img`
-  @media screen and (max-device-width: 600px) {
-    width: ${(props) => (props.width ? props.width : "85vw")};
-    height: ${(props) => (props.height ? props.height : "60vw")};
-  }
-  @media not screen and (max-device-width: 600px) {
-    width: ${(props) => (props.width ? props.width : "40vw")};
-    height: ${(props) => (props.height ? props.height : "25vw")};
-    ${(props) => (props.width ? "" : "min-width: 290px")};
-    ${(props) => (props.height ? "" : "min-height: 180px")};
-  }
+  width: 50%;
   border-radius: 8px;
 `;
 export const Card = ({
@@ -45,9 +34,10 @@ export const Card = ({
   imgwidth,
   imgheight,
   width,
+  key,
 }) => {
   if (typeof image === "object") image = JSON.stringify(image);
-  console.log(image);
+  console.log(key);
   return (
     <Container width={width}>
       {first === "image" && (

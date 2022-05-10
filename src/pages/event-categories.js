@@ -4,7 +4,6 @@ import { Text, Margin, Stack } from "../components/core";
 import { Card } from "../components/body";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
-// import { graphql, useStaticQuery } from "gatsby";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -54,16 +53,14 @@ const EventCategories = ({ pageContext }) => {
               </Text>
             </Stack>
             <Margin size={[64, 0, 64, 0]}>
-              {data.event?.map((el, index) =>
-                console.log(el, index)
-                //   <Card
-                //   name={el.name}
-                //   image={el.image?.file.url}
-                //   description={el.description.description}
-                //   key={index}
-                // />
-              )}
-              <Card />
+              {data.event?.map((el, index) => (
+                <Card
+                  name={el.name}
+                  image={el.image.file.url}
+                  description={el.description.description}
+                  key={index}
+                />
+              ))}
             </Margin>
           </ECContainer2>
         </ECContainer>

@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "gatsby";
 import { Input } from "../../components/body/Input";
 import { Call } from "../../assets/icons/Call";
 import { Email } from "../../assets/icons/Email";
 import { Facebook } from "../../assets/icons/Fb";
-import { Link } from "gatsby";
+import { Stack, Button } from "../core";
 /* eslint-disable */
 /* eslint-disable react/prop-types */
 const Container = styled.div`
@@ -16,13 +17,16 @@ const Container = styled.div`
 `;
 const FooterTop = styled.div`
   height: 642px;
+  width: 1320px;
+  padding-left: 32px;
+  padding-right: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-direction: column;
-  align-items: center;
-  align-items: center;
   justify-content: space-evenly;
+  @media screen and (max-width: 1384px) {
+    width: calc(100% - 64px);
+  }
 `;
 const FooterBottom = styled.div`
   height: 56px;
@@ -54,7 +58,6 @@ const SmallText = styled.div`
   text-align: center;
   color: #ffffff;
   width: 100%;
-  height: 64px;
 `;
 const BottomText = styled.div`
   font-style: normal;
@@ -79,30 +82,6 @@ const BottomCon = styled.div`
     margin-right: 0px;
   }
 `;
-const Button = styled.button`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-  width: 100%;
-  height: 48px;
-  background: #00669a;
-  border-radius: 4px;
-  border: none;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 32px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #ffffff;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 0px 8px;
-`;
 const Itmes = styled.div`
   font-style: normal;
   font-weight: 500;
@@ -110,35 +89,34 @@ const Itmes = styled.div`
   line-height: 32px;
   text-align: center;
   letter-spacing: 0.001em;
-  color: #ffffff;
+  color: #fff;
   padding-left: 8px;
 `;
 const Con = styled.div`
   display: flex;
-  width: 320px;
-  padding-left: 20px;
-  padding-right: 20px;
-  height: 324px;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  width: 328px;
+  height: 324px;
   padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   @media (max-width: 400px) {
-    width: 80%;
+    width: calc(100% - 64px);
+    padding-left: 32px;
+    padding-right: 32px;
   }
 `;
 const ItmeCon = styled.div`
   display: flex;
-  width: 50%;
-  justify-content: space-evenly;
-  @media (max-width: 1000px) {
-    width: 80%;
-  }
+  gap: 72px;
   @media (max-width: 550px) {
     height: 150px;
     justify-content: space-evenly;
     flex-direction: column-reverse;
     align-items: center;
+    gap: 32px;
   }
 `;
 export const Footer = () => {
@@ -146,16 +124,31 @@ export const Footer = () => {
     <Container>
       <FooterTop>
         <Con>
-          <BigText>Дахиж битгий мартаарай</BigText>
-          <SmallText>
-            Та и-майлээрээ буртгүүлээд шинэ мэдээг шуурхай аваарай
-          </SmallText>
-          <Input
-            placeholder="И-мэйлээ оруулна уу..."
-            BackgroundColor="#fff"
-            width="100%"
-          />
-          <Button>Бүртгүүлэх</Button>
+          <Stack flexDirection={"column"} gap={"48px"}>
+            <Stack flexDirection={"column"} alignItems={"center"} gap={"8px"}>
+              <BigText>Дахиж битгий мартаарай</BigText>
+              <SmallText>
+                Та и-майлээрээ буртгүүлээд шинэ мэдээг шуурхай аваарай
+              </SmallText>
+            </Stack>
+            <Stack
+              style={{ width: "100%" }}
+              flexDirection={"column"}
+              gap={"24px"}
+            >
+              <Input
+                placeholder="И-мэйлээ оруулна уу..."
+                BackgroundColor="#fff"
+                width="100%"
+              />
+              <Button
+                title={"Бүртгүүлэх"}
+                bgColor={"primary-light-blue"}
+                f_size={"T3"}
+                color={"primary-white"}
+              />
+            </Stack>
+          </Stack>
         </Con>
         <ItmeCon>
           <Link
@@ -195,10 +188,10 @@ export const Footer = () => {
       </FooterTop>
       <FooterBottom>
         <BottomCon>
-          <Link to="/Test" style={{ textDecoration: "none" }}>
+          <Link to="https://nestacademy.mn/" style={{ textDecoration: "none" }}>
             <BottomText>Made by @Nest Academy</BottomText>
           </Link>
-          <Link to="/Test" style={{ textDecoration: "underline  #fff" }}>
+          <Link to="/Test" style={{ textDecoration: "none" }}>
             <BottomText>Үйлчилгээний нөхцөл</BottomText>
           </Link>
         </BottomCon>
@@ -206,4 +199,5 @@ export const Footer = () => {
     </Container>
   );
 };
+
 export default Footer;
