@@ -124,7 +124,7 @@ export const Header = ({ color }) => {
           </HeaderLinks>
         </HeaderMenuCon>
         <HeaderMobileMenu style={{ right: menu === false ? "-100vw" : "0" }}>
-          <Padding size={[32, 32, 0, 32]}>
+          <Padding size={[24, 24, 0, 24]}>
             <Stack justifyContent={"space-between"} alignItems={"center"}>
               <Link to="/" style={{ display: "flex" }}>
                 <ZorigLogo />
@@ -135,66 +135,61 @@ export const Header = ({ color }) => {
             </Stack>
             <Stack flexDirection={"column"} gap={"32px"}>
               <Stack justifyContent={"flex-end"}>
-                <Text type={"H2"} color={themeColor}>
+                <Text type={"H2"} color={"#fff"}>
                   Бидний тухай
                 </Text>
               </Stack>
               <Stack justifyContent={"flex-end"}>
                 <Link to="/" style={{ textDecoration: "none" }}>
-                  <Text color={themeColor}>Зоригийн тухай</Text>
+                  <Text color={"#fff"}>Зоригийн тухай</Text>
                 </Link>
               </Stack>
               <Stack justifyContent={"flex-end"}>
                 <Link to="/" style={{ textDecoration: "none" }}>
-                  <Text color={themeColor}>Хамт олон</Text>
+                  <Text color={"#fff"}>Хамт олон</Text>
                 </Link>
               </Stack>
               <Stack justifyContent={"flex-end"}>
                 <Link to="/" style={{ textDecoration: "none" }}>
-                  <Text color={themeColor}>Бидний үнэт зүйлс</Text>
+                  <Text color={"#fff"}>Бидний үнэт зүйлс</Text>
                 </Link>
               </Stack>
               <Stack justifyContent={"flex-end"}>
                 <Link to="/" style={{ textDecoration: "none" }}>
-                  <Text color={themeColor}>Тэргүүний мэндчилгээ</Text>
+                  <Text color={"#fff"}>Тэргүүний мэндчилгээ</Text>
                 </Link>
               </Stack>
               <Stack justifyContent={"flex-end"}>
-                <Text type={"H2"} color={themeColor}>
+                <Text type={"H2"} color={"#fff"}>
                   Хөтөлбөрүүд
                 </Text>
               </Stack>
               <Stack justifyContent={"flex-end"}>
                 <Link to="/" style={{ textDecoration: "none" }}>
-                  <Text color={themeColor}>Оюутан залууст зориулсан</Text>
+                  <Text color={"#fff"}>Оюутан залууст зориулсан</Text>
                 </Link>
               </Stack>
               <Stack justifyContent={"flex-end"}>
                 <Link to="/" style={{ textDecoration: "none" }}>
-                  <Text color={themeColor}>
-                    Залуу мэргэжилтнүүдэд зориулсан
-                  </Text>
+                  <Text color={"#fff"}>Залуу мэргэжилтнүүдэд зориулсан</Text>
                 </Link>
               </Stack>
               <Stack justifyContent={"flex-end"}>
                 <Link to="/" style={{ textDecoration: "none" }}>
-                  <Text color={themeColor}>Сурагчдад зориулсан хөтөлбөр</Text>
+                  <Text color={"#fff"}>Сурагчдад зориулсан хөтөлбөр</Text>
                 </Link>
               </Stack>
               <Stack justifyContent={"flex-end"}>
                 <Link to="/" style={{ textDecoration: "none" }}>
-                  <Text color={themeColor}>Орон нутгийн залууст зориулсан</Text>
+                  <Text color={"#fff"}>Орон нутгийн залууст зориулсан</Text>
                 </Link>
               </Stack>
               <Button
                 title={"хандив өгөх"}
-                bgColor={color}
+                bgColor={"#fff"}
                 f_size={"T3"}
                 f_weight={500}
-                bRadius={4}
-                color={
-                  color === "primary-blue" ? "primary-white" : "primary-blue"
-                }
+                color={"primary-blue"}
               />
             </Stack>
           </Padding>

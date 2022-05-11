@@ -50,7 +50,6 @@ export const Banner = ({ description, image, title }) => {
             bgColor={"primary-white"}
             f_size={"T3"}
             f_weight={500}
-            bRadius={4}
             color={"primary-blue"}
           />
         )}

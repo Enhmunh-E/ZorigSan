@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import { Text, Margin, Stack } from "../components/core";
-import { Card } from "../components/body";
+import { Text, Margin, Stack, Padding } from "../components/core";
+import { Card, CardMobile } from "../components/body";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
-// import { graphql, useStaticQuery } from "gatsby";
+import useWindowDimensions from "../functions/useWindowDimensions";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -30,14 +30,22 @@ const ECContainer2 = styled.div`
     padding-left: 32px;
     padding-right: 32px;
   }
+  @media only screen and (max-width: 540px) {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
 `;
 
 const EventCategories = ({ pageContext }) => {
   const [data, setData] = useState({});
-  useEffect(() => {
-    setData(pageContext.data);
+  const { width } = useWindowDimensions();
+  useEffect(async () => {
+    await setData(pageContext.data);
   }, []);
-  console.log(data);
+  const phone = useMemo(() => {
+    return width <= 540;
+  }, [width]);
   return (
     <div>
       <GlobalStyle />
@@ -45,23 +53,48 @@ const EventCategories = ({ pageContext }) => {
       <Margin size={[180, 0, 0, 0]}>
         <ECContainer>
           <ECContainer2>
-            <Stack flexDirection={"column"} alignItems={"center"} gap={"32px"}>
-              <Text type={"H1"} color={"#0C265C"}>
-                {data.title}
-              </Text>
-              <Text type={"T3"} color={"#0C265C"}>
-                {data.longDescription?.longDescription}
-              </Text>
-            </Stack>
+            <Padding size={[0, 24, 0, 24]}>
+              <Stack
+                flexDirection={"column"}
+                alignItems={"center"}
+                gap={phone === false ? "32px" : "16px"}
+              >
+                <Text
+                  style={{ textAlign: "center" }}
+                  type={"H1Bold"}
+                  color={"#0C265C"}
+                >
+                  {data.title}
+                </Text>
+                <Text type={"T2"} color={"#0C265C"}>
+                  {data.longDescription?.longDescription}
+                </Text>
+              </Stack>
+            </Padding>
             <Margin size={[64, 0, 64, 0]}>
-              {data.event?.map((el, index) => (
-                <Card
-                  name={el.name}
-                  image={el.image.file.url}
-                  description={el.description.description}
-                  key={index}
-                />
-              ))}
+              <Stack
+                flexDirection={"column"}
+                gap={phone === false ? "128px" : "48px"}
+              >
+                {data.event?.map((el, index) =>
+                  phone === false ? (
+                    <Card
+                      name={el.name}
+                      image={el.image.file.url}
+                      description={el.description.description}
+                      key={index}
+                      index={index}
+                    />
+                  ) : (
+                    <CardMobile
+                      name={el.name}
+                      image={el.image.file.url}
+                      description={el.description.description}
+                      key={index}
+                    />
+                  )
+                )}
+              </Stack>
             </Margin>
           </ECContainer2>
         </ECContainer>

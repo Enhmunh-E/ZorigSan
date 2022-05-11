@@ -1,7 +1,8 @@
-import React from "react";
-import "../../styles/Cards.css";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import { Text, Stack } from "../core";
+import useWindowDimensions from "../../functions/useWindowDimensions";
+import "../../styles/Cards.css";
 
 const Container = styled.div`
   width: 1320px;
@@ -9,11 +10,11 @@ const Container = styled.div`
   height: fit-content;
   align-items: center;
   gap: 102px;
-  @media only screen and (max-width: 1384px) {
-    width: calc(100% - 64px);
-    padding-left: 32px;
-    padding-right: 32px;
-    gap: 51px;
+  @media screen and (max-width: 1384px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 960px) {
+    gap: 40px;
   }
 `;
 const Line = styled.div`
@@ -24,83 +25,50 @@ const Line = styled.div`
 const Image = styled.img`
   width: 50%;
   border-radius: 8px;
+  object-fit: cover;
+`;
+const LongText = styled.div`
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  display: -webkit-box;
+  line-height: 20px;
+  overflow: hidden;
 `;
 
 export const Card = ({
   image,
-  first,
   name,
   description,
+  index,
   imgwidth,
   imgheight,
-  type,
-  margin,
 }) => {
-  let borderradius;
-  let direction;
-  let width;
-  let height;
-  let minwidth;
-  let minheight;
-  let fontsize;
   if (typeof image === "object") image = JSON.stringify(image);
-  if (type === "small") {
-    const { window_width } = GetWindowSize();
-    direction = "column";
-    first = "image";
-    borderradius = "0";
-    margin = "0";
-    if (window_width < 600) {
-      width = "90vw";
-      imgwidth = "85vw";
-      imgheight = "65vw";
-    } else {
-      width = "22.5vw";
-      imgwidth = "22.5vw";
-      imgheight = "16.5vw";
-    }
-  }
-  // I HAVE NOT DONE THE MOBILE VERSION SXDFGHJKLKJHGFDFGHJYTGFVGBHJUYTGFCDVBNHJUYTRFDCVBHYTRFDCXVHU
+  const { width } = useWindowDimensions();
+  const phone = useMemo(() => {
+    return width <= 540;
+  }, [width]);
   return (
-    <Container
-      margin={margin}
-      direction={direction}
-      height={height}
-      type={type}
-      width={width}
-    >
-      {first === "image" && (
-        <Image
-          borderradius={borderradius}
-          width={imgwidth}
-          height={imgheight}
-          src={image}
-          minheight={minheight}
-          minwidth={minwidth}
-        />
+    <Container>
+      {index % 2 === 0 && (
+        <Image width={imgwidth} height={imgheight} src={image}></Image>
       )}
-      <Stack flexDirection={"column"} gap={"40px"}>
-        <Text type={"H3"}>{name}</Text>
-        <Text
-          type={"T2"}
-          style={{
-            "-webkit-box-orient": "vertical",
-            "-webkit-line-clamp": 4,
-            display: "-webkit-box",
-            lineHeight: "20px",
-            maxHeight: "119px",
-            overflow: "hidden",
-          }}
-        >
-          {description}
-        </Text>
-        <Stack alignItems={"center"} gap={"24px"}>
-          <Text type={"T4"}>Дэлэгрэнгүй</Text>
-          <Line />
+      <div>
+        <Stack flexDirection={"column"} gap={phone === false ? "40px" : "16px"}>
+          <Text type={"H3"}>{name}</Text>
+          <LongText>
+            <Text type={"T2"}>{description}</Text>
+          </LongText>
+          <Stack alignItems={"center"} gap={"24px"}>
+            <Text style={{ cursor: "pointer" }} type={"T4"}>
+              Дэлэгрэнгүй
+            </Text>
+            <Line />
+          </Stack>
         </Stack>
-      </Stack>
-      {first != "image" && (
-        <Image width={imgwidth} height={imgheight} src={image} />
+      </div>
+      {index % 2 !== 0 && (
+        <Image width={imgwidth} height={imgheight} src={image}></Image>
       )}
     </Container>
   );
