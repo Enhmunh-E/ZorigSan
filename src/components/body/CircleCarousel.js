@@ -22,7 +22,7 @@ const MainImage = styled.img`
     width: ${props => `${props.width}px`};
     transition: all 1000ms;
     border-radius: 50%;
-    ${(props) => (props.display === 'none' ? `display: none` : "")};
+    ${(props) => (props.display === 'none' ? `display: none` : "cursor: pointer")};
     ${(props) => (props.angle === 90 ? `  box-shadow: ${props.width * 0.015}px 10px ${props.width * 0.1}px #888888` : "")};
 `;
 const MainInfo = styled.div`
@@ -126,7 +126,6 @@ const CircleCarousel = ({ arr, topTittle }) => {
                     }
                 }
                 setMove(true)
-
                 const timer = setTimeout(() => {
                     setMove(false)
                 }, 500);
@@ -134,9 +133,9 @@ const CircleCarousel = ({ arr, topTittle }) => {
             }
         }
     }
+    console.log(elements.length);
     return (
-        <div>
-            <Stack alignItems={'center'} justifyContent={'center'} flexDirection={'column'} style={{ height: '125vh', width: '100vw', }}>
+            <Stack alignItems={'center'} justifyContent={'center'} flexDirection={'column'} style={{ height: '100vh', width: '100vw', }}>
                 <Text style={{ color: '#0C265B', marginBottom: width * 0.05 + 'px', textAlign: 'center' }} type='T0'> {topTittle}</Text>
 
                 {width > 540 ? <div style={{
@@ -192,6 +191,8 @@ const CircleCarousel = ({ arr, topTittle }) => {
                     }
                     <CarouselBtn left={Math.cos(Math.PI / 2) * radius + radius / 1.25} bottom={Math.sin(Math.PI / 2) * radius} width={width * 0.03} disabled={top === elements.length - 1 ? true : false} height={width * 0.03} onClick={Next}><CarouselBack style={{ height: width * 0.025 + 'px', width: width * 0.025 + 'px', }} /></CarouselBtn>
                     <CarouselBtn left={Math.cos(Math.PI / 2) * radius + radius * 1.7} bottom={Math.sin(Math.PI / 2) * radius} width={width * 0.03} disabled={top === 0 ? true : false} height={width * 0.03} onClick={Prev}><CarouselNext style={{ height: width * 0.025 + 'px', width: width * 0.025 + 'px', }} /></CarouselBtn>
+
+                    
                 </div>
                     : <div style={{ height: '150vw', overflowX: 'scroll', width: '100vw', }} >
                         <Stack style={{ marginLeft: '8vw' }} flexDirection={'row'} >
@@ -209,7 +210,6 @@ const CircleCarousel = ({ arr, topTittle }) => {
                         </Stack>
                     </div>}
             </Stack>
-        </div>
     );
 }
 
