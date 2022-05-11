@@ -1,13 +1,16 @@
+import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
-import GetWindowSize from "../../../util/GetWindowSize";
+import useWindowDimensions from "../../../functions/useWindowDimensions";
 import { Text } from "../../core";
+
 const CardContainer = styled.div`
   flex-direction: column;
   display: flex;
   height: fit-content;
   align-items: center;
   margin: 0;
+  pointer-events: none;
   @media (max-device-width: 600px) {
     gap: 20px;
     width: 85vw;
@@ -87,9 +90,17 @@ const Image = styled.div`
     background-size: 100% 100%;
     background-repeat: no-repeat;
   }
+  transition: background-size 0.2s, background-position 1s;
+  :hover {
+    transition: background-size 0.5s, background-position 0.1s;
+    background-position: center;
+    background-size: 120% 120%;
+  }
+  cursor: pointer;
   position: relative;
   display: flex;
   align-items: end;
+  pointer-events: all;
 `;
 
 const EventLine = styled.div`
@@ -121,13 +132,13 @@ const DateBackground = styled.div`
   border-radius: 0 0 0 10px;
 `;
 
-const Text_Container = ({ header, text, window_width }) => {
+const Text_Container = ({ header, text, width }) => {
   return (
     <Text_Column>
-      <Text color={window_width < 600 ? "white" : "#0C265C"} type="T1">
+      <Text color={width < 600 ? "white" : "#0C265C"} type="T1">
         {header}
       </Text>
-      <Text color={window_width < 600 ? "white" : "#0C265C"} type="T2">
+      <Text color={width < 600 ? "white" : "#0C265C"} type="T2">
         {text}
       </Text>
     </Text_Column>
@@ -139,9 +150,10 @@ export const NewsCard = ({
   image,
   moveleft,
   header,
+  link,
   text,
 }) => {
-  const { window_width } = GetWindowSize();
+  const { width } = useWindowDimensions();
   function Shorten(str, num) {
     if (str.length <= num) {
       return str;
@@ -149,39 +161,37 @@ export const NewsCard = ({
     return str.slice(0, num) + "...";
   }
 
-  if (window_width < 400) text = Shorten(text, 80);
-  else if (window_width < 1400) text = Shorten(text, 100);
-  else if (window_width < 1650) text = Shorten(text, 150);
+  if (width < 400) text = Shorten(text, 80);
+  else if (width < 1400) text = Shorten(text, 100);
+  else if (width < 1650) text = Shorten(text, 150);
+  else text = Shorten(text, 200);
   if (typeof image === "object") image = JSON.stringify(image);
   return (
     <CardContainer direction={direction} moveleft={moveleft}>
-      <Image window_width={window_width} image={image}>
-        {window_width > 600 ? (
-          <>
-            <EventLine />
-            <EventText>Event</EventText>
-          </>
-        ) : (
-          <>
-            <Text_Container
-              window_width={window_width}
-              header={header}
-              text={text}
-              date={date}
-            />
-            <DateBackground>
-              <Text>{date}</Text>
-            </DateBackground>
-          </>
-        )}
-      </Image>
-      {window_width > 600 && (
-        <Text_Container
-          window_width={window_width}
-          date={date}
-          header={header}
-          text={text}
-        />
+      <Link to={link}>
+        <Image width={width} image={image}>
+          {width > 600 ? (
+            <>
+              <EventLine />
+              <EventText>Event</EventText>
+            </>
+          ) : (
+            <>
+              <Text_Container
+                width={width}
+                header={header}
+                text={text}
+                date={date}
+              />
+              <DateBackground>
+                <Text>{date}</Text>
+              </DateBackground>
+            </>
+          )}
+        </Image>
+      </Link>
+      {width > 600 && (
+        <Text_Container width={width} date={date} header={header} text={text} />
       )}
     </CardContainer>
   );
