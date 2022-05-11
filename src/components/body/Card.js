@@ -34,7 +34,6 @@ const LongText = styled.div`
   line-height: 20px;
   overflow: hidden;
 `;
-
 export const Card = ({
   image,
   name,
