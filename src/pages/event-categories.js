@@ -33,8 +33,8 @@ const ECContainer2 = styled.div`
 
 const EventCategories = ({ pageContext }) => {
   const [data, setData] = useState({});
-  useEffect(() => {
-    setData(pageContext.data);
+  useEffect(async () => {
+    await setData(pageContext.data);
   }, []);
   console.log(data);
   return (
@@ -53,14 +53,17 @@ const EventCategories = ({ pageContext }) => {
               </Text>
             </Stack>
             <Margin size={[64, 0, 64, 0]}>
-              {data.event?.map((el, index) => (
-                <Card
-                  name={el.name}
-                  image={el.image.file.url}
-                  description={el.description.description}
-                  key={index}
-                />
-              ))}
+              <Stack flexDirection={"column"} gap={"128px"}>
+                {data.event?.map((el, index) => (
+                  <Card
+                    name={el.name}
+                    image={el.image.file.url}
+                    description={el.description.description}
+                    key={index}
+                    index={index}
+                  />
+                ))}
+              </Stack>
             </Margin>
           </ECContainer2>
         </ECContainer>

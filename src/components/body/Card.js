@@ -26,46 +26,44 @@ const Image = styled.img`
   width: 50%;
   border-radius: 8px;
 `;
+const LongText = styled.div`
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  display: -webkit-box;
+  line-height: 20px;
+  overflow: hidden;
+`;
 export const Card = ({
   image,
-  first,
   name,
   description,
   imgwidth,
   imgheight,
   width,
-  key,
+  index,
 }) => {
   if (typeof image === "object") image = JSON.stringify(image);
-  console.log(key);
+  console.log(index);
   return (
     <Container width={width}>
-      {first === "image" && (
+      {index % 2 === 0 && (
         <Image width={imgwidth} height={imgheight} src={image}></Image>
       )}
       <div>
         <Stack flexDirection={"column"} gap={"40px"}>
           <Text type={"H3"}>{name}</Text>
-          <Text
-            type={"T2"}
-            style={{
-              "-webkit-box-orient": "vertical",
-              "-webkit-line-clamp": 4,
-              display: "-webkit-box",
-              lineHeight: "1.6rem",
-              maxHeight: "130px",
-              overflow: "hidden",
-            }}
-          >
-            {description}
-          </Text>
+          <LongText>
+            <Text type={"T2"}>{description}</Text>
+          </LongText>
           <Stack alignItems={"center"} gap={"24px"}>
-            <Text type={"T4"}>Дэлэгрэнгүй</Text>
+            <Text style={{ cursor: "pointer" }} type={"T4"}>
+              Дэлэгрэнгүй
+            </Text>
             <Line />
           </Stack>
         </Stack>
       </div>
-      {first != "image" && (
+      {index % 2 !== 0 && (
         <Image width={imgwidth} height={imgheight} src={image}></Image>
       )}
     </Container>

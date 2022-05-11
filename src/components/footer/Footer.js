@@ -12,6 +12,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   width: 100vw;
   background: #0c265c;
 `;
@@ -29,6 +30,7 @@ const FooterTop = styled.div`
   }
 `;
 const FooterBottom = styled.div`
+  width: 100%;
   height: 56px;
   background: rgba(0, 0, 0, 0.4);
   display: flex;
@@ -68,9 +70,9 @@ const BottomText = styled.div`
   color: #ffffff;
 `;
 const BottomCon = styled.div`
-  width: 1360px;
-  margin-left: 40px;
-  margin-right: 40px;
+  width: 1320px;
+  margin-left: 32px;
+  margin-right: 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -100,12 +102,8 @@ const Con = styled.div`
   width: 328px;
   height: 324px;
   padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
   @media (max-width: 400px) {
-    width: calc(100% - 64px);
-    padding-left: 32px;
-    padding-right: 32px;
+    width: 100%;
   }
 `;
 const ItmeCon = styled.div`
@@ -113,7 +111,6 @@ const ItmeCon = styled.div`
   gap: 72px;
   @media (max-width: 550px) {
     height: 150px;
-    justify-content: space-evenly;
     flex-direction: column-reverse;
     align-items: center;
     gap: 32px;
@@ -191,7 +188,7 @@ export const Footer = () => {
           <Link to="https://nestacademy.mn/" style={{ textDecoration: "none" }}>
             <BottomText>Made by @Nest Academy</BottomText>
           </Link>
-          <Link to="/Test" style={{ textDecoration: "none" }}>
+          <Link to="/Test" style={{ textDecoration: "underline #fff" }}>
             <BottomText>Үйлчилгээний нөхцөл</BottomText>
           </Link>
         </BottomCon>

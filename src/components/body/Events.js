@@ -17,7 +17,6 @@ const Flex = styled.div`
   padding-right: 20px;
   display: flex;
   justify-content: space-around;
-  justify-content: space-around;
   @media (max-width: 1100px) {
     height: 699px;
   }
@@ -76,7 +75,7 @@ export const Events = (props) => {
   const { events } = props;
   return (
     <div
-      style={{ display: "flex", alignItems: "center", flexDirection: "column" }}
+      style={{ alignItems: "center", display: "flex", flexDirection: "column" }}
     >
       <Text>Хөтөлбөрүүд</Text>
       <Container>
