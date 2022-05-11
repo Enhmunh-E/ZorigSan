@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/Cards.css";
 import styled from "styled-components";
-import GetWindowSize from "../../util/GetWindowSize";
+import useWindowDimensions from "../../functions/useWindowDimensions";
 
 const Container = styled.div`
   @media screen and (max-device-width: 600px) {
@@ -105,7 +105,6 @@ const Text_Container = ({ color, header, line, text }) => {
     </Text_Column>
   );
 };
-// eslint-disable-next-line complexity
 export const Card = ({
   color,
   date,
@@ -118,9 +117,9 @@ export const Card = ({
   imgheight,
   margin,
 }) => {
-  const { window_width } = GetWindowSize();
+  const width = useWindowDimensions();
   let direction;
-  let width;
+  // let width;
   let height;
   let minwidth;
   let minheight;
@@ -131,11 +130,11 @@ export const Card = ({
       margin={margin}
       direction={direction}
       height={height}
-      width={width}
+      // width={width}
     >
       {first === "image" && (
         <Image
-          window_width={window_width}
+          window_width={width}
           width={imgwidth}
           height={imgheight}
           image={image}
@@ -143,7 +142,7 @@ export const Card = ({
           minwidth={minwidth}
         />
       )}
-      {window_width > 600 && (
+      {width > 600 && (
         <Text_Container
           color={color}
           date={date}

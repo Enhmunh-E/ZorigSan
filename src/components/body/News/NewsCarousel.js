@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NewsCard } from "./NewsCard";
 import { Stack } from "../../core";
 import { ArrowInCircleIcon } from "../../../assets/icons/arrowincircleIcon";
-import GetWindowSize from "../../../util/GetWindowSize";
+import useWindowDimensions from "../../../functions/useWindowDimensions";
 
 const NewsTitle = styled.h1`
   width: 100vw;
@@ -32,6 +31,7 @@ const NewsContainer = styled.div`
     max-width: 1320px;
     overflow: hidden;
   }
+  pointer-events: none;
 `;
 const NewsButton = styled.button`
   :disabled {
@@ -43,6 +43,7 @@ const NewsButton = styled.button`
   background: 0;
   border: 0;
   cursor: pointer;
+  pointer-events: all;
   margin-bottom: 8vh;
   visibility: ${(props) => props.visibility};
   animation: name duration timing-function delay iteration-count direction
@@ -54,25 +55,27 @@ const NewsButton = styled.button`
 `;
 
 export const NewsCarousel = ({ data, title }) => {
-  const { window_width } = GetWindowSize();
+  const { width } = useWindowDimensions();
   const [innerdata, setInnerdata] = useState(data); // The array of data/
   const [direction, setDirection] = useState("middle"); // 'right' 'left' or 'middle'
   const [btnstate, setBtnstate] = useState({ left: true, right: true }); // true = on, false = off
   useEffect(() => {
     if (data.length <= 3) setBtnstate({ left: false, right: false });
-    if (data.length === 4)
+    if (data.length === 4) {
       for (let i = 0; i < 4; i++) {
         data.push(data[i]);
         setInnerdata(data);
       }
+    }
   }, []);
 
   const move = (dir) => {
-    if (data.length === 4)
+    if (data.length === 4) {
       for (let i = 0; i < 4; i++) {
         data.push(data[i]);
         setInnerdata(data);
       }
+    }
     setDirection(dir);
     setBtnstate({ left: false, right: false });
     setTimeout(() => {
@@ -92,7 +95,7 @@ export const NewsCarousel = ({ data, title }) => {
         justifyContent="space-around"
         alignItems="center"
       >
-        {window_width > 600 && (
+        {width > 600 && (
           <NewsButton
             disabled={btnstate.left === true ? false : true}
             side="left"
@@ -103,7 +106,7 @@ export const NewsCarousel = ({ data, title }) => {
           </NewsButton>
         )}
         <NewsContainer>
-          <Stack gap={window_width > 1635 ? "24px" : "2vw"} flexDirection="row">
+          <Stack gap={width > 1635 ? "24px" : "2vw"} flexDirection="row">
             {innerdata.map((carddata, index) => (
               <div key={index}>
                 <Stack flexDirection="column" justifyContent="left">
@@ -113,6 +116,7 @@ export const NewsCarousel = ({ data, title }) => {
                     image={carddata.image}
                     header={carddata.header}
                     text={carddata.text}
+                    link={carddata.link}
                     moveleft={data.length <= 3 ? false : true}
                   />
                 </Stack>
@@ -120,7 +124,7 @@ export const NewsCarousel = ({ data, title }) => {
             ))}
           </Stack>
         </NewsContainer>
-        {window_width > 600 && (
+        {width > 600 && (
           <NewsButton
             disabled={btnstate.right === true ? false : true}
             side="right"
