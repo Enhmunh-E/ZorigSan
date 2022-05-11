@@ -7,6 +7,7 @@ export const HeaderStyle = styled.div`
   align-items: center;
   top: 0;
   left: 0;
+  z-index: 1;
 `;
 
 export const HeaderItems = styled.div`
@@ -19,6 +20,9 @@ export const HeaderItems = styled.div`
     width: 100%;
     height: 69px;
     padding: 32px;
+  }
+  @media only screen and (max-width: 540px) {
+    padding: 24px;
   }
 `;
 
@@ -36,7 +40,7 @@ export const HeaderLink = styled.div`
 
 export const HeaderMenuCon = styled.div`
   display: flex;
-  @media only screen and (max-width: 960px) {
+  @media only screen and (max-width: 650px) {
     display: none;
   }
 `;
@@ -45,10 +49,9 @@ export const HeaderMenu = styled.div`
   height: 24px;
   width: 24px;
   display: none;
-  cursor: pointer;
   padding-left: 32px;
   padding-right: 32px;
-  @media only screen and (max-width: 960px) {
+  @media only screen and (max-width: 650px) {
     display: flex;
     height: 105px;
     width: calc(100% - 66px);
@@ -62,6 +65,7 @@ export const HeaderMenu = styled.div`
 export const HeaderMenuIcon = styled.div`
   height: 24px;
   width: 24px;
+  cursor: pointer;
 `;
 
 export const HeaderDropDown = styled.div`
@@ -79,7 +83,7 @@ export const HeaderDropDownItems = styled.div`
   -ms-transition: opacity 0.2s, max-height 0.2s;
   -o-transition: opacity 0.2s, max-height 0.2s;
   overflow: hidden;
-  @media only screen and (max-width: 960px) {
+  @media only screen and (max-width: 540px) {
     position: static;
     margin-top: 24px;
   }

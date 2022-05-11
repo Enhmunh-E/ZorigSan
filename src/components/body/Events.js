@@ -1,8 +1,8 @@
 /* eslint-disable */
 /* eslint-disable react/prop-types */
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import useWindowDimensions from "../../functions/useWindowDimensions";
+// import useWindowDimensions from "../../functions/useWindowDimensions";
 import { EventCart } from "./EventCart";
 /* eslint-disable complexity */
 const Container = styled.div`
@@ -16,7 +16,6 @@ const Flex = styled.div`
   padding-left: 20px;
   padding-right: 20px;
   display: flex;
-  justify-content: space-around;
   justify-content: space-around;
   @media (max-width: 1100px) {
     height: 699px;
@@ -60,22 +59,24 @@ const Text = styled.div`
   display: flex;
   align-items: center;
   @media (max-width: 1100px) {
-  font-size: 39px;
+    font-size: 39px;
   }
   @media (max-width: 800px) {
-  font-size: 38px;
+    font-size: 38px;
   }
   @media (max-width: 700px) {
-  font-size: 37px;
+    font-size: 37px;
   }
   @media (max-width: 600px) {
-  font-size: 36px;
+    font-size: 36px;
   }
 `;
 export const Events = (props) => {
   const { events } = props;
   return (
-    <div style={{display:'flex',alignItems: 'center',flexDirection: 'column'}}>
+    <div
+      style={{ alignItems: "center", display: "flex", flexDirection: "column" }}
+    >
       <Text>Хөтөлбөрүүд</Text>
       <Container>
         <Flex>

@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
-import { createGlobalStyle } from "styled-components";
-import Header from "../../header/Header";
+import { Header } from "../../header";
 import { Text, Button } from "../../core";
 import { Haalt1, Haalt2 } from "../../../assets/icons";
 import {
@@ -23,15 +22,8 @@ export const Banner = ({ description, image, title }) => {
   const phone = useMemo(() => {
     return width <= 540;
   }, [width]);
-  const GlobalStyle = createGlobalStyle`
-  body {
-      margin: 0;
-      overflow-x: hidden;
-  }
-  `;
   return (
     <BannerCon bannerHeight={bannerHeight}>
-      <GlobalStyle />
       <Header color={"primary-white"} />
       <BannerTitleCon>
         <BannerHaalt1>
@@ -58,7 +50,6 @@ export const Banner = ({ description, image, title }) => {
             bgColor={"primary-white"}
             f_size={"T3"}
             f_weight={500}
-            bRadius={4}
             color={"primary-blue"}
           />
         )}

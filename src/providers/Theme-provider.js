@@ -5,7 +5,7 @@ export const ThemeContext = createContext({
     primary: {
       "primary-black": "#000",
       "primary-blue": "#0C265C",
-      "primary-light-blue": "#4FADE0",
+      "primary-light-blue": "#00669A",
       "primary-white": "#fff",
     },
     secondary: {
@@ -22,7 +22,7 @@ const Theme = {
   primary: {
     "primary-black": "#000",
     "primary-blue": "#0C265C",
-    "primary-light-blue": "#4FADE0",
+    "primary-light-blue": "#00669A",
     "primary-white": "#fff",
   },
   secondary: {

@@ -1,164 +1,73 @@
-import React from "react";
-import "../../styles/Cards.css";
+import React, { useMemo } from "react";
 import styled from "styled-components";
-import GetWindowSize from "../../util/GetWindowSize";
+import { Text, Stack } from "../core";
+import useWindowDimensions from "../../functions/useWindowDimensions";
+import "../../styles/Cards.css";
 
 const Container = styled.div`
-  @media screen and (max-device-width: 600px) {
-    gap: "20px";
-    flex-direction: column;
-  }
-  @media not screen and (max-device-width: 600px) {
-    justify-content: space-between;
-    gap: "4vw";
-  }
-  ${(props) => props.type && "flex-direction: column"};
-  width: ${(props) => (props.width ? props.width : "85vw")};
+  width: 1320px;
   display: flex;
   height: fit-content;
   align-items: center;
-  margin: ${(props) => (props.margin ? props.margin : "0 10vw 0 10vw")};
-`;
-const Text_Column = styled.div`
-  @media screen and (max-device-width: 600px) {
-    width: ${(props) => (props.width ? props.width : "85vw")};
+  gap: 102px;
+  @media screen and (max-width: 1384px) {
+    width: 100%;
   }
-  @media not screen and (max-device-width: 600px) {
-    max-width: ${(props) => (props.width ? props.width : "35vw")};
+  @media screen and (max-width: 960px) {
+    gap: 40px;
   }
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 `;
 const Line = styled.div`
-  @media not screen and (max-device-width: 600px) {
-    width: 20vw;
-    height: 1px;
-    background-color: black;
-  }
+  width: 25px;
+  height: 1px;
+  background-color: black;
 `;
 const Image = styled.img`
-  @media screen and (max-device-width: 600px) {
-    width: ${(props) => (props.width ? props.width : "85vw")};
-    height: ${(props) => (props.height ? props.height : "60vw")};
-  }
-
-  @media not screen and (max-device-width: 600px) {
-    width: ${(props) => (props.width ? props.width : "40vw")};
-    height: ${(props) => (props.height ? props.height : "25vw")};
-    ${(props) => props.minwidth && "min-width: 290px"};
-    ${(props) => props.minheight && "min-height: 180px"};
-  }
-  border-radius: ${(props) =>
-    props.borderradius ? props.borderradius : "8px"};
+  width: 50%;
+  border-radius: 8px;
+  object-fit: cover;
 `;
-const Text = styled.h1`
-  font-style: normal;
-  @media screen and (max-device-width: 800px) {
-    font-size: ${(props) => (props.type === "heading" ? "14px" : "12px")};
-  }
-  @media not screen and (max-device-width: 800px) {
-    font-size: ${(props) => (props.type === "heading" ? "18px" : "16px")};
-  }
-  font-weight: ${(props) => (props.type === "heading" ? "700" : "400")};
-  text-align: left;
-  @media screen and (max-device-width: 600px) {
-    display: flex;
-    justify-content: left;
-  }
-  line-height: 22px;
-  font-family: 'Montserrat';
-  color: ${(props) => (props.color ? props.color : "#0C265C")};
+const LongText = styled.div`
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  display: -webkit-box;
+  line-height: 20px;
+  overflow: hidden;
 `;
-
 export const Card = ({
-  color,
-  font,
-  line,
   image,
-  first,
-  header,
-  text,
+  name,
+  description,
+  index,
   imgwidth,
   imgheight,
-  type,
-  margin,
 }) => {
-  let borderradius;
-  let direction;
-  let width;
-  let height;
-  let minwidth;
-  let minheight;
-  let fontsize;
   if (typeof image === "object") image = JSON.stringify(image);
-  if (type === "small") {
-    const { window_width } = GetWindowSize();
-    direction = "column";
-    first = "image";
-    borderradius = "0";
-    margin = "0";
-    if (window_width < 600) {
-      width = "90vw";
-      imgwidth = "85vw";
-      imgheight = "65vw";
-    } else {
-      width = "22.5vw";
-      imgwidth = "22.5vw";
-      imgheight = "16.5vw";
-    }
-  }
-  // I HAVE NOT DONE THE MOBILE VERSION SXDFGHJKLKJHGFDFGHJYTGFVGBHJUYTGFCDVBNHJUYTRFDCVBHYTRFDCXVHU
+  const { width } = useWindowDimensions();
+  const phone = useMemo(() => {
+    return width <= 540;
+  }, [width]);
   return (
-    <Container
-      margin={margin}
-      direction={direction}
-      height={height}
-      type={type}
-      width={width}
-    >
-      {first === "image" && (
-        <Image
-          borderradius={borderradius}
-          width={imgwidth}
-          height={imgheight}
-          src={image}
-          minheight={minheight}
-          minwidth={minwidth}
-        ></Image>
+    <Container>
+      {index % 2 === 0 && (
+        <Image width={imgwidth} height={imgheight} src={image}></Image>
       )}
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <Text_Column>
-          <Text
-            fontsize={fontsize}
-            font={font}
-            color={color}
-            type="heading"
-            style={{ margin: "5px 0 10px 0" }}
-          >
-            {header}
-          </Text>
-          <Text
-            font={font}
-            fontsize={fontsize}
-            color={color}
-            type="title"
-            style={{ margin: "5px 0 10px 0" }}
-          >
-            {text}
-          </Text>
-        </Text_Column>
-        <div>{line === true && <Line />}</div>
+      <div>
+        <Stack flexDirection={"column"} gap={phone === false ? "40px" : "16px"}>
+          <Text type={"H3"}>{name}</Text>
+          <LongText>
+            <Text type={"T2"}>{description}</Text>
+          </LongText>
+          <Stack alignItems={"center"} gap={"24px"}>
+            <Text style={{ cursor: "pointer" }} type={"T4"}>
+              Дэлэгрэнгүй
+            </Text>
+            <Line />
+          </Stack>
+        </Stack>
       </div>
-      {first != "image" && (
-        <Image
-          width={imgwidth}
-          height={imgheight}
-          src={image}
-          minheight={minheight}
-          minwidth={minwidth}
-        ></Image>
+      {index % 2 !== 0 && (
+        <Image width={imgwidth} height={imgheight} src={image}></Image>
       )}
     </Container>
   );
