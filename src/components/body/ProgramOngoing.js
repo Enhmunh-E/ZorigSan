@@ -29,6 +29,8 @@ const ProgramContainer = styled.div`
     flex-direction: column;
     align-items: flex-end;
     row-gap: 16px;
+    padding-right:7%;
+  padding-left:7%;
   }
 `;
 // const Arroww = styled.div`
@@ -38,7 +40,7 @@ const ProgramContainer = styled.div`
 // }
 // `
 const BigContainer = styled.div`
-  width: 100%;
+  width: 100vw;
   font-family:Montserrat;
   padding-top: 5%;
   padding-bottom: 5%;

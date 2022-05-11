@@ -45,10 +45,10 @@ export const ArrowContainer = styled.div`
 export const Donation = ({ text }) => {
     return (
         <AllWrapper>
-            <Stack flexDirection="column" alignItems="center" gap={'30px'}>
+            <Stack flexDirection="column" alignItems="center" justifyContent='center' gap={'30px'}>
                 <BackWrapper>
                     <TextWrapper>
-                        <Text type="H1">{text}</Text>
+                        <Text type="H1" color='#243C6C'>{text}</Text>
                     </TextWrapper>
                     <Button title={"хандив өгөх"} width={190} b_radius={3} f_weight={1} f_size="24px" type={"arrow"} bgColor={"primary-blue"} color={"primary-white"} />
                 </BackWrapper>
