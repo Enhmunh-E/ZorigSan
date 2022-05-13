@@ -6,13 +6,6 @@ import { Stack, Text } from '../core';
 
 /* eslint-disable complexity */
 
-const Program = ({ program, angle, width, bottom }) => {
-    return (
-        <div style={{ alignItems: 'center', display: 'flex', flexDirection: 'row', height: width * 0.02 + 'px', justifyContent: 'center', width: width * 0.5 + 'px', }}>
-            <Text style={{ color: '#1C6DD0' }} type='T1'>{angle === 90 && bottom !== 0 ? program : ''}</Text>
-        </div>
-    );
-};
 
 const MainImage = styled.img`
     position: absolute;
@@ -135,81 +128,83 @@ const CircleCarousel = ({ arr, topTittle }) => {
     }
     console.log(elements.length);
     return (
-            <Stack alignItems={'center'} justifyContent={'center'} flexDirection={'column'} style={{ height: '100vh', width: '100vw', }}>
-                <Text style={{ color: '#0C265B', marginBottom: width * 0.05 + 'px', textAlign: 'center' }} type='T0'> {topTittle}</Text>
+        <Stack alignItems={'center'} justifyContent={'center'} flexDirection={'column'} style={{ width: '100vw', }}>
+            <Text style={{ color: '#0C265B', marginBottom: width * 0.05 + 'px', textAlign: 'center' }} type='T0'> {topTittle}</Text>
 
-                {width > 540 ? <div style={{
-                    backgroundColor: 'white',
-                    height: width * 0.5 + 'px',
-                    position: 'relative',
-                    width: width + 'px',
-                }}>
-                    {
-                        elements.map((element, index) => {
-                            const bottom = Math.sin(Math.PI / 4 * (index + 2 + go)) * radius / 2 + radius / 2;
-                            const left = Math.cos(Math.PI / 4 * (index + 2 + go)) * radius + radius * 1.3;
+            {width > 540 ? <div style={{
+                backgroundColor: 'white',
+                height: width * 0.5 + 'px',
+                position: 'relative',
+                width: width + 'px',
+            }}>
+                {
+                    elements.map((element, index) => {
+                        const bottom = Math.sin(Math.PI / 4 * (index + 2 + go)) * radius / 2 + radius / 2;
+                        const left = Math.cos(Math.PI / 4 * (index + 2 + go)) * radius + radius * 1.3;
 
-                            const angle = Math.abs((180 / 4 * (index + 2 + go)) % 180);
-                            // console.log('bottom',Math.round(bottom),'left', Math.round(left),'ind', index, 'angle', angle, );
-                            // console.log('go', go, 'pi', (index + 2 + go), 'index', index, 'bottom', bottom);
-                            let w = 0, h = 0;
-                            let display;
-                            if (angle === 0) {
-                                w = width * 0.075;
-                                h = width * 0.075;
-                            } if (angle === 45 || angle === 135) {
-                                w = width / 68 * 7;
-                                h = width / 68 * 7;
-                                if (bottom === Math.sin(Math.PI / 4 * 5) * radius / 2 + radius / 2 || bottom === Math.sin(Math.PI / 4 * 7) * radius / 2 + radius / 2) {
-                                    display = 'none'
-                                }
-                            } if (angle === 90) {
-                                w = width / 24 * 5;
-                                h = width / 24 * 5;
-                                if (Math.round(bottom) === 0) {
-                                    display = 'none';
-                                }
+                        const angle = Math.abs((180 / 4 * (index + 2 + go)) % 180);
+                        // console.log('bottom',Math.round(bottom),'left', Math.round(left),'ind', index, 'angle', angle, );
+                        // console.log('go', go, 'pi', (index + 2 + go), 'index', index, 'bottom', bottom);
+                        let w = 0, h = 0;
+                        let display;
+                        if (angle === 0) {
+                            w = width * 0.075;
+                            h = width * 0.075;
+                        } if (angle === 45 || angle === 135) {
+                            w = width / 68 * 7;
+                            h = width / 68 * 7;
+                            if (bottom === Math.sin(Math.PI / 4 * 5) * radius / 2 + radius / 2 || bottom === Math.sin(Math.PI / 4 * 7) * radius / 2 + radius / 2) {
+                                display = 'none'
                             }
-                            if (elements.length < 8) {
-                                if (angle === 90 && bottom !== 0) {
-                                    top = index;
-                                }
+                        } if (angle === 90) {
+                            w = width / 24 * 5;
+                            h = width / 24 * 5;
+                            if (Math.round(bottom) === 0) {
+                                display = 'none';
                             }
-                            return (
-                                <div key={index} >
-                                    <MainImage onMouseEnter={() => console.log(index)} display={display} width={w} height={h} bottom={bottom} left={left} angle={angle} src={element.image.file.url}></MainImage>
-                                    <MainInfo size={width} left={radius / 1.45} bottom={0} style={angle === 90 && bottom !== 0 ? { display: '', opacity: '1', transition: 'all 1s', visibility: 'visible' } : { display: 'none', opacity: '0', transition: 'all 1s', visibility: 'hidden', }} >
-                                        <Stack style={{ height: 'auto' }} alignItems={'center'} justifyContent={'center'} flexDirection={'column'}>
-                                            <Text style={{ color: '#0C265B', marginBottom: width * 0.01 + 'px' }} type='H1'>{angle === 90 && bottom !== 0 ? element.name : ''}</Text>
-                                            <Text style={{ color: '#243C6C', marginBottom: width * 0.01 + 'px', textAlign: 'center' }} type='T2'>{angle === 90 && bottom !== 0 ? element.word.internal.content.slice(0, 400) : ''}</Text>
-                                            <Program bottom={bottom} width={width} angle={angle} program={element.program}></Program>
-                                        </Stack>
-                                    </MainInfo>
-                                </div>
-                            );
+                        }
+                        if (elements.length < 8) {
+                            if (angle === 90 && bottom !== 0) {
+                                top = index;
+                            }
+                        }
+                        return (
+                            <div key={index} >
+                                <MainImage onMouseEnter={() => console.log(index)} display={display} width={w} height={h} bottom={bottom} left={left} angle={angle} src={element.image.file.url}></MainImage>
+                                <MainInfo size={width} left={radius / 1.45} bottom={0} style={angle === 90 && bottom !== 0 ? { display: '', opacity: '1', transition: 'all 1s', visibility: 'visible' } : { display: 'none', opacity: '0', transition: 'all 1s', visibility: 'hidden', }} >
+                                    <Stack style={{ height: 'auto' }} alignItems={'center'} justifyContent={'center'} flexDirection={'column'}>
+                                        <Text style={{ color: '#0C265B', marginBottom: width * 0.01 + 'px' }} type='H1'>{angle === 90 && bottom !== 0 ? element.name : ''}</Text>
+                                        <Text style={{ color: '#243C6C', marginBottom: width * 0.01 + 'px', textAlign: 'center' }} type='T2'>{angle === 90 && bottom !== 0 ? element.word.internal.content.slice(0, 400) : ''}</Text>
+                                        <div style={{ alignItems: 'center', display: 'flex', flexDirection: 'row', height: width * 0.02 + 'px', justifyContent: 'center', width: width * 0.5 + 'px', }}>
+                                            <Text style={{ color: '#1C6DD0' }} type='T2'>{angle === 90 && bottom !== 0 ? element.program : ''}</Text>
+                                        </div>
+                                    </Stack>
+                                </MainInfo>
+                            </div>
+                        );
+                    })
+                }
+                <CarouselBtn left={Math.cos(Math.PI / 2) * radius + radius / 1.25} bottom={Math.sin(Math.PI / 2) * radius} width={width * 0.03} disabled={top === elements.length - 1 ? true : false} height={width * 0.03} onClick={Next}><CarouselBack style={{ height: width * 0.025 + 'px', width: width * 0.025 + 'px', }} /></CarouselBtn>
+                <CarouselBtn left={Math.cos(Math.PI / 2) * radius + radius * 1.7} bottom={Math.sin(Math.PI / 2) * radius} width={width * 0.03} disabled={top === 0 ? true : false} height={width * 0.03} onClick={Prev}><CarouselNext style={{ height: width * 0.025 + 'px', width: width * 0.025 + 'px', }} /></CarouselBtn>
+
+
+            </div>
+                : <div style={{ height: '150vw', overflowX: 'scroll', width: '100vw', }} >
+                    <Stack style={{ marginLeft: '8vw' }} flexDirection={'row'} >
+                        {elements.map((element, index) => {
+                            return <Stack style={{ marginLeft: '5vw', marginRight: '5vw' }} key={index} flexDirection={'column'}>
+                                <MobileCardImg width={'74vw'} height={'74vw'} src={element.image.file.url} />
+                                <MobileCardInfo width={'66vw'} height={'60vw'} style={{ paddingBottom: '4vw', paddingLeft: '4vw', paddingRight: '4vw' }}>
+                                    <Text style={{ color: '#0C265B', marginBottom: width * 0.006 + 'px', textAlign: 'center' }} type='H2'>{element.name}</Text>
+                                    <Text style={{ color: '#243C6C', marginBottom: width * 0.01 + 'px', textAlign: 'center' }} type='T3'>{element.word.internal.content.slice(0, 150)}...</Text>
+                                    <Text style={{ color: '#1C6DD0', textAlign: 'center' }} type='T2Bold'>{element.program}</Text>
+                                </MobileCardInfo>
+                            </Stack>
                         })
-                    }
-                    <CarouselBtn left={Math.cos(Math.PI / 2) * radius + radius / 1.25} bottom={Math.sin(Math.PI / 2) * radius} width={width * 0.03} disabled={top === elements.length - 1 ? true : false} height={width * 0.03} onClick={Next}><CarouselBack style={{ height: width * 0.025 + 'px', width: width * 0.025 + 'px', }} /></CarouselBtn>
-                    <CarouselBtn left={Math.cos(Math.PI / 2) * radius + radius * 1.7} bottom={Math.sin(Math.PI / 2) * radius} width={width * 0.03} disabled={top === 0 ? true : false} height={width * 0.03} onClick={Prev}><CarouselNext style={{ height: width * 0.025 + 'px', width: width * 0.025 + 'px', }} /></CarouselBtn>
-
-                    
-                </div>
-                    : <div style={{ height: '150vw', overflowX: 'scroll', width: '100vw', }} >
-                        <Stack style={{ marginLeft: '8vw' }} flexDirection={'row'} >
-                            {elements.map((element, index) => {
-                                return <Stack style={{ marginLeft: '5vw', marginRight: '5vw' }} key={index} flexDirection={'column'}>
-                                    <MobileCardImg width={'74vw'} height={'74vw'} src={element.image.file.url} />
-                                    <MobileCardInfo width={'66vw'} height={'60vw'} style={{ paddingBottom: '4vw', paddingLeft: '4vw', paddingRight: '4vw' }}>
-                                        <Text style={{ color: '#0C265B', marginBottom: width * 0.006 + 'px', textAlign: 'center' }} type='H2'>{element.name}</Text>
-                                        <Text style={{ color: '#243C6C', marginBottom: width * 0.01 + 'px', textAlign: 'center' }} type='T3'>{element.word.internal.content.slice(0, 150)}...</Text>
-                                        <Text style={{ color: '#1C6DD0', textAlign: 'center' }} type='T2Bold'>{element.program}</Text>
-                                    </MobileCardInfo>
-                                </Stack>
-                            })
-                            }
-                        </Stack>
-                    </div>}
-            </Stack>
+                        }
+                    </Stack>
+                </div>}
+        </Stack>
     );
 }
 
