@@ -87,12 +87,12 @@ export const Events = (props) => {
                   <EventCart
                     title={event.title}
                     paddingTop={"44px"}
-                    img={event.img}
+                    img={event.image.file.url}
                   />
                   {events[index + 1] && (
                     <EventCart
                       title={events[index + 1].title}
-                      img={events[index + 1].img}
+                      img={events[index + 1].image.file.url}
                     />
                   )}
                 </Div>

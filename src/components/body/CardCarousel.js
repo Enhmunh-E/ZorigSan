@@ -10,18 +10,6 @@ const Slide = styled.div`
   display: flex;
   transition: transform 1s ease-out;
   transform: ${(props) => `translateX(${props.xPosition}px)`};
-  div {
-    width: ${(props) => `${props.width}`};
-    height: calc(${(props) => `${props.width} * 0.56`});
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    div {
-      padding: 10%;
-      text-align: center;
-    }
-  }
 `;
 export function Carousel({ arr, WrapperWidth, children }) {
   const [index, setIndex] = useState(-1);
