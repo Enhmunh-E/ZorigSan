@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React from "react";
 import { Stack } from "../core";
 import { Card } from ".";
-import GetWindowSize from "../../util/GetWindowSize";
+import useWindowDimensions from "../../functions/useWindowDimensions";
 
 // // let image1 = import something
 // // let header1 = import something
@@ -20,7 +20,7 @@ const HorizontalLine = styled.div`
   height: 5px;
   opacity: 0.2;
   background: #0c265c;
-  @media screen and (max-device-width: 600px) {
+  @media screen and (max-width: 600px) {
     margin-left: 2.5vw;
   }
 `;
@@ -36,7 +36,7 @@ const Title = styled.h1`
   text-transform: uppercase;
   font-feature-settings: "case";
   font-size: 40px;
-  @media screen and (max-device-width: 800px) {
+  @media screen and (max-width: 800px) {
     font-size: 30px;
   }
 `;
@@ -47,15 +47,15 @@ const Text = styled.h1`
   font-size: 14px;
   line-height: 24px;
   color: #0c265c;
-  @media screen and (max-device-width: 600px) {
+  @media screen and (max-width: 600px) {
     margin-left: 2.5vw;
   }
 `;
 export const News = () => {
   let direction = "row";
   let gap;
-  const { window_width } = GetWindowSize();
-  if (window_width < 600) {
+  const { width } = useWindowDimensions();
+  if (width < 600) {
     direction = "column";
     console.log(direction);
     gap = "32px";
@@ -80,7 +80,7 @@ export const News = () => {
           <HorizontalLine />
           <Text type="title2">year</Text>
         </Stack>
-        {window_width > 600 && <VerticalLine />}
+        {width > 600 && <VerticalLine />}
         <Stack gap="10px" flexDirection="column" justifyContent="left">
           <Card
             type="small"
@@ -91,7 +91,7 @@ export const News = () => {
           <HorizontalLine />
           <Text type="title2">year</Text>
         </Stack>
-        {window_width > 600 && <VerticalLine />}
+        {width > 600 && <VerticalLine />}
         <Stack gap="10px" flexDirection="column" justifyContent="left">
           <Card
             type="small"
@@ -99,7 +99,7 @@ export const News = () => {
             header="Цахим орчинд таны хүүхдэд"
             text="Хүүхдийн утас 108-д орж ирдэг гомдлын дуудлага дундаас "
           />
-          <HorizontalLine style />
+          <HorizontalLine />
           <Text>year</Text>
         </Stack>
         
