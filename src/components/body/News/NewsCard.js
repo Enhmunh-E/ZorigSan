@@ -11,19 +11,19 @@ const CardContainer = styled.div`
   align-items: center;
   margin: 0;
   pointer-events: none;
-  @media (max-device-width: 600px) {
+  @media (max-width: 600px) {
     gap: 20px;
     width: 85vw;
   }
-  @media (min-device-width: 600px) {
-    @media (max-device-width: 1200px) {
+  @media (min-width: 600px) {
+    @media (max-width: 1200px) {
       @keyframes move_animation_right {
         100% {
           transform: translateX(-56vw);
         }
       }
     }
-    @media (min-device-width: 1200px) {
+    @media (min-width: 1200px) {
       @keyframes move_animation_right {
         100% {
           transform: translateX(-896px);
@@ -41,21 +41,21 @@ const CardContainer = styled.div`
         ? "move_animation_left"
         : props.direction === "right" && "move_animation_right"};
     animation-duration: 0.8s;
-    @media (max-device-width: 1200px) {
+    @media (max-width: 1200px) {
       ${(props) => props.moveleft && `transform: translateX(-28vw)`}
     }
-    @media (min-device-width: 1635px) {
+    @media (min-width: 1635px) {
       ${(props) => props.moveleft && `transform: translateX(-448px)`}
     }
   }
 `;
 const Text_Column = styled.div`
-  @media (max-device-width: 600px) {
+  @media (max-width: 600px) {
     width: 60vw;
     margin-bottom: 10px;
     margin-left: 10px;
   }
-  @media (min-device-width: 600px) {
+  @media (min-width: 600px) {
     max-width: 424px;
     width: 26vw;
     margin-top: 10px;
@@ -66,7 +66,7 @@ const Text_Column = styled.div`
   justify-content: space-between;
 `;
 const Image = styled.div`
-  @media (max-device-width: 600px) {
+  @media (max-width: 600px) {
     width: 85vw;
     height: 53vw;
     border-radius: 4px;
@@ -75,7 +75,7 @@ const Image = styled.div`
     background-size: 100% 100%;
     background-repeat: no-repeat;
   }
-  @media (min-device-width: 600px) {
+  @media (min-width: 600px) {
     width: 26vw;
     height: 16.6vw;
     max-width: 424px;

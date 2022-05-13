@@ -17,21 +17,20 @@ const NewsTitle = styled.h1`
   text-transform: uppercase;
   font-feature-settings: "case";
   font-size: 40px;
-  @media screen and (max-device-width: 800px) {
+  @media screen and (max-width: 800px) {
     font-size: 30px;
   }
 `;
 const NewsContainer = styled.div`
-  @media screen and (max-device-width: 600px) {
+  @media screen and (max-width: 600px) {
     width: 100vw;
     overflow-x: scroll;
   }
-  @media not screen and (max-device-width: 600px) {
+  @media not screen and (max-width: 600px) {
     width: 82vw;
     max-width: 1320px;
     overflow: hidden;
   }
-  pointer-events: none;
 `;
 const NewsButton = styled.button`
   :disabled {
@@ -50,8 +49,8 @@ const NewsButton = styled.button`
     fill-mode;
   ${(props) =>
     props.side === "right"
-      ? "@media not screen and (max-device-width: 1200px) {transform: scale(1.5) rotate(180deg);} @media screen and (max-device-width: 1200px) {transform: rotate(180deg);}; margin-left: -5vw;"
-      : "@media not screen and (max-device-width: 1200px) {transform: scale(1.5);};margin-right: -5vw"}
+      ? "@media not screen and (max-width: 1200px) {transform: scale(1.5) rotate(180deg);} @media screen and (max-width: 1200px) {transform: rotate(180deg);}; margin-left: -5vw;"
+      : "@media not screen and (max-width: 1200px) {transform: scale(1.5);};margin-right: -5vw"}
 `;
 
 export const NewsCarousel = ({ data, title }) => {
