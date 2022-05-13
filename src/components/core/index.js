@@ -5,9 +5,9 @@ export * from "./Opacity";
 export * from "./Padding";
 export * from "./Text";
 export * from "./Image";
-export * from "./button/Button";
+export * from "./button/index";
 export * from "./Stack";
 export * from "./TooltipComp";
-export * from './Text'
-export * from './Modal'
-export * from './Header'
+export * from "./Text";
+export * from "./Modal";
+export * from "./Header";
