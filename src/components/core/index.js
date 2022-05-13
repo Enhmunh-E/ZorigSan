@@ -10,3 +10,4 @@ export * from "./Stack";
 export * from "./TooltipComp";
 export * from './Text'
 export * from './Modal'
+export * from './Header'

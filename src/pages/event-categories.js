@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import { Text, Margin, Stack, Padding } from "../components/core";
+import { Header, Text, Margin, Stack, Padding } from "../components/core";
 import { Card, CardMobile } from "../components/body";
-import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import useWindowDimensions from "../functions/useWindowDimensions";
 

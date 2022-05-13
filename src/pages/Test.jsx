@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Footer } from "../components/footer";
-import Header from "../components/header/Header";
 import {
   Cards,
   Card,
@@ -11,6 +10,7 @@ import {
   ProgramOngoing
 } from "../components/body";
 import {
+  Header,
   Border,
   // Button,
   Opacity,
@@ -211,7 +211,7 @@ const Test = () => {
               </div>
             ))}
           </Carousel> */}
-          <CircleCarousel arr={images} topTittle={'ЗОРИГ САНГИЙН АМЖИЛТТАЙ ТӨГСӨГЧИД'}></CircleCarousel>
+          {/* <CircleCarousel arr={images} topTittle={'ЗОРИГ САНГИЙН АМЖИЛТТАЙ ТӨГСӨГЧИД'}></CircleCarousel> */}
         </Stack>
       </Border>
 
