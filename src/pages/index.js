@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
 import { graphql, useStaticQuery } from "gatsby";
 import { createGlobalStyle } from "styled-components";
-import { Carousel, Donation, Events, NewsCarousel, ProgramOngoing, Sponsors } from '../components/body';
+import {Banner, Carousel, Donation, Events, NewsCarousel, ProgramOngoing, Sponsors } from '../components/body';
 import Analytic from "../components/body/Analytic";
 import CircleCarousel from "../components/body/CircleCarousel";
 import { Footer } from "../components/footer";
 import { Margin } from "../components/core";
-=======
-import { Banner } from "../components/body/banner";
-import { Donation, Events, ProgramOngoing, Sponsors } from '../components/body';
-import Analytic from "../components/body/Analytic";
-import CircleCarousel from "../components/body/CircleCarousel";
-import { Footer } from "../components/footer";
->>>>>>> 69074eb (home page almost done)
 const IndexPage = () => {
   const [BannerData, setBannerData] = useState({});
   const data = useStaticQuery(graphql`
@@ -34,10 +26,7 @@ const IndexPage = () => {
           }
         }
       }
-<<<<<<< HEAD
     
-=======
->>>>>>> 69074eb (home page almost done)
       allContentfulPrograms {
         nodes {
           image {
@@ -95,7 +84,6 @@ const IndexPage = () => {
   useEffect(() => {
     data.allContentfulBanner.edges.map((el) => setBannerData(el.node));
   }, [data]);
-<<<<<<< HEAD
   const GlobalStyle = createGlobalStyle`
     body {
       margin: 0;
@@ -106,12 +94,6 @@ const IndexPage = () => {
   const events = data.allContentfulPrograms.nodes;
   const alumni = data.allContentfulAlumni.nodes;
   const sponsors = data.allContentfulSponsor.nodes;
-  console.log(alumni);
-=======
-  const events = data.allContentfulPrograms.nodes;
-  const alumni = data.allContentfulAlumni.nodes;
-  const sponsors = data.allContentfulSponsor.nodes;
->>>>>>> 69074eb (home page almost done)
   return (
     <div>
       <GlobalStyle />
@@ -120,7 +102,6 @@ const IndexPage = () => {
         image={BannerData.image?.file.url}
         title={BannerData.title}
       />
-<<<<<<< HEAD
       <Carousel arr={ongoingpros} WrapperWidth={"100vw"}>
         {ongoingpros.map((el, i) => (
           <div key={i}>
@@ -175,19 +156,6 @@ const IndexPage = () => {
       <Sponsors arr={sponsors} />
       <Donation text={"ЗОРИГ САН-д хандив өгөөрэй"} />
       <Footer />
-=======
-      <ProgramOngoing
-        name={'Сурагч солилцооны хөтөлбөр 2022'}
-        desc={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do iusmod tempor incididunt ut labore et dolore magna aliqua.'}
-        date={'2022.04.20'}
-      />
-      <Analytic/>
-      <Events events={events} />
-      <CircleCarousel arr={alumni} topTittle={'ЗОРИГ САНГИЙН АМЖИЛТТАЙ ТӨГСӨГЧИД'}></CircleCarousel>
-      <Sponsors arr={sponsors}/>
-      <Donation text={"ЗОРИГ САН-д хандив өгөөрэй"} />
-      <Footer/>
->>>>>>> 69074eb (home page almost done)
     </div>
   );
 };

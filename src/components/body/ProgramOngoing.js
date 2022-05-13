@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import useWindowDimensions from "../../functions/useWindowDimensions";
 import { Stack, Text, Button } from "../core";
 
 // import ArrowIcon from "../../assets/icons/arrow";
@@ -30,7 +31,7 @@ const ProgramContainer = styled.div`
     align-items: flex-end;
     row-gap: 16px;
     padding-right:7%;
-  padding-left:7%;
+    padding-left:7%;
   }
 `;
 // const Arroww = styled.div`
@@ -59,6 +60,7 @@ const LilContainer = styled.div`
   }
 `;
 export const ProgramOngoing = ({ name, date, desc, }) => {
+  const { width } = useWindowDimensions();
   return (
     <BigContainer>
       <ProgramContainer>
@@ -86,8 +88,8 @@ export const ProgramOngoing = ({ name, date, desc, }) => {
             </Text>
             <Stylle f_size="34px">{date}</Stylle>
             <Button
-            width={171}
-              type={"arrow"}
+              width={width > 540 ? 171 : ''}
+              type={width > 540 ? "arrow" : ''}
               title={"Дэлгэрэнгүй"}
               bgColor={"primary-blue"}
               f_size={"T3"}

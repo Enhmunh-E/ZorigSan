@@ -13,3 +13,4 @@ export * from "./ProgramOngoing";
 export * from './EventCart';
 export * from  "./CircleCarousel"
 export * from "./Sponsors"
+export * from './News/NewsCarousel'

@@ -29,7 +29,7 @@ export function Carousel({ arr, WrapperWidth, children }) {
   useEffect(() => {
     const interval = setInterval(() => {
       handleClicknext();
-    }, 1000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [index]);
   const slideRef = useRef();
