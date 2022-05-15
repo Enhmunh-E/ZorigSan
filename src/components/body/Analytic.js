@@ -1,6 +1,42 @@
 import React from "react";
 import styled from 'styled-components'
 import { Text } from "../core";
+import { motion, useAnimation } from "framer-motion";
+
+
+
+
+const Box = ({ children, id }) => {
+    const boxVariants = {
+        offscreen: {
+            opacity: '0',
+            y: 100,
+        },
+        onscreen: {
+            opacity: '1',
+            transition: {
+                bounce: 0.4,
+                delay: id * 0.1,
+                duration: 0.8,
+                type: "spring",
+            },
+            y: -50,
+        }
+    };
+    const control = useAnimation();
+    return (
+        <motion.div
+            className="box"
+            variants={boxVariants}
+            initial="offscreen"
+            animate={control}
+            viewport={{ once: true }}
+            whileInView='onscreen'
+        >
+            <h1>{children} </h1>
+        </motion.div>
+    );
+};
 
 const Analytic_Container = styled.div`
     width: 100%;
@@ -65,30 +101,38 @@ const Fact = styled.div`
     padding-right: 4px;
 `
 
+const data = [
+    {
+        number: '1998',
+        text: 'ҮҮСГЭН БАЙГУУЛСАН',
+    },
+    {
+        number: '2880+',
+        text: 'НИЙТ ОЛГОСОН ТЭТГЭЛЭГ',
+    },
+    {
+        number: '300+',
+        text: 'НИЙГМИЙН ХӨГЖЛИЙН ТӨЦЛҮҮД',
+    },
+    {
+        number: '5000+',
+        text: 'ХӨТӨЛБРИЙН ТӨГСӨГЧИД',
+    },
+]
+
 export const Analytic = () => {
-    return(
+    return (
         <Analytic_Container>
             <Name><Text color="#0C265C" type='Quote'>ЗОРИГ САН</Text></Name>
             <Analytic_Data>
-                <Group>
-                    <Number><Text type='H1Bold' color="#0C265C">1998</Text></Number>
-                    <Fact><Text type='T2Bold' color="#0C265C">ҮҮСГЭН БАЙГУУЛСАН</Text></Fact>
-                </Group>
-
-                <Group>
-                    <Number><Text type='H1Bold' color="#0C265C">2880+</Text></Number>
-                    <Fact><Text type='T2Bold' color="#0C265C">НИЙТ ОЛГОСОН ТЭТЭГЛЭЛ</Text></Fact>
-                </Group>
-
-                <Group>
-                    <Number><Text type='H1Bold' color="#0C265C">300+</Text></Number>
-                    <Fact><Text type='T2Bold' color="#0C265C">НИЙГМИЙН ХӨГЖЛИЙН ТӨЦЛҮҮД</Text></Fact>
-                </Group>
-
-                <Group>
-                    <Number><Text type='H1Bold' color="#0C265C">5000+</Text></Number>
-                    <Fact><Text type='T2Bold' color="#0C265C">ХӨТӨЛБРИЙН ТӨГСӨГЧИД</Text></Fact>
-                </Group>
+                {data.map((el, ind) => {
+                    return <Box key={ind} id={ind}>
+                        <Group>
+                            <Number><Text type='H1Bold' color="#0C265C">{el.number}</Text></Number>
+                            <Fact><Text type='T2Bold' color="#0C265C">{el.text}</Text></Fact>
+                        </Group>
+                    </Box>
+                })}
             </Analytic_Data>
         </Analytic_Container>
     )

@@ -14,6 +14,9 @@ import Analytic from "../components/body/Analytic";
 import CircleCarousel from "../components/body/CircleCarousel";
 import { Footer } from "../components/footer";
 import { Margin } from "../components/core";
+
+
+
 const IndexPage = () => {
   const [BannerData, setBannerData] = useState({});
   const data = useStaticQuery(graphql`
@@ -173,3 +176,5 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+
