@@ -99,5 +99,3 @@ export const HeaderMobileMenu = styled.div`
   background-color: #0c265c;
   transition: right 0.4s;
 `;
-
-export default HeaderStyle;
