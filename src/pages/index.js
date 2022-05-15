@@ -94,7 +94,7 @@ const IndexPage = () => {
   ];
   useEffect(() => {
     data.allContentfulBanner.edges.map((el) => setBannerData(el.node));
-  }, [data]);
+  }, );
   const GlobalStyle = createGlobalStyle`
     body {
       margin: 0;

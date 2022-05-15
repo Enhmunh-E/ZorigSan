@@ -2,7 +2,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import styled from "styled-components";
-// import useWindowDimensions from "../../functions/useWindowDimensions";
 import { EventCart } from "./EventCart";
 /* eslint-disable complexity */
 const Container = styled.div`
