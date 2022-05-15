@@ -2,6 +2,10 @@ import React, { useEffect, useState, useMemo } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { Header, Text, Margin, Stack, Padding } from "../components/core";
 import { Card, CardMobile } from "../components/body";
+<<<<<<< HEAD
+=======
+import { Header } from "../components/header/Header";
+>>>>>>> a63c031 (test)
 import { Footer } from "../components/footer";
 import useWindowDimensions from "../functions/useWindowDimensions";
 
