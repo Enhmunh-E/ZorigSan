@@ -125,7 +125,6 @@ export const EventCart = ({ img, title, paddingTop }) => {
     } else {
       setwidth(false);
     }
-    // console.log(DisWidth)
     setTextHeight(divRef?.current?.offsetHeight);
   }, [width]);
 

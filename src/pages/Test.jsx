@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Footer } from "../components/footer";
+/* eslint-disable */
+/* eslint-disable react/prop-types */
+/* eslint-disable complexity */
 import {
   Cards,
   Card,
@@ -12,7 +15,8 @@ import {
 import {
   Header,
   Border,
-  // Button,
+  Image,
+  Margin,
   Opacity,
   Stack,
   TooltipComp,
@@ -324,9 +328,6 @@ const Test = () => {
               flexDirection="row"
               gap="20px"
             >
-              {/* <Button type="primary">Button</Button>
-              <Button type="primary-outlined">Button</Button>
-              <Button type="secondary">Button</Button> */}
             </Stack>
             <Stack
               alignItems="center"
@@ -334,9 +335,6 @@ const Test = () => {
               flexDirection="row"
               gap="20px"
             >
-              {/* <Button type="secondary-outlined">Button</Button>
-              <Button type="tertiary">Button</Button>
-              <Button type="tertiary-outlined">Button</Button> */}
             </Stack>
           </Stack>
         </Stack>

@@ -83,7 +83,7 @@ export const HeaderDropDownItems = styled.div`
   -ms-transition: opacity 0.2s, max-height 0.2s;
   -o-transition: opacity 0.2s, max-height 0.2s;
   overflow: hidden;
-  @media only screen and (max-width: 540px) {
+  @media only screen and (max-width: 960px) {
     position: static;
     margin-top: 24px;
   }
@@ -99,3 +99,5 @@ export const HeaderMobileMenu = styled.div`
   background-color: #0c265c;
   transition: right 0.4s;
 `;
+
+export default HeaderStyle;

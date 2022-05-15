@@ -1,5 +1,11 @@
 import React from "react";
 // import { useStaticQuery, graphql } from "gatsby";
+<<<<<<< HEAD
+=======
+/* eslint-disable */
+/* eslint-disable react/prop-types */
+/* eslint-disable complexity */
+>>>>>>> 875914d (about page)
 
 const Test2 = () => {
   // const data = useStaticQuery(graphql`
