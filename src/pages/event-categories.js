@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { Text, Margin, Stack, Padding } from "../components/core";
 import { Card, CardMobile } from "../components/body";
-import { Header } from "../components/header/Header";
+import Header from "../components/header/Header";
 import { Footer } from "../components/footer";
 import useWindowDimensions from "../functions/useWindowDimensions";
 
