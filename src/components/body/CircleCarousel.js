@@ -129,7 +129,7 @@ const CircleCarousel = ({ arr, topTittle }) => {
     console.log(elements.length);
     return (
         <Stack alignItems={'center'} justifyContent={'center'} flexDirection={'column'} style={{ width: '100vw', }}>
-            <Text style={{ color: '#0C265B', marginBottom: width * 0.05 + 'px', textAlign: 'center' }} type='T0'> {topTittle}</Text>
+            <Text style={{ color: '#0C265B', marginBottom: width * 0.05 + 'px',marginTop: '10%', textAlign: 'center' }} type='T0'> {topTittle}</Text>
 
             {width > 540 ? <div style={{
                 backgroundColor: 'white',

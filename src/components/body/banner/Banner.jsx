@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Header } from '../../core/Header'
+import { Header } from "../../core/Header";
 import { Text, Button } from "../../core";
 import { Haalt1, Haalt2 } from "../../../assets/icons";
 import {

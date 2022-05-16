@@ -2,15 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import useWindowDimensions from "../../functions/useWindowDimensions";
 import { Stack, Text, Button } from "../core";
+/* eslint-disable */
+/* eslint-disable react/prop-types */
+/* eslint-disable complexity */
 
 // import ArrowIcon from "../../assets/icons/arrow";
 const Stylle = styled.div`
-  color: #243C6C;
+  color: #243c6c;
   font-size: 30px;
   font-weight: 700;
   letter-spacing: 0.001em;
-  @media (max-width:540px){
-    color: #243C6C;
+  @media (max-width: 540px) {
+    color: #243c6c;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0px;
@@ -18,8 +21,8 @@ const Stylle = styled.div`
 `;
 const ProgramContainer = styled.div`
   height: 7%;
-  padding-right:15%;
-  padding-left:16%;
+  padding-right: 15%;
+  padding-left: 16%;
   display: flex;
   flex-direction: row;
   row-gap: 40%;
