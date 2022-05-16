@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from "gatsby";
 import { ThemeContext } from "../../providers/Theme-provider";
-import styled from 'styled-components'
+import styled from "styled-components";
 import {
   MenuIcon,
   DropdownArrow,
@@ -9,7 +9,6 @@ import {
   CloseIcon,
 } from "../../assets/icons";
 import { Button, Stack, Text, Padding } from ".";
-
 
 export const Header = ({ color }) => {
   const [menu, setMenu] = useState(false);
@@ -191,7 +190,7 @@ export const Header = ({ color }) => {
 
 export default Header;
 
- const HeaderStyle = styled.div`
+const HeaderStyle = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -201,7 +200,7 @@ export default Header;
   z-index: 1;
 `;
 
- const HeaderItems = styled.div`
+const HeaderItems = styled.div`
   width: 1320px;
   padding: 32px;
   display: flex;
@@ -217,26 +216,26 @@ export default Header;
   }
 `;
 
- const HeaderLinks = styled.div`
+const HeaderLinks = styled.div`
   gap: 40px;
   display: flex;
   align-items: center;
 `;
 
- const HeaderLink = styled.div`
+const HeaderLink = styled.div`
   font-family: "Montserrat";
   color: #fff;
   cursor: pointer;
 `;
 
- const HeaderMenuCon = styled.div`
+const HeaderMenuCon = styled.div`
   display: flex;
   @media only screen and (max-width: 650px) {
     display: none;
   }
 `;
 
- const HeaderMenu = styled.div`
+const HeaderMenu = styled.div`
   height: 24px;
   width: 24px;
   display: none;
@@ -253,17 +252,17 @@ export default Header;
   }
 `;
 
- const HeaderMenuIcon = styled.div`
+const HeaderMenuIcon = styled.div`
   height: 24px;
   width: 24px;
   cursor: pointer;
 `;
 
- const HeaderDropDown = styled.div`
+const HeaderDropDown = styled.div`
   transition: transform 0.2s;
 `;
 
- const HeaderDropDownItems = styled.div`
+const HeaderDropDownItems = styled.div`
   position: absolute;
   top: 100px;
   opacity: 0;
@@ -280,7 +279,7 @@ export default Header;
   }
 `;
 
- const HeaderMobileMenu = styled.div`
+const HeaderMobileMenu = styled.div`
   position: fixed;
   top: 0;
   right: 0;
@@ -290,4 +289,3 @@ export default Header;
   background-color: #0c265c;
   transition: right 0.4s;
 `;
-
