@@ -10,7 +10,7 @@ const Box = ({ children, id }) => {
     const boxVariants = {
         offscreen: {
             opacity: '0',
-            y: 100,
+            y: 0,
         },
         onscreen: {
             opacity: '1',
@@ -30,7 +30,6 @@ const Box = ({ children, id }) => {
             variants={boxVariants}
             initial="offscreen"
             animate={control}
-            viewport={{ once: true }}
             whileInView='onscreen'
         >
             <h1>{children} </h1>
