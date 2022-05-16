@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { Link } from "gatsby";
 import { ThemeContext } from "../../providers/Theme-provider";
 import styled from "styled-components";
@@ -6,9 +6,191 @@ import {
   MenuIcon,
   DropdownArrow,
   ZorigLogo,
-  CloseIcon,
+  // CloseIcon,
 } from "../../assets/icons";
 import { Button, Stack, Text, Padding } from ".";
+import "../../styles/animationsStyles.css";
+import { motion, useCycle } from "framer-motion";
+import useWindowDimensions from "../../functions/useWindowDimensions";
+
+const Path = (props) => (
+  <motion.path
+    fill="transparent"
+    strokeWidth="2"
+    stroke="#fff"
+    strokeLinecap="round"
+    {...props}
+  />
+);
+
+const MenuToggle = ({ toggle }) => (
+  <button className="button1" onClick={toggle}>
+    <svg width="23" height="23" viewBox="0 0 23 23">
+      <Path
+        variants={{
+          closed: { d: "M 2 2.5 L 20 2.5" },
+          open: { d: "M 3 16.5 L 17 2.5" },
+        }}
+      />
+      <Path
+        d="M 2 9.423 L 20 9.423"
+        variants={{
+          closed: { opacity: 1 },
+          open: { opacity: 0 },
+        }}
+        transition={{ duration: 0.1 }}
+      />
+      <Path
+        variants={{
+          closed: { d: "M 2 16.346 L 20 16.346" },
+          open: { d: "M 3 2.5 L 17 16.346" },
+        }}
+      />
+    </svg>
+  </button>
+);
+
+const variants = {
+  closed: {
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 },
+    },
+    y: 50,
+  },
+  open: {
+    opacity: 1,
+    transition: {
+      y: { stiffness: 1000, velocity: -100 },
+    },
+    y: 0,
+  },
+};
+
+const MenuItem = ({ text, status }) => {
+  if (status === "normal") {
+    return (
+      <motion.li
+        variants={variants}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <Stack justifyContent={"flex-end"}>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <Text color={"#fff"}>{text}</Text>
+          </Link>
+        </Stack>
+      </motion.li>
+    );
+  }
+  if (status === "tittle") {
+    return (
+      <motion.li variants={variants} style={{ cursor: "default" }}>
+        <Stack justifyContent={"flex-end"}>
+          <Text type={"H2"} color={"#fff"}>
+            {text}
+          </Text>
+        </Stack>
+      </motion.li>
+    );
+  }
+  if (status === "button") {
+    return (
+      <motion.li variants={variants} style={{ cursor: "default" }}>
+        <Button
+          title={text}
+          bgColor={"#fff"}
+          f_size={"T3"}
+          f_weight={500}
+          color={"primary-blue"}
+        />
+      </motion.li>
+    );
+  }
+};
+
+const sidebar = {
+  closed: {
+    clipPath: "circle(0px at 92.5vw 40px)",
+    transition: {
+      damping: 40,
+      delay: 0.5,
+      stiffness: 400,
+      type: "spring",
+    },
+  },
+  open: (height = 2000) => ({
+    clipPath: `circle(${height * 2 + 200}px at 95vw 40px)`,
+    transition: {
+      restDelta: 2,
+      stiffness: 20,
+      type: "spring",
+    },
+  }),
+};
+const variants1 = {
+  closed: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+  },
+  open: {
+    transition: { delayChildren: 1, staggerChildren: 0.07 },
+  },
+};
+
+const Navigation = ({ state }) => (
+  <motion.ul variants={variants1}>
+    <Link
+      to="/"
+      style={{
+        left: "32px",
+        opacity: state ? "1" : "0",
+        position: "absolute",
+        top: state ? "-75px" : "-55px",
+        transition: "all 0.5s",
+        transitionDelay: state ? "0" : "0.5s",
+      }}
+    >
+      <ZorigLogo />
+    </Link>
+
+    {data.map((el, i) => (
+      <MenuItem status={el.status} text={el.text} key={i} />
+    ))}
+  </motion.ul>
+);
+
+const data = [
+  { status: "tittle", text: "Бидний тухай" },
+  { status: "normal", text: "Зоригийн тухай" },
+  { status: "normal", text: "Хамт олон" },
+  { status: "normal", text: "Бидний үнэт зүйлс" },
+  { status: "normal", text: "Тэргүүний мэндчилгээ" },
+  { status: "tittle", text: "Хөтөлбөрүүд" },
+  { status: "normal", text: "Оюутан залууст зориулсан" },
+  { status: "normal", text: "Залуу мэргэжилтнүүдэд зориулсан" },
+  { status: "normal", text: "Сурагчдад зориулсан хөтөлбөр" },
+  { status: "normal", text: "Орон нутгийн залууст зориулсан" },
+  { status: "button", text: "хандив өгөх" },
+];
+
+const Example = () => {
+  const [isOpen, toggleOpen] = useCycle(false, true);
+  const containerRef = useRef(null);
+  const { height } = useWindowDimensions(containerRef);
+
+  return (
+    <motion.nav
+      initial={false}
+      animate={isOpen ? "open" : "closed"}
+      custom={height}
+      ref={containerRef}
+    >
+      <motion.div className="background" variants={sidebar} />
+      <MenuToggle toggle={() => toggleOpen()} />
+      <Navigation state={isOpen} />
+    </motion.nav>
+  );
+};
 
 export const Header = ({ color }) => {
   const [menu, setMenu] = useState(false);
@@ -38,8 +220,9 @@ export const Header = ({ color }) => {
         </Link>
         <HeaderMenu>
           <HeaderMenuIcon onClick={() => setMenu(!menu)}>
-            <MenuIcon color={color === "primary-white" ? "#fff" : "#000"} />
+            {/* <MenuIcon color={color === "primary-white" ? "#fff" : "#000"} /> */}
           </HeaderMenuIcon>
+          <Example />
         </HeaderMenu>
         <HeaderMenuCon>
           <HeaderLinks style={{ right: menu === false ? "-100vw" : 0 }}>
@@ -112,14 +295,17 @@ export const Header = ({ color }) => {
             />
           </HeaderLinks>
         </HeaderMenuCon>
-        <HeaderMobileMenu style={{ right: menu === false ? "-100vw" : "0" }}>
+        <HeaderMobileMenu
+          style={{ display: menu === false ? "none" : "block" }}
+        >
           <Padding size={[24, 24, 0, 24]}>
             <Stack justifyContent={"space-between"} alignItems={"center"}>
               <Link to="/" style={{ display: "flex" }}>
                 <ZorigLogo />
               </Link>
               <div style={{ cursor: "pointer" }} onClick={() => setMenu(!menu)}>
-                <CloseIcon />
+                {/* <CloseIcon /> */}
+                <Example />
               </div>
             </Stack>
             <Stack flexDirection={"column"} gap={"32px"}>
