@@ -1,0 +1,84 @@
+
+  
+  nav {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+  }
+  
+  .background {
+    position: absolute;
+    top: 0;
+    right: 0vw;
+    bottom: 0;
+    width: 100vw;
+    background: #0C265C;
+  }
+  
+  .button1 {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 32px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: transparent;
+  }
+  
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul {
+    padding: 25px;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    text-align: right;
+    width: auto;
+  }
+  
+  li {
+    list-style: none;
+    margin-bottom: 10%;
+    cursor: pointer;
+    width: 90vw;
+    text-align: right;
+  }
+  
+  .icon-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex: 40px 0;
+    margin-right: 20px;
+  }
+  
+  .text-placeholder {
+    border-radius: 5px;
+    width: 200px;
+    height: 20px;
+    flex: 1;
+  }
+  
+  .refresh {
+    padding: 10px;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
