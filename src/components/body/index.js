@@ -14,3 +14,4 @@ export * from './EventCart';
 export * from  "./CircleCarousel"
 export * from "./Sponsors"
 export * from './News/NewsCarousel'
+export * from './TimeEvent'
