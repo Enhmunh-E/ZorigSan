@@ -1,29 +1,25 @@
 import { useState, useEffect } from "react";
+import { window } from "browser-monads"; //npm i browser-monads
 
-const getWindowDimensions = () => {
-  const { innerWidth: width, innerHeight: height } =
-    typeof window !== `undefined`
-      ? window
-      : { innerHeight: 1080, innerWidth: 1920 };
-  return {
-    height,
-    width,
-  };
-};
-
-export const useWindowDimensions = () => {
-  const [windowDimensions, setWindowDimensions] = useState(
-    getWindowDimensions()
-  );
+function useWindowDimentions() {
+  const [windowSize, setWindowSize] = useState({
+    height: undefined,
+    width: undefined,
+  });
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowDimensions(getWindowDimensions());
-    };
+    function handleResize() {
+      setWindowSize({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }
     window.addEventListener("resize", handleResize);
+    handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return windowDimensions;
-};
-export default useWindowDimensions;
+  return windowSize;
+}
+
+export default useWindowDimentions;

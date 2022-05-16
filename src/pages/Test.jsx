@@ -21,7 +21,6 @@ import {
 } from "../components/core";
 import { Input } from "../components/body/Input";
 import Analytic from "../components/body/Analytic";
-import CircleCarousel from "../components/body/CircleCarousel";
 
 const images = [
   {
