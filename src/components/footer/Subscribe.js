@@ -31,14 +31,6 @@ export const Subscribe = () => {
           await addEmail(value);
           setValue("");
         }}
-<<<<<<< HEAD
-        title={"SUBSCRIBE"}
-        width={134}
-        bgColor={"primary-light-blue"}
-        f_size={"T3"}
-        color={"primary-white"}
-      />
-=======
         f_size="sm"
         width="137"
         height="48"
@@ -48,7 +40,6 @@ export const Subscribe = () => {
       >
         SUBSCRIBE
       </Button> */}
->>>>>>> 875914d (about page)
     </Subscription>
   );
 };

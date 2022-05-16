@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { createGlobalStyle } from "styled-components";
 import {
@@ -18,7 +18,6 @@ import { Margin } from "../components/core";
 
 
 const IndexPage = () => {
-  const [BannerData, setBannerData] = useState({});
   const data = useStaticQuery(graphql`
     query {
       allContentfulBanner {
@@ -92,9 +91,9 @@ const IndexPage = () => {
       name: "Random Program",
     },
   ];
-  useEffect(() => {
-    data.allContentfulBanner.edges.map((el) => setBannerData(el.node));
-  }, );
+  const BannerData = useMemo(() => {
+    return data.allContentfulBanner.edges[data.allContentfulBanner.edges.length-1].node;
+  }, [data])
   const GlobalStyle = createGlobalStyle`
     body {
       margin: 0;

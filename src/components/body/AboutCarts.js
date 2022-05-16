@@ -50,16 +50,14 @@ export const AboutCarts = (props) => {
   return (
     <Container>
       {events.map((event, index) => {
-        {
-          if (event.level !== 0) {
-            return (
-              <Card key={index}>
-                <Image width={"225"} height={"318"} src={event.img.url} />
-                <BigText>{event.name}</BigText>
-                <SmallText>{event.position}</SmallText>
-              </Card>
-            );
-          }
+        if (event.level !== 0) {
+          return (
+            <Card key={index}>
+              <Image width={"225"} height={"318"} src={event.img.url} />
+              <BigText>{event.name}</BigText>
+              <SmallText>{event.position}</SmallText>
+            </Card>
+          );
         }
       })}
     </Container>
