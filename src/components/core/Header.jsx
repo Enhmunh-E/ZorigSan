@@ -71,6 +71,7 @@ const MenuItem = ({ text, status }) => {
   if (status === "normal") {
     return (
       <motion.li
+      className="animationLi"
         variants={variants}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
@@ -85,7 +86,7 @@ const MenuItem = ({ text, status }) => {
   }
   if (status === "tittle") {
     return (
-      <motion.li variants={variants} style={{ cursor: "default" }}>
+      <motion.li className="animationLi" variants={variants} style={{ cursor: "default" }}>
         <Stack justifyContent={"flex-end"}>
           <Text type={"H2"} color={"#fff"}>
             {text}
@@ -96,7 +97,7 @@ const MenuItem = ({ text, status }) => {
   }
   if (status === "button") {
     return (
-      <motion.li variants={variants} style={{ cursor: "default" }}>
+      <motion.li className="animationLi" variants={variants} style={{ cursor: "default" }}>
         <Button
           title={text}
           bgColor={"#fff"}
@@ -138,7 +139,7 @@ const variants1 = {
 };
 
 const Navigation = ({ state }) => (
-  <motion.ul variants={variants1}>
+  <motion.ul className="animationUl" variants={variants1}>
     <Link
       to="/"
       style={{
