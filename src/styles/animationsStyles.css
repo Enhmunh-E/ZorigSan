@@ -28,14 +28,9 @@
     border-radius: 50%;
     background: transparent;
   }
+
   
-  ul,
-  li {
-    margin: 0;
-    padding: 0;
-  }
-  
-  ul {
+  .animationUl {
     padding: 25px;
     position: absolute;
     right: 0;
@@ -44,7 +39,7 @@
     width: auto;
   }
   
-  li {
+  .animationLi {
     list-style: none;
     margin-bottom: 10%;
     cursor: pointer;
