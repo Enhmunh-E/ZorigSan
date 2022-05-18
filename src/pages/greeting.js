@@ -1,6 +1,6 @@
 /* eslint no-use-before-define: 0 */
 import React from "react";
-import { Header } from "../components/header";
+import { Header } from "../components/core";
 import { Stack, Text } from "../components/core";
 import { Footer } from "../components/footer";
 import styled from "styled-components";
@@ -15,7 +15,9 @@ export const WholeContainer = styled(Stack)`
   align-self: center;
   align-items: center;
   overflow: hidden;
-  padding: 200px 20px 140px 20px;
+  // padding: 200px 20px 140px 20px;
+  padding-top: 200px;
+  padding-bottom: 140px;
   @media only screen and (min-width: 0px) and (max-width: 960px) {
     display: flex;
     width: 100%;
@@ -29,11 +31,12 @@ export const WholeContainer = styled(Stack)`
 export const InfoContainer = styled(Stack)`
   max-width: 700px;
   height: 100%;
-  padding-left: 50px;
+  // padding-left: 50px;
+  padding: 50px;
   text-align: justify;
   @media only screen and (min-width: 0px) and (max-width: 540px) {
     oveflow: hidden;
-    padding: 0;
+    padding: 20px;
   }
 `;
 export const ImageText = styled(Stack)`
