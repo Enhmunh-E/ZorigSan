@@ -19,3 +19,7 @@ export * from "./dropdownArrow";
 export * from "./close";
 export * from "./carouselBack";
 export * from "./carouselNext";
+export * from "./puzzleIcon";
+export * from "./tabletIcon";
+export * from "./tractorIcon";
+export * from "./wheatIcon";
