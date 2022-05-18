@@ -7,19 +7,24 @@ import { motion, useAnimation } from "framer-motion";
 
 const Wrapper = styled.div`
     width: 100vw;
-    
 
+    @media only screen and (max-width: 1100px) {
+        margin-top: 30%;
+    }
+    @media only screen and (max-width: 700px) {
+        margin-top: 50%;
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 5%;
 `
 
-const Box = ({ children, id }) => {
+const Box = ({ children, id, width }) => {
     const boxVariants = {
         offscreen: {
             scale: '0',
-            y:-45
+            y: -45
         },
         onscreen: {
             scale: '1',
@@ -29,7 +34,15 @@ const Box = ({ children, id }) => {
                 duration: 0.8,
                 type: "spring",
             },
-            y:-50
+            y: -50
+        }
+    };
+    const boxVariant = {
+        offscreen: {
+            scale: '1',
+        },
+        onscreen: {
+            scale: '1',
         }
     };
 
@@ -37,9 +50,9 @@ const Box = ({ children, id }) => {
     return (
         <motion.div
             className="box"
-            variants={boxVariants}
+            variants={width < 540 ? boxVariant : boxVariants}
             initial="offscreen"
-            animate={control}
+            animate={width < 540 ? '' : control}
             whileInView='onscreen'
         >
             <h1>{children} </h1>
@@ -55,14 +68,14 @@ export const Sponsors = ({ arr }) => {
     }, [arr]);
     return (
         <Wrapper>
-            <Text style={{color: '#0C265B',marginTop: width > 1000 ? '5%' : '20%', textAlign: 'center' }} type='T0'> Хамтрагч байгууллагууд</Text>
-                <Stack style={{alignItems: 'center' ,display: 'flex', flexWrap: 'wrap', marginTop: '100px', width: '65vw' }} flexDirection='row' justifyContent='space-around'>
-                    {elements.map((element, index) => {
-                        return <Box key={index} id={index}>
-                            <img style={{height: 'auto', width: width > 540 ? '200px' : '150px'}} src={element.image.file.url} />
-                        </Box>
-                    })}
-                </Stack> 
+            <Text style={{ color: '#0C265B', textAlign: 'center' }} type='T0'> Хамтрагч байгууллагууд</Text>
+            <Stack style={{ alignItems: 'center', display: 'flex', flexWrap: 'wrap', marginTop: '100px', width: '65vw' }} flexDirection='row' justifyContent='space-around'>
+                {elements.map((element, index) => {
+                    return <Box key={index} id={index} width={width}>
+                        <img style={{ height: 'auto', width: width > 540 ? '200px' : '150px' }} src={element.image.file.url} />
+                    </Box>
+                })}
+            </Stack>
 
         </Wrapper>
     );
