@@ -266,7 +266,7 @@ export const Header = ({ color }) => {
                   </Link>
                   <Link
                     style={{ height: "32px", textDecoration: "none" }}
-                    to="/about-us"
+                    to="/our-values"
                   >
                     <Text color={themeColor}>Бидний үнэт зүйлс</Text>
                   </Link>
