@@ -13,7 +13,6 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
 const Flex = styled.div`
   width: ${(props) => (props.width ? props.width : "")};
   padding-top: ${(props) => (props.PaddingTop ? props.PaddingTop : "")};
