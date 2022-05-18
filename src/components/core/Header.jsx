@@ -71,7 +71,7 @@ const MenuItem = ({ text, status }) => {
   if (status === "normal") {
     return (
       <motion.li
-      className="animationLi"
+        className="animationLi"
         variants={variants}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
@@ -86,7 +86,11 @@ const MenuItem = ({ text, status }) => {
   }
   if (status === "tittle") {
     return (
-      <motion.li className="animationLi" variants={variants} style={{ cursor: "default" }}>
+      <motion.li
+        className="animationLi"
+        variants={variants}
+        style={{ cursor: "default" }}
+      >
         <Stack justifyContent={"flex-end"}>
           <Text type={"H2"} color={"#fff"}>
             {text}
@@ -97,7 +101,11 @@ const MenuItem = ({ text, status }) => {
   }
   if (status === "button") {
     return (
-      <motion.li className="animationLi" variants={variants} style={{ cursor: "default" }}>
+      <motion.li
+        className="animationLi"
+        variants={variants}
+        style={{ cursor: "default" }}
+      >
         <Button
           title={text}
           bgColor={"#fff"}
@@ -384,7 +392,7 @@ const HeaderStyle = styled.div`
   align-items: center;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 10;
 `;
 
 const HeaderItems = styled.div`
