@@ -1,6 +1,7 @@
 /* eslint-disable */
 /* eslint-disable react/prop-types */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import useWindowDimensions from "../../functions/useWindowDimensions";
 /* eslint-disable complexity */
@@ -10,7 +11,7 @@ const Cart = styled.div`
   height: 100%;
   display: flex;
   border-radius: 10px;
-  @media (max-width: 1100px) {
+  @media (max-width: 540px) {
     width: 47%;
   }
   @media (max-width: 600px) {
@@ -88,7 +89,8 @@ const Button = styled.button`
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
+  cursor: pointer;
   padding-left: ${(props) => props.paddingLeft && `${props.paddingLeft}`};
 `;
 const Sum = styled.div`
@@ -113,12 +115,15 @@ const Con = styled.div`
   padding-bottom: ${(props) => props.paddingBottom && `${props.paddingBottom}`};
   align-items: center;
 `;
-export const EventCart = ({ img, title, paddingTop }) => {
+export const EventCart = ({ img, title, paddingTop, link }) => {
   const divRef = useRef(null);
   const { width } = useWindowDimensions();
   const [textHeight, setTextHeight] = useState(divRef?.current?.offsetHeight);
   const [isHovering1, setIsHovering1] = useState(false);
   const [DisWidth, setwidth] = useState(false);
+  const phone = useMemo(() => {
+    return width <= 540;
+  }, [width]);
   useEffect(() => {
     if (width <= "700") {
       setwidth(true);
@@ -129,73 +134,86 @@ export const EventCart = ({ img, title, paddingTop }) => {
   }, [width]);
 
   return (
-    <Cart paddingTop={paddingTop} width="48.6%">
-      <Img
-        img={img}
-        onMouseOver={() => {
-          setIsHovering1(true);
-        }}
-        onMouseOut={() => {
-          setIsHovering1(false);
-        }}
-      >
-        <div style={{ width: "100%" }}>
-          <Text
-            style={{
-              bottom:
-                DisWidth == true
-                  ? "none"
-                  : !isHovering1
-                  ? "10px"
-                  : 10 + textHeight + "px",
-              position: DisWidth == true ? "" : "absolute",
-            }}
-          >
-            {title}
-          </Text>
-          {DisWidth == true ? (
-            <Con paddingBottom="12px">
-              <Button paddingLeft="16px">Дэлгэрэнгүй</Button>
-              <Sum>
-                <div
-                  style={{
-                    height: "1.5px",
-                    backgroundColor: "#fff",
-                    transition: "all 0.5s",
-                    width: "50px",
-                  }}
-                ></div>
-              </Sum>
-            </Con>
-          ) : (
-            <div>
-              <Con
-                ref={divRef}
-                style={{
-                  bottom: isHovering1 ? "10px" : "-" + textHeight + "px",
-                  opacity: !isHovering1 ? 0 : 1,
-                  position: "absolute",
-                  transition: "all 0.5s",
-                }}
-              >
-                <Button>Дэлгэрэнгүй</Button>
+    <Link
+      to={link}
+      style={{
+        alignItems: "center",
+        cursor: "pointer",
+        display: phone === false ? "block" : "flex",
+        height: "100%",
+        justifyContent: "center",
+        textDecoration: "none",
+        width: phone === false ? "48.4%" : "100%",
+      }}
+    >
+      <Cart paddingTop={paddingTop} width="100%">
+        <Img
+          img={img}
+          onMouseOver={() => {
+            setIsHovering1(true);
+          }}
+          onMouseOut={() => {
+            setIsHovering1(false);
+          }}
+        >
+          <div style={{ width: "100%" }}>
+            <Text
+              style={{
+                bottom:
+                  DisWidth == true
+                    ? "none"
+                    : !isHovering1
+                    ? "10px"
+                    : 10 + textHeight + "px",
+                position: DisWidth == true ? "" : "absolute",
+              }}
+            >
+              {title}
+            </Text>
+            {DisWidth == true ? (
+              <Con paddingBottom="12px">
+                <Button paddingLeft="16px">Дэлгэрэнгүй</Button>
                 <Sum>
                   <div
                     style={{
                       height: "1.5px",
                       backgroundColor: "#fff",
                       transition: "all 0.5s",
-                      width: "40%",
-                      width: !isHovering1 ? "0%" : 30 + textHeight + "%",
-                      opacity: !isHovering1 ? 0 : 1,
+                      width: "50px",
                     }}
                   ></div>
                 </Sum>
               </Con>
-            </div>
-          )}
-        </div>
-      </Img>
-    </Cart>
+            ) : (
+              <div>
+                <Con
+                  ref={divRef}
+                  style={{
+                    bottom: isHovering1 ? "10px" : "-" + textHeight + "px",
+                    opacity: !isHovering1 ? 0 : 1,
+                    position: "absolute",
+                    transition: "all 0.5s",
+                  }}
+                >
+                  <Button>Дэлгэрэнгүй</Button>
+                  <Sum>
+                    <div
+                      style={{
+                        height: "1.5px",
+                        backgroundColor: "#fff",
+                        transition: "all 0.5s",
+                        width: "40%",
+                        width: !isHovering1 ? "0%" : 30 + textHeight + "%",
+                        opacity: !isHovering1 ? 0 : 1,
+                      }}
+                    ></div>
+                  </Sum>
+                </Con>
+              </div>
+            )}
+          </div>
+        </Img>
+      </Cart>
+    </Link>
   );
 };

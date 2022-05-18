@@ -36,9 +36,9 @@ const IndexPage = () => {
           }
         }
       }
-
       allContentfulPrograms {
         nodes {
+          contentful_id
           image {
             file {
               url
@@ -50,9 +50,7 @@ const IndexPage = () => {
       allContentfulAlumni {
         nodes {
           word {
-            internal {
-              content
-            }
+            word
           }
           image {
             file {
@@ -97,6 +95,7 @@ const IndexPage = () => {
   const GlobalStyle = createGlobalStyle`
     body {
       margin: 0;
+      padding: 0;
       overflow-x: hidden;
     }
   `;

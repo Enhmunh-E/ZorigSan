@@ -10,8 +10,8 @@ export * from "./EventCart";
 export * from "./Donation";
 export * from "./banner";
 export * from "./ProgramOngoing";
-export * from './EventCart';
-export * from  "./CircleCarousel"
-export * from "./Sponsors"
-export * from './News/NewsCarousel'
-export * from './TimeEvent'
+export * from "./EventCart";
+export * from "./CircleCarousel";
+export * from "./Sponsors";
+export * from "./News/NewsCarousel";
+export * from "./TimeEvent";
