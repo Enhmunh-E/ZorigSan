@@ -293,6 +293,7 @@ export const Header = ({ color }) => {
             <Link style={{ textDecoration: "none" }} to="/programs">
               <Text color={themeColor}>Хөтөлбөрууд</Text>
             </Link>
+<<<<<<< HEAD
             <div onClick={() => setModal(true)}>
               <Button
                 title={"хандив өгөх"}
@@ -306,6 +307,19 @@ export const Header = ({ color }) => {
                 }
               />
             </div>
+=======
+            <Button
+              title={"Хандив өгөх"}
+              width={134}
+              bgColor={color}
+              f_size={"T3"}
+              f_weight={500}
+              bRadius={4}
+              color={
+                color === "primary-blue" ? "primary-white" : "primary-blue"
+              }
+            />
+>>>>>>> 5513994 (some bugs fixed;)
           </HeaderLinks>
         </HeaderMenuCon>
         <HeaderMobileMenu

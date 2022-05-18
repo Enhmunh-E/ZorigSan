@@ -6,6 +6,7 @@ import { Call } from "../../assets/icons/Call";
 import { Email } from "../../assets/icons/Email";
 import { Facebook } from "../../assets/icons/Fb";
 import { Stack, Button } from "../core";
+import { NestIcon } from "../../assets/icons";
 /* eslint-disable */
 /* eslint-disable react/prop-types */
 const Container = styled.div`
@@ -68,6 +69,9 @@ const BottomText = styled.div`
   line-height: 32px;
   letter-spacing: 0.001em;
   color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 `;
 const BottomCon = styled.div`
   width: 1320px;
@@ -186,7 +190,7 @@ export const Footer = () => {
       <FooterBottom>
         <BottomCon>
           <Link to="https://nestacademy.mn/" style={{ textDecoration: "none" }}>
-            <BottomText>Made by @Nest Academy</BottomText>
+            <BottomText>Made by Nest Academy <NestIcon/> </BottomText>
           </Link>
           <Link to="/Test" style={{ textDecoration: "underline #fff" }}>
             <BottomText>Үйлчилгээний нөхцөл</BottomText>

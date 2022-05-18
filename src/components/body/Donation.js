@@ -23,7 +23,7 @@ const Flex = styled.div`
     text-align: center;
 `;
 
-export const Donation = ({ text }) => {
+export const Donation = () => {
   return (
     <Container width="100%" >
       <Flex
@@ -33,8 +33,8 @@ export const Donation = ({ text }) => {
           flexDirection: "column",
         }}
       >
-        <Text type="H1" color="#243C6C" style={{ paddingBottom: "62px" }}>
-          {text}
+        <Text type="T0" color="#243C6C" style={{ paddingBottom: "62px" }}>
+        ЗОРИГ САН-Д ХАНДИВ ӨГӨӨРЭЙ
         </Text>
         <Button
           title={"хандив өгөх"}

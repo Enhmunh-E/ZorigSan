@@ -33,15 +33,19 @@ const MainInfo = styled.div`
   ${(props) => (props.display === "none" ? `display: none` : "")};
 `;
 const CarouselBtn = styled.div`
-  position: absolute;
-  bottom: ${(props) => `${props.bottom}px`};
-  left: ${(props) => `${props.left}px`};
-  height: ${(props) => `${props.height}px`};
-  width: ${(props) => `${props.width}px`};
-  border-radius: 50%;
-  transition: all 1000ms;
-  opacity: ${(props) => (props.disabled ? "0.5" : "1")};
-`;
+    position: absolute;
+    bottom: ${props => `${props.bottom}px`};
+    left: ${props => `${props.left}px`};
+    height: ${props => `${props.height}px`};
+    width: ${props => `${props.width}px`};
+    border-radius: 50%;
+    transition: all 1000ms;
+    opacity: ${(props) => (props.disabled ? "0.5" : "1")};
+    cursor: ${(props) => (props.disabled ? "default" : "pointer")};;
+    :hover{
+        
+    }
+`
 const MobileCardImg = styled.img`
   height: ${(props) => `${props.height}`};
   width: ${(props) => `${props.width}`};

@@ -23,4 +23,8 @@ export * from "./puzzleIcon";
 export * from "./tabletIcon";
 export * from "./tractorIcon";
 export * from "./wheatIcon";
+<<<<<<< HEAD
 export * from "./modalCloseIcon";
+=======
+export * from './nest'
+>>>>>>> 5513994 (some bugs fixed;)
