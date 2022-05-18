@@ -22,21 +22,30 @@ export const WholeContainer = styled(Stack)`
     display: flex;
     width: 100%;
     flex-direction: column-reverse;
-    height: 100%;
+    // height: 100%;
     justify-content: center;
     oveflow: hidden;
+  }
+  @media (max-width: 1320px) {
+    margin-top: 200px;
+    width: 100%;
   }
 `;
 
 export const InfoContainer = styled(Stack)`
-  max-width: 700px;
+  width: 60%;
+
   height: 100%;
   // padding-left: 50px;
   padding: 50px;
   text-align: justify;
-  @media only screen and (min-width: 0px) and (max-width: 540px) {
+  @media (min-width: 0px) and (max-width: 540px) {
     oveflow: hidden;
     padding: 20px;
+  }
+  @media (max-width: 960px) {
+    width: 100%;
+    margin-bottom: 350px;
   }
 `;
 export const ImageText = styled(Stack)`
@@ -45,32 +54,42 @@ export const ImageText = styled(Stack)`
   bottom: 30px;
   padding: 0px 70px 0px 70px;
 
-  @media only screen and (min-width: 0px) and (max-width: 540px) {
+  @media (min-width: 0px) and (max-width: 540px) {
     padding: 40px;
   }
 `;
 export const PicContainer = styled.img`
   object-fit: cover;
+  width: 100%;
   z-index: 0;
-  @media only screen and (min-width: 0px) and (max-width: 540px) {
+  @media (min-width: 0px) and (max-width: 540px) {
     padding-bottom: 30px;
   }
 `;
 
 export const DesktopShown = styled(Text)`
-  @media only screen and (min-width: 0px) and (max-width: 540px) {
+  display: flex;
+  @media (min-width: 0px) and (max-width: 960px) {
     display: none;
   }
 `;
 export const DesktopHidden = styled(Text)`
-  display: flex;
+  display: none;
   text-align: center;
-  @media only screen and (min-width: 541px) {
-    display: none;
+  @media (max-width: 961px) {
+    display: flex;
   }
 `;
 
-export const PicWholeContainer = styled.div``;
+export const PicWholeContainer = styled.div`
+  display: flex;
+  justifycontent: center;
+  position: relative;
+  width: 40%;
+  @media (max-width: 960px) {
+    width: 100%;
+  }
+`;
 
 const Greeting = () => {
   const { width } = useWindowDimensions();
@@ -97,15 +116,8 @@ const Greeting = () => {
             -Санжаасүрэнгийн Оюун - Зориг сангийн Тэргүүн
           </Text>
         </InfoContainer>
-        <PicWholeContainer
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            position: "relative",
-            width: "100%",
-          }}
-        >
-          <PicContainer src={Pic}></PicContainer>
+        <PicWholeContainer>
+          <PicContainer src={Pic} />
           <ImageText flexDirection="column">
             <Text
               type="H4"
