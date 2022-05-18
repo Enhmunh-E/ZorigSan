@@ -83,6 +83,7 @@ const EventCategories = ({ pageContext }) => {
                       description={el.description.description}
                       key={index}
                       index={index}
+                      link={`${data.contentful_id}/${el.contentful_id}`}
                     />
                   ) : (
                     <CardMobile
@@ -90,6 +91,7 @@ const EventCategories = ({ pageContext }) => {
                       image={el.image.file.url}
                       description={el.description.description}
                       key={index}
+                      link={`${data.contentful_id}/${el.contentful_id}`}
                     />
                   )
                 )}

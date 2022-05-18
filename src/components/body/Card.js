@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Text, Stack } from "../core";
 import useWindowDimensions from "../../functions/useWindowDimensions";
 import "../../styles/Cards.css";
+import { Link } from "gatsby";
 
 const Container = styled.div`
   width: 1320px;
@@ -34,14 +35,7 @@ const LongText = styled.div`
   line-height: 20px;
   overflow: hidden;
 `;
-export const Card = ({
-  image,
-  name,
-  description,
-  index,
-  imgwidth,
-  imgheight,
-}) => {
+export const Card = ({ image, name, description, index, link }) => {
   if (typeof image === "object") image = JSON.stringify(image);
   const { width } = useWindowDimensions();
   const phone = useMemo(() => {
@@ -49,26 +43,24 @@ export const Card = ({
   }, [width]);
   return (
     <Container>
-      {index % 2 === 0 && (
-        <Image width={imgwidth} height={imgheight} src={image}></Image>
-      )}
+      {index % 2 === 0 && <Image src={image}></Image>}
       <div>
         <Stack flexDirection={"column"} gap={phone === false ? "40px" : "16px"}>
           <Text type={"H3"}>{name}</Text>
           <LongText>
             <Text type={"T2"}>{description}</Text>
           </LongText>
-          <Stack alignItems={"center"} gap={"24px"}>
-            <Text style={{ cursor: "pointer" }} type={"T4"}>
-              Дэлэгрэнгүй
-            </Text>
-            <Line />
-          </Stack>
+          <Link style={{ textDecoration: "none" }} to={`/${link}`}>
+            <Stack alignItems={"center"} gap={"24px"}>
+              <Text style={{ color: "#000", cursor: "pointer" }} type={"T4"}>
+                Дэлгэрэнгүй
+              </Text>
+              <Line />
+            </Stack>
+          </Link>
         </Stack>
       </div>
-      {index % 2 !== 0 && (
-        <Image width={imgwidth} height={imgheight} src={image}></Image>
-      )}
+      {index % 2 !== 0 && <Image src={image}></Image>}
     </Container>
   );
 };

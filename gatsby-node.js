@@ -49,14 +49,24 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
-  const productTemplate = path.resolve(`./src/pages/event-categories.js`);
+  const eventCategories = path.resolve(`./src/pages/event-categories.js`);
+  const eventDetails = path.resolve(`./src/pages/event-details.js`);
   queryResults.data.allContentfulPrograms.edges.forEach((node) => {
     createPage({
-      component: productTemplate,
+      component: eventCategories,
       context: {
         data: node.node,
       },
-      path: `/event-categories/${node.node.contentful_id}`,
+      path: `/${node.node.contentful_id}`,
+    });
+    node.node.event?.forEach((sNode) => {
+      createPage({
+        component: eventDetails,
+        context: {
+          data: sNode,
+        },
+        path: `/${node.node.contentful_id}/${sNode.contentful_id}`,
+      });
     });
   });
 };

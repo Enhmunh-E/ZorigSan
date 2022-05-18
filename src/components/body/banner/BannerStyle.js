@@ -11,6 +11,7 @@ export const BannerCon = styled.div`
 export const BannerImg = styled.img`
   position: absolute;
   top: 0;
+  left: 0;
   z-index: -1;
   width: 100%;
   height: ${(props) => (props?.bannerHeight ? props?.bannerHeight : "720px")};
@@ -22,6 +23,7 @@ export const BannerImg = styled.img`
 export const BannerImgFilter = styled.div`
   position: absolute;
   top: 0;
+  left: 0;
   z-index: -1;
   width: 100%;
   height: ${(props) => (props?.bannerHeight ? props?.bannerHeight : "720px")};

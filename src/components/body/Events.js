@@ -70,8 +70,8 @@ const Text = styled.div`
     font-size: 36px;
   }
 `;
-export const Events = (props) => {
-  const { events } = props;
+export const Events = ({ events }) => {
+  console.log(events);
   return (
     <div
       style={{ alignItems: "center", display: "flex", flexDirection: "column" }}
@@ -87,11 +87,13 @@ export const Events = (props) => {
                     title={event.title}
                     paddingTop={"44px"}
                     img={event.image.file.url}
+                    link={`/${event.contentful_id}`}
                   />
                   {events[index + 1] && (
                     <EventCart
                       title={events[index + 1].title}
                       img={events[index + 1].image.file.url}
+                      link={`/${event.contentful_id}`}
                     />
                   )}
                 </Div>
