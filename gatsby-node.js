@@ -56,7 +56,7 @@ exports.createPages = async ({ graphql, actions }) => {
         },
         path: `/${node.contentful_id}`,
       });
-      node.event?.forEach((sNode) => {
+      node.program?.forEach((sNode) => {
         createPage({
           component: eventDetails,
           context: {

@@ -23,3 +23,4 @@ export * from "./puzzleIcon";
 export * from "./tabletIcon";
 export * from "./tractorIcon";
 export * from "./wheatIcon";
+export * from "./modalCloseIcon";

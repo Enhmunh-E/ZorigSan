@@ -11,3 +11,4 @@ export * from "./TooltipComp";
 export * from "./Text";
 export * from "./Modal";
 export * from "./Header";
+export * from "./DonationModal";

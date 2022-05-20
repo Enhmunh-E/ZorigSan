@@ -45,6 +45,7 @@ const EventCategories = ({ pageContext }) => {
   const phone = useMemo(() => {
     return width <= 540;
   }, [width]);
+  console.log(data);
   return (
     <div>
       <GlobalStyle />
@@ -75,7 +76,7 @@ const EventCategories = ({ pageContext }) => {
                 flexDirection={"column"}
                 gap={phone === false ? "128px" : "48px"}
               >
-                {data.event?.map((el, index) =>
+                {data.program?.map((el, index) =>
                   phone === false ? (
                     <Card
                       name={el.name}
