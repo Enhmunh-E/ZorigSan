@@ -1,14 +1,9 @@
 
   
-  nav {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: auto;
-  }
+
   
   .background {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0vw;
     bottom: 0;
@@ -19,14 +14,15 @@
   .button1 {
     outline: none;
     border: none;
-    cursor: pointer;
     position: absolute;
+    cursor: pointer;
     top: 32px;
     right: 15px;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     background: transparent;
+    z-index: 100;
   }
 
   

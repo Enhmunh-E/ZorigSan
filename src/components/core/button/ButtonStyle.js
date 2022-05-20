@@ -18,6 +18,9 @@ export const ButtonStyle = styled.button`
   font-weight: ${(props) => (props?.f_weight ? props?.f_weight : "500")};
   letter-spacing: ${(props) =>
     props?.l_spacing ? `${props?.l_spacing}px` : "0px"};
+  :hover{
+    ${(props) => ` box-shadow: ${props.width * 0.005}px ${props.width * 0.005}px  ${props.width * 0.1}px #888888`};
+  }
 `;
 
 export default ButtonStyle;

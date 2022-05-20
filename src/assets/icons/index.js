@@ -23,8 +23,5 @@ export * from "./puzzleIcon";
 export * from "./tabletIcon";
 export * from "./tractorIcon";
 export * from "./wheatIcon";
-<<<<<<< HEAD
 export * from "./modalCloseIcon";
-=======
 export * from './nest'
->>>>>>> dd60d72 (some bugs fixed;)

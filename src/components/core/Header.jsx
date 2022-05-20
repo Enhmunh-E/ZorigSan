@@ -1,5 +1,5 @@
-import React, { useState, useContext, useRef } from "react";
-import { Link } from "gatsby";
+import React, { useState, useContext, useRef, useEffect } from "react";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import { ThemeContext } from "../../providers/Theme-provider";
 import styled from "styled-components";
 import {
@@ -24,16 +24,18 @@ const Path = (props) => (
   />
 );
 
-const MenuToggle = ({ toggle }) => (
+const MenuToggle = ({ toggle, color, state }) => (
   <button className="button1" onClick={toggle}>
-    <svg width="23" height="23" viewBox="0 0 23 23">
+    <svg width="30" height="30" viewBox="0 0 23 23">
       <Path
+        stroke={color === "primary-blue" && state !== true ? "#0C265C" : "#fff"}
         variants={{
           closed: { d: "M 2 2.5 L 20 2.5" },
           open: { d: "M 3 16.5 L 17 2.5" },
         }}
       />
       <Path
+        stroke={color === "primary-blue" && state !== true ? "#000" : "#fff"}
         d="M 2 9.423 L 20 9.423"
         variants={{
           closed: { opacity: 1 },
@@ -42,6 +44,7 @@ const MenuToggle = ({ toggle }) => (
         transition={{ duration: 0.1 }}
       />
       <Path
+        stroke={color === "primary-blue" && state !== true ? "#000" : "#fff"}
         variants={{
           closed: { d: "M 2 16.346 L 20 16.346" },
           open: { d: "M 3 2.5 L 17 16.346" },
@@ -68,7 +71,7 @@ const variants = {
   },
 };
 
-const MenuItem = ({ text, status }) => {
+const MenuItem = ({ text, status, link }) => {
   if (status === "normal") {
     return (
       <motion.li
@@ -78,7 +81,7 @@ const MenuItem = ({ text, status }) => {
         whileTap={{ scale: 0.95 }}
       >
         <Stack justifyContent={"flex-end"}>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to={`/${link}`} style={{ textDecoration: "none" }}>
             <Text color={"#fff"}>{text}</Text>
           </Link>
         </Stack>
@@ -124,7 +127,6 @@ const sidebar = {
     clipPath: "circle(0px at 92.5vw 40px)",
     transition: {
       damping: 40,
-      delay: 0.5,
       stiffness: 400,
       type: "spring",
     },
@@ -147,43 +149,7 @@ const variants1 = {
   },
 };
 
-const Navigation = ({ state }) => (
-  <motion.ul className="animationUl" variants={variants1}>
-    <Link
-      to="/"
-      style={{
-        left: "32px",
-        opacity: state ? "1" : "0",
-        position: "absolute",
-        top: state ? "-75px" : "-55px",
-        transition: "all 0.5s",
-        transitionDelay: state ? "0" : "0.5s",
-      }}
-    >
-      <ZorigLogo />
-    </Link>
-
-    {data.map((el, i) => (
-      <MenuItem status={el.status} text={el.text} key={i} />
-    ))}
-  </motion.ul>
-);
-
-const data = [
-  { status: "tittle", text: "Бидний тухай" },
-  { status: "normal", text: "Зоригийн тухай" },
-  { status: "normal", text: "Хамт олон" },
-  { status: "normal", text: "Бидний үнэт зүйлс" },
-  { status: "normal", text: "Тэргүүний мэндчилгээ" },
-  { status: "tittle", text: "Хөтөлбөрүүд" },
-  { status: "normal", text: "Оюутан залууст зориулсан" },
-  { status: "normal", text: "Залуу мэргэжилтнүүдэд зориулсан" },
-  { status: "normal", text: "Сурагчдад зориулсан хөтөлбөр" },
-  { status: "normal", text: "Орон нутгийн залууст зориулсан" },
-  { status: "button", text: "хандив өгөх" },
-];
-
-const Example = () => {
+const Example = ({ col, data = [] }) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useWindowDimensions(containerRef);
@@ -196,13 +162,73 @@ const Example = () => {
       ref={containerRef}
     >
       <motion.div className="background" variants={sidebar} />
-      <MenuToggle toggle={() => toggleOpen()} />
-      <Navigation state={isOpen} />
+      <MenuToggle state={isOpen} color={col} toggle={() => toggleOpen()} />
+      <motion.ul
+        style={{ display: isOpen ? "block" : "none" }}
+        className="animationUl"
+        variants={variants1}
+      >
+        <Link
+          to="/"
+          style={{
+            left: "32px",
+            opacity: isOpen ? "1" : "0",
+            position: "absolute",
+            top: isOpen ? "-75px" : "-55px",
+            transition: "all 0.5s",
+            transitionDelay: isOpen ? "0" : "0.5s",
+          }}
+        >
+          <ZorigLogo />
+        </Link>
+
+        {data.map((el, i) => (
+          <MenuItem link={el.link} status={el.status} text={el.text} key={i} />
+        ))}
+      </motion.ul>
     </motion.nav>
   );
 };
 
 export const Header = ({ color }) => {
+  // console.log(ids);
+  const contentfulData = useStaticQuery(graphql`
+    query a {
+      allContentfulProgramTypes {
+        nodes {
+          contentful_id
+          title
+        }
+      }
+    }
+  `);
+
+  const [menuData, setMenuData] = useState([
+    { status: "tittle", text: "Бидний тухай" },
+    { link: "about-zorig", status: "normal", text: "Зоригийн тухай" },
+    { link: "about-us", status: "normal", text: "Хамт олон" },
+    { link: "our-values", status: "normal", text: "Бидний үнэт зүйлс" },
+    { link: "greeting", status: "normal", text: "Тэргүүний мэндчилгээ" },
+    { status: "tittle", text: "Хөтөлбөрүүд" },
+  ]);
+
+  useEffect(() => {
+    if (contentfulData) {
+      let temp = [];
+      temp = contentfulData.allContentfulProgramTypes.nodes.map((prog) => ({
+        link: prog.contentful_id,
+        status: "normal",
+        text: prog.title,
+      }));
+
+      setMenuData([
+        ...menuData,
+        ...temp,
+        { status: "button", text: "Xандив өгөх" },
+      ]);
+    }
+  }, [contentfulData]);
+
   const [menu, setMenu] = useState(false);
   const [dropDown, setDropDown] = useState(false);
   const [modal, setModal] = useState(false);
@@ -233,7 +259,7 @@ export const Header = ({ color }) => {
           <HeaderMenuIcon onClick={() => setMenu(!menu)}>
             {/* <MenuIcon color={color === "primary-white" ? "#fff" : "#000"} /> */}
           </HeaderMenuIcon>
-          <Example />
+          <Example col={color} data={menuData} />
         </HeaderMenu>
         <HeaderMenuCon>
           <HeaderLinks style={{ right: menu === false ? "-100vw" : 0 }}>
@@ -267,31 +293,41 @@ export const Header = ({ color }) => {
                     style={{ height: "32px", textDecoration: "none" }}
                     to="/about-us"
                   >
-                    <Text color={themeColor}>Зоригийн тухай</Text>
+                    <Hover color={color}>
+                      <Text color={themeColor}>Зоригийн тухай</Text>
+                    </Hover>
                   </Link>
                   <Link
                     style={{ height: "32px", textDecoration: "none" }}
                     to="/about-us"
                   >
-                    <Text color={themeColor}>Тэргүүний мэндчилгээ</Text>
+                    <Hover color={color}>
+                      <Text color={themeColor}>Тэргүүний мэндчилгээ</Text>
+                    </Hover>
                   </Link>
                   <Link
                     style={{ height: "32px", textDecoration: "none" }}
                     to="/our-values"
                   >
-                    <Text color={themeColor}>Бидний үнэт зүйлс</Text>
+                    <Hover color={color}>
+                      <Text color={themeColor}>Бидний үнэт зүйлс</Text>
+                    </Hover>
                   </Link>
                   <Link
                     style={{ height: "32px", textDecoration: "none" }}
                     to="/about-us"
                   >
-                    <Text color={themeColor}>Хамт олон</Text>
+                    <Hover color={color}>
+                      <Text color={themeColor}>Хамт олон</Text>
+                    </Hover>
                   </Link>
                 </Stack>
               </HeaderDropDownItems>
             </Stack>
             <Link style={{ textDecoration: "none" }} to="/programs">
-              <Text color={themeColor}>Хөтөлбөрууд</Text>
+              <Hover color={color}>
+                <Text color={themeColor}>Хөтөлбөрууд</Text>
+              </Hover>
             </Link>
             <Button
               title={"Хандив өгөх"}
@@ -418,6 +454,41 @@ const HeaderItems = styled.div`
   }
   @media only screen and (max-width: 540px) {
     padding: 24px;
+  }
+`;
+const Hover = styled.div`
+  background-image: ${(props) =>
+    `${props.color}` !== "primary-blue"
+      ? "linear-gradient(to right, #fff, #fff 50%, #fff 50%) "
+      : "linear-gradient(to right, #0C265C, #0C265C 50%,#0C265C 50%)"};
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+
+  :before {
+    content: "";
+    background: ${(props) =>
+      `${props.color}` !== "primary-blue" ? "#fff " : "#0C265C"};
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  :hover {
+    background-position: 0;
+  }
+
+  :hover::before {
+    width: 100%;
   }
 `;
 
