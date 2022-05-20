@@ -8,10 +8,11 @@ import {
   ZorigLogo,
   // CloseIcon,
 } from "../../assets/icons";
-import { Button, Stack, Text, Padding } from ".";
+import { Button, Stack, Text, Padding, Modal } from ".";
 import "../../styles/animationsStyles.css";
 import { motion, useCycle } from "framer-motion";
 import useWindowDimensions from "../../functions/useWindowDimensions";
+import { DonationModal } from "./DonationModal";
 
 const Path = (props) => (
   <motion.path
@@ -204,6 +205,7 @@ const Example = () => {
 export const Header = ({ color }) => {
   const [menu, setMenu] = useState(false);
   const [dropDown, setDropDown] = useState(false);
+  const [modal, setModal] = useState(false);
   const { Theme } = useContext(ThemeContext);
   let themeColor = color.includes("primary")
     ? Theme.primary[color]
@@ -291,17 +293,19 @@ export const Header = ({ color }) => {
             <Link style={{ textDecoration: "none" }} to="/programs">
               <Text color={themeColor}>Хөтөлбөрууд</Text>
             </Link>
-            <Button
-              title={"хандив өгөх"}
-              width={134}
-              bgColor={color}
-              f_size={"T3"}
-              f_weight={500}
-              bRadius={4}
-              color={
-                color === "primary-blue" ? "primary-white" : "primary-blue"
-              }
-            />
+            <div onClick={() => setModal(true)}>
+              <Button
+                title={"хандив өгөх"}
+                width={134}
+                bgColor={color}
+                f_size={"T3"}
+                f_weight={500}
+                bRadius={4}
+                color={
+                  color === "primary-blue" ? "primary-white" : "primary-blue"
+                }
+              />
+            </div>
           </HeaderLinks>
         </HeaderMenuCon>
         <HeaderMobileMenu
@@ -369,6 +373,7 @@ export const Header = ({ color }) => {
                 </Link>
               </Stack>
               <Button
+                onClick={() => setModal(true)}
                 title={"хандив өгөх"}
                 bgColor={"#fff"}
                 f_size={"T3"}
@@ -379,6 +384,13 @@ export const Header = ({ color }) => {
           </Padding>
         </HeaderMobileMenu>
       </HeaderItems>
+      {modal === true ? (
+        <Modal setModal={setModal}>
+          <DonationModal setModal={setModal} />
+        </Modal>
+      ) : (
+        <></>
+      )}
     </HeaderStyle>
   );
 };

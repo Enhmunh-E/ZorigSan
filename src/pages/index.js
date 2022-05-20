@@ -40,10 +40,24 @@ export const query = graphql`
         }
       }
     }
+    allContentfulProgramTypes {
+      nodes {
+        contentful_id
+        image {
+          file {
+            url
+          }
+        }
+        longDescription {
+          longDescription
+        }
+        shortDescription
+        title
+      }
+    }
   }
 `;
 const IndexPage = ({ data }) => {
-  console.log(data);
   const ongoingpros = [
     {
       date: "2022.04.20",
@@ -64,7 +78,6 @@ const IndexPage = ({ data }) => {
   const BannerData = useMemo(() => {
     return data.allContentfulBanner.nodes[0];
   }, [data]);
-  console.log(BannerData);
   const GlobalStyle = createGlobalStyle`
     body {
       margin: 0;
@@ -73,9 +86,10 @@ const IndexPage = ({ data }) => {
     }
   `;
 
-  const events = data.allContentfulPrograms?.nodes || [];
+  const events = data.allContentfulProgramTypes.nodes || [];
   const alumni = data.allContentfulAlumni?.nodes || [];
   const sponsors = data?.allContentfulSponsor.nodes;
+
   return (
     <div>
       <GlobalStyle />

@@ -109,7 +109,7 @@ const OurValuesPage = () => {
           header
           subtitle
           title
-          values {
+          cards {
             description {
               raw
             }
@@ -124,7 +124,6 @@ const OurValuesPage = () => {
       }
     }
   `);
-
   const data = contentful_data.allContentfulOurValuesPage.nodes[0];
   const { width } = useWindowDimentions();
 
@@ -176,19 +175,19 @@ const OurValuesPage = () => {
               width={width}
               icon={"PuzzleIcon"}
               text={
-                JSON.parse(data.values[0].description.raw).content[0].content[0]
+                JSON.parse(data.cards[0].description.raw).content[0].content[0]
                   .value
               }
-              header={data.values[0].header}
+              header={data.cards[0].header}
             />
             <Rectangle
               width={width}
               icon={"TractorIcon"}
               text={
-                JSON.parse(data.values[1].description.raw).content[0].content[0]
+                JSON.parse(data.cards[1].description.raw).content[0].content[0]
                   .value
               }
-              header={data.values[1].header}
+              header={data.cards[1].header}
             />
           </Stack>
           <Stack
@@ -200,19 +199,19 @@ const OurValuesPage = () => {
               width={width}
               icon={"TabletIcon"}
               text={
-                JSON.parse(data.values[2].description.raw).content[0].content[0]
+                JSON.parse(data.cards[2].description.raw).content[0].content[0]
                   .value
               }
-              header={data.values[2].header}
+              header={data.cards[2].header}
             />
             <Rectangle
               width={width}
               icon={"WheatIcon"}
               text={
-                JSON.parse(data.values[3].description.raw).content[0].content[0]
+                JSON.parse(data.cards[3].description.raw).content[0].content[0]
                   .value
               }
-              header={data.values[3].header}
+              header={data.cards[3].header}
             />
           </Stack>
         </Stack>
