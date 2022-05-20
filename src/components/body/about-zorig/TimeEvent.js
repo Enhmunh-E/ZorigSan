@@ -1,9 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import { Stack, Text } from "../core";
+import { Stack, Text } from "../../core";
 import { graphql, useStaticQuery } from "gatsby";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
+import {
+  Container,
+  Ball,
+  Information,
+  Description,
+  Event,
+  Image,
+  HugeText,
+  History,
+} from "./";
 
 const richTextRenderOptions = {
   renderMark: {
@@ -53,13 +63,8 @@ const richTextRenderOptions = {
 };
 
 export const TimeEvent = ({ year, event, image, last }) => {
-  const Container = styled.div`
-    padding-left: 5px;
-    position: relative;
-  `;
-
   const BoxEvent = styled.div`
-    width: 40vw;
+    width: 100%;
     padding-bottom: 200px;
     border-left: ${last ? "none" : "1px solid rgba(12, 38, 92, 0.4)"};
     padding-left: 72px;
@@ -69,39 +74,6 @@ export const TimeEvent = ({ year, event, image, last }) => {
       padding-left: 20px;
     }
   `;
-
-  const Ball = styled.div`
-    width: 12px;
-    height: 12px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: #0c265c;
-    border-radius: 50%;
-  `;
-
-  const Information = styled.div`
-    width: 100%;
-  `;
-
-  const Description = styled.div`
-    height: 88px;
-    width: 100%;
-  `;
-
-  const Event = styled.div`
-    width: 90%;
-  `;
-
-  const Image = styled.div`
-    width: 90%;
-  `;
-
-  const HugeText = styled.div`
-    width: 100%;
-  `;
-
-  const History = styled.div``;
 
   const data = useStaticQuery(graphql`
     query {
@@ -166,4 +138,3 @@ export const TimeEvent = ({ year, event, image, last }) => {
   );
 };
 
-export default TimeEvent;

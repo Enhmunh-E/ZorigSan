@@ -1,98 +1,45 @@
 import React from "react";
 import Zorig from "../assets/images/zorig.svg";
-import styled from "styled-components";
-import { Header, Stack, Text } from "../components/core";
-import { TimeEvent } from "../components/body";
+import { Header, Padding, Stack, Text } from "../components/core";
 import { graphql, useStaticQuery } from "gatsby";
+import {
+  FullContainer,
+  AnotherBS,
+  MainBody,
+  LeftSide,
+  RightSide,
+  ZorigInformationContainer,
+  ZorigInformation,
+  ZorigName,
+  ZorigBirthInfo,
+  ZorigBirthDate,
+  ZorigBirthPlace,
+  ZorigLine,
+  TimeEvent
+} from "../components/body/about-zorig";
 
 const AboutZorigPage = () => {
-  const FullContainer = styled(Stack)`
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    margin-top: 200px;
-  `;
-
-  const MainBody = styled.div`
-    width: 100%;
-    height: 90%;
-  `;
-
-  const ZorigImg = styled.div`
-    height: 89%;
-    width: 40%;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    @media only screen and (max-width: 960px) {
-      display: none;
-    }
-  `;
-
-  const RightSide = styled.div`
-    width: 60%;
-    @media only screen and (max-width: 960px) {
-      width: 100%;
-    }
-  `;
-
-  const ZorigInformationContainer = styled(Stack)`
-    width: 74%;
-    height: 410px;
-    display: flex;
-    padding-top: 60px;
-
-    @media only screen and (max-width: 960px) {
-      padding-top: 0;
-    }
-  `;
-
-  const ZorigInformation = styled(Stack)`
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    @media only screen and (max-width: 1400px) {
-      flex-direction: column;
-      justify-content: center;
-      align-items: start;
-    }
-  `;
-
-  const ZorigName = styled(Stack)`
-    height: 100%;
-    width: 48%;
-  `;
-
-  const ZorigBirthInfo = styled.div`
-    height: 100%;
-  `;
-
-  const ZorigBirthDate = styled.div`
-    width: 100%;
-  `;
-
-  const ZorigBirthPlace = styled.div`
-    width: 100%;
-  `;
-
-  const ZorigLine = styled.div`
-    width: 46px;
-    height: 0px;
-    border: 2px solid #0c265c;
-  `;
-
   const data = useStaticQuery(graphql`
-    query AboutZorigTimelineQuery {
-      allContentfulAboutZorigTimeline {
+    query AboutZorigQuery {
+      allContentfulAboutZorigPage {
         edges {
           node {
-            timelineDate
-            timelineEvent
-            timelineImage {
+            coverPhoto {
               file {
                 url
+              }
+            }
+            historyText {
+              raw
+            }
+            historyTitle
+            timelines {
+              timelineDate
+              timelineEvent
+              timelineImage {
+                file {
+                  url
+                }
               }
             }
           }
@@ -101,18 +48,17 @@ const AboutZorigPage = () => {
     }
   `);
 
+  const timelineData = data.allContentfulAboutZorigPage.edges[0].node.timelines;
+
   return (
     <FullContainer gap="50px" flexDirection="column">
       <Header color={"primary-blue"} />
 
-      <MainBody>
-        <Stack flexDirection="row-reverse">
-          <ZorigImg>
-            <img
-              style={{ height: "100%", objectFit: "cover", width: "100%" }}
-              src={Zorig}
-            />
-          </ZorigImg>
+      <AnotherBS>
+        <MainBody>
+          <LeftSide>
+            <img style={{ width: "100%" }} src={Zorig} />
+          </LeftSide>
 
           <RightSide>
             <Stack flexDirection="column" alignItems="center">
@@ -184,25 +130,31 @@ const AboutZorigPage = () => {
                   </ZorigBirthInfo>
                 </ZorigInformation>
               </ZorigInformationContainer>
-              {data.allContentfulAboutZorigTimeline.edges.map((edge, index) => {
-                console.log(edge);
-                return (
-                  <TimeEvent
-                    key={index}
-                    year={edge.node.timelineDate}
-                    event={edge.node.timelineEvent}
-                    image={edge.node.timelineImage.file.url}
-                    last={
-                      index ===
-                      data.allContentfulAboutZorigTimeline.edges.length - 1
-                    }
-                  />
-                );
-              })}
+              <Padding size={[0, 0, 0, 50]}>
+                {timelineData.map((edge, index) => {
+                  {
+                    console.log(index);
+                  }
+                  return (
+                    <TimeEvent
+                      key={index}
+                      year={edge.timelineDate}
+                      event={edge.timelineEvent}
+                      image={edge.timelineImage.file.url}
+                      last={
+                        index ===
+                        data.allContentfulAboutZorigPage.edges[0].node.timelines
+                          .length -
+                          1
+                      }
+                    />
+                  );
+                })}
+              </Padding>
             </Stack>
           </RightSide>
-        </Stack>
-      </MainBody>
+        </MainBody>
+      </AnotherBS>
     </FullContainer>
   );
 };
