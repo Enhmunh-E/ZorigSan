@@ -55,6 +55,21 @@ export const query = graphql`
         title
       }
     }
+    allContentfulAlumni {
+      nodes {
+        image {
+          file {
+            url
+          }
+        }
+        name
+        word {
+          word
+        }
+        program {
+          name
+        }
+      }
   }
 `;
 const IndexPage = ({ data }) => {
@@ -89,7 +104,6 @@ const IndexPage = ({ data }) => {
   const events = data.allContentfulProgramTypes.nodes || [];
   const alumni = data.allContentfulAlumni?.nodes || [];
   const sponsors = data?.allContentfulSponsor.nodes;
-
   return (
     <div>
       <GlobalStyle />
