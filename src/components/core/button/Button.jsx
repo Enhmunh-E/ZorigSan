@@ -6,7 +6,7 @@ import { ButtonStyle } from "./ButtonStyle";
 
 export const Button = ({
   type,
-  bgColor,
+  bgColor="primary",
   borderColor,
   bRadius,
   color,
