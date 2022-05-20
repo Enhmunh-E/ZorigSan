@@ -24,7 +24,7 @@
     "window": true
   },
   "rules": {
-    "no-unused-vars": "error",
+    "no-unused-vars": "warn",
     "no-undef": "error",
     "brace-style": "warn",
     "complexity": ["error", { "max": 11 }],

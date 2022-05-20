@@ -1,123 +1,94 @@
 import React, { useRef, useState, useEffect, useMemo } from "react";
-import styled from "styled-components";
-import { Header } from "../components/core";
-import { Image, Stack } from "../components/core";
-import { AboutCarts, ZahiralCart } from "../components/body/AboutCarts";
+import { Header, Image, Text } from "../components/core";
+import {
+  StaffCart,
+  CEOCart,
+  Container,
+  Con,
+  Block,
+  BlueText,
+  Flex,
+  BigText,
+  TitleSmallText,
+  SmallText,
+} from "../components/body/about-us";
 import { Footer } from "../components/footer";
 import useWindowDimensions from "../functions/useWindowDimensions";
 import { Donation } from "../components/body";
-import { graphql, useStaticQuery } from "gatsby";
-import { Text } from "../components/core";
+import { graphql } from "gatsby";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 /* eslint-disable */
 /* eslint-disable react/prop-types */
 /* eslint-disable complexity */
-const Container = styled.div`
-  width: 100vw;
-  display: flex;
-  overflow-x: hidden;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-`;
-const Block = styled.div`
-  width: 100vw;
-  height: 133px;
-`;
-const Con = styled(Stack)`
-  width: ${(props) => (props.width ? props.width : "")};
-  height: ${(props) => (props.height ? props.height : "")};
 
-  justify-content: center;
-  align-items: center;
-  margin-top: ${(props) => (props.marginTop ? props.marginTop : "")};
-  margin-bottom: ${(props) => (props.marginBottom ? props.marginBottom : "")};
-`;
-
-const Flex = styled.div`
-  width: ${(props) => (props.width ? props.width : "")};
-  padding-top: ${(props) => (props.PaddingTop ? props.PaddingTop : "")};
-  padding-bottom: ${(props) =>
-    props.PaddingBottom ? props.PaddingBottom : ""};
-  padding-left: ${(props) => (props.PaddingLeft ? props.PaddingLeft : "")};
-  padding-right: ${(props) => (props.PaddingRight ? props.PaddingRight : "")};
-  display: flex;
-  flex-direction: ${(props) =>
-    props.flexDirection ? props.flexDirection : ""};
-`;
-const BlueText = styled.div`
-  font-style: normal;
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 37px;
-  letter-spacing: 0.001em;
-  color: #4fade0;
-  font-family: "Montserrat";
-  text-align: center;
-`;
-const BigText = styled.div`
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 700;
-  font-size: ${(props) => (props.FontSize ? props.FontSize : "")};
-  line-height: 49px;
-  text-transform: uppercase;
-  font-feature-settings: "case" on;
-  color: ${(props) => (props.color ? props.color : "#0c265c")};
-  display: flex;
-  justify-content: center;
-  padding-top: ${(props) => (props.PaddingTop ? props.PaddingTop : "")};
-  text-align: center;
-`;
-const SmallText = styled.div`
-  width: ${(props) => (props.width ? props.width : "")};
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
-  text-align: center;
-  color: #000000;
-  opacity: 0.6;
-  text-align: ${(props) => (props.TextAlign ? props.TextAlign : "normal")};
-  padding-top: ${(props) => (props.PaddingTop ? props.PaddingTop : "")};
-`;
-const TitleSmallText = styled.div`
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
-  text-align: center;
-  color: #000000;
-  opacity: 0.6;
-  text-align: ${(props) => (props.TextAlign ? props.TextAlign : "normal")};
-  padding-top: ${(props) => (props.PaddingTop ? props.PaddingTop : "")};
-`;
-const AboutUsPage = () => {
-  const data = useStaticQuery(graphql`
-    query MyQuery {
-      allContentfulAboutUs(sort: { order: ASC, fields: staffs___level }) {
-        edges {
-          node {
-            staffs {
-              name
-              img {
-                url
-              }
-              level
-              position
-              description
+export const query = graphql`
+  query AboutUsPage {
+    allContentfulAboutUsPage {
+      nodes {
+        title
+        subTitle
+        description
+        staffs {
+          position
+          testimonial {
+            raw
+          }
+          name
+          level
+          img {
+            file {
+              url
             }
-            title
-            description
-            title1
-            zorigFoundation
           }
         }
       }
     }
-  `);
-  const Handler = data.allContentfulAboutUs.edges[0].node;
+  }
+`;
+const richTextRenderOptions = {
+  renderMark: {
+    [MARKS.BOLD]: (text) => (
+      <Text type="T1Bold" color="#0C265C">
+        {text}
+      </Text>
+    ),
+    [INLINES.HYPERLINK]: (node, children) => {
+      const { uri } = node.data;
+      return (
+        <a href={uri} className="underline">
+          {children}
+        </a>
+      );
+    },
+    [BLOCKS.HEADING_1]: (text) => {
+      return (
+        <>
+          <h1>{text}</h1>
+        </>
+      );
+    },
+    [BLOCKS.HEADING_5]: (text) => {
+      return (
+        <>
+          <h5>{text}</h5>
+        </>
+      );
+    },
+  },
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, text) => {
+      return (
+        <Text type="T2">
+          <p style={{ whiteSpace: "pre-line" }}>{text}</p>
+        </Text>
+      );
+    },
+  },
+};
+const AboutUsPage = ({ data }) => {
+  console.log(data);
+  const aboutUsPageData = data.allContentfulAboutUsPage.nodes[0];
   const divRef = useRef(null);
   4;
   const { width } = useWindowDimensions();
@@ -131,14 +102,9 @@ const AboutUsPage = () => {
     }
     setTextHeight(divRef?.current?.offsetHeight);
   }, [width]);
-  const Zahiral = useMemo(() => {
-    let z = null;
-    data.allContentfulAboutUs.edges[0].node.staffs.forEach((staff) => {
-      if (staff.level == 0) {
-        z = staff;
-      }
-    });
-    return z;
+  const CEO = useMemo(() => {
+    const test = aboutUsPageData.staffs.filter((staff) => staff.level == 0);
+    return test[0];
   }, [data]);
   return (
     <Container>
@@ -154,13 +120,13 @@ const AboutUsPage = () => {
           PaddingTop="80px"
         >
           <BlueText>
-            <Text type="H1">{Handler.title}</Text>
+            <Text type="H1">{aboutUsPageData.title}</Text>
           </BlueText>
           <BigText PaddingTop="16px" FontSize="40px" color="#0c265c">
-            <Text type="T0">{Handler.title1}</Text>
+            <Text type="T0">{aboutUsPageData.subTitle}</Text>
           </BigText>
           <TitleSmallText PaddingTop="24px">
-            {Handler.description}
+            {aboutUsPageData.description}
           </TitleSmallText>
         </Flex>
       </Con>
@@ -172,11 +138,7 @@ const AboutUsPage = () => {
             PaddingBottom="54px"
             style={{ justifyContent: "space-evenly" }}
           >
-            <Image
-              width={"287"}
-              height={"430"}
-              src={Zahiral && Zahiral.img.url}
-            />
+            <Image width={"287"} height={"430"} src={CEO && CEO.img.file.url} />
             <div
               style={{
                 width: "50%",
@@ -193,11 +155,8 @@ const AboutUsPage = () => {
                 }}
               >
                 <BigText FontSize="34px" color="#0C265C">
-                  <Text type="T0"> {Handler.ZorigFoundation}</Text>
+                  <Text type="T0"> Zorig Foundation</Text>
                 </BigText>
-                <SmallText TextAlign="left">
-                  {Zahiral && Zahiral.description}
-                </SmallText>
               </div>
               <div
                 style={{
@@ -207,10 +166,13 @@ const AboutUsPage = () => {
                 }}
               >
                 <BigText FontSize="34px" color="black">
-                  <Text type="T0"> {Zahiral && Zahiral.name}</Text>
+                  <Text type="T0"> {CEO && CEO.name}</Text>
                 </BigText>
                 <SmallText>Гүйцэтгэх захирал</SmallText>
               </div>
+              <SmallText TextAlign="left">
+                {CEO && renderRichText(CEO.testimonial, richTextRenderOptions)}
+              </SmallText>
             </div>
           </Flex>
         </Con>
@@ -221,10 +183,8 @@ const AboutUsPage = () => {
           style={{ background: "rgba(12, 38, 92, 0.05)" }}
         >
           <Flex style={{ overflow: "auto" }}>
-            <ZahiralCart zahiral={Zahiral} />
-            <AboutCarts
-              events={data.allContentfulAboutUs.edges[0].node.staffs}
-            />
+            <CEOCart ceo={CEO} />
+            <StaffCart staffs={aboutUsPageData.staffs} />
           </Flex>
         </Con>
       )}
@@ -236,9 +196,7 @@ const AboutUsPage = () => {
             PaddingTop="93px"
             PaddingBottom="124px"
           >
-            <AboutCarts
-              events={data.allContentfulAboutUs.edges[0].node.staffs}
-            />
+            <StaffCart staffs={aboutUsPageData.staffs} />
           </Flex>
         </Con>
       ) : (

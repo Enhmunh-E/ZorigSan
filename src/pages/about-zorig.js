@@ -1,9 +1,8 @@
 import React from "react";
 import Zorig from "../assets/images/zorig.svg";
 import styled from "styled-components";
-import { Header } from "../components/core";
+import { Header, Stack, Text } from "../components/core";
 import { TimeEvent } from "../components/body";
-import { Stack, Text } from "../components/core";
 import { graphql, useStaticQuery } from "gatsby";
 
 const AboutZorigPage = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {Stack, Text} from "../core";
+import { Stack, Text } from "../core";
 import { graphql, useStaticQuery } from "gatsby";
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
@@ -104,8 +104,8 @@ export const TimeEvent = ({ year, event, image, last }) => {
   const History = styled.div``;
 
   const data = useStaticQuery(graphql`
-    query Testah {
-      allContentfulAboutZorigHistory {
+    query {
+      allContentfulAboutZorigPage {
         nodes {
           historyText {
             raw
@@ -115,7 +115,7 @@ export const TimeEvent = ({ year, event, image, last }) => {
       }
     }
   `);
-  const { nodes } = data.allContentfulAboutZorigHistory;
+  const { nodes } = data.allContentfulAboutZorigPage;
   const { historyText, historyTitle } = nodes[0];
 
   return (
@@ -167,4 +167,3 @@ export const TimeEvent = ({ year, event, image, last }) => {
 };
 
 export default TimeEvent;
-

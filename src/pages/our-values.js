@@ -106,25 +106,20 @@ const OurValuesPage = () => {
     query {
       allContentfulOurValuesPage {
         nodes {
-          rectangle1Header
-          rectangle1Text {
-            raw
-          }
-          rectangle2Header
-          rectangle2Text {
-            raw
-          }
-          rectangle3Header
-          rectangle3Text {
-            raw
-          }
-          rectangle4Header
-          rectangle4Text {
-            raw
-          }
           header
           subtitle
           title
+          values {
+            description {
+              raw
+            }
+            header
+            icon {
+              file {
+                url
+              }
+            }
+          }
         }
       }
     }
@@ -181,17 +176,19 @@ const OurValuesPage = () => {
               width={width}
               icon={"PuzzleIcon"}
               text={
-                JSON.parse(data.rectangle1Text.raw).content[0].content[0].value
+                JSON.parse(data.values[0].description.raw).content[0].content[0]
+                  .value
               }
-              header={data.rectangle1Header}
+              header={data.values[0].header}
             />
             <Rectangle
               width={width}
               icon={"TractorIcon"}
               text={
-                JSON.parse(data.rectangle2Text.raw).content[0].content[0].value
+                JSON.parse(data.values[1].description.raw).content[0].content[0]
+                  .value
               }
-              header={data.rectangle2Header}
+              header={data.values[1].header}
             />
           </Stack>
           <Stack
@@ -203,17 +200,19 @@ const OurValuesPage = () => {
               width={width}
               icon={"TabletIcon"}
               text={
-                JSON.parse(data.rectangle3Text.raw).content[0].content[0].value
+                JSON.parse(data.values[2].description.raw).content[0].content[0]
+                  .value
               }
-              header={data.rectangle3Header}
+              header={data.values[2].header}
             />
             <Rectangle
               width={width}
               icon={"WheatIcon"}
               text={
-                JSON.parse(data.rectangle4Text.raw).content[0].content[0].value
+                JSON.parse(data.values[3].description.raw).content[0].content[0]
+                  .value
               }
-              header={data.rectangle4Header}
+              header={data.values[3].header}
             />
           </Stack>
         </Stack>
