@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Image } from "../core";
+import { Image } from "../../core";
 /* eslint-disable */
 /* eslint-disable react/prop-types */
 /* eslint-disable complexity */
@@ -45,17 +45,17 @@ const SmallText = styled.div`
   opacity: 0.6;
   padding-top: 8px;
 `;
-export const AboutCarts = (props) => {
-  const { events } = props;
+export const StaffCart = (props) => {
+  const { staffs } = props;
   return (
     <Container>
-      {events.map((event, index) => {
-        if (event.level !== 0) {
+      {staffs.map((staff, index) => {
+        if (staff.level !== 0) {
           return (
             <Card key={index}>
-              <Image width={"225"} height={"318"} src={event.img.url} />
-              <BigText>{event.name}</BigText>
-              <SmallText>{event.position}</SmallText>
+              <Image width={"225"} height={"318"} src={staff.img.file.url} />
+              <BigText>{staff.name}</BigText>
+              <SmallText>{staff.position}</SmallText>
             </Card>
           );
         }
@@ -63,16 +63,15 @@ export const AboutCarts = (props) => {
     </Container>
   );
 };
-export const ZahiralCart = (props) => {
-  const { zahiral } = props;
+export const CEOCart = (props) => {
+  const { ceo } = props;
   return (
     <Container>
       <Card>
-        <Image width={"225"} height={"318"} src={zahiral.img.url} />
-        <BigText>{zahiral.name}</BigText>
-        <SmallText>{zahiral.position}</SmallText>
+        <Image width={"225"} height={"318"} src={ceo.img.file.url} />
+        <BigText>{ceo.name}</BigText>
+        <SmallText>{ceo.position}</SmallText>
       </Card>
     </Container>
   );
 };
-export default { AboutCarts, ZahiralCart };

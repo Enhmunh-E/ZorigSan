@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql } from "gatsby";
 import { createGlobalStyle } from "styled-components";
 import {
   Banner,
@@ -15,63 +15,35 @@ import CircleCarousel from "../components/body/CircleCarousel";
 import { Footer } from "../components/footer";
 import { Margin } from "../components/core";
 
-
-
-const IndexPage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allContentfulBanner {
-        edges {
-          node {
-            contentful_id
-            description {
-              description
-            }
-            image {
-              file {
-                url
-              }
-            }
-            title
-          }
+export const query = graphql`
+  query IndexPage {
+    allContentfulBanner {
+      nodes {
+        title
+        description {
+          description
         }
-      }
-      allContentfulPrograms {
-        nodes {
-          contentful_id
-          image {
-            file {
-              url
-            }
-          }
-          title
-        }
-      }
-      allContentfulAlumni {
-        nodes {
-          word {
-            word
-          }
-          image {
-            file {
-              url
-            }
-          }
-          name
-          program
-        }
-      }
-      allContentfulSponsor {
-        nodes {
-          image {
-            file {
-              url
-            }
+        image {
+          file {
+            url
           }
         }
       }
     }
-  `);
+    allContentfulSponsor {
+      nodes {
+        name
+        image {
+          file {
+            url
+          }
+        }
+      }
+    }
+  }
+`;
+const IndexPage = ({ data }) => {
+  console.log(data);
   const ongoingpros = [
     {
       date: "2022.04.20",
@@ -90,8 +62,9 @@ const IndexPage = () => {
     },
   ];
   const BannerData = useMemo(() => {
-    return data.allContentfulBanner.edges[data.allContentfulBanner.edges.length-1].node;
-  }, [data])
+    return data.allContentfulBanner.nodes[0];
+  }, [data]);
+  console.log(BannerData);
   const GlobalStyle = createGlobalStyle`
     body {
       margin: 0;
@@ -100,9 +73,9 @@ const IndexPage = () => {
     }
   `;
 
-  const events = data.allContentfulPrograms.nodes;
-  const alumni = data.allContentfulAlumni.nodes;
-  const sponsors = data.allContentfulSponsor.nodes;
+  const events = data.allContentfulPrograms?.nodes || [];
+  const alumni = data.allContentfulAlumni?.nodes || [];
+  const sponsors = data?.allContentfulSponsor.nodes;
   return (
     <div>
       <GlobalStyle />
@@ -174,5 +147,3 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
-
-

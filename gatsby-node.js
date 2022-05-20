@@ -3,69 +3,67 @@ const path = require("path");
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const queryResults = await graphql(`
-    query {
-      allContentfulPrograms {
-        edges {
-          node {
+    query allContentfulProgramPage {
+      allContentfulProgramPage {
+        nodes {
+          description
+          programTypes {
             contentful_id
-            longDescription {
-              longDescription
-            }
             image {
               file {
                 url
               }
             }
+            longDescription {
+              longDescription
+            }
             shortDescription
             title
-            event {
+            program {
               contentful_id
               description {
                 description
               }
+              endDate
               image {
                 file {
                   url
                 }
               }
-              startDate
-              endDate
               name
-              alumni {
-                contentful_id
-                name
-                word {
-                  word
-                }
-                image {
-                  file {
-                    url
-                  }
+              projectNames
+              startDate
+              logo {
+                file {
+                  url
                 }
               }
             }
           }
+          title
         }
       }
     }
   `);
   const eventCategories = path.resolve(`./src/pages/event-categories.js`);
   const eventDetails = path.resolve(`./src/pages/event-details.js`);
-  queryResults.data.allContentfulPrograms.edges.forEach((node) => {
-    createPage({
-      component: eventCategories,
-      context: {
-        data: node.node,
-      },
-      path: `/${node.node.contentful_id}`,
-    });
-    node.node.event?.forEach((sNode) => {
+  queryResults.data.allContentfulProgramPage.nodes.forEach((pageNode) => {
+    pageNode.programTypes.forEach((node) => {
       createPage({
-        component: eventDetails,
+        component: eventCategories,
         context: {
-          data: sNode,
+          data: node,
         },
-        path: `/${node.node.contentful_id}/${sNode.contentful_id}`,
+        path: `/${node.contentful_id}`,
+      });
+      node.event?.forEach((sNode) => {
+        createPage({
+          component: eventDetails,
+          context: {
+            data: sNode,
+          },
+          path: `/${node.contentful_id}/${sNode.contentful_id}`,
+        });
       });
     });
   });
