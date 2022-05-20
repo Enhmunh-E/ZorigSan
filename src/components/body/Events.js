@@ -93,7 +93,7 @@ export const Events = ({ events }) => {
                     <EventCart
                       title={events[index + 1].title}
                       img={events[index + 1].image.file.url}
-                      link={`/${event.contentful_id}`}
+                      link={`/${events[index + 1].contentful_id}`}
                     />
                   )}
                 </Div>
