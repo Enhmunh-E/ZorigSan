@@ -13,21 +13,22 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
 const Flex = styled.div`
   width: ${(props) => (props.width ? props.width : "")};
   padding-top: ${(props) => (props.PaddingTop ? props.PaddingTop : "")};
   padding-bottom: ${(props) =>
     props.PaddingBottom ? props.PaddingBottom : ""};
   display: flex;
-    text-align: center;
+  text-align: center;
 `;
 
 export const Donation = ({ text }) => {
   return (
-    <Container width="100%" >
+    <Container width="100%">
       <Flex
-        width="500px"PaddingTop="144px" PaddingBottom="128px"
+        width="500px"
+        PaddingTop="144px"
+        PaddingBottom="128px"
         style={{
           alignItems: "center",
           flexDirection: "column",
