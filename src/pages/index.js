@@ -55,6 +55,22 @@ export const query = graphql`
         title
       }
     }
+    allContentfulAlumni {
+      nodes {
+        image {
+          file {
+            url
+          }
+        }
+        name
+        word {
+          word
+        }
+        program {
+          name
+        }
+      }
+    }
   }
 `;
 const IndexPage = ({ data }) => {
@@ -89,7 +105,6 @@ const IndexPage = ({ data }) => {
   const events = data.allContentfulProgramTypes.nodes || [];
   const alumni = data.allContentfulAlumni?.nodes || [];
   const sponsors = data?.allContentfulSponsor.nodes;
-
   return (
     <div>
       <GlobalStyle />
@@ -105,6 +120,7 @@ const IndexPage = ({ data }) => {
           </div>
         ))}
       </Carousel>
+      <Analytic />
       <Margin size={[100, 0, 100, 0]}>
         <NewsCarousel
           title="СОНИН САЙХАН"
@@ -147,14 +163,13 @@ const IndexPage = ({ data }) => {
           ]}
         />
       </Margin>
-      <Analytic />
       <Events events={events} />
       <CircleCarousel
         arr={alumni}
         topTittle={"ЗОРИГ САНГИЙН АМЖИЛТТАЙ ТӨГСӨГЧИД"}
       ></CircleCarousel>
       <Sponsors arr={sponsors} />
-      <Donation text={"ЗОРИГ САН-д хандив өгөөрэй"} />
+      <Donation/>
       <Footer />
     </div>
   );
