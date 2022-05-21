@@ -197,11 +197,11 @@ export const NewsCard = ({
   }
 
   let textConverted = JSON.parse(text.raw).content[0].content[0].value
-  
+  const { width } = useWindowDimensions();
   if (width < 540) textConverted = Shorten(textConverted, 50);
   else if (width < 1000) textConverted = Shorten(textConverted, 50);
   else textConverted = Shorten(textConverted, 80);
-  const { width } = useWindowDimensions();
+  
   console.log('aaadsdtastdashgdaskuygj')
   
   return (
