@@ -74,7 +74,6 @@ export const StyledImage = styled.img`
 
 export const ImageText = styled(Stack)`
   position: absolute;
-  }
 `;
 export const PicContainer = styled.img`
   align-self: center;
@@ -109,8 +108,19 @@ export const DesktopHidden = styled(Text)`
 
 const News = ({ location }) => {
   const { width } = useWindowDimensions();
+  
+  // props={carddata}
+  // direction={direction}
+  // date={carddata.date}
+  // image={carddata.picture[0].file.url}
+  // header={carddata.header}
+  // text={
+  //   JSON.parse(carddata.paragarph.raw).content[0].content[0]
+  //     .value
+  // }
 
   const data = location.state;
+  console.log(data);
   return (
     <Stack flexDirection="column" alignItems="center">
       <Header color={"primary-blue"} />
