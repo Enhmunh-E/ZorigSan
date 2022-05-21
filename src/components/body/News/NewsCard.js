@@ -11,19 +11,19 @@ const CardContainer = styled.div`
   align-items: center;
   margin: 0;
   pointer-events: none;
-  @media (max-width: 600px) {
+  @media screen and (max-width: 540px) {
     gap: 20px;
     width: 85vw;
   }
-  @media (min-width: 600px) {
-    @media (max-width: 1200px) {
+  @media not screen and (max-width: 540px) {
+    @media screen and (max-width: 1650px) {
       @keyframes move_animation_right {
         100% {
           transform: translateX(-56vw);
         }
       }
     }
-    @media (min-width: 1200px) {
+    @media not screen and (max-width: 1650px) {
       @keyframes move_animation_right {
         100% {
           transform: translateX(-896px);
@@ -41,21 +41,21 @@ const CardContainer = styled.div`
         ? "move_animation_left"
         : props.direction === "right" && "move_animation_right"};
     animation-duration: 0.8s;
-    @media (max-width: 1200px) {
+    @media screen and (max-width: 1650px) {
       ${(props) => props.moveleft && `transform: translateX(-28vw)`}
     }
-    @media (min-width: 1635px) {
+    @media not screen and (max-width: 1650px) {
       ${(props) => props.moveleft && `transform: translateX(-448px)`}
     }
   }
 `;
 const Text_Column = styled.div`
-  @media (max-width: 600px) {
+  @media screen and (max-width: 540px) {
     width: 60vw;
     margin-bottom: 10px;
     margin-left: 10px;
   }
-  @media (min-width: 600px) {
+  @media not screen and (max-width: 540px) {
     max-width: 424px;
     width: 26vw;
     margin-top: 10px;
@@ -66,16 +66,16 @@ const Text_Column = styled.div`
   justify-content: space-between;
 `;
 const Image = styled.div`
-  @media (max-width: 600px) {
+  @media screen and (max-width: 540px) {
     width: 85vw;
     height: 53vw;
     border-radius: 4px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
       url(${(props) => props.image});
     background-size: 100% 100%;
     background-repeat: no-repeat;
   }
-  @media (min-width: 600px) {
+  @media not screen and (max-width: 540px) {
     width: 26vw;
     height: 16.6vw;
     max-width: 424px;
@@ -96,10 +96,10 @@ const Image = styled.div`
     background-position: center;
     background-size: 120% 120%;
   }
-  cursor: pointer;
   position: relative;
   display: flex;
   align-items: end;
+  cursor: pointer;
   pointer-events: all;
 `;
 
@@ -132,28 +132,63 @@ const DateBackground = styled.div`
   border-radius: 0 0 0 10px;
 `;
 
-const Text_Container = ({ header, text, width }) => {
+const Hover = styled.div`
+  pointer-events: all;
+  background-image: "linear-gradient(to right, #0C265C, #0C265C 50%,#0C265C 50%)";
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  transition: all 0.3s ease-in-out;
+  :before {
+    content: "";
+    background: "#0C265C";
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    transition: all 0.3s ease-in-out;
+  }
+  :hover {
+    background-position: 0;
+  }
+  :hover::before {
+    width: 100%;
+  }
+`;
+
+const Text_Container = ({ header, text, width, props }) => {
   return (
     <Text_Column>
-      <Text color={width < 600 ? "white" : "#0C265C"} type="T1">
-        {header}
-      </Text>
-      <Text color={width < 600 ? "white" : "#0C265C"} type="T2">
+      <Link to={"/dailyNews"} state={props}>
+        <Hover>
+          <Text color={width < 540 ? "white" : "#0C265C"} type="T1">
+            {header}
+          </Text>
+        </Hover>
+      </Link>
+      <Text color={width < 540 ? "white" : "#0C265C"} type="T2">
         {text}
       </Text>
     </Text_Column>
   );
 };
 export const NewsCard = ({
-  date,
   direction,
+  date,
   image,
   moveleft,
   header,
   link,
   text,
+  props,
 }) => {
-  const { width } = useWindowDimensions();
+
+  
   function Shorten(str, num) {
     if (str.length <= num) {
       return str;
@@ -161,27 +196,31 @@ export const NewsCard = ({
     return str.slice(0, num) + "...";
   }
 
-  if (width < 400) text = Shorten(text, 80);
-  else if (width < 1400) text = Shorten(text, 100);
-  else if (width < 1650) text = Shorten(text, 150);
-  else text = Shorten(text, 200);
-  if (typeof image === "object") image = JSON.stringify(image);
+  let textConverted = JSON.parse(text.raw).content[0].content[0].value
+  
+  if (width < 540) textConverted = Shorten(textConverted, 50);
+  else if (width < 1000) textConverted = Shorten(textConverted, 50);
+  else textConverted = Shorten(textConverted, 80);
+  const { width } = useWindowDimensions();
+  console.log('aaadsdtastdashgdaskuygj')
+  
   return (
     <CardContainer direction={direction} moveleft={moveleft}>
-      <Link to={link}>
+      <Link to={"/dailyNews"} state={props}>
         <Image width={width} image={image}>
-          {width > 600 ? (
+          {width > 540 ? (
             <>
               <EventLine />
-              <EventText>Event</EventText>
+              <EventText>{header}</EventText>
             </>
           ) : (
             <>
               <Text_Container
+                link={link}
                 width={width}
                 header={header}
-                text={text}
-                date={date}
+                text={textConverted}
+                props={props}
               />
               <DateBackground>
                 <Text>{date}</Text>
@@ -190,8 +229,15 @@ export const NewsCard = ({
           )}
         </Image>
       </Link>
-      {width > 600 && (
-        <Text_Container width={width} date={date} header={header} text={text} />
+      {width > 540 && (
+        <Text_Container
+          link={link}
+          width={width}
+          text={textConverted}
+          date={date}
+          image={image}
+          props={props}
+        />
       )}
     </CardContainer>
   );

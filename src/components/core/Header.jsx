@@ -145,7 +145,7 @@ const variants1 = {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
   open: {
-    transition: { delayChildren: 1, staggerChildren: 0.07 },
+    transition: { delayChildren: 0.2, staggerChildren: 0.07 },
   },
 };
 
@@ -283,6 +283,7 @@ export const Header = ({ color }) => {
                 </Stack>
               </HeaderLink>
               <HeaderDropDownItems
+              color={color}
                 style={{
                   maxHeight: dropDown === false ? "0px" : "152px",
                   opacity: dropDown === false ? 0 : 1,
@@ -291,7 +292,7 @@ export const Header = ({ color }) => {
                 <Stack flexDirection={"column"} gap={"8px"}>
                   <Link
                     style={{ height: "32px", textDecoration: "none" }}
-                    to="/about-us"
+                    to="/about-zorig"
                   >
                     <Hover color={color}>
                       <Text color={themeColor}>Зоригийн тухай</Text>
@@ -299,7 +300,7 @@ export const Header = ({ color }) => {
                   </Link>
                   <Link
                     style={{ height: "32px", textDecoration: "none" }}
-                    to="/about-us"
+                    to="/greeting"
                   >
                     <Hover color={color}>
                       <Text color={themeColor}>Тэргүүний мэндчилгээ</Text>
@@ -326,7 +327,7 @@ export const Header = ({ color }) => {
             </Stack>
             <Link style={{ textDecoration: "none" }} to="/programs">
               <Hover color={color}>
-                <Text color={themeColor}>Хөтөлбөрууд</Text>
+                <Text color={themeColor}>Хөтөлбөрүүд</Text>
               </Hover>
             </Link>
             <Button
@@ -542,6 +543,11 @@ const HeaderDropDownItems = styled.div`
   position: absolute;
   top: 100px;
   opacity: 0;
+  background-color: ${(props) =>
+      `${props.color}` !== "primary-blue" ? "transparent " : "#fff"};
+  padding: 24px;
+  margin-left: -24px;
+  border-radius: 0 0 32px 32px;
   max-height: 0px;
   transition: opacity 0.2s, max-height 0.2s;
   -webkit-transition: opacity 0.2s, max-height 0.2s;
