@@ -131,8 +131,8 @@ const News = ({ location }) => {
         justifyContent="center"
         alignItems="center"
       >
-        <Carousel arr={data.picture} WrapperWidth={"80vw"}>
-          {data.picture.map((el, i) => {
+        <Carousel arr={data?.picture} WrapperWidth={"80vw"}>
+          {data?.picture.map((el, i) => {
             console.log(el.file.url);
             return (
               <div key={i} style={{}}>
@@ -151,10 +151,10 @@ const News = ({ location }) => {
           justifyContent="space-between"
           gap="200px"
         >
-          <Text type="H1">{data.header}</Text>
-          <Text type="T2Bold">{data.date}</Text>
+          <Text type="H1">{data?.header}</Text>
+          <Text type="T2Bold">{data?.date}</Text>
         </TitleContainer>
-        {renderRichText(data.paragarph, richTextRenderOptions)}
+        {data?.paragarph && renderRichText(data?.paragarph  || {raw: ""}, richTextRenderOptions)}
       </WholeContainer>
       <Donation />
       <Footer />
