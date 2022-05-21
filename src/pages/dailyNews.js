@@ -110,26 +110,7 @@ export const DesktopHidden = styled(Text)`
 const News = ({ location }) => {
   const { width } = useWindowDimensions();
 
-  // const data = location.state;
-  const data = {
-    date: "2022.5.18",
-    header: "Sample text, WOOOOOO",
-    paragarph: {
-      raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","nodeType":"text"}],"nodeType":"paragraph"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-    },
-    picture: [
-      {
-        file: {
-          url: "//images.ctfassets.net/wj41nhp3troa/2CwPhqMM5fQMXj1lkknMHU/a1bb5863c62f9dc5a0133bd4748ee7fd/Screen_Shot_2022-04-14_at_4.59_4.png",
-        },
-      },
-      {
-        file: {
-          url: "//images.ctfassets.net/wj41nhp3troa/1eoFFN8c2e6Fj97BOWUEYR/f6f55b852f7eac213e4f3e65de3973f6/image_19.png",
-        },
-      },
-    ],
-  };
+  const data = location.state;
   return (
     <Stack flexDirection="column" alignItems="center">
       <Header color={"primary-blue"} />

@@ -13,6 +13,7 @@ import {
   BannerDescription,
 } from "./BannerStyle";
 import useWindowDimensions from "../../../functions/useWindowDimensions";
+import { Link } from "gatsby";
 
 export const Banner = ({ description, image, title }) => {
   const { width } = useWindowDimensions();
@@ -43,15 +44,17 @@ export const Banner = ({ description, image, title }) => {
           </Text>
         </BannerDescription>
         {phone === false && (
-          <Button
-            type={"arrow"}
-            title={"Бидний тухай"}
-            width={167}
-            bgColor={"primary-white"}
-            f_size={"T3"}
-            f_weight={500}
-            color={"primary-blue"}
-          />
+          <Link to="/about-us">
+            <Button
+              type={"arrow"}
+              title={"Бидний тухай"}
+              width={167}
+              bgColor={"primary-white"}
+              f_size={"T3"}
+              f_weight={500}
+              color={"primary-blue"}
+            />
+          </Link>
         )}
       </BannerTitleCon>
       <BannerImg

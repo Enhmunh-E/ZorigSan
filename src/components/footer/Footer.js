@@ -164,7 +164,7 @@ export const Footer = () => {
             <Itmes>11223344</Itmes>
           </Link>
           <Link
-            to="/Test"
+            to="/tel:11223344"
             style={{
               display: "flex",
               alignItems: "center",
@@ -175,7 +175,7 @@ export const Footer = () => {
             <Itmes>admin@zorigfoundation.com</Itmes>
           </Link>
           <Link
-            to="/Test"
+            to="/mailto:admin@zorigfoundation.com"
             style={{
               display: "flex",
               alignItems: "center",

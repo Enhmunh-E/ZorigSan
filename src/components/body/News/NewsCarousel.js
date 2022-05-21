@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React, { useEffect, useState } from "react";
 import { NewsCard } from "./NewsCard";
+import { graphql, useStaticQuery } from "gatsby";
 import { Stack } from "../../core";
 import { ArrowInCircleIcon } from "../../../assets/icons/arrowincircleIcon";
 import useWindowDimensions from "../../../functions/useWindowDimensions";
@@ -16,6 +17,7 @@ const NewsTitle = styled.h1`
   line-height: 49px;
   text-transform: uppercase;
   font-feature-settings: "case";
+  text-align: center;
   font-size: 40px;
   @media screen and (max-width: 800px) {
     font-size: 30px;
@@ -23,7 +25,9 @@ const NewsTitle = styled.h1`
 `;
 const NewsContainer = styled.div`
   @media screen and (max-width: 600px) {
-    width: 100vw;
+    margin: 0 4vw 0 4vw;
+    width: 92vw;
+    /* width: 100vw; */
     overflow-x: scroll;
   }
   @media not screen and (max-width: 600px) {
@@ -53,11 +57,34 @@ const NewsButton = styled.button`
       : "@media not screen and (max-width: 1200px) {transform: scale(1.5);};margin-right: -5vw"}
 `;
 
-export const NewsCarousel = ({ data, title }) => {
+export const NewsCarousel = () => {
+  const query = useStaticQuery(graphql`
+    query qyeru {
+      allContentfulNews {
+        nodes {
+          header
+          picture {
+            file {
+              url
+            }
+          }
+          date
+          paragarph {
+            raw
+          }
+        }
+      }
+    }
+  `).allContentfulNews.nodes;
+
+  console.log(JSON.stringify(query));
+  // console.log(JSON.parse(query[0].paragarph.raw).content[0].content[0].value);
+
+  let data = query;
   const { width } = useWindowDimensions();
   const [innerdata, setInnerdata] = useState(data); // The array of data/
   const [direction, setDirection] = useState("middle"); // 'right' 'left' or 'middle'
-  const [btnstate, setBtnstate] = useState({ left: true, right: true }); // true = on, false = off
+  const [btnstate, setBtnstate] = useState({ left: true, right: true });
   useEffect(() => {
     if (data.length <= 3) setBtnstate({ left: false, right: false });
     if (data.length === 4) {
@@ -80,15 +107,16 @@ export const NewsCarousel = ({ data, title }) => {
     setTimeout(() => {
       if (dir === "left") data.unshift(data.pop());
       // Move the Last object in the array into the First posioton;
-      else data.push(data.shift()); // Move the First 3 objects in the array into the last 3 posiotons
+      else data.push(data.shift()); // Move the First object in the array into the last posioton
       setInnerdata(data);
       setDirection("middle");
       setBtnstate({ left: true, right: true });
     }, 755);
   };
+
   return (
     <Stack flexDirection="column" justifyContent="space-between">
-      <NewsTitle>{title}</NewsTitle>
+      <NewsTitle>СОНИН САЙХАН</NewsTitle>
       <Stack
         flexDirection="row"
         justifyContent="space-around"
@@ -105,16 +133,20 @@ export const NewsCarousel = ({ data, title }) => {
           </NewsButton>
         )}
         <NewsContainer>
-          <Stack gap={width > 1635 ? "24px" : "2vw"} flexDirection="row">
+          <Stack gap={width > 1635 ? "24px" : "1.99vw"} flexDirection="row">
             {innerdata.map((carddata, index) => (
               <div key={index}>
                 <Stack flexDirection="column" justifyContent="left">
                   <NewsCard
+                    props={query}
                     direction={direction}
                     date={carddata.date}
-                    image={carddata.image}
+                    image={carddata.picture[0].file.url}
                     header={carddata.header}
-                    text={carddata.text}
+                    text={
+                      JSON.parse(carddata.paragarph.raw).content[0].content[0]
+                        .value
+                    }
                     link={carddata.link}
                     moveleft={data.length <= 3 ? false : true}
                   />

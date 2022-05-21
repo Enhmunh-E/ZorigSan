@@ -291,7 +291,7 @@ export const Header = ({ color }) => {
                 <Stack flexDirection={"column"} gap={"8px"}>
                   <Link
                     style={{ height: "32px", textDecoration: "none" }}
-                    to="/about-us"
+                    to="/about-zorig"
                   >
                     <Hover color={color}>
                       <Text color={themeColor}>Зоригийн тухай</Text>
@@ -299,7 +299,7 @@ export const Header = ({ color }) => {
                   </Link>
                   <Link
                     style={{ height: "32px", textDecoration: "none" }}
-                    to="/about-us"
+                    to="/greeting"
                   >
                     <Hover color={color}>
                       <Text color={themeColor}>Тэргүүний мэндчилгээ</Text>
@@ -542,6 +542,10 @@ const HeaderDropDownItems = styled.div`
   position: absolute;
   top: 100px;
   opacity: 0;
+  background-color: rgb(255, 255, 255);
+  padding: 24px;
+  margin-left: -24px;
+  border-radius: 0 0 32px 32px;
   max-height: 0px;
   transition: opacity 0.2s, max-height 0.2s;
   -webkit-transition: opacity 0.2s, max-height 0.2s;
