@@ -95,7 +95,7 @@ export const TimeEvent = ({ year, event, image, last }) => {
       <BoxEvent>
         <Ball />
         <Information>
-          <Stack flexDirection="column" gap="24px">
+          <Stack flexDirection="column" gap="36px">
             <Description>
               <Stack flexDirection="column" gap="16px">
                 <Text color="#0C265C" type="H3">
