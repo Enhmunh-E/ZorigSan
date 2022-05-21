@@ -103,22 +103,17 @@ const OurValuesText = styled.h1`
 
 const OurValuesPage = () => {
   const contentful_data = useStaticQuery(graphql`
-    query {
+    query MyQuery {
       allContentfulOurValuesPage {
         nodes {
-          header
-          subtitle
           title
+          subtitle
+          header
           cards {
             description {
               raw
             }
             header
-            icon {
-              file {
-                url
-              }
-            }
           }
         }
       }
