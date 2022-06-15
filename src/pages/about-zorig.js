@@ -1,12 +1,10 @@
 import React from "react";
-import Zorig from "../assets/images/zorig.svg";
 import { Header, Padding, Stack, Text } from "../components/core";
 import { graphql, useStaticQuery } from "gatsby";
 import {
   FullContainer,
   AnotherBS,
   MainBody,
-  LeftSide,
   RightSide,
   ZorigInformationContainer,
   ZorigInformation,
@@ -56,10 +54,6 @@ const AboutZorigPage = () => {
 
       <AnotherBS>
         <MainBody>
-          <LeftSide>
-            <img style={{ width: "100%" }} src={Zorig} />
-          </LeftSide>
-
           <RightSide>
             <Stack flexDirection="column" alignItems="center">
               <ZorigInformationContainer flexDirection="column" gap="4px">

@@ -80,6 +80,7 @@ const DescButton = styled(Button)`
 const ProgramsCard = ({ cardData }) => {
   const event = cardData;
   return (
+    <Link style={{width: '100%'}} to={`/${event.contentful_id}`}>
     <CardContainer flexDirection="row">
       <InfoImageContainer url={event.image.file.url}></InfoImageContainer>
       <InfoImageContainerBlur />
@@ -88,7 +89,6 @@ const ProgramsCard = ({ cardData }) => {
         <DescText width="85%" type="T3" color="white">
           {event.shortDescription}
         </DescText>
-        <Link style={{ width: "90%" }} to={`/${event.contentful_id}`}>
           <DescButton
             title={"Дэлгэрэнгүй"}
             bgColor={"primary-blue"}
@@ -96,9 +96,9 @@ const ProgramsCard = ({ cardData }) => {
             f_weight={500}
             color={"primary-white"}
           />
-        </Link>
       </InfoTextContainer>
     </CardContainer>
+    </Link>
   );
 };
 
