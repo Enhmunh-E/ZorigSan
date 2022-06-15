@@ -14,22 +14,23 @@ const MainContainer = styled.div`
   display: flex;
   justify-content: center;
 `;
+
 const BigContainer = styled.div`
 overflow-X:hidden;
 width:100vw
 `
+
 const TitleContainer = styled.div`
 color:#0C265C;
 width:100%;
 margin-bottom:8%;
 align-items:center
 `
+
 export const ProgramsPage = () => {
 
 const data = useStaticQuery(graphql`
 query{
-
-
   allContentfulProgramTypes {
     nodes {
       title

@@ -19,27 +19,15 @@ export const AnotherBS = styled.div`
 export const MainBody = styled.div`
   width: 100%;
   height: 100%;
-  position: relative;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   @media only screen and (min-width: 2200px) {
     width: 1920px;
   }
 `;
 
-export const LeftSide = styled.div`
-  height: 89%;
-  width: 40%;
-  @media only screen and (max-width: 960px) {
-    display: none;
-  }
-`;
-
 export const RightSide = styled.div`
-  width: 60%;
-  @media only screen and (max-width: 960px) {
-    width: 100%;
-  }
+  width: 70%;
 `;
 
 export const ZorigInformationContainer = styled(Stack)`
@@ -49,6 +37,7 @@ export const ZorigInformationContainer = styled(Stack)`
   padding-top: 60px;
 
   @media only screen and (max-width: 960px) {
+    width: 100%;
     padding-top: 0;
   }
 `;
@@ -118,7 +107,7 @@ export const Event = styled.div`
 `;
 
 export const Image = styled.div`
-  width: 90%;
+  width: 100%;
 `;
 
 export const HugeText = styled.div`
