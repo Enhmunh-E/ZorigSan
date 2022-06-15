@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, Stack, Text,Padding } from "../core";
+import { Button, Stack, Text, Padding } from "../core";
 import styled from "styled-components";
 import { Link } from "gatsby";
 
@@ -20,11 +20,11 @@ const InfoTextContainer = styled(Stack)`
   position: absolute;
   bottom: 0;
   left: 0;
-  width:30%;
+  width: 30%;
   padding: 200px 50px 50px 20px;
 
-  @media (max-width: 750px){
-    width: 100%
+  @media (max-width: 750px) {
+    width: 100%;
   }
 `;
 const Img = styled.img`
@@ -41,61 +41,54 @@ const InfoImageContainerBlur = styled(InfoImageContainer)`
   background: rgba(15, 49, 118, 0.8);
   backdrop-filter: blur(10px);
   border-radius: 8px 0px 0px 8px;
-  @media (max-width: 750px){
+  @media (max-width: 750px) {
     background: linear-gradient(0deg, #000000 -6.4%, rgba(0, 0, 0, 0) 113.43%);
-    width:100%
+    width: 100%;
   }
 `;
-const InfoText=styled.div`
-${(props) => (props.width ? `width: ${props.width}` : "")};
-font-size:30px;
-color:white;
-font-family: Montserrat;
-font-weight:600;
-@media (max-width:1041px){
-  font-size:25px;
-}
-@media (max-width: 817px){
-  font-size:21px
-}
-@media(max-width: 750px){
-  width:100%;
-  text-align:start
-}
+const InfoText = styled.div`
+  ${(props) => (props.width ? `width: ${props.width}` : "")};
+  font-size: 30px;
+  color: white;
+  font-family: Montserrat;
+  font-weight: 600;
+  @media (max-width: 1041px) {
+    font-size: 25px;
+  }
+  @media (max-width: 817px) {
+    font-size: 21px;
+  }
+  @media (max-width: 750px) {
+    width: 100%;
+    text-align: start;
+  }
 `;
 const DescText = styled(Text)`
-${(props) => (props.width ? `width: ${props.width}` : "")};
-@media (max-width: 1175px){
-  display:none
-}
-
-`
+  ${(props) => (props.width ? `width: ${props.width}` : "")};
+  @media (max-width: 1175px) {
+    display: none;
+  }
+`;
 
 const DescButton = styled(Button)`
-@media (max-width: 750px){
-  color:#0C265C;
-  background-color: white !important;
-  width: 90% !important;
-}
-`
+  @media (max-width: 750px) {
+    color: #0c265c;
+    background-color: white !important;
+    width: 90% !important;
+  }
+`;
 const ProgramsCard = ({ cardData }) => {
   const event = cardData;
   return (
     <CardContainer flexDirection="row">
-      <InfoImageContainer url={event.image.file.url}>
-      </InfoImageContainer>
+      <InfoImageContainer url={event.image.file.url}></InfoImageContainer>
       <InfoImageContainerBlur />
-      <InfoTextContainer
-        flexDirection="column"
-        gap="18px"
-      >
-        <InfoText width="70%">
-          {event.title}
-        </InfoText>
+      <InfoTextContainer flexDirection="column" gap="18px">
+        <InfoText width="70%">{event.title}</InfoText>
         <DescText width="85%" type="T3" color="white">
           {event.shortDescription}
         </DescText>
-        <Link style={{width: '90%'}} to={`/${event.contentful_id}`}>
+        <Link style={{ width: "90%" }} to={`/${event.contentful_id}`}>
           <DescButton
             title={"Дэлгэрэнгүй"}
             bgColor={"primary-blue"}

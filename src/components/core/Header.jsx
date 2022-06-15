@@ -10,6 +10,7 @@ import {
 } from "../../assets/icons";
 import { Button, Stack, Text, Padding, Modal } from ".";
 import "../../styles/animationsStyles.css";
+import ZorigsanText from "../../assets/icons/ZorigsanText";
 import { motion, useCycle } from "framer-motion";
 import useWindowDimensions from "../../functions/useWindowDimensions";
 import { DonationModal } from "./DonationModal";
@@ -252,8 +253,10 @@ export const Header = ({ color }) => {
       }
     >
       <HeaderItems>
-        <Link to="/" style={{ display: "flex" }}>
-          <ZorigLogo />
+        <Link to="/" style={{ display: "flex", textDecoration: "none" }}>
+          <ZorigsanText
+            color={color === "primary-blue" ? "#0C265C" : "white"}
+          />
         </Link>
         <HeaderMenu>
           <HeaderMenuIcon onClick={() => setMenu(!menu)}>
@@ -283,7 +286,7 @@ export const Header = ({ color }) => {
                 </Stack>
               </HeaderLink>
               <HeaderDropDownItems
-              color={color}
+                color={color}
                 style={{
                   maxHeight: dropDown === false ? "0px" : "152px",
                   opacity: dropDown === false ? 0 : 1,
@@ -544,7 +547,7 @@ const HeaderDropDownItems = styled.div`
   top: 100px;
   opacity: 0;
   background-color: ${(props) =>
-      `${props.color}` !== "primary-blue" ? "transparent " : "#fff"};
+    `${props.color}` !== "primary-blue" ? "transparent " : "#fff"};
   padding: 24px;
   margin-left: -24px;
   border-radius: 0 0 32px 32px;
