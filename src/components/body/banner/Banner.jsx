@@ -44,7 +44,7 @@ export const Banner = ({ description, image, title }) => {
           </Text>
         </BannerDescription>
         {phone === false && (
-          <Link to="/about-us">
+          <Link to="/about-us" style={{ textDecoration: "none" }}>
             <Button
               type={"arrow"}
               title={"Бидний тухай"}

@@ -4,6 +4,7 @@ import React from "react";
 const BgContainer = styled.div`
   position: absolute;
   top: 0;
+  left: 0;
   z-index: 99;
   position: fixed;
   display: flex;
@@ -16,6 +17,7 @@ const BgContainer = styled.div`
 const BlurBG = styled.div`
   position: fixed;
   top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(12, 38, 92, 0.52);

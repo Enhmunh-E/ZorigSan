@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, Stack, Text, Padding } from "../core";
+import { Button, Stack, Text } from "../core";
 import styled from "styled-components";
 import { Link } from "gatsby";
 
@@ -27,10 +27,10 @@ const InfoTextContainer = styled(Stack)`
     width: 100%;
   }
 `;
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-`;
+// const Img = styled.img`
+//   width: 100%;
+//   height: 100%;
+// `;
 const InfoImageContainerBlur = styled(InfoImageContainer)`
   width: 35%;
   position: absolute;

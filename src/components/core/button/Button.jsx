@@ -14,6 +14,7 @@ export const Button = ({
   f_size,
   f_weight,
   width,
+  onClick,
 }) => {
   const { Theme } = useContext(ThemeContext);
   let textColor = color.includes("primary")
@@ -24,6 +25,7 @@ export const Button = ({
     : Theme.secondary[bgColor];
   return (
     <ButtonStyle
+      onClick={onClick}
       borderColor={borderColor}
       b_radius={bRadius}
       f_weight={f_weight}
