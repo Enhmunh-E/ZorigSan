@@ -202,8 +202,6 @@ export const NewsCard = ({
   else if (width < 1000) textConverted = Shorten(textConverted, 50);
   else textConverted = Shorten(textConverted, 80);
   
-  console.log('aaadsdtastdashgdaskuygj')
-  
   return (
     <CardContainer direction={direction} moveleft={moveleft}>
       <Link to={"/dailyNews"} state={props}>

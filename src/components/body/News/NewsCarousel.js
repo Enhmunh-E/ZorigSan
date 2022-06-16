@@ -77,8 +77,7 @@ export const NewsCarousel = () => {
     }
   `).allContentfulNews.nodes;
 
-
-  console.log(JSON.stringify(query));
+  // console.log(JSON.stringify(query));
   // console.log(JSON.parse(query[0].paragarph.raw).content[0].content[0].value);
 
   let data = query;
@@ -137,16 +136,13 @@ export const NewsCarousel = () => {
             {innerdata.map((carddata, index) => (
               <div key={index}>
                 <Stack flexDirection="column" justifyContent="left">
-                  {console.log(carddata.paragarph.raw)}
                   <NewsCard
                     props={carddata}
                     direction={direction}
                     date={carddata.date}
                     image={carddata.picture[0].file.url}
                     header={carddata.header}
-                    text={
-                      carddata.paragarph
-                    }
+                    text={carddata.paragarph}
                     link={carddata.link}
                     moveleft={data.length <= 3 ? false : true}
                   />

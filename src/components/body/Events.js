@@ -71,7 +71,6 @@ const Text = styled.div`
   }
 `;
 export const Events = ({ events }) => {
-  console.log(events);
   return (
     <div
       style={{ alignItems: "center", display: "flex", flexDirection: "column" }}

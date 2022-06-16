@@ -5,7 +5,7 @@ import styled from "styled-components";
 import {
   MenuIcon,
   DropdownArrow,
-  ZorigLogo,
+  // ZorigLogo,
   // CloseIcon,
 } from "../../assets/icons";
 import { Button, Stack, Text, Padding, Modal } from ".";
@@ -72,7 +72,7 @@ const variants = {
   },
 };
 
-const MenuItem = ({ text, status, link }) => {
+const MenuItem = ({ text, status, link, func }) => {
   if (status === "normal") {
     return (
       <motion.li
@@ -112,6 +112,7 @@ const MenuItem = ({ text, status, link }) => {
         style={{ cursor: "default" }}
       >
         <Button
+          onClick={func}
           title={text}
           bgColor={"#fff"}
           f_size={"T3"}
@@ -180,11 +181,17 @@ const Example = ({ col, data = [] }) => {
             transitionDelay: isOpen ? "0" : "0.5s",
           }}
         >
-          <ZorigLogo />
+          <ZorigsanText />
         </Link>
 
         {data.map((el, i) => (
-          <MenuItem link={el.link} status={el.status} text={el.text} key={i} />
+          <MenuItem
+            link={el.link}
+            func={el.func}
+            status={el.status}
+            text={el.text}
+            key={i}
+          />
         ))}
       </motion.ul>
     </motion.nav>
@@ -192,13 +199,21 @@ const Example = ({ col, data = [] }) => {
 };
 
 export const Header = ({ color }) => {
-  // console.log(ids);
   const contentfulData = useStaticQuery(graphql`
     query a {
       allContentfulProgramTypes {
         nodes {
           contentful_id
           title
+        }
+      }
+      allContentfulPayment {
+        nodes {
+          image {
+            file {
+              url
+            }
+          }
         }
       }
     }
@@ -225,7 +240,7 @@ export const Header = ({ color }) => {
       setMenuData([
         ...menuData,
         ...temp,
-        { status: "button", text: "Xандив өгөх" },
+        { func: () => setModal(true), status: "button", text: "Xандив өгөх" },
       ]);
     }
   }, [contentfulData]);
@@ -334,6 +349,7 @@ export const Header = ({ color }) => {
               </Hover>
             </Link>
             <Button
+              onClick={() => setModal(true)}
               title={"Хандив өгөх"}
               width={134}
               bgColor={color}
@@ -352,7 +368,7 @@ export const Header = ({ color }) => {
           <Padding size={[24, 24, 0, 24]}>
             <Stack justifyContent={"space-between"} alignItems={"center"}>
               <Link to="/" style={{ display: "flex" }}>
-                <ZorigLogo />
+                <ZorigsanText />
               </Link>
               <div style={{ cursor: "pointer" }} onClick={() => setMenu(!menu)}>
                 {/* <CloseIcon /> */}
@@ -424,7 +440,7 @@ export const Header = ({ color }) => {
       </HeaderItems>
       {modal === true ? (
         <Modal setModal={setModal}>
-          <DonationModal setModal={setModal} />
+          <DonationModal data={contentfulData.allContentfulPayment.nodes} setModal={setModal} />
         </Modal>
       ) : (
         <></>
@@ -548,7 +564,7 @@ const HeaderDropDownItems = styled.div`
   opacity: 0;
   background-color: ${(props) =>
     `${props.color}` !== "primary-blue" ? "transparent " : "#fff"};
-  padding: 24px;
+  padding: 0 24px 24px 24px;
   margin-left: -24px;
   border-radius: 0 0 32px 32px;
   max-height: 0px;

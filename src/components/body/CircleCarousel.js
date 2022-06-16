@@ -207,7 +207,6 @@ const CircleCarousel = ({ arr, topTittle }) => {
                   top = index;
                 }
               }
-              console.log(element);
               return (
                 <div key={index}>
                   <MainImage

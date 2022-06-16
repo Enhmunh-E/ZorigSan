@@ -1,24 +1,11 @@
 import React, { useMemo } from "react";
 import styled from "styled-components";
 import { Text, Stack, Padding } from "../core";
-import { ModalCloseIcon } from "../../assets/icons";
+import { ModalCloseIcon, Arrow } from "../../assets/icons";
+import ZorigsanText from "../../assets/icons/ZorigsanText";
 import ZorigLogo from "../../assets/images/zorig-foundation-mongolia.png";
 import useWindowDimensions from "../../functions/useWindowDimensions";
-import { graphql } from "gatsby";
-
-const query = graphql`
-  query allContentfulPayment {
-    allContentfulPayment {
-      nodes {
-        image {
-          file {
-            url
-          }
-        }
-      }
-    }
-  }
-`;
+import { Link } from "gatsby";
 
 export const DonationModal = ({ data, setModal }) => {
   const { width } = useWindowDimensions();
@@ -28,7 +15,6 @@ export const DonationModal = ({ data, setModal }) => {
   const close = () => {
     setModal(false);
   };
-  console.log(data);
   return (
     <ModalContainer>
       {phone === false ? (
@@ -61,22 +47,40 @@ export const DonationModal = ({ data, setModal }) => {
                     </Text>
                   </Padding> */}
                   <Padding size={[72, 0, 0, 0]}>
-                    <Text
-                      style={{ lineHeight: "32px" }}
-                      type={"T3"}
-                      color={"#0C265C"}
-                    >
-                      Бидэнтэй танилцаx
-                    </Text>
+                    <Link to={"/about-us"} style={{ textDecoration: "none" }}>
+                      <Stack
+                        style={{ cursor: "pointer" }}
+                        alignItems={"center"}
+                        gap={"14px"}
+                      >
+                        <Text
+                          style={{ lineHeight: "32px" }}
+                          type={"T3"}
+                          color={"#0C265C"}
+                        >
+                          Бидэнтэй танилцаx
+                        </Text>
+                        <Arrow color={"#0C265C"} />
+                      </Stack>
+                    </Link>
                   </Padding>
                 </Padding>
               </Stack>
             </Padding>
             <ZorigLogoStyle src={ZorigLogo} />
+            <DonationQR src={data[0].image.file.url} />
           </Stack>
         </Container>
       ) : (
-        <></>
+        <PhoneDonation onClick={close}>
+          <Stack flexDirection={"column"} gap={"64px"} alignItems={"center"}>
+            <ZorigsanText />
+            <PhoneDonationQR src={data[0].image.file.url} />
+            <Text style={{ textAlign: "center" }} type={"Quote"} color={"#fff"}>
+              Зориг сангийн хүслийг өнөөдөр биелүүлээрэй
+            </Text>
+          </Stack>
+        </PhoneDonation>
       )}
     </ModalContainer>
   );
@@ -91,6 +95,7 @@ const ModalContainer = styled.div`
 `;
 
 const Container = styled.div`
+  position: relative;
   z-index: 100;
   width: 818px;
   height: 421px;
@@ -101,4 +106,24 @@ const Container = styled.div`
 
 const ZorigLogoStyle = styled.img`
   height: 100%;
+`;
+
+const DonationQR = styled.img`
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  left: 60%;
+  top: 135px;
+  box-shadow: 0 0 15px 0 #404040;
+`;
+
+const PhoneDonationQR = styled.img`
+  width: 231px;
+  height: 231px;
+  z-index: 100;
+`;
+
+const PhoneDonation = styled.div`
+  z-index: 100;
+  width: 90%;
 `;
