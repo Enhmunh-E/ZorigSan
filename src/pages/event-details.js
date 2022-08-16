@@ -78,7 +78,7 @@ const EventDetails = ({ pageContext }) => {
       <Margin size={phone === false ? [124, 32, 48, 32] : [82, 32, 48, 32]}>
         <CircleCarousel
           arr={data.alumni}
-          topTittle={"энэ хөтөлбрийн амжилттай төгсөгчид"}
+          topTittle={"энэ хөтөлбөрийн амжилттай төгсөгчид"}
         />
       </Margin>
       <Footer />

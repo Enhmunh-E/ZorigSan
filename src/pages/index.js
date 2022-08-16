@@ -69,6 +69,7 @@ export const query = graphql`
         program {
           name
         }
+        testimonial
       }
     }
   }
@@ -165,11 +166,11 @@ const IndexPage = ({ data }) => {
       </Margin>
       <Events events={events} />
       <CircleCarousel
-        arr={alumni}
+        arr={alumni.filter((el) => el.testimonial == true)}
         topTittle={"ЗОРИГ САНГИЙН АМЖИЛТТАЙ ТӨГСӨГЧИД"}
       ></CircleCarousel>
       <Sponsors arr={sponsors} />
-      <Donation/>
+      <Donation />
       <Footer />
     </div>
   );

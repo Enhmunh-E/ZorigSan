@@ -18,8 +18,9 @@ const MainImage = styled.img`
     props.display === "none" ? `display: none` : "cursor: pointer"};
   ${(props) =>
     props.angle === 90
-      ? `  box-shadow: ${props.width * 0.015}px 10px ${props.width * 0.1
-      }px #888888`
+      ? `  box-shadow: ${props.width * 0.015}px 10px ${
+          props.width * 0.1
+        }px #888888`
       : ""};
 `;
 const MainInfo = styled.div`
@@ -32,20 +33,23 @@ const MainInfo = styled.div`
   ${(props) => (props.display === "none" ? `display: none` : "")};
 `;
 const CarouselBtn = styled.div`
-    position: absolute;
-    bottom: ${props => `${props.bottom}px`};
-    left: ${props => `${props.left}px`};
-    height: ${props => `${props.height}px`};
-    width: ${props => `${props.width}px`};
-    border-radius: 50%;
-    transition: all 1000ms;
-    opacity: ${(props) => (props.disabled ? "0.5" : "1")};
-    cursor: ${(props) => (props.disabled ? "default" : "pointer")};;
-    :hover{
-      transition: none;
-    ${(props) => ` box-shadow: ${props.width * 0.05}px ${props.width * 0.05}px  ${props.width * 0.3}px #888888`};
+  position: absolute;
+  bottom: ${(props) => `${props.bottom}px`};
+  left: ${(props) => `${props.left}px`};
+  height: ${(props) => `${props.height}px`};
+  width: ${(props) => `${props.width}px`};
+  border-radius: 50%;
+  transition: all 1000ms;
+  opacity: ${(props) => (props.disabled ? "0.5" : "1")};
+  cursor: ${(props) => (props.disabled ? "default" : "pointer")};
+  :hover {
+    transition: none;
+    ${(props) =>
+      ` box-shadow: ${props.width * 0.05}px ${props.width * 0.05}px  ${
+        props.width * 0.3
+      }px #888888`};
   }
-`
+`;
 const MobileCardImg = styled.img`
   height: ${(props) => `${props.height}`};
   width: ${(props) => `${props.width}`};
@@ -188,9 +192,9 @@ const CircleCarousel = ({ arr, topTittle }) => {
                 h = (width / 68) * 7;
                 if (
                   bottom ===
-                  (Math.sin((Math.PI / 4) * 5) * radius) / 2 + radius / 2 ||
+                    (Math.sin((Math.PI / 4) * 5) * radius) / 2 + radius / 2 ||
                   bottom ===
-                  (Math.sin((Math.PI / 4) * 7) * radius) / 2 + radius / 2
+                    (Math.sin((Math.PI / 4) * 7) * radius) / 2 + radius / 2
                 ) {
                   display = "none";
                 }
@@ -210,7 +214,6 @@ const CircleCarousel = ({ arr, topTittle }) => {
               return (
                 <div key={index}>
                   <MainImage
-                    onMouseEnter={() => console.log(index)}
                     display={display}
                     width={w}
                     height={h}
@@ -226,17 +229,17 @@ const CircleCarousel = ({ arr, topTittle }) => {
                     style={
                       angle === 90 && bottom !== 0
                         ? {
-                          display: "",
-                          opacity: "1",
-                          transition: "all 1s",
-                          visibility: "visible",
-                        }
+                            display: "",
+                            opacity: "1",
+                            transition: "all 1s",
+                            visibility: "visible",
+                          }
                         : {
-                          display: "none",
-                          opacity: "0",
-                          transition: "all 1s",
-                          visibility: "hidden",
-                        }
+                            display: "none",
+                            opacity: "0",
+                            transition: "all 1s",
+                            visibility: "hidden",
+                          }
                     }
                   >
                     <Stack
@@ -265,7 +268,6 @@ const CircleCarousel = ({ arr, topTittle }) => {
                         {angle === 90 && bottom !== 0 && element.word
                           ? element.word.word.slice(0, 400)
                           : ""}
-
                       </Text>
                       <div
                         style={{
@@ -277,8 +279,18 @@ const CircleCarousel = ({ arr, topTittle }) => {
                           width: width * 0.5 + "px",
                         }}
                       >
-                        <Text style={{ color: "#1C6DD0", marginTop: '15%', textAlign: 'center' }} type="T2">
-                          {angle === 90 && bottom !== 0 ? element.program[0].name : ""}
+                        <Text
+                          style={{
+                            color: "#1C6DD0",
+                            marginTop: "15%",
+                            textAlign: "center",
+                          }}
+                          type="T2"
+                        >
+                          {angle === 90 && bottom !== 0
+                            ? element?.program?.length > 0 &&
+                              element?.program[0]?.name
+                            : ""}
                         </Text>
                       </div>
                     </Stack>
@@ -362,13 +374,14 @@ const CircleCarousel = ({ arr, topTittle }) => {
                         }}
                         type="T3"
                       >
-                        {element.word ? element.word.word.slice(0, 150) : ''}...
+                        {element.word ? element.word.word.slice(0, 150) : ""}...
                       </Text>
                       <Text
                         style={{ color: "#1C6DD0", textAlign: "center" }}
                         type="T2Bold"
                       >
-                        {element.program[0].name}
+                        {element?.program?.length > 0 &&
+                          element?.program[0]?.name}
                       </Text>
                     </MobileCardInfo>
                   </Stack>
@@ -379,10 +392,9 @@ const CircleCarousel = ({ arr, topTittle }) => {
         )}
       </Stack>
     );
-}else{
-  return<div></div>
-}
-  
+  } else {
+    return <div></div>;
+  }
 };
 
 export default CircleCarousel;

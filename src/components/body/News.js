@@ -57,7 +57,7 @@ export const News = () => {
   const { width } = useWindowDimensions();
   if (width < 600) {
     direction = "column";
-    console.log(direction);
+    // console.log(direction);
     gap = "32px";
   }
   return (
@@ -102,7 +102,6 @@ export const News = () => {
           <HorizontalLine />
           <Text>year</Text>
         </Stack>
-        
       </Stack>
     </Stack>
   );

@@ -13,7 +13,7 @@ import {
   ZorigBirthDate,
   ZorigBirthPlace,
   ZorigLine,
-  TimeEvent
+  TimeEvent,
 } from "../components/body/about-zorig";
 
 const AboutZorigPage = () => {
@@ -126,9 +126,6 @@ const AboutZorigPage = () => {
               </ZorigInformationContainer>
               <Padding size={[0, 0, 0, 50]}>
                 {timelineData.map((edge, index) => {
-                  {
-                    console.log(index);
-                  }
                   return (
                     <TimeEvent
                       key={index}

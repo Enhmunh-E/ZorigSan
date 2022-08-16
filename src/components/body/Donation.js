@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { Context } from "../../context/Provider";
 import { Text, Button } from "../core";
 // Stack
 /* eslint-disable */
@@ -23,6 +24,7 @@ const Flex = styled.div`
 `;
 
 export const Donation = () => {
+  const { isDonationModalOpen, setIsDonationModalOpen } = useContext(Context);
   return (
     <Container width="100%">
       <Flex
@@ -35,10 +37,13 @@ export const Donation = () => {
         }}
       >
         <Text type="T0" color="#243C6C" style={{ paddingBottom: "62px" }}>
-        ЗОРИГ САН-Д ХАНДИВ ӨГӨӨРЭЙ
+          ЗОРИГ САН-Д ХАНДИВ ӨГӨӨРЭЙ
         </Text>
         <Button
-          title={"хандив өгөх"}
+          title={"Хандив өгөх"}
+          onClick={() => {
+            setIsDonationModalOpen(!isDonationModalOpen);
+          }}
           width={190}
           b_radius={3}
           f_weight={1}

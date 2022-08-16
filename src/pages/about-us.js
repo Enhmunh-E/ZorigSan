@@ -87,7 +87,7 @@ const richTextRenderOptions = {
   },
 };
 const AboutUsPage = ({ data }) => {
-  console.log(data);
+  // console.log(data);
   const aboutUsPageData = data.allContentfulAboutUsPage.nodes[0];
   const divRef = useRef(null);
   4;

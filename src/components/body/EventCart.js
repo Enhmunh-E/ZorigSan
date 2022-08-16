@@ -190,7 +190,7 @@ export const EventCart = ({ img, title, paddingTop, link }) => {
                   ref={divRef}
                   style={{
                     bottom: isHovering1 ? "10px" : "-" + textHeight + "px",
-                    opacity: !isHovering1 ? 0 : 1,
+                    opacity: isHovering1 ? 1 : 0,
                     position: "absolute",
                     transition: "all 0.5s",
                   }}
@@ -204,7 +204,7 @@ export const EventCart = ({ img, title, paddingTop, link }) => {
                         transition: "all 0.5s",
                         width: "40%",
                         width: !isHovering1 ? "0%" : 30 + textHeight + "%",
-                        opacity: !isHovering1 ? 0 : 1,
+                        opacity: isHovering1 ? 1 : 0,
                       }}
                     ></div>
                   </Sum>

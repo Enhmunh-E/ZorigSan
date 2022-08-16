@@ -14,6 +14,7 @@ import ZorigsanText from "../../assets/icons/ZorigsanText";
 import { motion, useCycle } from "framer-motion";
 import useWindowDimensions from "../../functions/useWindowDimensions";
 import { DonationModal } from "./DonationModal";
+import { Context } from "../../context/Provider";
 
 const Path = (props) => (
   <motion.path
@@ -247,7 +248,8 @@ export const Header = ({ color }) => {
 
   const [menu, setMenu] = useState(false);
   const [dropDown, setDropDown] = useState(false);
-  const [modal, setModal] = useState(false);
+  const { isDonationModalOpen: modal, setIsDonationModalOpen: setModal } =
+    useContext(Context);
   const { Theme } = useContext(ThemeContext);
   let themeColor = color.includes("primary")
     ? Theme.primary[color]
@@ -438,12 +440,13 @@ export const Header = ({ color }) => {
           </Padding>
         </HeaderMobileMenu>
       </HeaderItems>
-      {modal === true ? (
+      {modal === true && (
         <Modal setModal={setModal}>
-          <DonationModal data={contentfulData.allContentfulPayment.nodes} setModal={setModal} />
+          <DonationModal
+            data={contentfulData.allContentfulPayment.nodes}
+            setModal={setModal}
+          />
         </Modal>
-      ) : (
-        <></>
       )}
     </HeaderStyle>
   );

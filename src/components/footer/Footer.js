@@ -152,8 +152,8 @@ export const Footer = () => {
           </Stack>
         </Con>
         <ItmeCon>
-          <Link
-            to="/Test"
+          <a
+            href="tel:+976011315444"
             style={{
               display: "flex",
               alignItems: "center",
@@ -161,10 +161,10 @@ export const Footer = () => {
             }}
           >
             <Call />
-            <Itmes>11223344</Itmes>
-          </Link>
-          <Link
-            to="/tel:11223344"
+            <Itmes>011315444</Itmes>
+          </a>
+          <a
+            href="mailto:admin@zorigfoundation.com"
             style={{
               display: "flex",
               alignItems: "center",
@@ -173,9 +173,9 @@ export const Footer = () => {
           >
             <Email />
             <Itmes>admin@zorigfoundation.com</Itmes>
-          </Link>
-          <Link
-            to="/mailto:admin@zorigfoundation.com"
+          </a>
+          <a
+            href="https://www.facebook.com/zorigfoundation"
             style={{
               display: "flex",
               alignItems: "center",
@@ -184,15 +184,17 @@ export const Footer = () => {
           >
             <Facebook />
             <Itmes>Zorigfoundation</Itmes>
-          </Link>
+          </a>
         </ItmeCon>
       </FooterTop>
       <FooterBottom>
         <BottomCon>
-          <Link to="https://nestacademy.mn/" style={{ textDecoration: "none" }}>
-            <BottomText>Made by Nest Academy <NestIcon/> </BottomText>
-          </Link>
-          <Link to="/Test" style={{ textDecoration: "underline #fff" }}>
+          <a href="https://nestacademy.mn/" style={{ textDecoration: "none" }}>
+            <BottomText>
+              Made by Nest Academy <NestIcon />{" "}
+            </BottomText>
+          </a>
+          <Link to="/" style={{ textDecoration: "underline #fff" }}>
             <BottomText>Үйлчилгээний нөхцөл</BottomText>
           </Link>
         </BottomCon>

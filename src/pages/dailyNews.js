@@ -108,7 +108,7 @@ export const DesktopHidden = styled(Text)`
 
 const News = ({ location }) => {
   const { width } = useWindowDimensions();
-  
+
   // props={carddata}
   // direction={direction}
   // date={carddata.date}
@@ -120,7 +120,6 @@ const News = ({ location }) => {
   // }
 
   const data = location.state;
-  console.log(data);
   return (
     <Stack flexDirection="column" alignItems="center">
       <Header color={"primary-blue"} />
@@ -133,7 +132,6 @@ const News = ({ location }) => {
       >
         <Carousel arr={data?.picture} WrapperWidth={"80vw"}>
           {data?.picture.map((el, i) => {
-            console.log(el.file.url);
             return (
               <div key={i} style={{}}>
                 <StyledImage
@@ -154,7 +152,8 @@ const News = ({ location }) => {
           <Text type="H1">{data?.header}</Text>
           <Text type="T2Bold">{data?.date}</Text>
         </TitleContainer>
-        {data?.paragarph && renderRichText(data?.paragarph  || {raw: ""}, richTextRenderOptions)}
+        {data?.paragarph &&
+          renderRichText(data?.paragarph || { raw: "" }, richTextRenderOptions)}
       </WholeContainer>
       <Donation />
       <Footer />

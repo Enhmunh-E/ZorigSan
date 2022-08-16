@@ -187,8 +187,6 @@ export const NewsCard = ({
   text,
   props,
 }) => {
-
-  
   function Shorten(str, num) {
     if (str.length <= num) {
       return str;
@@ -196,15 +194,21 @@ export const NewsCard = ({
     return str.slice(0, num) + "...";
   }
 
-  let textConverted = JSON.parse(text.raw).content[0].content[0].value
+  let textConverted = JSON.parse(text.raw).content[0].content[0].value;
   const { width } = useWindowDimensions();
   if (width < 540) textConverted = Shorten(textConverted, 50);
   else if (width < 1000) textConverted = Shorten(textConverted, 50);
   else textConverted = Shorten(textConverted, 80);
-  
+
   return (
     <CardContainer direction={direction} moveleft={moveleft}>
-      <Link to={"/dailyNews"} state={props}>
+      <Link
+        to={"/dailyNews"}
+        state={props}
+        style={{
+          textDecoration: "none",
+        }}
+      >
         <Image width={width} image={image}>
           {width > 540 ? (
             <>

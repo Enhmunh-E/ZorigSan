@@ -45,7 +45,6 @@ const EventCategories = ({ pageContext }) => {
   const phone = useMemo(() => {
     return width <= 540;
   }, [width]);
-  console.log(data);
   return (
     <div>
       <GlobalStyle />
