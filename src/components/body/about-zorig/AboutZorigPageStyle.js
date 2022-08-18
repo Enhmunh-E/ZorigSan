@@ -26,8 +26,13 @@ export const MainBody = styled.div`
   }
 `;
 
+export const LeftSide = styled.div`
+  width: 40%;
+  position: relative;
+`;
 export const RightSide = styled.div`
-  width: 70%;
+  width: 60%;
+  padding-right: 32px;
 `;
 
 export const ZorigInformationContainer = styled(Stack)`
@@ -115,3 +120,9 @@ export const HugeText = styled.div`
 `;
 
 export const History = styled.div``;
+export const ZorigPhoto = styled.div`
+  position: fixed;
+  top: 104px;
+  left: 0;
+  width: 40vw;
+`;

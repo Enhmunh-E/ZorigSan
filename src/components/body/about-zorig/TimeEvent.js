@@ -55,7 +55,7 @@ const richTextRenderOptions = {
     [BLOCKS.PARAGRAPH]: (node, text) => {
       return (
         <Text type="T1" color="#0C265C">
-          <p style={{ whiteSpace: "pre-line" }}>{text}</p>
+          <p style={{ fontWeight: "400", whiteSpace: "pre-line" }}>{text}</p>
         </Text>
       );
     },
@@ -103,7 +103,7 @@ export const TimeEvent = ({ year, event, image, last }) => {
                 </Text>
 
                 <Event>
-                  <Text color="#0C265C" type="T1">
+                  <Text color="#0C265C" type="T1" style={{ fontWeight: "400" }}>
                     {event}
                   </Text>
                 </Event>
@@ -121,7 +121,7 @@ export const TimeEvent = ({ year, event, image, last }) => {
       </BoxEvent>
 
       {last && (
-        <BoxEvent style={{ paddingBottom: "30px" }}>
+        <BoxEvent style={{ paddingBottom: "30px", paddingLeft: "0px" }}>
           <HugeText>
             <Stack gap="20px" flexDirection="column">
               <Text color="#0C265C" type="H3">
@@ -137,4 +137,3 @@ export const TimeEvent = ({ year, event, image, last }) => {
     </Container>
   );
 };
-
