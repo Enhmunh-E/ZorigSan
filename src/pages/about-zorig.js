@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Padding, Stack, Text } from "../components/core";
+import { Header, Image, Padding, Stack, Text } from "../components/core";
 import { graphql, useStaticQuery } from "gatsby";
 import {
   FullContainer,
@@ -14,6 +14,8 @@ import {
   ZorigBirthPlace,
   ZorigLine,
   TimeEvent,
+  LeftSide,
+  ZorigPhoto,
 } from "../components/body/about-zorig";
 
 const AboutZorigPage = () => {
@@ -47,16 +49,25 @@ const AboutZorigPage = () => {
   `);
 
   const timelineData = data.allContentfulAboutZorigPage.edges[0].node.timelines;
-
+  const zorigCover =
+    data.allContentfulAboutZorigPage.edges[0].node.coverPhoto.file.url;
   return (
     <FullContainer gap="50px" flexDirection="column">
       <Header color={"primary-blue"} />
-
       <AnotherBS>
         <MainBody>
+          <LeftSide>
+            <ZorigPhoto>
+              <Image src={zorigCover} width="100%" />
+            </ZorigPhoto>
+          </LeftSide>
           <RightSide>
             <Stack flexDirection="column" alignItems="center">
-              <ZorigInformationContainer flexDirection="column" gap="4px">
+              <ZorigInformationContainer
+                flexDirection="column"
+                gap="4px"
+                style={{ marginBottom: "32px" }}
+              >
                 <ZorigLine />
                 <ZorigInformation gap="20px">
                   <ZorigName flexDirection="column" gap="16px">
@@ -102,7 +113,10 @@ const AboutZorigPage = () => {
 
                       <ZorigBirthPlace>
                         <Stack
-                          style={{ height: "100%", width: "100%" }}
+                          style={{
+                            height: "100%",
+                            width: "100%",
+                          }}
                           flexDirection="column"
                           justifyContent="space-between"
                           gap="16px"
