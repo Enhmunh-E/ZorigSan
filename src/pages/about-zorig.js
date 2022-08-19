@@ -138,7 +138,7 @@ const AboutZorigPage = () => {
                   </ZorigBirthInfo>
                 </ZorigInformation>
               </ZorigInformationContainer>
-              <Padding size={[0, 0, 0, 50]}>
+              <Padding size={[0, 0, 0, 0]} style={{ width: "100%" }}>
                 {timelineData.map((edge, index) => {
                   return (
                     <TimeEvent

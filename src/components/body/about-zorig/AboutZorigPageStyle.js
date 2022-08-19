@@ -21,18 +21,28 @@ export const MainBody = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  @media only screen and (min-width: 2200px) {
+  flex-direction: column;
+  @media only screen and (min-width: 960px) {
     width: 1920px;
+    flex-direction: row;
   }
 `;
 
 export const LeftSide = styled.div`
-  width: 40%;
   position: relative;
+  display: none;
+  @media only screen and (min-width: 960px) {
+    width: 40%;
+    display: block;
+  }
 `;
 export const RightSide = styled.div`
   width: 60%;
   padding-right: 32px;
+  padding-left: 32px;
+  @media only screen and (max-width: 960px) {
+    width: 100%;
+  }
 `;
 
 export const ZorigInformationContainer = styled(Stack)`
