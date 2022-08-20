@@ -42,6 +42,8 @@ export const RightSide = styled.div`
   padding-left: 32px;
   @media only screen and (max-width: 960px) {
     width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
   }
 `;
 
@@ -72,7 +74,6 @@ export const ZorigInformation = styled(Stack)`
 
 export const ZorigName = styled(Stack)`
   height: 100%;
-  width: 48%;
 `;
 
 export const ZorigBirthInfo = styled.div`

@@ -70,7 +70,7 @@ export const TimeEvent = ({ year, event, image, last }) => {
     padding-left: 72px;
 
     @media only screen and (max-width: 960px) {
-      width: 75vw;
+      // width: 100vw;
       padding-left: 20px;
     }
   `;
