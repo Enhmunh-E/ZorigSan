@@ -31,12 +31,27 @@ const Container2 = styled.div`
   @media only screen and (max-width: 540px) {
     padding-left: 24px;
     padding-right: 24px;
+    width: 100%;
   }
 `;
 const Image = styled.img`
   width: 100%;
   border-radius: 8px;
   object-fit: contain;
+`;
+const Logo = styled.img`
+  width: 40%;
+  object-fit: contain;
+  @media only screen and (max-width: 540px) {
+    width: 80%;
+  }
+`;
+const NameContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media only screen and (max-width: 540px) {
+    flex-direction: column;
+  }
 `;
 
 const EventDetails = ({ pageContext }) => {
@@ -48,7 +63,7 @@ const EventDetails = ({ pageContext }) => {
   const phone = useMemo(() => {
     return width <= 540;
   }, [width]);
-  console.log(data.startDate, data.endDate);
+  // console.log();
   return (
     <Container>
       <GlobalStyle />
@@ -66,10 +81,12 @@ const EventDetails = ({ pageContext }) => {
                 {data.startDate?.split("T")[0].split("-").join("/")}
               </Text>
             )}
-
-            <Text type={"Quote"} color={"#0C265C"}>
-              {data.name}
-            </Text>
+            <NameContainer>
+              <Text type={"Quote"} color={"#0C265C"}>
+                {data.name}
+              </Text>
+              {data.logo && <Logo src={data.logo.file.url} />}
+            </NameContainer>
           </Stack>
           <Margin size={phone === false ? [124, 0, 0, 0] : [48, 0, 0, 0]}>
             <Image src={data.image?.file.url} />
