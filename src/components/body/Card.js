@@ -35,7 +35,12 @@ const LongText = styled.div`
   line-height: 20px;
   overflow: hidden;
 `;
-export const Card = ({ image, name, description, index, link }) => {
+const Logo = styled.img`
+  height: 64px;
+  object-fit: contain;
+`;
+
+export const Card = ({ image, name, description, index, link, logo }) => {
   if (typeof image === "object") image = JSON.stringify(image);
   const { width } = useWindowDimensions();
   const phone = useMemo(() => {
@@ -46,7 +51,10 @@ export const Card = ({ image, name, description, index, link }) => {
       {index % 2 === 0 && <Image src={image}></Image>}
       <div>
         <Stack flexDirection={"column"} gap={phone === false ? "40px" : "16px"}>
-          <Text type={"H3"}>{name}</Text>
+          <Stack flexDirection="row" alignItems={"center"}>
+            <Text type={"H3"}>{name}</Text>
+            <Logo src={logo} />
+          </Stack>
           <LongText>
             <Text type={"T2"}>{description}</Text>
           </LongText>

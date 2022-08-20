@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "gatsby";
 import { Text, Stack } from "../core";
 import "../../styles/Cards.css";
 
@@ -31,7 +32,7 @@ const ItemsContainer = styled.div`
   justify-content: flex-end;
   background-color: rgba(0, 0, 0, 0.6);
 `;
-export const CardMobile = ({ image, name, description }) => {
+export const CardMobile = ({ image, name, description, link }) => {
   if (typeof image === "object") image = JSON.stringify(image);
   return (
     <Container image={image}>
@@ -40,17 +41,20 @@ export const CardMobile = ({ image, name, description }) => {
           <Text type={"H3"} color={"#fff"}>
             {name}
           </Text>
+
           <LongText>
             <Text type={"T2"} color={"#fff"}>
               {description}
             </Text>
           </LongText>
-          <Stack alignItems={"center"} gap={"24px"}>
-            <Text style={{ cursor: "pointer" }} type={"T4"} color={"#fff"}>
-              Дэлэгрэнгүй
-            </Text>
-            <Line />
-          </Stack>
+          <Link style={{ textDecoration: "none" }} to={`/${link}`}>
+            <Stack alignItems={"center"} gap={"24px"}>
+              <Text style={{ cursor: "pointer" }} type={"T4"} color={"#fff"}>
+                Дэлэгрэнгүй
+              </Text>
+              <Line />
+            </Stack>
+          </Link>
         </Stack>
       </ItemsContainer>
     </Container>

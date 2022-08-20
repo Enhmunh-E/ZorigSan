@@ -45,6 +45,7 @@ const EventCategories = ({ pageContext }) => {
   const phone = useMemo(() => {
     return width <= 540;
   }, [width]);
+  console.log(data);
   return (
     <div>
       <GlobalStyle />
@@ -80,6 +81,7 @@ const EventCategories = ({ pageContext }) => {
                     <Card
                       name={el.name}
                       image={el.image.file.url}
+                      logo={el.logo && el.logo.file.url}
                       description={el.description.description}
                       key={index}
                       index={index}
@@ -89,6 +91,7 @@ const EventCategories = ({ pageContext }) => {
                     <CardMobile
                       name={el.name}
                       image={el.image.file.url}
+                      logo={el.logo && el.logo.file.url}
                       description={el.description.description}
                       key={index}
                       link={`${data.contentful_id}/${el.contentful_id}`}

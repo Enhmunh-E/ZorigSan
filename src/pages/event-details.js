@@ -36,6 +36,7 @@ const Container2 = styled.div`
 const Image = styled.img`
   width: 100%;
   border-radius: 8px;
+  object-fit: contain;
 `;
 
 const EventDetails = ({ pageContext }) => {
@@ -47,6 +48,7 @@ const EventDetails = ({ pageContext }) => {
   const phone = useMemo(() => {
     return width <= 540;
   }, [width]);
+  console.log(data.startDate, data.endDate);
   return (
     <Container>
       <GlobalStyle />
@@ -54,10 +56,17 @@ const EventDetails = ({ pageContext }) => {
       <Margin size={phone === false ? [192, 0, 48, 0] : [140, 0, 48, 0]}>
         <Container2>
           <Stack flexDirection={"column"} gap={"8px"}>
-            <Text type={"H3"} color={"#0C265C"}>
-              {data.startDate?.split("T")[0].split("-").join("/")} -{" "}
-              {data.endDate?.split("T")[0].split("-").join("/")}
-            </Text>
+            {data?.startDate && data?.endDate ? (
+              <Text type={"H3"} color={"#0C265C"}>
+                {data.startDate?.split("T")[0].split("-").join("/")} -{" "}
+                {data.endDate?.split("T")[0].split("-").join("/")}
+              </Text>
+            ) : (
+              <Text type={"H3"} color={"#0C265C"}>
+                {data.startDate?.split("T")[0].split("-").join("/")}
+              </Text>
+            )}
+
             <Text type={"Quote"} color={"#0C265C"}>
               {data.name}
             </Text>
