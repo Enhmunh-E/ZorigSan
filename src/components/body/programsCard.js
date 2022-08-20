@@ -85,9 +85,11 @@ const ProgramsCard = ({ cardData }) => {
         <InfoImageContainer url={event.image.file.url}></InfoImageContainer>
         <InfoImageContainerBlur />
         <InfoTextContainer flexDirection="column" gap="18px">
-          <InfoText width="70%">{event.title}</InfoText>
+          <InfoText>{event.title}</InfoText>
           <DescText width="85%" type="T3" color="white">
-            {event.shortDescription}
+            {event.shortDescription.length < 100
+              ? event.shortDescription
+              : event.shortDescription.substring(0, 100) + "..."}
           </DescText>
           <DescButton
             title={"Дэлгэрэнгүй"}
