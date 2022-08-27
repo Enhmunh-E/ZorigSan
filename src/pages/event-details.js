@@ -42,7 +42,7 @@ const FAQItem = styled.div`
   padding: 16px 0px;
 `;
 const FAQContainer = styled.div`
-  max-width: 1320px;
+  width: 1320px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
