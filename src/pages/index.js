@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { graphql } from "gatsby";
 import { createGlobalStyle } from "styled-components";
+import moment from "moment";
 import {
   Banner,
   Carousel,
@@ -72,8 +73,52 @@ export const query = graphql`
         testimonial
       }
     }
+    allContentfulProgramPage {
+      nodes {
+        description
+        programTypes {
+          contentful_id
+          image {
+            file {
+              url
+            }
+          }
+          longDescription {
+            longDescription
+          }
+          shortDescription
+          title
+          program {
+            contentful_id
+            description {
+              description
+            }
+            endDate
+            image {
+              file {
+                url
+              }
+            }
+            name
+            projectNames
+            startDate
+            logo {
+              file {
+                url
+              }
+            }
+          }
+        }
+        title
+      }
+    }
   }
 `;
+
+const isPastDate = (currDate, date2) => {
+  return moment(currDate).isBefore(date2);
+};
+
 const IndexPage = ({ data }) => {
   const ongoingpros = [
     {
@@ -92,10 +137,31 @@ const IndexPage = ({ data }) => {
       name: "Random Program",
     },
   ];
+  const OngoingPrograms = useMemo(() => {
+    let currentDate = new Date();
+    let programs = [];
+    data.allContentfulProgramPage.nodes.forEach((program) => {
+      program.programTypes.forEach((programType) => {
+        programType.program.forEach((program) => {
+          if (isPastDate(currentDate, new Date(program.endDate))) {
+            programs.push({
+              ...program,
+              url: `/${programType.contentful_id}/${program.contentful_id}`,
+            });
+          }
+        });
+      });
+    });
+    return programs;
+  }, [data]);
+
   const BannerData = useMemo(() => {
     return data.allContentfulBanner.nodes[0];
   }, [data]);
   const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
     body {
       margin: 0;
       padding: 0;
@@ -114,55 +180,30 @@ const IndexPage = ({ data }) => {
         image={BannerData.image?.file.url}
         title={BannerData.title}
       />
-      <Carousel arr={ongoingpros} WrapperWidth={"100vw"}>
-        {ongoingpros.map((el, i) => (
-          <div key={i}>
-            <ProgramOngoing name={el.name} desc={el.desc} date={el.date} />
-          </div>
-        ))}
-      </Carousel>
+      {OngoingPrograms.length !== 0 && (
+        <Carousel arr={OngoingPrograms} WrapperWidth={"100vw"}>
+          {OngoingPrograms.map((el, i) => (
+            <div key={i}>
+              <ProgramOngoing
+                name={el.name}
+                desc={el.description.description.slice(0, 200) + "..."}
+                date={
+                  new Date(el.endDate).getFullYear() +
+                  "." +
+                  new Date(el.endDate).getMonth() +
+                  "." +
+                  new Date(el.endDate).getDay()
+                }
+                url={el.url}
+              />
+            </div>
+          ))}
+        </Carousel>
+      )}
+
       <Analytic />
       <Margin size={[100, 0, 100, 0]}>
-        <NewsCarousel
-          title="СОНИН САЙХАН"
-          data={[
-            {
-              date: "2025.5.28",
-              header: "Pray to god",
-              image:
-                "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            },
-            {
-              date: "2025.5.28",
-              header: "Pray to god",
-              image:
-                "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            },
-            {
-              date: "2025.5.28",
-              header: "Pray to god",
-              image:
-                "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            },
-            {
-              date: "2025.5.28",
-              header: "Pray to god",
-              image:
-                "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            },
-            {
-              date: "2025.5.28",
-              header: "Pray to god",
-              image:
-                "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            },
-          ]}
-        />
+        <NewsCarousel />
       </Margin>
       <Events events={events} />
       <CircleCarousel
