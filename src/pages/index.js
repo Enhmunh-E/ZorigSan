@@ -120,23 +120,6 @@ const isPastDate = (currDate, date2) => {
 };
 
 const IndexPage = ({ data }) => {
-  const ongoingpros = [
-    {
-      date: "2022.04.20",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do iusmod tempor incididunt ut labore et dolore magna aliqua.",
-      name: "Сурагч солилцооны хөтөлбөр 2022",
-    },
-    {
-      date: "2022.06.09",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do iusmod tempor incididunt ut labore et dolore magna aliqua.",
-      name: "Young Leap Program",
-    },
-    {
-      date: "2022.07.21",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do iusmod tempor incididunt ut labore et dolore magna aliqua.",
-      name: "Random Program",
-    },
-  ];
   const OngoingPrograms = useMemo(() => {
     let currentDate = new Date();
     let programs = [];
@@ -190,9 +173,9 @@ const IndexPage = ({ data }) => {
                 date={
                   new Date(el.endDate).getFullYear() +
                   "." +
-                  new Date(el.endDate).getMonth() +
+                  (new Date(el.endDate).getUTCMonth() + 1) +
                   "." +
-                  new Date(el.endDate).getDay()
+                  new Date(el.endDate).getUTCDate()
                 }
                 url={el.url}
               />
