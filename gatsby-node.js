@@ -38,6 +38,14 @@ exports.createPages = async ({ graphql, actions }) => {
                   url
                 }
               }
+              faq {
+                answer {
+                  answer
+                }
+                question {
+                  question
+                }
+              }
             }
           }
           title
